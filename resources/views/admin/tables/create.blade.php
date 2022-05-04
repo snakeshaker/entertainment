@@ -14,7 +14,7 @@
             </div>
             <div class="m-2 p-2 bg-slate-100 rounded">
                 <div class="space-y-8 divide-y divide-gray-200 w-1/2 mt-10">
-                    <form enctype="multipart/form-data" method="POST" action="{{ route('admin.tables.store') }}">
+                    <form method="POST" action="{{ route('admin.tables.store') }}">
                         @csrf
                         <div class="sm:col-span-6">
                             <label for="name" class="block text-sm font-medium text-gray-700"> Name </label>
@@ -33,7 +33,11 @@
                             <label for="status" class="block text-sm font-medium text-gray-700">Status</label>
                             <div class="mt-1">
                                 <select id="status" name="status" class="form-multiselect block w-full mt-1">
-                                        <option value=""></option>
+                                    @foreach(App\Enums\TableStatus::cases() as $status)
+                                        <option value="{{ $status->value }}">
+                                            {{ $status->name }}
+                                        </option>
+                                    @endforeach
                                 </select>
                             </div>
                         </div>
