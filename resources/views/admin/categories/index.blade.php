@@ -37,7 +37,7 @@
                                 {{ $category->name }}
                             </td>
                             <td class="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap">
-                                <img src="{{ \Illuminate\Support\Facades\Storage::url($category->image) }}" alt="Image" class="w-16 h-16 rounded">
+                                <img src="{{ asset('assets/'.$category->image) }}" alt="Image" class="w-16 h-16 rounded">
                             </td>
                             <td class="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap">
                                 {{ $category->description }}
