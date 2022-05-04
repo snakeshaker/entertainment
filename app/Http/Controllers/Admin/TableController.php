@@ -37,18 +37,22 @@ class TableController extends Controller
         //
     }
 
-    public function edit($id)
+    public function edit(Table $table)
     {
-        //
+        return view('admin.tables.edit', compact('table'));
     }
 
-    public function update(Request $request, $id)
+    public function update(TableStoreRequest $request, Table $table)
     {
-        //
+        $table->update($request->validated());
+
+        return to_route('admin.tables.index');
     }
 
-    public function destroy($id)
+    public function destroy(Table $table)
     {
-        //
+        $table->delete();
+
+        return to_route('admin.tables.index');
     }
 }
