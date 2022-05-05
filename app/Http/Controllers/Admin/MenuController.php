@@ -38,7 +38,7 @@ class MenuController extends Controller
             $menu->categories()->attach($request->categories);
         }
 
-        return to_route('admin.menus.index')->with('success', 'Menu created successfully!');
+        return to_route('admin.menus.index')->with('success', 'Блюдо создано успешно!');
     }
 
     public function show($id)
@@ -77,7 +77,7 @@ class MenuController extends Controller
             $menu->categories()->sync($request->categories);
         }
 
-        return to_route('admin.menus.index')->with('success', 'Menu updated successfully!');
+        return to_route('admin.menus.index')->with('success', 'Блюдо обновлено успешно!');
     }
 
     public function destroy(Menu $menu)
@@ -86,7 +86,7 @@ class MenuController extends Controller
         $menu->categories()->detach();
         $menu->delete();
 
-        return to_route('admin.menus.index')->with('danger', 'Category deleted successfully!');
+        return to_route('admin.menus.index')->with('danger', 'Блюдо удалено успешно!');
 
     }
 }

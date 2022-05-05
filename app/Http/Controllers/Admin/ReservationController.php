@@ -19,7 +19,6 @@ class ReservationController extends Controller
 
     public function create()
     {
-
         $tables = Table::where('status', 'like', '%Свободен%')->get();
         return view('admin.reservations.create', compact('tables'));
     }
@@ -28,17 +27,17 @@ class ReservationController extends Controller
     {
         $table = Table::findOrFail($request->table_id);
         if($request->guest_number > $table->guest_number){
-            return back()->with('warning', 'Please choose the table with more space');
+            return back()->with('warning', 'Кол-во гостей превышает максимально допустимое для данного стола');
         }
         $request_date = Carbon::parse($request->res_date);
         foreach ($table->reservations as $res) {
             if($res->res_date->format('Y-m-d') == $request_date->format('Y-m-d')){
-                return back()->with('warning', 'This table is reserved for this date and time');
+                return back()->with('warning', 'Данный стол уже забронирован на эту дату и время');
             }
         }
         Reservation::create($request->validated());
 
-        return to_route('admin.reservations.index')->with('success', 'Reservation updated successfully!');
+        return to_route('admin.reservations.index')->with('success', 'Бронирование выполнено успешно!');
     }
 
     public function show($id)
