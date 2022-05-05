@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\TableStoreRequest;
+use App\Models\Category;
 use App\Models\Table;
 use Illuminate\Http\Request;
 
@@ -17,7 +18,13 @@ class TableController extends Controller
 
     public function create()
     {
-        return view('admin.tables.create');
+        $locations = Category::all();
+        $statuses = [
+          'Ожидание',
+          'Свободен',
+          'Занят'
+        ];
+        return view('admin.tables.create', compact('locations', 'statuses'));
     }
 
     public function store(TableStoreRequest $request)
@@ -39,7 +46,13 @@ class TableController extends Controller
 
     public function edit(Table $table)
     {
-        return view('admin.tables.edit', compact('table'));
+        $locations = Category::all();
+        $statuses = [
+            'Ожидание',
+            'Свободен',
+            'Занят'
+        ];
+        return view('admin.tables.edit', compact('table', 'locations', 'statuses'));
     }
 
     public function update(TableStoreRequest $request, Table $table)

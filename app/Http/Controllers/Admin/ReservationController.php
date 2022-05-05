@@ -8,7 +8,6 @@ use App\Models\Reservation;
 use App\Models\Table;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
-use App\Enums\TableStatus;
 
 class ReservationController extends Controller
 {
@@ -20,7 +19,8 @@ class ReservationController extends Controller
 
     public function create()
     {
-        $tables = Table::where('status', TableStatus::Available)->get();
+
+        $tables = Table::where('status', 'like', '%Свободен%')->get();
         return view('admin.reservations.create', compact('tables'));
     }
 

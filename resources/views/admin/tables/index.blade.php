@@ -43,10 +43,10 @@
                                 {{ $table->guest_number }}
                             </td>
                             <td class="px-6 py-4">
-                                {{ $table->status->name }}
+                                {{ $table->status }}
                             </td>
                             <td class="px-6 py-4">
-                                {{ $table->location->name }}
+                                {{ $table->location }}
                             </td>
                             <td class="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap">
                                 <div class="flex space-x-2">

@@ -2,8 +2,6 @@
 
 namespace App\Models;
 
-use App\Enums\TableStatus;
-use App\Enums\TableLocation;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -16,11 +14,6 @@ class Table extends Model
         'guest_number',
         'status',
         'location'
-    ];
-
-    protected $casts = [
-        'status' => TableStatus::class,
-        'location' => TableLocation::class
     ];
 
     public function reservations()
