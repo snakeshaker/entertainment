@@ -1,7 +1,7 @@
 <x-admin-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Dashboard') }}
+            {{ __('Панель управления') }}
         </h2>
     </x-slot>
 
@@ -9,7 +9,7 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="flex justify-end m-2 p-2">
                 <a href="{{ route('admin.reservations.create') }}" class="px-4 py-2 bg-indigo-500 hover:bg-indigo-700 rounded-lg text-white">
-                    New Reservation
+                    Забронировать стол
                 </a>
             </div>
             <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
@@ -17,23 +17,23 @@
                     <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                     <tr>
                         <th scope="col" class="px-6 py-3">
-                            Name
+                            Имя фамилия
                         </th>
                         <th scope="col" class="px-6 py-3">
-                            Email
+                            Электронная почта
                         </th>
                         <th scope="col" class="px-6 py-3">
-                            Reservation date
+                            Дата бронирования
                         </th>
                         <th scope="col" class="px-6 py-3">
-                            Table
+                            Стол
                         </th>
                         <th scope="col" class="px-6 py-3">
-                            Guests
+                            Кол-во гостей
                         </th>
-                        <th scope="col" class="px-6 py-3">
-                            <span class="sr-only">Edit</span>
-                        </th>
+{{--                        <th scope="col" class="px-6 py-3">--}}
+{{--                            <span class="sr-only">Изменить</span>--}}
+{{--                        </th>--}}
                     </tr>
                     </thead>
                     <tbody>
@@ -54,9 +54,9 @@
                             <td class="px-6 py-4">
                                 {{ $reservation->guest_number }}
                             </td>
-                            <td class="px-6 py-4 text-right">
-                                <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
-                            </td>
+{{--                            <td class="px-6 py-4 text-right">--}}
+{{--                                <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>--}}
+{{--                            </td>--}}
                         </tr>
                     @endforeach
                     </tbody>

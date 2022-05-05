@@ -1,7 +1,7 @@
 <x-admin-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Dashboard') }}
+            {{ __('Панель управления') }}
         </h2>
     </x-slot>
 
@@ -9,7 +9,7 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="flex m-2 p-2">
                 <a href="{{ route('admin.tables.index') }}" class="px-4 py-2 bg-indigo-500 hover:bg-indigo-700 rounded-lg text-white">
-                    Table Index
+                    Вернуться
                 </a>
             </div>
             <div class="m-2 p-2 bg-slate-100 rounded">
@@ -18,7 +18,7 @@
                         @csrf
                         @method('PUT')
                         <div class="sm:col-span-6">
-                            <label for="name" class="block text-sm font-medium text-gray-700"> Name </label>
+                            <label for="name" class="block text-sm font-medium text-gray-700"> Название </label>
                             <div class="mt-1">
                                 <input value="{{ $table->name }}" type="text" id="name" name="name" class="@error('name') border-red-400 @enderror block w-full transition duration-150 ease-in-out appearance-none bg-white border border-gray-400 rounded-md py-2 px-3 text-base leading-normal transition duration-150 ease-in-out sm:text-sm sm:leading-5" />
                             </div>
@@ -27,7 +27,7 @@
                             @enderror
                         </div>
                         <div class="sm:col-span-6 pt-5">
-                            <label for="guest_number" class="block text-sm font-medium text-gray-700">Guest Number</label>
+                            <label for="guest_number" class="block text-sm font-medium text-gray-700">Макс. кол-во гостей</label>
                             <div class="mt-1">
                                 <input value="{{ $table->guest_number }}" type="number" id="guest_number" name="guest_number"
                                        class="@error('guest_number') border-red-400 @enderror block w-full transition duration-150 ease-in-out appearance-none bg-white border border-gray-400 rounded-md py-2 px-3 text-base leading-normal transition duration-150 ease-in-out sm:text-sm sm:leading-5" />
@@ -37,7 +37,7 @@
                             @enderror
                         </div>
                         <div class="sm:col-span-6 pt-5">
-                            <label for="status" class="block text-sm font-medium text-gray-700">Status</label>
+                            <label for="status" class="block text-sm font-medium text-gray-700">Статус</label>
                             <div class="mt-1">
                                 <select id="status" name="status" class="@error('status') border-red-400 @enderror form-multiselect block w-full mt-1">
                                     @foreach(App\Enums\TableStatus::cases() as $status)
@@ -52,7 +52,7 @@
                             @enderror
                         </div>
                         <div class="sm:col-span-6 pt-5">
-                            <label for="location" class="block text-sm font-medium text-gray-700">Location</label>
+                            <label for="location" class="block text-sm font-medium text-gray-700">Местоположение</label>
                             <div class="mt-1">
                                 <select id="location" name="location" class="@error('location') border-red-400 @enderror form-multiselect block w-full mt-1">
                                     @foreach(App\Enums\TableLocation::cases() as $location)
@@ -68,7 +68,7 @@
                         </div>
                         <div class="mt-6 p-4">
                             <button type="submit" class="px-4 py-2 bg-indigo-500 hover:bg-indigo-700 rounded-lg text-white">
-                                Update
+                                Обновить
                             </button>
                         </div>
                     </form>
