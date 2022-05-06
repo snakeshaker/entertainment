@@ -42,7 +42,7 @@
                     <x-admin-nav-link :href="route('admin.reservations.index')" :active="request()->routeIs('admin.reservations.index')">
                         {{ __('Бронирования') }}
                     </x-admin-nav-link>
-                    <x-admin-nav-link :href="route('welcome')" :active="request()->routeIs('welcome')">
+                    <x-admin-nav-link :href="route('mainpage')" :active="request()->routeIs('mainpage')">
                         {{ __('На главную') }}
                     </x-admin-nav-link>
                     <div @click.away="open = false" class="relative" x-data="{ open: false }">

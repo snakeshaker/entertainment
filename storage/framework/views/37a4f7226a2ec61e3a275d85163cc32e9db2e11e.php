@@ -1,21 +1,21 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<html lang="<?php echo e(str_replace('_', '-', app()->getLocale())); ?>">
 
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="csrf-token" content="{{ csrf_token() }}">
+    <meta name="csrf-token" content="<?php echo e(csrf_token()); ?>">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title><?php echo e(config('app.name', 'Laravel')); ?></title>
 
     <!-- Fonts -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
 
     <!-- Styles -->
-    <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+    <link rel="stylesheet" href="<?php echo e(asset('css/app.css')); ?>">
 
     <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
+    <script src="<?php echo e(asset('js/app.js')); ?>" defer></script>
 </head>
 
 <body>
@@ -46,17 +46,18 @@
             <a class="text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-blue-500 hover:text-green-400"
                href="/">Home</a>
             <a class="text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-blue-500 hover:text-green-400"
-               href="{{ route('categories.index') }}">Categories</a>
+               href="<?php echo e(route('categories.index')); ?>">Categories</a>
             <a class="text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-blue-500 hover:text-green-400"
-               href="{{ route('menus.index') }}">Our Menu</a>
+               href="<?php echo e(route('menus.index')); ?>">Our Menu</a>
             <a class="text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-blue-500 hover:text-green-400"
-               href="{{ route('reservations.step.one') }}">Make Reservation</a>
+               href="<?php echo e(route('reservations.step.one')); ?>">Make Reservation</a>
 
         </div>
     </nav>
 </div>
 <div class="font-sans text-gray-900 antialiased min-h-screen">
-    {{ $slot }}
+    <?php echo e($slot); ?>
+
 </div>
 <footer class="bg-gray-800 border-t border-gray-200">
     <div class="container flex flex-wrap items-center justify-center px-4 py-8 mx-auto lg:justify-between">
@@ -104,3 +105,4 @@
 </footer>
 </body>
 </html>
+<?php /**PATH C:\Users\OpenServer\domains\entertainment.ru\resources\views/layouts/guest.blade.php ENDPATH**/ ?>
