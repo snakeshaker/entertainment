@@ -30,6 +30,9 @@
                     </button>
                 </div>
                 <nav :class="{'block': open, 'hidden': !open}" class="flex-grow px-4 pb-4 md:block md:pb-0 md:overflow-y-auto">
+                    <x-admin-nav-link :href="route('admin.users.index')" :active="request()->routeIs('admin.users.index')">
+                        {{ __('Все пользователи') }}
+                    </x-admin-nav-link>
                     <x-admin-nav-link :href="route('admin.categories.index')" :active="request()->routeIs('admin.categories.index')">
                         {{ __('Категории') }}
                     </x-admin-nav-link>

@@ -56,7 +56,7 @@
                             <div class="mt-1">
                                 <select id="location" name="location" class="@error('location') border-red-400 @enderror form-multiselect block w-full mt-1">
                                     @foreach($locations as $location)
-                                        <option value="{{ $location->name }}" @selected($table->location == $location)>
+                                        <option value="{{ $location->name }}" @selected($table->location == $location->name)>
                                             {{ $location->name }}
                                         </option>
                                     @endforeach

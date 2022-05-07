@@ -14,12 +14,13 @@
             </div>
             <div class="m-2 p-2 bg-slate-100 rounded">
                 <div class="space-y-8 divide-y divide-gray-200 w-1/2 mt-10">
-                    <form method="POST" action="{{ route('admin.reservations.store') }}">
+                    <form method="POST" action="{{ route('admin.reservations.update', $reservation->id) }}">
                         @csrf
+                        @method('PUT')
                         <div class="sm:col-span-6">
                             <label for="first_name" class="block text-sm font-medium text-gray-700">Имя</label>
                             <div class="mt-1">
-                                <input type="text" id="first_name" name="first_name" class="@error('first_name') border-red-400 @enderror block w-full transition duration-150 ease-in-out appearance-none bg-white border border-gray-400 rounded-md py-2 px-3 text-base leading-normal transition duration-150 ease-in-out sm:text-sm sm:leading-5" />
+                                <input value="{{ $reservation->first_name }}" type="text" id="first_name" name="first_name" class="@error('first_name') border-red-400 @enderror block w-full transition duration-150 ease-in-out appearance-none bg-white border border-gray-400 rounded-md py-2 px-3 text-base leading-normal transition duration-150 ease-in-out sm:text-sm sm:leading-5" />
                             </div>
                             @error('first_name')
                             <div class="text-sm text-red-400">{{ $message }}</div>
@@ -28,7 +29,7 @@
                         <div class="sm:col-span-6">
                             <label for="last_name" class="block text-sm font-medium text-gray-700">Фамилия</label>
                             <div class="mt-1">
-                                <input type="text" id="last_name" name="last_name" class="@error('last_name') border-red-400 @enderror block w-full transition duration-150 ease-in-out appearance-none bg-white border border-gray-400 rounded-md py-2 px-3 text-base leading-normal transition duration-150 ease-in-out sm:text-sm sm:leading-5" />
+                                <input value="{{ $reservation->last_name }}" type="text" id="last_name" name="last_name" class="@error('last_name') border-red-400 @enderror block w-full transition duration-150 ease-in-out appearance-none bg-white border border-gray-400 rounded-md py-2 px-3 text-base leading-normal transition duration-150 ease-in-out sm:text-sm sm:leading-5" />
                             </div>
                             @error('last_name')
                             <div class="text-sm text-red-400">{{ $message }}</div>
@@ -37,7 +38,7 @@
                         <div class="sm:col-span-6">
                             <label for="email" class="block text-sm font-medium text-gray-700">Электронная почта</label>
                             <div class="mt-1">
-                                <input type="email" id="email" name="email" class="@error('email') border-red-400 @enderror block w-full transition duration-150 ease-in-out appearance-none bg-white border border-gray-400 rounded-md py-2 px-3 text-base leading-normal transition duration-150 ease-in-out sm:text-sm sm:leading-5" />
+                                <input value="{{ $reservation->email }}" type="email" id="email" name="email" class="@error('email') border-red-400 @enderror block w-full transition duration-150 ease-in-out appearance-none bg-white border border-gray-400 rounded-md py-2 px-3 text-base leading-normal transition duration-150 ease-in-out sm:text-sm sm:leading-5" />
                             </div>
                             @error('email')
                             <div class="text-sm text-red-400">{{ $message }}</div>
@@ -46,7 +47,7 @@
                         <div class="sm:col-span-6">
                             <label for="tel_number" class="block text-sm font-medium text-gray-700">Номер телефона</label>
                             <div class="mt-1">
-                                <input type="text" id="tel_number" name="tel_number" class="@error('tel_number') border-red-400 @enderror block w-full transition duration-150 ease-in-out appearance-none bg-white border border-gray-400 rounded-md py-2 px-3 text-base leading-normal transition duration-150 ease-in-out sm:text-sm sm:leading-5" />
+                                <input value="{{ $reservation->tel_number }}" type="text" id="tel_number" name="tel_number" class="@error('tel_number') border-red-400 @enderror block w-full transition duration-150 ease-in-out appearance-none bg-white border border-gray-400 rounded-md py-2 px-3 text-base leading-normal transition duration-150 ease-in-out sm:text-sm sm:leading-5" />
                             </div>
                             @error('tel_number')
                             <div class="text-sm text-red-400">{{ $message }}</div>
@@ -56,6 +57,7 @@
                             <label for="res_date" class="block text-sm font-medium text-gray-700">Дата бронирования</label>
                             <div class="mt-1">
                                 <input type="datetime-local" id="res_date" name="res_date"
+                                       value="{{ $res_date }}"
                                        min="{{ $min_date->format('Y-m-d\TH:i:s') }}"
                                        max="{{ $max_date->format('Y-m-d\TH:i:s') }}"
                                        class="@error('res_date') border-red-400 @enderror block w-full transition duration-150 ease-in-out appearance-none bg-white border border-gray-400 rounded-md py-2 px-3 text-base leading-normal transition duration-150 ease-in-out sm:text-sm sm:leading-5" />
@@ -67,7 +69,7 @@
                         <div class="sm:col-span-6 pt-5">
                             <label for="guest_number" class="block text-sm font-medium text-gray-700">Число гостей</label>
                             <div class="mt-1">
-                                <input type="number" id="guest_number" name="guest_number"
+                                <input type="number" id="guest_number" name="guest_number" value="{{ $reservation->guest_number }}"
                                        class="@error('guest_number') border-red-400 @enderror block w-full transition duration-150 ease-in-out appearance-none bg-white border border-gray-400 rounded-md py-2 px-3 text-base leading-normal transition duration-150 ease-in-out sm:text-sm sm:leading-5" />
                             </div>
                             @error('guest_number')
@@ -79,7 +81,7 @@
                             <div class="mt-1">
                                 <select id="table_id" name="table_id" class="@error('table_id') border-red-400 @enderror form-multiselect block w-full mt-1">
                                     @foreach($tables as $table)
-                                        <option value="{{ $table->id }}">
+                                        <option value="{{ $table->id }}" @selected($reservation->table->id == $table->id)>
                                             {{ $table->name }} ({{ $table->guest_number }} гость(-я/ей) максимум)
                                         </option>
                                     @endforeach
@@ -91,7 +93,7 @@
                         </div>
                         <div class="mt-6 p-4">
                             <button type="submit" class="px-4 py-2 bg-indigo-500 hover:bg-indigo-700 rounded-lg text-white">
-                                Добавить
+                                Обновить
                             </button>
                         </div>
                     </form>

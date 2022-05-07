@@ -56,7 +56,7 @@
                                     <form class="px-4 py-2 bg-red-500 hover:bg-red-700 rounded-lg text-white"
                                           method="POST"
                                           action="{{ route('admin.tables.destroy', $table->id) }}"
-                                          onsubmit="return confirm('Are you sure?')">
+                                          onsubmit="return confirm('Вы уверены?')">
                                         @csrf
                                         @method("DELETE")
                                         <button type="submit">Удалить</button>

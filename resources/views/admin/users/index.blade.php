@@ -8,8 +8,8 @@
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="flex justify-end m-2 p-2">
-                <a href="{{ route('admin.categories.create') }}" class="px-4 py-2 bg-indigo-500 hover:bg-indigo-700 rounded-lg text-white">
-                    Создать категорию
+                <a href="{{ route('admin.users.create') }}" class="px-4 py-2 bg-indigo-500 hover:bg-indigo-700 rounded-lg text-white">
+                    Создать пользователя
                 </a>
             </div>
             <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
@@ -17,13 +17,13 @@
                     <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                     <tr>
                         <th scope="col" class="px-6 py-3">
-                            Название
+                            Имя
                         </th>
                         <th scope="col" class="px-6 py-3">
-                            Картинка
+                            Электронная почта
                         </th>
                         <th scope="col" class="px-6 py-3">
-                            Описание
+                            Дата регистрации
                         </th>
                         <th scope="col" class="px-6 py-3">
                             <span>Изменить/удалить</span>
@@ -31,25 +31,25 @@
                     </tr>
                     </thead>
                     <tbody>
-                    @foreach($categories as $category)
+                    @foreach($users as $user)
                         <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
                             <td class="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap">
-                                {{ $category->name }}
+                                {{ $user->name }}
                             </td>
                             <td class="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap">
-                                <img src="{{ asset('assets/'.$category->image) }}" alt="Image" class="w-16 h-16 rounded">
+                                {{ $user->email }}
                             </td>
                             <td class="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap">
-                                {{ $category->description }}
+                                {{ $user->created_at }}
                             </td>
                             <td class="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap">
                                 <div class="flex space-x-2">
-                                    <a href="{{ route('admin.categories.edit', $category->id) }}" class="px-4 py-2 bg-green-500 hover:bg-green-700 rounded-lg text-white">
+                                    <a href="{{ route('admin.users.edit', $user->id) }}" class="px-4 py-2 bg-green-500 hover:bg-green-700 rounded-lg text-white">
                                         Изменить
                                     </a>
                                     <form class="px-4 py-2 bg-red-500 hover:bg-red-700 rounded-lg text-white"
                                           method="POST"
-                                          action="{{ route('admin.categories.destroy', $category->id) }}"
+                                          action="{{ route('admin.users.destroy', $user->id) }}"
                                           onsubmit="return confirm('Вы уверены?')">
                                         @csrf
                                         @method("DELETE")

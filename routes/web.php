@@ -29,6 +29,7 @@ Route::get('/dashboard', function () {
 
 Route::middleware(['auth', 'admin'])->name('admin.')->prefix('admin')->group(function (){
     Route::get('/',[\App\Http\Controllers\Admin\AdminController::class, 'index'])->name('index');
+    Route::resource('/users', \App\Http\Controllers\Admin\UserController::class);
     Route::resource('/categories', \App\Http\Controllers\Admin\CategoryController::class);
     Route::resource('/menus', \App\Http\Controllers\Admin\MenuController::class);
     Route::resource('/tables', \App\Http\Controllers\Admin\TableController::class);

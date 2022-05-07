@@ -81,4 +81,4 @@
 <?php $component = $__componentOriginalbacdc7ee2ae68d90ee6340a54a5e36f99d0a3040; ?>
 <?php unset($__componentOriginalbacdc7ee2ae68d90ee6340a54a5e36f99d0a3040); ?>
 <?php endif; ?>
-<?php /**PATH C:\Users\OpenServer\domains\entertainment.ru\resources\views/admin/menus/index.blade.php ENDPATH**/ ?>
+<?php /**PATH E:\OpenServer\domains\entertainment\resources\views/admin/menus/index.blade.php ENDPATH**/ ?>
