@@ -18,15 +18,42 @@
                         @csrf
                         @method('PUT')
                         <div class="sm:col-span-6">
-                            <label for="name" class="block text-sm font-medium text-gray-700"> Имя </label>
+                            <label for="first_name" class="block text-sm font-medium text-gray-700"> Имя </label>
                             <div class="mt-1">
-                                <input value="{{ $user->name }}" type="text" id="name" name="name" class="@error('name') border-red-400 @enderror block w-full appearance-none bg-white border border-gray-400 rounded-md py-2 px-3 text-base leading-normal transition duration-150 ease-in-out sm:text-sm sm:leading-5" />
+                                <input value="{{ $user->first_name }}" type="text" id="first_name" name="first_name" class="@error('first_name') border-red-400 @enderror block w-full appearance-none bg-white border border-gray-400 rounded-md py-2 px-3 text-base leading-normal transition duration-150 ease-in-out sm:text-sm sm:leading-5" />
                             </div>
-                            @error('name')
+                            @error('first_name')
                             <div class="text-sm text-red-400">{{ $message }}</div>
                             @enderror
                         </div>
-                        <div class="sm:col-span-6">
+                        <div class="sm:col-span-6 pt-5">
+                            <label for="last_name" class="block text-sm font-medium text-gray-700"> Фамилия </label>
+                            <div class="mt-1">
+                                <input value="{{ $user->last_name }}" type="text" id="last_name" name="last_name" class="@error('last_name') border-red-400 @enderror block w-full appearance-none bg-white border border-gray-400 rounded-md py-2 px-3 text-base leading-normal transition duration-150 ease-in-out sm:text-sm sm:leading-5" />
+                            </div>
+                            @error('last_name')
+                            <div class="text-sm text-red-400">{{ $message }}</div>
+                            @enderror
+                        </div>
+                        <div class="sm:col-span-6 pt-5">
+                            <label for="birthday" class="block text-sm font-medium text-gray-700"> Дата рождения </label>
+                            <div class="mt-1">
+                                <input value="{{ $user->birthday }}" type="date" id="birthday" name="birthday" class="@error('birthday') border-red-400 @enderror block w-full appearance-none bg-white border border-gray-400 rounded-md py-2 px-3 text-base leading-normal transition duration-150 ease-in-out sm:text-sm sm:leading-5" />
+                            </div>
+                            @error('birthday')
+                            <div class="text-sm text-red-400">{{ $message }}</div>
+                            @enderror
+                        </div>
+                        <div class="sm:col-span-6 pt-5">
+                            <label for="tel_number" class="block text-sm font-medium text-gray-700"> Номер телефона </label>
+                            <div class="mt-1">
+                                <input value="{{ $user->tel_number }}" type="text" id="tel_number" name="tel_number" class="@error('tel_number') border-red-400 @enderror block w-full appearance-none bg-white border border-gray-400 rounded-md py-2 px-3 text-base leading-normal transition duration-150 ease-in-out sm:text-sm sm:leading-5" />
+                            </div>
+                            @error('tel_number')
+                            <div class="text-sm text-red-400">{{ $message }}</div>
+                            @enderror
+                        </div>
+                        <div class="sm:col-span-6 pt-5">
                             <label for="email" class="block text-sm font-medium text-gray-700"> Электронная почта </label>
                             <div class="mt-1">
                                 <input value="{{ $user->email }}" type="email" id="email" name="email" class="@error('email') border-red-400 @enderror block w-full appearance-none bg-white border border-gray-400 rounded-md py-2 px-3 text-base leading-normal transition duration-150 ease-in-out sm:text-sm sm:leading-5" />
@@ -35,7 +62,7 @@
                             <div class="text-sm text-red-400">{{ $message }}</div>
                             @enderror
                         </div>
-                        <div class="sm:col-span-6">
+                        <div class="sm:col-span-6 pt-5">
                             <label for="password" class="block text-sm font-medium text-gray-700"> Пароль </label>
                             <div class="mt-1">
                                 <input value="{{ $user->password }}" type="password" id="password" name="password" class="@error('password') border-red-400 @enderror block w-full appearance-none bg-white border border-gray-400 rounded-md py-2 px-3 text-base leading-normal transition duration-150 ease-in-out sm:text-sm sm:leading-5" />

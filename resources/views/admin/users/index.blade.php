@@ -17,7 +17,13 @@
                     <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                     <tr>
                         <th scope="col" class="px-6 py-3">
-                            Имя
+                            Имя Фамилия
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                            Дата рождения
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                            Номер телефона
                         </th>
                         <th scope="col" class="px-6 py-3">
                             Электронная почта
@@ -34,7 +40,13 @@
                     @foreach($users as $user)
                         <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
                             <td class="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap">
-                                {{ $user->name }}
+                                {{ $user->first_name }} {{ $user->last_name }}
+                            </td>
+                            <td class="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap">
+                                {{ $user->birthday }}
+                            </td>
+                            <td class="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap">
+                                {{ $user->tel_number }}
                             </td>
                             <td class="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap">
                                 {{ $user->email }}

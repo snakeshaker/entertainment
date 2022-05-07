@@ -25,7 +25,10 @@ class UserController extends Controller
     public function store(UserStoreRequest $request)
     {
         User::create([
-            'name' =>  $request->name,
+            'first_name' =>  $request->first_name,
+            'last_name' =>  $request->last_name,
+            'birthday' =>  $request->birthday,
+            'tel_number' =>  $request->tel_number,
             'email' => $request->email,
             'email_verified_at' => now(),
             'password' => Hash::make($request->password),
@@ -43,7 +46,10 @@ class UserController extends Controller
     public function update(Request $request, User $user)
     {
         $user->update([
-            'name' =>  $request->name,
+            'first_name' =>  $request->first_name,
+            'last_name' =>  $request->last_name,
+            'birthday' =>  $request->birthday,
+            'tel_number' =>  $request->tel_number,
             'email' => $request->email,
             'email_verified_at' => now(),
             'password' => Hash::make($request->password),

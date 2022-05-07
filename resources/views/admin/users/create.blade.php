@@ -8,7 +8,7 @@
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="flex m-2 p-2">
-                <a href="{{ route('admin.categories.index') }}" class="px-4 py-2 bg-indigo-500 hover:bg-indigo-700 rounded-lg text-white">
+                <a href="{{ route('admin.users.index') }}" class="px-4 py-2 bg-indigo-500 hover:bg-indigo-700 rounded-lg text-white">
                     Вернуться
                 </a>
             </div>
@@ -17,11 +17,38 @@
                     <form method="POST" action="{{ route('admin.users.store') }}" enctype="multipart/form-data" >
                         @csrf
                         <div class="sm:col-span-6">
-                            <label for="name" class="block text-sm font-medium text-gray-700"> Имя </label>
+                            <label for="first_name" class="block text-sm font-medium text-gray-700"> Имя </label>
                             <div class="mt-1">
-                                <input type="text" id="name" name="name" class="@error('name') border-red-400 @enderror block w-full appearance-none bg-white border border-gray-400 rounded-md py-2 px-3 text-base leading-normal transition duration-150 ease-in-out sm:text-sm sm:leading-5" />
+                                <input type="text" id="first_name" name="first_name" class="@error('first_name') border-red-400 @enderror block w-full appearance-none bg-white border border-gray-400 rounded-md py-2 px-3 text-base leading-normal transition duration-150 ease-in-out sm:text-sm sm:leading-5" />
                             </div>
-                            @error('name')
+                            @error('first_name')
+                            <div class="text-sm text-red-400">{{ $message }}</div>
+                            @enderror
+                        </div>
+                        <div class="sm:col-span-6 pt-5">
+                            <label for="last_name" class="block text-sm font-medium text-gray-700"> Фамилия </label>
+                            <div class="mt-1">
+                                <input type="text" id="last_name" name="last_name" class="@error('last_name') border-red-400 @enderror block w-full appearance-none bg-white border border-gray-400 rounded-md py-2 px-3 text-base leading-normal transition duration-150 ease-in-out sm:text-sm sm:leading-5" />
+                            </div>
+                            @error('last_name')
+                            <div class="text-sm text-red-400">{{ $message }}</div>
+                            @enderror
+                        </div>
+                        <div class="sm:col-span-6 pt-5">
+                            <label for="birthday" class="block text-sm font-medium text-gray-700"> Дата рождения </label>
+                            <div class="mt-1">
+                                <input type="date" id="birthday" name="birthday" class="@error('birthday') border-red-400 @enderror block w-full appearance-none bg-white border border-gray-400 rounded-md py-2 px-3 text-base leading-normal transition duration-150 ease-in-out sm:text-sm sm:leading-5" />
+                            </div>
+                            @error('birthday')
+                            <div class="text-sm text-red-400">{{ $message }}</div>
+                            @enderror
+                        </div>
+                        <div class="sm:col-span-6 pt-5">
+                            <label for="tel_number" class="block text-sm font-medium text-gray-700"> Номер телефона </label>
+                            <div class="mt-1">
+                                <input type="text" id="tel_number" name="tel_number" class="@error('tel_number') border-red-400 @enderror block w-full appearance-none bg-white border border-gray-400 rounded-md py-2 px-3 text-base leading-normal transition duration-150 ease-in-out sm:text-sm sm:leading-5" />
+                            </div>
+                            @error('tel_number')
                             <div class="text-sm text-red-400">{{ $message }}</div>
                             @enderror
                         </div>

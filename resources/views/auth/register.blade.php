@@ -12,14 +12,35 @@
         <form method="POST" action="{{ route('register') }}">
             @csrf
 
-            <!-- Name -->
+            <!-- First Name -->
             <div>
-                <x-label for="name" :value="__('Имя')" />
+                <x-label for="first_name" :value="__('Имя')" />
 
-                <x-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus />
+                <x-input id="first_name" class="block mt-1 w-full" type="text" name="first_name" :value="old('first_name')" required autofocus />
             </div>
 
-            <!-- Email Address -->
+            <!-- Last Name -->
+            <div class="mt-4">
+                <x-label for="last_name" :value="__('Фамилия')" />
+
+                <x-input id="last_name" class="block mt-1 w-full" type="text" name="last_name" :value="old('last_name')" required autofocus />
+            </div>
+
+            <!--Birthday-->
+            <div class="mt-4">
+                <x-label for="birthday" :value="__('День рождения')" />
+
+                <x-input id="birthday" class="block mt-1 w-full" type="date" name="birthday" :value="old('birthday')" required autofocus />
+            </div>
+
+            <!--Phone number-->
+            <div class="mt-4">
+                <x-label for="tel_number" :value="__('Номер телефона')" />
+
+                <x-input id="tel_number" class="block mt-1 w-full" type="text" name="tel_number" :value="old('tel_number')" required autofocus />
+            </div>
+
+                <!-- Email Address -->
             <div class="mt-4">
                 <x-label for="email" :value="__('Электронная почта')" />
 
