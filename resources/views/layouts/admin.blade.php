@@ -40,7 +40,7 @@
                         {{ __('Блюда') }}
                     </x-admin-nav-link>
                     <x-admin-nav-link :href="route('admin.tables.index')" :active="request()->routeIs('admin.tables.index')">
-                        {{ __('Столы') }}
+                        {{ __('Столы/дорожки/места') }}
                     </x-admin-nav-link>
                     <x-admin-nav-link :href="route('admin.reservations.index')" :active="request()->routeIs('admin.reservations.index')">
                         {{ __('Бронирования') }}

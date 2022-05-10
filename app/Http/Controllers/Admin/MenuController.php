@@ -19,8 +19,7 @@ class MenuController extends Controller
 
     public function create()
     {
-        $categories = Category::all();
-        return view('admin.menus.create', compact('categories'));
+        return view('admin.menus.create');
     }
 
     public function store(MenuStoreRequest $request)
@@ -34,22 +33,12 @@ class MenuController extends Controller
             'price' => $request->price
         ]);
 
-        if($request->has('categories')){
-            $menu->categories()->attach($request->categories);
-        }
-
         return to_route('admin.menus.index')->with('success', 'Блюдо создано успешно!');
-    }
-
-    public function show($id)
-    {
-        //
     }
 
     public function edit(Menu $menu)
     {
-        $categories = Category::all();
-        return view('admin.menus.edit', compact('menu', 'categories'));
+        return view('admin.menus.edit', compact('menu'));
 
     }
 
@@ -73,17 +62,12 @@ class MenuController extends Controller
             'price' => $request->price
         ]);
 
-        if($request->has('categories')){
-            $menu->categories()->sync($request->categories);
-        }
-
         return to_route('admin.menus.index')->with('success', 'Блюдо обновлено успешно!');
     }
 
     public function destroy(Menu $menu)
     {
         Storage::delete($menu->image);
-        $menu->categories()->detach();
         $menu->delete();
 
         return to_route('admin.menus.index')->with('danger', 'Блюдо удалено успешно!');

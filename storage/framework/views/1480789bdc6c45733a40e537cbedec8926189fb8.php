@@ -9,7 +9,7 @@
 <?php $component->withAttributes([]); ?>
      <?php $__env->slot('header', null, []); ?> 
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            <?php echo e(__('Панель управления')); ?>
+            <?php echo e(__('Личный кабинет')); ?>
 
         </h2>
      <?php $__env->endSlot(); ?>
@@ -49,7 +49,7 @@
                             <td class="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap">
                                 <img src="<?php echo e(asset('assets/'.$category->image)); ?>" alt="Image" class="w-16 h-16 rounded">
                             </td>
-                            <td class="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap">
+                            <td class="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap max-w-xl truncate">
                                 <?php echo e($category->description); ?>
 
                             </td>

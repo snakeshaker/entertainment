@@ -9,7 +9,7 @@
 <?php $component->withAttributes([]); ?>
      <?php $__env->slot('header', null, []); ?> 
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            <?php echo e(__('Панель управления')); ?>
+            <?php echo e(__('Личный кабинет')); ?>
 
         </h2>
      <?php $__env->endSlot(); ?>
@@ -18,7 +18,7 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="flex justify-end m-2 p-2">
                 <a href="<?php echo e(route('admin.tables.create')); ?>" class="px-4 py-2 bg-indigo-500 hover:bg-indigo-700 rounded-lg text-white">
-                    Создать стол
+                    Создать место
                 </a>
             </div>
             <div class="relative overflow-x-auto shadow-md sm:rounded-lg">

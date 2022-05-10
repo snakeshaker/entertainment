@@ -9,7 +9,7 @@
 <?php $component->withAttributes([]); ?>
      <?php $__env->slot('header', null, []); ?> 
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            <?php echo e(__('Панель управления')); ?>
+            <?php echo e(__('Личный кабинет')); ?>
 
         </h2>
      <?php $__env->endSlot(); ?>
@@ -48,7 +48,7 @@ if (isset($__messageOriginal)) { $message = $__messageOriginal; }
 endif;
 unset($__errorArgs, $__bag); ?>
                         </div>
-                        <div class="sm:col-span-6">
+                        <div class="sm:col-span-6 pt-5">
                             <label for="image" class="block text-sm font-medium text-gray-700"> Картинка </label>
                             <div class="mt-1">
                                 <input type="file" id="image" name="image" class="<?php $__errorArgs = ['image'];
@@ -61,6 +61,29 @@ endif;
 unset($__errorArgs, $__bag); ?> block w-full appearance-none bg-white border border-gray-400 rounded-md py-2 px-3 text-base leading-normal transition duration-150 ease-in-out sm:text-sm sm:leading-5" />
                             </div>
                             <?php $__errorArgs = ['image'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?>
+                            <div class="text-sm text-red-400"><?php echo e($message); ?></div>
+                            <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>
+                        </div>
+                        <div class="sm:col-span-6 pt-5">
+                            <label for="space_image" class="block text-sm font-medium text-gray-700"> Картинка для мест </label>
+                            <div class="mt-1">
+                                <input type="file" id="space_image" name="space_image" class="<?php $__errorArgs = ['space_image'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?> border-red-400 <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?> block w-full appearance-none bg-white border border-gray-400 rounded-md py-2 px-3 text-base leading-normal transition duration-150 ease-in-out sm:text-sm sm:leading-5" />
+                            </div>
+                            <?php $__errorArgs = ['space_image'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
 if ($__bag->has($__errorArgs[0])) :
 if (isset($message)) { $__messageOriginal = $message; }

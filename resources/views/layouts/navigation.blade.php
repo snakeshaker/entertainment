@@ -13,7 +13,7 @@
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                     <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
-                        {{ __('Панель управления') }}
+                        {{ __('Личный кабинет') }}
                     </x-nav-link>
                     @if (Auth::user()->is_admin)
                         <x-nav-link :href="route('admin.index')" :active="request()->routeIs('admin.index')">
@@ -76,7 +76,7 @@
     <div :class="{'block': open, 'hidden': ! open}" class="hidden sm:hidden">
         <div class="pt-2 pb-3 space-y-1">
             <x-responsive-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
-                {{ __('Панель управления') }}
+                {{ __('Личный кабинет') }}
             </x-responsive-nav-link>
         </div>
 

@@ -24,19 +24,16 @@ class CategoryController extends Controller
     public function store(CategoryStoreRequest $request)
     {
         $image = $request->file('image')->store('categories');
+        $space_image = $request->file('space_image')->store('categories');
 
         Category::create([
             'name' => $request->name,
             'image' => $image,
+            'space_image' => $space_image,
             'description' => $request->description
         ]);
 
         return to_route('admin.categories.index')->with('success', 'Категория создана успешно!');
-    }
-
-    public function show($id)
-    {
-        //
     }
 
     public function edit(Category $category)
@@ -51,15 +48,21 @@ class CategoryController extends Controller
             'description' => 'required'
         ]);
         $image = $category->image;
+        $space_image = $category->space_image;
         if($request->hasFile('image')){
             Storage::delete($category->image);
             $image = $request->file('image')->store('categories');
+        }
+        if($request->hasFile('space_image')){
+            Storage::delete($category->space_image);
+            $space_image = $request->file('space_image')->store('categories');
         }
 
         $category->update([
             'name' => $request->name,
             'description' => $request->description,
-            'image' => $image
+            'image' => $image,
+            'space_image' => $space_image
         ]);
 
         return to_route('admin.categories.index')->with('success', 'Категория обновлена успешно!');
@@ -68,7 +71,7 @@ class CategoryController extends Controller
     public function destroy(Category $category)
     {
         Storage::delete($category->image);
-        $category->menus()->detach();
+        Storage::delete($category->space_image);
         $category->delete();
 
         return to_route('admin.categories.index')->with('danger', 'Категория удалена успешно!');

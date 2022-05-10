@@ -1,7 +1,7 @@
 <x-admin-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Панель управления') }}
+            {{ __('Личный кабинет') }}
         </h2>
     </x-slot>
 
@@ -52,16 +52,6 @@
                             @error('description')
                             <div class="text-sm text-red-400">{{ $message }}</div>
                             @enderror
-                        </div>
-                        <div class="sm:col-span-6 pt-5">
-                            <label for="categories" class="block text-sm font-medium text-gray-700">Категория</label>
-                            <div class="mt-1">
-                                <select multiple id="categories" name="categories" class="form-multiselect block w-full mt-1">
-                                    @foreach($categories as $category)
-                                        <option value="{{ $category->id }}">{{ $category->name }}</option>
-                                    @endforeach
-                                </select>
-                            </div>
                         </div>
                         <div class="mt-6 p-4">
                             <button type="submit" class="px-4 py-2 bg-indigo-500 hover:bg-indigo-700 rounded-lg text-white">

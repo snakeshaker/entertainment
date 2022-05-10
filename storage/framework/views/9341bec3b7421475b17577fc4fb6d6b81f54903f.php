@@ -90,7 +90,7 @@
 <?php $attributes = $attributes->except(collect($constructor->getParameters())->map->getName()->all()); ?>
 <?php endif; ?>
 <?php $component->withAttributes(['href' => \Illuminate\View\Compilers\BladeCompiler::sanitizeComponentAttribute(route('admin.tables.index')),'active' => \Illuminate\View\Compilers\BladeCompiler::sanitizeComponentAttribute(request()->routeIs('admin.tables.index'))]); ?>
-                        <?php echo e(__('Столы')); ?>
+                        <?php echo e(__('Столы/дорожки/места')); ?>
 
                      <?php echo $__env->renderComponent(); ?>
 <?php endif; ?>
