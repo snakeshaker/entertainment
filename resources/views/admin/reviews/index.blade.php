@@ -8,8 +8,8 @@
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="flex justify-end m-2 p-2">
-                <a href="{{ route('admin.users.create') }}" class="px-4 py-2 bg-indigo-500 hover:bg-indigo-700 rounded-lg text-white">
-                    Создать пользователя
+                <a href="{{ route('admin.reviews.create') }}" class="px-4 py-2 bg-indigo-500 hover:bg-indigo-700 rounded-lg text-white">
+                    Создать отзыв
                 </a>
             </div>
             <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
@@ -17,22 +17,19 @@
                     <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                     <tr>
                         <th scope="col" class="px-6 py-3">
-                            ID
+                            ID пользователя (создатель)
                         </th>
                         <th scope="col" class="px-6 py-3">
-                            Имя Фамилия
+                            Имя
                         </th>
                         <th scope="col" class="px-6 py-3">
-                            Дата рождения
+                            Текст отзыва
                         </th>
                         <th scope="col" class="px-6 py-3">
-                            Номер телефона
+                            ID Категории
                         </th>
                         <th scope="col" class="px-6 py-3">
-                            Электронная почта
-                        </th>
-                        <th scope="col" class="px-6 py-3">
-                            Дата регистрации
+                            Вид отзыва
                         </th>
                         <th scope="col" class="px-6 py-3">
                             <span>Изменить/удалить</span>
@@ -40,34 +37,31 @@
                     </tr>
                     </thead>
                     <tbody>
-                    @foreach($users as $user)
+                    @foreach($reviews as $review)
                         <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
-                            <td class="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap">
-                                {{ $user->id }}
+                            <th scope="row" class="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap">
+                                {{ $review->user_id }}
+                            </th>
+                            <th class="px-6 py-4">
+                                {{ $review->name }}
+                            </th>
+                            <td class="px-6 py-4 truncate max-w-[200px]">
+                                {{ $review->review_text }}
                             </td>
-                            <td class="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap">
-                                {{ $user->first_name }} {{ $user->last_name }}
+                            <td class="px-6 py-4">
+                                {{ $review->category_id }}
                             </td>
-                            <td class="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap">
-                                {{ $user->birthday }}
-                            </td>
-                            <td class="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap">
-                                {{ $user->tel_number }}
-                            </td>
-                            <td class="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap">
-                                {{ $user->email }}
-                            </td>
-                            <td class="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap">
-                                {{ $user->created_at }}
+                            <td class="px-6 py-4">
+                                {{ $review->review_degree }}
                             </td>
                             <td class="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap">
                                 <div class="flex space-x-2">
-                                    <a href="{{ route('admin.users.edit', $user->id) }}" class="px-4 py-2 bg-green-500 hover:bg-green-700 rounded-lg text-white">
+                                    <a href="{{ route('admin.reviews.edit', $review->id) }}" class="px-4 py-2 bg-green-500 hover:bg-green-700 rounded-lg text-white">
                                         Изменить
                                     </a>
                                     <form class="px-4 py-2 bg-red-500 hover:bg-red-700 rounded-lg text-white"
                                           method="POST"
-                                          action="{{ route('admin.users.destroy', $user->id) }}"
+                                          action="{{ route('admin.reviews.destroy', $review->id) }}"
                                           onsubmit="return confirm('Вы уверены?')">
                                         @csrf
                                         @method("DELETE")

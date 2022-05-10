@@ -15,4 +15,9 @@ class Category extends Model
         'space_image',
         'description'
     ];
+
+    public function reviews()
+    {
+        return $this->hasMany(Review::class);
+    }
 }

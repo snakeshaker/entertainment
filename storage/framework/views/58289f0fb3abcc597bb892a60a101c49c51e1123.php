@@ -37,7 +37,17 @@
                                 <p class="text-sm"><?php echo e($category->description); ?></p>
                             </div>
                             <div class="p-4 border-t border-b text-xs text-gray-700">
-                                <span class="ml-2">34 отзыв(-а/-ов)</span>
+                                <?php
+                                    $counter = 0;
+                                    for($i = 0; $i < count($reviews); $i++) {
+                                        if($reviews[$i]->category_id == $category->id) {
+                                            $counter++;
+                                        }
+                                    }
+                                ?>
+                                <span class="ml-2">
+                                    <?php echo e($counter); ?> отзыв(-а/-ов)
+                                </span>
                             </div>
                         </a>
                     </div>

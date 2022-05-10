@@ -17,28 +17,27 @@
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="flex m-2 p-2">
-                <a href="<?php echo e(route('admin.users.index')); ?>" class="px-4 py-2 bg-indigo-500 hover:bg-indigo-700 rounded-lg text-white">
+                <a href="<?php echo e(route('admin.reviews.index')); ?>" class="px-4 py-2 bg-indigo-500 hover:bg-indigo-700 rounded-lg text-white">
                     Вернуться
                 </a>
             </div>
             <div class="m-2 p-2 bg-slate-100 rounded">
                 <div class="space-y-8 divide-y divide-gray-200 w-1/2 mt-10">
-                    <form method="POST" action="<?php echo e(route('admin.users.update', $user->id)); ?>">
+                    <form method="POST" action="<?php echo e(route('admin.reviews.store')); ?>">
                         <?php echo csrf_field(); ?>
-                        <?php echo method_field('PUT'); ?>
                         <div class="sm:col-span-6">
-                            <label for="first_name" class="block text-sm font-medium text-gray-700"> Имя </label>
+                            <label for="name" class="block text-sm font-medium text-gray-700"> Имя </label>
                             <div class="mt-1">
-                                <input value="<?php echo e($user->first_name); ?>" type="text" id="first_name" name="first_name" class="<?php $__errorArgs = ['first_name'];
+                                <input type="text" id="name" name="name" class="<?php $__errorArgs = ['name'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
 if ($__bag->has($__errorArgs[0])) :
 if (isset($message)) { $__messageOriginal = $message; }
 $message = $__bag->first($__errorArgs[0]); ?> border-red-400 <?php unset($message);
 if (isset($__messageOriginal)) { $message = $__messageOriginal; }
 endif;
-unset($__errorArgs, $__bag); ?> block w-full appearance-none bg-white border border-gray-400 rounded-md py-2 px-3 text-base leading-normal transition duration-150 ease-in-out sm:text-sm sm:leading-5" />
+unset($__errorArgs, $__bag); ?> block w-full transition duration-150 ease-in-out appearance-none bg-white border border-gray-400 rounded-md py-2 px-3 text-base leading-normal transition duration-150 ease-in-out sm:text-sm sm:leading-5" />
                             </div>
-                            <?php $__errorArgs = ['first_name'];
+                            <?php $__errorArgs = ['name'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
 if ($__bag->has($__errorArgs[0])) :
 if (isset($message)) { $__messageOriginal = $message; }
@@ -50,18 +49,18 @@ endif;
 unset($__errorArgs, $__bag); ?>
                         </div>
                         <div class="sm:col-span-6 pt-5">
-                            <label for="last_name" class="block text-sm font-medium text-gray-700"> Фамилия </label>
+                            <label for="review_text" class="block text-sm font-medium text-gray-700">Текст отзыва</label>
                             <div class="mt-1">
-                                <input value="<?php echo e($user->last_name); ?>" type="text" id="last_name" name="last_name" class="<?php $__errorArgs = ['last_name'];
+                                <textarea id="review_text" rows="3" name="review_text" class="<?php $__errorArgs = ['review_text'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
 if ($__bag->has($__errorArgs[0])) :
 if (isset($message)) { $__messageOriginal = $message; }
 $message = $__bag->first($__errorArgs[0]); ?> border-red-400 <?php unset($message);
 if (isset($__messageOriginal)) { $message = $__messageOriginal; }
 endif;
-unset($__errorArgs, $__bag); ?> block w-full appearance-none bg-white border border-gray-400 rounded-md py-2 px-3 text-base leading-normal transition duration-150 ease-in-out sm:text-sm sm:leading-5" />
+unset($__errorArgs, $__bag); ?> shadow-sm focus:ring-indigo-500 appearance-none bg-white border py-2 px-3 text-base leading-normal transition duration-150 ease-in-out focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md"></textarea>
                             </div>
-                            <?php $__errorArgs = ['last_name'];
+                            <?php $__errorArgs = ['review_text'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
 if ($__bag->has($__errorArgs[0])) :
 if (isset($message)) { $__messageOriginal = $message; }
@@ -73,18 +72,24 @@ endif;
 unset($__errorArgs, $__bag); ?>
                         </div>
                         <div class="sm:col-span-6 pt-5">
-                            <label for="birthday" class="block text-sm font-medium text-gray-700"> Дата рождения </label>
+                            <label for="category_id" class="block text-sm font-medium text-gray-700">Категория</label>
                             <div class="mt-1">
-                                <input value="<?php echo e($user->birthday); ?>" type="date" id="birthday" name="birthday" class="<?php $__errorArgs = ['birthday'];
+                                <select id="category_id" name="category_id" class="<?php $__errorArgs = ['category_id'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
 if ($__bag->has($__errorArgs[0])) :
 if (isset($message)) { $__messageOriginal = $message; }
 $message = $__bag->first($__errorArgs[0]); ?> border-red-400 <?php unset($message);
 if (isset($__messageOriginal)) { $message = $__messageOriginal; }
 endif;
-unset($__errorArgs, $__bag); ?> block w-full appearance-none bg-white border border-gray-400 rounded-md py-2 px-3 text-base leading-normal transition duration-150 ease-in-out sm:text-sm sm:leading-5" />
+unset($__errorArgs, $__bag); ?> form-multiselect block w-full mt-1">
+                                    <?php $__currentLoopData = $categories; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $category): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                        <option value="<?php echo e($category->id); ?>">
+                                            <?php echo e($category->id); ?> (<?php echo e($category->name); ?>)
+                                        </option>
+                                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                                </select>
                             </div>
-                            <?php $__errorArgs = ['birthday'];
+                            <?php $__errorArgs = ['category_id'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
 if ($__bag->has($__errorArgs[0])) :
 if (isset($message)) { $__messageOriginal = $message; }
@@ -96,64 +101,25 @@ endif;
 unset($__errorArgs, $__bag); ?>
                         </div>
                         <div class="sm:col-span-6 pt-5">
-                            <label for="tel_number" class="block text-sm font-medium text-gray-700"> Номер телефона </label>
+                            <label for="review_degree" class="block text-sm font-medium text-gray-700">Вид отзыва</label>
                             <div class="mt-1">
-                                <input value="<?php echo e($user->tel_number); ?>" type="text" id="tel_number" name="tel_number" class="<?php $__errorArgs = ['tel_number'];
+                                <select id="review_degree" name="review_degree" class="<?php $__errorArgs = ['review_degree'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
 if ($__bag->has($__errorArgs[0])) :
 if (isset($message)) { $__messageOriginal = $message; }
 $message = $__bag->first($__errorArgs[0]); ?> border-red-400 <?php unset($message);
 if (isset($__messageOriginal)) { $message = $__messageOriginal; }
 endif;
-unset($__errorArgs, $__bag); ?> block w-full appearance-none bg-white border border-gray-400 rounded-md py-2 px-3 text-base leading-normal transition duration-150 ease-in-out sm:text-sm sm:leading-5" />
+unset($__errorArgs, $__bag); ?> form-multiselect block w-full mt-1">
+                                    <?php $__currentLoopData = $degrees; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $degree): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                        <option value="<?php echo e($degree); ?>">
+                                            <?php echo e($degree); ?>
+
+                                        </option>
+                                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                                </select>
                             </div>
-                            <?php $__errorArgs = ['tel_number'];
-$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
-if ($__bag->has($__errorArgs[0])) :
-if (isset($message)) { $__messageOriginal = $message; }
-$message = $__bag->first($__errorArgs[0]); ?>
-                            <div class="text-sm text-red-400"><?php echo e($message); ?></div>
-                            <?php unset($message);
-if (isset($__messageOriginal)) { $message = $__messageOriginal; }
-endif;
-unset($__errorArgs, $__bag); ?>
-                        </div>
-                        <div class="sm:col-span-6 pt-5">
-                            <label for="email" class="block text-sm font-medium text-gray-700"> Электронная почта </label>
-                            <div class="mt-1">
-                                <input value="<?php echo e($user->email); ?>" type="email" id="email" name="email" class="<?php $__errorArgs = ['email'];
-$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
-if ($__bag->has($__errorArgs[0])) :
-if (isset($message)) { $__messageOriginal = $message; }
-$message = $__bag->first($__errorArgs[0]); ?> border-red-400 <?php unset($message);
-if (isset($__messageOriginal)) { $message = $__messageOriginal; }
-endif;
-unset($__errorArgs, $__bag); ?> block w-full appearance-none bg-white border border-gray-400 rounded-md py-2 px-3 text-base leading-normal transition duration-150 ease-in-out sm:text-sm sm:leading-5" />
-                            </div>
-                            <?php $__errorArgs = ['email'];
-$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
-if ($__bag->has($__errorArgs[0])) :
-if (isset($message)) { $__messageOriginal = $message; }
-$message = $__bag->first($__errorArgs[0]); ?>
-                            <div class="text-sm text-red-400"><?php echo e($message); ?></div>
-                            <?php unset($message);
-if (isset($__messageOriginal)) { $message = $__messageOriginal; }
-endif;
-unset($__errorArgs, $__bag); ?>
-                        </div>
-                        <div class="sm:col-span-6 pt-5">
-                            <label for="password" class="block text-sm font-medium text-gray-700"> Пароль </label>
-                            <div class="mt-1">
-                                <input value="<?php echo e($user->password); ?>" type="password" id="password" name="password" class="<?php $__errorArgs = ['password'];
-$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
-if ($__bag->has($__errorArgs[0])) :
-if (isset($message)) { $__messageOriginal = $message; }
-$message = $__bag->first($__errorArgs[0]); ?> border-red-400 <?php unset($message);
-if (isset($__messageOriginal)) { $message = $__messageOriginal; }
-endif;
-unset($__errorArgs, $__bag); ?> block w-full appearance-none bg-white border border-gray-400 rounded-md py-2 px-3 text-base leading-normal transition duration-150 ease-in-out sm:text-sm sm:leading-5" />
-                            </div>
-                            <?php $__errorArgs = ['password'];
+                            <?php $__errorArgs = ['review_degree'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
 if ($__bag->has($__errorArgs[0])) :
 if (isset($message)) { $__messageOriginal = $message; }
@@ -166,7 +132,7 @@ unset($__errorArgs, $__bag); ?>
                         </div>
                         <div class="mt-6 p-4">
                             <button type="submit" class="px-4 py-2 bg-indigo-500 hover:bg-indigo-700 rounded-lg text-white">
-                                Обновить
+                                Добавить
                             </button>
                         </div>
                     </form>
@@ -180,4 +146,4 @@ unset($__errorArgs, $__bag); ?>
 <?php $component = $__componentOriginalbacdc7ee2ae68d90ee6340a54a5e36f99d0a3040; ?>
 <?php unset($__componentOriginalbacdc7ee2ae68d90ee6340a54a5e36f99d0a3040); ?>
 <?php endif; ?>
-<?php /**PATH E:\OpenServer\domains\entertainment\resources\views/admin/users/edit.blade.php ENDPATH**/ ?>
+<?php /**PATH E:\OpenServer\domains\entertainment\resources\views/admin/reviews/create.blade.php ENDPATH**/ ?>

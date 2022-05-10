@@ -45,6 +45,9 @@
                     <x-admin-nav-link :href="route('admin.reservations.index')" :active="request()->routeIs('admin.reservations.index')">
                         {{ __('Бронирования') }}
                     </x-admin-nav-link>
+                    <x-admin-nav-link :href="route('admin.reviews.index')" :active="request()->routeIs('admin.reviews.index')">
+                        {{ __('Отзывы') }}
+                    </x-admin-nav-link>
                     <x-admin-nav-link :href="route('mainpage')" :active="request()->routeIs('mainpage')">
                         {{ __('На главную') }}
                     </x-admin-nav-link>

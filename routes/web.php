@@ -16,6 +16,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [\App\Http\Controllers\Frontend\WelcomeController::class, 'index'])->name('mainpage');
 Route::get('/categories', [\App\Http\Controllers\Frontend\CategoryController::class, 'index'])->name('categories.index');
 Route::get('/categories/{category}', [\App\Http\Controllers\Frontend\CategoryController::class, 'show'])->name('categories.show');
+Route::post('/categories/store-review', [\App\Http\Controllers\Frontend\CategoryController::class, 'storeReview'])->name('categories.store.review');
 Route::get('/menus', [\App\Http\Controllers\Frontend\MenuController::class, 'index'])->name('menus.index');
 Route::get('/reservation/step-one', [\App\Http\Controllers\Frontend\ReservationController::class, 'stepOne'])->name('reservations.step.one');
 Route::post('/reservation/step-one', [\App\Http\Controllers\Frontend\ReservationController::class, 'storeStepOne'])->name('reservations.store.step.one');
@@ -34,6 +35,7 @@ Route::middleware(['auth', 'admin'])->name('admin.')->prefix('admin')->group(fun
     Route::resource('/menus', \App\Http\Controllers\Admin\MenuController::class);
     Route::resource('/tables', \App\Http\Controllers\Admin\TableController::class);
     Route::resource('/reservations', \App\Http\Controllers\Admin\ReservationController::class);
+    Route::resource('/reviews', \App\Http\Controllers\Admin\ReviewController::class);
 });
 
 require __DIR__.'/auth.php';
