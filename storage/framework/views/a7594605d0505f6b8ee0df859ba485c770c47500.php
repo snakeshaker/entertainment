@@ -64,7 +64,7 @@
                     <label for="name" class="block text-sm font-medium text-gray-700"> Имя </label>
                     <div class="mt-1">
                         <?php if(\Illuminate\Support\Facades\Auth::user()): ?>
-                        <input value="<?php echo e(\Illuminate\Support\Facades\Auth::user()->first_name); ?>" disabled type="text" id="name" name="name" class="<?php $__errorArgs = ['name'];
+                        <input required value="<?php echo e(\Illuminate\Support\Facades\Auth::user()->first_name); ?>" readonly type="text" id="name" name="name" class="<?php $__errorArgs = ['name'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
 if ($__bag->has($__errorArgs[0])) :
 if (isset($message)) { $__messageOriginal = $message; }
@@ -72,7 +72,7 @@ $message = $__bag->first($__errorArgs[0]); ?> border-red-400 <?php unset($messag
 if (isset($__messageOriginal)) { $message = $__messageOriginal; }
 endif;
 unset($__errorArgs, $__bag); ?> block w-full transition duration-150 ease-in-out appearance-none bg-white border border-gray-400 rounded-md py-2 px-3 text-base leading-normal transition duration-150 ease-in-out sm:text-sm sm:leading-5" />
-                        <?php else: ?> <input value="Гость" type="text" id="name" name="name" class="<?php $__errorArgs = ['name'];
+                        <?php else: ?> <input required value="Гость" type="text" id="name" name="name" class="<?php $__errorArgs = ['name'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
 if ($__bag->has($__errorArgs[0])) :
 if (isset($message)) { $__messageOriginal = $message; }
@@ -96,7 +96,7 @@ unset($__errorArgs, $__bag); ?>
                 <div class="sm:col-span-6 pt-2">
                     <label for="review_text" class="block text-sm font-medium text-gray-700">Текст отзыва</label>
                     <div class="mt-1">
-                        <textarea id="review_text" rows="3" name="review_text" class="<?php $__errorArgs = ['review_text'];
+                        <textarea required id="review_text" rows="3" name="review_text" class="<?php $__errorArgs = ['review_text'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
 if ($__bag->has($__errorArgs[0])) :
 if (isset($message)) { $__messageOriginal = $message; }
@@ -146,7 +146,8 @@ if (isset($__messageOriginal)) { $message = $__messageOriginal; }
 endif;
 unset($__errorArgs, $__bag); ?>
                 </div>
-                <button class=" mt-2 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Оставить отзыв</button>
+                <input value="<?php echo e($category->id); ?>" type="text" id="category_id" name="category_id" class="hidden" readonly/>
+                <button type="submit" class=" mt-2 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Оставить отзыв</button>
             </form>
             <div class="w-full">
                 <?php $__currentLoopData = $reviews; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $review): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
@@ -173,6 +174,10 @@ unset($__errorArgs, $__bag); ?>
                         </div>
                     </div>
                 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                <div class="d-flex justify-content-center mt-4">
+                    <?php echo $reviews->links(); ?>
+
+                </div>
             </div>
         </div>
     </section>

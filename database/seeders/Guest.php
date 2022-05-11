@@ -7,7 +7,7 @@ use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Str;
 
-class Admin extends Seeder
+class Guest extends Seeder
 {
     /**
      * Run the database seeds.
@@ -17,15 +17,15 @@ class Admin extends Seeder
     public function run()
     {
         User::create([
-            'id' => 1,
-            'first_name' =>  'Admin',
-            'last_name' =>  'Admin',
-            'tel_number' =>  111,
-            'email' => 'admin@gmail.com',
+            'id' => 0,
+            'first_name' =>  'Гость',
+            'last_name' =>  'Гость',
+            'tel_number' =>  000,
+            'email' => 'guest@gmail.com',
             'email_verified_at' => now(),
-            'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
+            'password' => 'null',
             'remember_token' => Str::random(10),
-            'is_admin' => 1
+            'is_admin' => 0
         ]);
     }
 }
