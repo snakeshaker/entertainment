@@ -29,13 +29,13 @@
         <div class="d-none flex-sm-fill d-sm-flex align-items-sm-center justify-content-sm-between">
             <div>
                 <p class="small text-muted">
-                    {!! __('Showing') !!}
+                    {!! __('Показаны с') !!}
                     <span class="font-medium">{{ $paginator->firstItem() }}</span>
-                    {!! __('to') !!}
+                    {!! __('до') !!}
                     <span class="font-medium">{{ $paginator->lastItem() }}</span>
-                    {!! __('of') !!}
+                    {!! __('из') !!}
                     <span class="font-medium">{{ $paginator->total() }}</span>
-                    {!! __('results') !!}
+                    {!! __('результатов') !!}
                 </p>
             </div>
 

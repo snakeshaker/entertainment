@@ -174,6 +174,10 @@ unset($__errorArgs, $__bag); ?>
                         </div>
                     </div>
                 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                <div class="d-flex justify-content-center mt-4">
+                    <?php echo $reviews->links(); ?>
+
+                </div>
             </div>
         </div>
     </section>

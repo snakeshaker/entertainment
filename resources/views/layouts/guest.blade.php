@@ -51,9 +51,15 @@
                href="{{ route('menus.index') }}">Наше меню</a>
             <a class="text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-blue-500 hover:text-green-400"
                href="{{ route('reservations.step.one') }}">Забронировать</a>
+            <a class="text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-blue-500 hover:text-green-400"
+               href="{{ route('reservations.step.one') }}">
+                <img src="{{ asset('assets/cart.svg') }}" alt="Корзина" width="24" height="24">
+            </a>
             @if (Route::has('login'))
                     @auth
-                        <a href="{{ url('/dashboard') }}" class="text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-blue-500 hover:text-green-400">Личный кабинет</a>
+                        <a href="{{ url('/dashboard') }}" class="text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-blue-500 hover:text-green-400">
+                            <img src="{{ asset('assets/profile.svg') }}" alt="Корзина" width="24" height="24">
+                        </a>
                     @else
                         <a href="{{ route('login') }}" class="text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-blue-500 hover:text-green-400">Вход</a>
 

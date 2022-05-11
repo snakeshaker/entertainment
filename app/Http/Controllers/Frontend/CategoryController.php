@@ -21,7 +21,7 @@ class CategoryController extends Controller
     public function show(Category $category)
     {
         $tables = Table::where('location', 'like', $category->name)->get();
-        $reviews = Review::where('category_id', 'like', $category->id)->orderBy('created_at', 'desc')->get();
+        $reviews = Review::where('category_id', 'like', $category->id)->orderBy('created_at', 'desc')->paginate(3);
         $degrees = [
             'Отрицательный',
             'Нейтральный',

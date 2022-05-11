@@ -114,6 +114,9 @@
                         </div>
                     </div>
                 @endforeach
+                <div class="d-flex justify-content-center mt-4">
+                    {!! $reviews->links() !!}
+                </div>
             </div>
         </div>
     </section>

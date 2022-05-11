@@ -51,9 +51,15 @@
                href="<?php echo e(route('menus.index')); ?>">Наше меню</a>
             <a class="text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-blue-500 hover:text-green-400"
                href="<?php echo e(route('reservations.step.one')); ?>">Забронировать</a>
+            <a class="text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-blue-500 hover:text-green-400"
+               href="<?php echo e(route('reservations.step.one')); ?>">
+                <img src="<?php echo e(asset('assets/cart.svg')); ?>" alt="Корзина" width="24" height="24">
+            </a>
             <?php if(Route::has('login')): ?>
                     <?php if(auth()->guard()->check()): ?>
-                        <a href="<?php echo e(url('/dashboard')); ?>" class="text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-blue-500 hover:text-green-400">Личный кабинет</a>
+                        <a href="<?php echo e(url('/dashboard')); ?>" class="text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-blue-500 hover:text-green-400">
+                            <img src="<?php echo e(asset('assets/profile.svg')); ?>" alt="Корзина" width="24" height="24">
+                        </a>
                     <?php else: ?>
                         <a href="<?php echo e(route('login')); ?>" class="text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-blue-500 hover:text-green-400">Вход</a>
 

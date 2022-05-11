@@ -7,9 +7,9 @@
             <span class="inline md:block">Развлечения</span>
         </h1>
         <div class="mx-auto mt-2 text-green-50 md:text-center lg:text-lg">
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Soluta voluptatem ab necessitatibus illo
-            praesentium
-            culpa excepturi quae commodi quaerat,
+            Развлечения - эта шелуха праздников. Есть обычай оформлять особые дни отказом от будничных забот, специальной пищей,
+            особыми видами физической и интеллектуальной активности итд. Когда люди лишены праздников, они создают себе развлечения
+            - все то же самое, еда, праздность, забавы, только без смыслового наполнения.
         </div>
     </div>
     <!-- End Main Hero Content -->
