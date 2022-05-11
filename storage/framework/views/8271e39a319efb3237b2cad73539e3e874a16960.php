@@ -17,8 +17,8 @@
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="flex justify-end m-2 p-2">
-                <a href="<?php echo e(route('admin.tables.create')); ?>" class="px-4 py-2 bg-indigo-500 hover:bg-indigo-700 rounded-lg text-white">
-                    Создать место
+                <a href="<?php echo e(route('admin.reviews.create')); ?>" class="px-4 py-2 bg-indigo-500 hover:bg-indigo-700 rounded-lg text-white">
+                    Создать отзыв
                 </a>
             </div>
             <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
@@ -26,16 +26,19 @@
                     <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                     <tr>
                         <th scope="col" class="px-6 py-3">
-                            Название
+                            ID пользователя (создатель)
                         </th>
                         <th scope="col" class="px-6 py-3">
-                            Макс. кол-во гостей
+                            Имя
                         </th>
                         <th scope="col" class="px-6 py-3">
-                            Статус
+                            Текст отзыва
                         </th>
                         <th scope="col" class="px-6 py-3">
-                            Местоположение
+                            ID Категории
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                            Вид отзыва
                         </th>
                         <th scope="col" class="px-6 py-3">
                             <span>Изменить/удалить</span>
@@ -43,32 +46,36 @@
                     </tr>
                     </thead>
                     <tbody>
-                    <?php $__currentLoopData = $tables; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $table): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                    <?php $__currentLoopData = $reviews; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $review): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                         <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
                             <th scope="row" class="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap">
-                                <?php echo e($table->name); ?>
+                                <?php echo e($review->user_id); ?>
 
                             </th>
-                            <td class="px-6 py-4">
-                                <?php echo e($table->guest_number); ?>
+                            <th class="px-6 py-4">
+                                <?php echo e($review->name); ?>
+
+                            </th>
+                            <td class="px-6 py-4 truncate max-w-[200px]">
+                                <?php echo e($review->review_text); ?>
 
                             </td>
                             <td class="px-6 py-4">
-                                <?php echo e($table->status); ?>
+                                <?php echo e($review->category_id); ?>
 
                             </td>
                             <td class="px-6 py-4">
-                                <?php echo e($table->location); ?>
+                                <?php echo e($review->review_degree); ?>
 
                             </td>
                             <td class="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap">
                                 <div class="flex space-x-2">
-                                    <a href="<?php echo e(route('admin.tables.edit', $table->id)); ?>" class="px-4 py-2 bg-green-500 hover:bg-green-700 rounded-lg text-white">
+                                    <a href="<?php echo e(route('admin.reviews.edit', $review->id)); ?>" class="px-4 py-2 bg-green-500 hover:bg-green-700 rounded-lg text-white">
                                         Изменить
                                     </a>
                                     <form class="px-4 py-2 bg-red-500 hover:bg-red-700 rounded-lg text-white"
                                           method="POST"
-                                          action="<?php echo e(route('admin.tables.destroy', $table->id)); ?>"
+                                          action="<?php echo e(route('admin.reviews.destroy', $review->id)); ?>"
                                           onsubmit="return confirm('Вы уверены?')">
                                         <?php echo csrf_field(); ?>
                                         <?php echo method_field("DELETE"); ?>
@@ -89,4 +96,4 @@
 <?php $component = $__componentOriginalbacdc7ee2ae68d90ee6340a54a5e36f99d0a3040; ?>
 <?php unset($__componentOriginalbacdc7ee2ae68d90ee6340a54a5e36f99d0a3040); ?>
 <?php endif; ?>
-<?php /**PATH C:\Users\OpenServer\domains\entertainment.ru\resources\views/admin/tables/index.blade.php ENDPATH**/ ?>
+<?php /**PATH C:\Users\OpenServer\domains\entertainment.ru\resources\views/admin/reviews/index.blade.php ENDPATH**/ ?>

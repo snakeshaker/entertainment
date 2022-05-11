@@ -55,8 +55,8 @@
                     <label for="name" class="block text-sm font-medium text-gray-700"> Имя </label>
                     <div class="mt-1">
                         @if(\Illuminate\Support\Facades\Auth::user())
-                        <input value="{{ \Illuminate\Support\Facades\Auth::user()->first_name }}" disabled type="text" id="name" name="name" class="@error('name') border-red-400 @enderror block w-full transition duration-150 ease-in-out appearance-none bg-white border border-gray-400 rounded-md py-2 px-3 text-base leading-normal transition duration-150 ease-in-out sm:text-sm sm:leading-5" />
-                        @else <input value="Гость" type="text" id="name" name="name" class="@error('name') border-red-400 @enderror block w-full transition duration-150 ease-in-out appearance-none bg-white border border-gray-400 rounded-md py-2 px-3 text-base leading-normal transition duration-150 ease-in-out sm:text-sm sm:leading-5" />
+                        <input required value="{{ \Illuminate\Support\Facades\Auth::user()->first_name }}" readonly type="text" id="name" name="name" class="@error('name') border-red-400 @enderror block w-full transition duration-150 ease-in-out appearance-none bg-white border border-gray-400 rounded-md py-2 px-3 text-base leading-normal transition duration-150 ease-in-out sm:text-sm sm:leading-5" />
+                        @else <input required value="Гость" type="text" id="name" name="name" class="@error('name') border-red-400 @enderror block w-full transition duration-150 ease-in-out appearance-none bg-white border border-gray-400 rounded-md py-2 px-3 text-base leading-normal transition duration-150 ease-in-out sm:text-sm sm:leading-5" />
                         @endif
                     </div>
                     @error('name')
@@ -66,7 +66,7 @@
                 <div class="sm:col-span-6 pt-2">
                     <label for="review_text" class="block text-sm font-medium text-gray-700">Текст отзыва</label>
                     <div class="mt-1">
-                        <textarea id="review_text" rows="3" name="review_text" class="@error('review_text') border-red-400 @enderror shadow-sm focus:ring-indigo-500 appearance-none bg-white border py-2 px-3 text-base leading-normal transition duration-150 ease-in-out focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md"></textarea>
+                        <textarea required id="review_text" rows="3" name="review_text" class="@error('review_text') border-red-400 @enderror shadow-sm focus:ring-indigo-500 appearance-none bg-white border py-2 px-3 text-base leading-normal transition duration-150 ease-in-out focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md"></textarea>
                     </div>
                     @error('review_text')
                     <div class="text-sm text-red-400">{{ $message }}</div>
@@ -87,7 +87,8 @@
                     <div class="text-sm text-red-400">{{ $message }}</div>
                     @enderror
                 </div>
-                <button class=" mt-2 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Оставить отзыв</button>
+                <input value="{{ $category->id }}" type="text" id="category_id" name="category_id" class="hidden" readonly/>
+                <button type="submit" class=" mt-2 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Оставить отзыв</button>
             </form>
             <div class="w-full">
                 @foreach ($reviews as $review)
