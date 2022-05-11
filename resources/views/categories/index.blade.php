@@ -29,16 +29,8 @@
                                 <p class="text-sm">{{ $category->description }}</p>
                             </div>
                             <div class="p-4 border-t border-b text-xs text-gray-700">
-                                @php
-                                    $counter = 0;
-                                    for($i = 0; $i < count($reviews); $i++) {
-                                        if($reviews[$i]->category_id == $category->id) {
-                                            $counter++;
-                                        }
-                                    }
-                                @endphp
                                 <span class="ml-2">
-                                    {{ $counter }} отзыв(-а/-ов)
+                                    {{ $category->reviews->count() }} отзыв(-а/-ов)
                                 </span>
                             </div>
                         </a>

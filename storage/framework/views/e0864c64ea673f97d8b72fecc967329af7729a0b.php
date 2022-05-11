@@ -7,7 +7,7 @@
 <?php $attributes = $attributes->except(collect($constructor->getParameters())->map->getName()->all()); ?>
 <?php endif; ?>
 <?php $component->withAttributes([]); ?>
-     <?php $__env->slot('header', null, []); ?>
+     <?php $__env->slot('header', null, []); ?> 
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
             <?php echo e(__('Личный кабинет')); ?>
 
@@ -115,7 +115,7 @@ if (isset($__messageOriginal)) { $message = $__messageOriginal; }
 endif;
 unset($__errorArgs, $__bag); ?> form-multiselect block w-full mt-1">
                                     <?php $__currentLoopData = $locations; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $location): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                        <option value="<?php echo e($location->name); ?>" <?php if($table->location == $location): echo 'selected'; endif; ?>>
+                                        <option value="<?php echo e($location->name); ?>" <?php if($table->location == $location->name): echo 'selected'; endif; ?>>
                                             <?php echo e($location->name); ?>
 
                                         </option>
