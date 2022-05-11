@@ -31,28 +31,36 @@
                 </div>
                 <nav :class="{'block': open, 'hidden': !open}" class="flex-grow px-4 pb-4 md:block md:pb-0 md:overflow-y-auto">
                     <x-admin-nav-link :href="route('admin.users.index')" :active="request()->routeIs('admin.users.index')">
+                        <img src="{{ asset('assets/admin/user.svg') }}" alt="" width="32" height="32" class="inline-block">
                         {{ __('Все пользователи') }}
                     </x-admin-nav-link>
                     <x-admin-nav-link :href="route('admin.categories.index')" :active="request()->routeIs('admin.categories.index')">
+                        <img src="{{ asset('assets/admin/category.svg') }}" alt="" width="32" height="32" class="inline-block">
                         {{ __('Категории') }}
                     </x-admin-nav-link>
                     <x-admin-nav-link :href="route('admin.menus.index')" :active="request()->routeIs('admin.menus.index')">
+                        <img src="{{ asset('assets/admin/menu.svg') }}" alt="" width="32" height="32" class="inline-block">
                         {{ __('Блюда') }}
                     </x-admin-nav-link>
                     <x-admin-nav-link :href="route('admin.tables.index')" :active="request()->routeIs('admin.tables.index')">
+                        <img src="{{ asset('assets/admin/table.svg') }}" alt="" width="32" height="32" class="inline-block">
                         {{ __('Столы/дорожки/места') }}
                     </x-admin-nav-link>
                     <x-admin-nav-link :href="route('admin.reservations.index')" :active="request()->routeIs('admin.reservations.index')">
+                        <img src="{{ asset('assets/admin/reservation.svg') }}" alt="" width="32" height="32" class="inline-block">
                         {{ __('Бронирования') }}
                     </x-admin-nav-link>
                     <x-admin-nav-link :href="route('admin.reviews.index')" :active="request()->routeIs('admin.reviews.index')">
+                        <img src="{{ asset('assets/admin/review.svg') }}" alt="" width="32" height="32" class="inline-block">
                         {{ __('Отзывы') }}
                     </x-admin-nav-link>
                     <x-admin-nav-link :href="route('mainpage')" :active="request()->routeIs('mainpage')">
+                        <img src="{{ asset('assets/admin/home.svg') }}" alt="" width="32" height="32" class="inline-block">
                         {{ __('На главную') }}
                     </x-admin-nav-link>
                     <div @click.away="open = false" class="relative" x-data="{ open: false }">
                         <button @click="open = !open" class="flex flex-row items-center w-full px-4 py-2 mt-2 text-sm font-semibold text-left bg-transparent rounded-lg dark:bg-transparent dark:focus:text-white dark:hover:text-white dark:focus:bg-gray-600 dark:hover:bg-gray-600 md:block hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline">
+                            <img src="{{ asset('assets/admin/profile.svg') }}" alt="" width="24" height="24" class="inline-block mr-2">
                             <span>{{ Auth::user()->first_name }}</span>
                             <svg fill="currentColor" viewBox="0 0 20 20" :class="{'rotate-180': open, 'rotate-0': !open}" class="inline w-4 h-4 mt-1 ml-1 transition-transform duration-200 transform md:-mt-1"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
                         </button>
