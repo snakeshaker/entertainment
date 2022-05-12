@@ -75,21 +75,31 @@
                                 <?php echo e($user->created_at); ?>
 
                             </td>
-                            <td class="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap">
-                                <div class="flex space-x-2">
-                                    <a href="<?php echo e(route('admin.users.edit', $user->id)); ?>" class="px-4 py-2 bg-green-500 hover:bg-green-700 rounded-lg text-white">
-                                        Изменить
-                                    </a>
-                                    <form class="px-4 py-2 bg-red-500 hover:bg-red-700 rounded-lg text-white"
-                                          method="POST"
-                                          action="<?php echo e(route('admin.users.destroy', $user->id)); ?>"
-                                          onsubmit="return confirm('Вы уверены?')">
-                                        <?php echo csrf_field(); ?>
-                                        <?php echo method_field("DELETE"); ?>
-                                        <button type="submit">Удалить</button>
-                                    </form>
-                                </div>
-                            </td>
+                            <?php if($user->id == 0): ?>
+                                <td class="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap">
+                                    Системный пользователь
+                                </td>
+                            <?php elseif($user->id == 1): ?>
+                                <td class="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap">
+                                    Системный пользователь
+                                </td>
+                            <?php else: ?>
+                                <td class="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap">
+                                    <div class="flex space-x-2">
+                                        <a href="<?php echo e(route('admin.users.edit', $user->id)); ?>" class="px-4 py-2 bg-green-500 hover:bg-green-700 rounded-lg text-white">
+                                            Изменить
+                                        </a>
+                                        <form class="px-4 py-2 bg-red-500 hover:bg-red-700 rounded-lg text-white"
+                                              method="POST"
+                                              action="<?php echo e(route('admin.users.destroy', $user->id)); ?>"
+                                              onsubmit="return confirm('Вы уверены?')">
+                                            <?php echo csrf_field(); ?>
+                                            <?php echo method_field("DELETE"); ?>
+                                            <button type="submit">Удалить</button>
+                                        </form>
+                                    </div>
+                                </td>
+                            <?php endif; ?>
                         </tr>
                     <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                     </tbody>
