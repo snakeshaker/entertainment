@@ -17,7 +17,7 @@ class Guest extends Seeder
     public function run()
     {
         User::create([
-            'id' => 0,
+            'id' => 2,
             'first_name' =>  'Гость',
             'last_name' =>  'Гость',
             'tel_number' =>  000,
