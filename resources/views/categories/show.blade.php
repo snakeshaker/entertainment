@@ -46,7 +46,7 @@
             </div>
         </div>
     </section>
-    <section class="px-2 py-10 bg-white md:px-0">
+    <section class="px-2 py-10 bg-blue-100 md:px-0">
         <div class="container w-full px-20 mx-auto">
             <h1 class="font-medium leading-tight text-5xl mb-2 text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-blue-500 hover:text-green-400">Отзывы</h1>
             <form class="max-w-xl" method="POST" action="{{ route('categories.store.review') }}">

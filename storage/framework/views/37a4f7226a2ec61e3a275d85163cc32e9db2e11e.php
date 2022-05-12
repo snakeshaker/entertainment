@@ -44,15 +44,22 @@
         <div :class="isOpen ? 'flex' : 'hidden'"
              class="flex-col mt-8 space-y-4 md:flex md:space-y-0 md:flex-row md:items-center md:space-x-10 md:mt-0">
             <a class="text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-blue-500 hover:text-green-400"
-               href="/">Главная</a>
+               href="/">
+                <img src="<?php echo e(asset('assets/home.svg')); ?>" alt="" width="24" height="24" class="inline-block">
+                Главная
+            </a>
             <a class="text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-blue-500 hover:text-green-400"
-               href="<?php echo e(route('categories.index')); ?>">Развлечения</a>
+               href="<?php echo e(route('categories.index')); ?>">
+                <img src="<?php echo e(asset('assets/entertainment.svg')); ?>" alt="" width="24" height="24" class="inline-block">
+                Развлечения
+            </a>
             <a class="text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-blue-500 hover:text-green-400"
-               href="<?php echo e(route('menus.index')); ?>">Наше меню</a>
+               href="<?php echo e(route('menus.index')); ?>">
+                <img src="<?php echo e(asset('assets/menu.svg')); ?>" alt="" width="24" height="24" class="inline-block">
+                Наше меню
+            </a>
             <a class="text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-blue-500 hover:text-green-400"
-               href="<?php echo e(route('reservations.step.one')); ?>">Забронировать</a>
-            <a class="text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-blue-500 hover:text-green-400"
-               href="<?php echo e(route('reservations.step.one')); ?>">
+               href="<?php echo e(route('cart.index')); ?>">
                 <img src="<?php echo e(asset('assets/cart.svg')); ?>" alt="Корзина" width="24" height="24">
             </a>
             <?php if(Route::has('login')): ?>
