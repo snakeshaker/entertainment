@@ -39,7 +39,10 @@
 <?php $attributes = $attributes->except(collect($constructor->getParameters())->map->getName()->all()); ?>
 <?php endif; ?>
 <?php $component->withAttributes(['href' => \Illuminate\View\Compilers\BladeCompiler::sanitizeComponentAttribute(route('admin.users.index')),'active' => \Illuminate\View\Compilers\BladeCompiler::sanitizeComponentAttribute(request()->routeIs('admin.users.index'))]); ?>
-                        <img src="<?php echo e(asset('assets/admin/user.svg')); ?>" alt="" width="32" height="32" class="inline-block">
+                        <picture>
+                            <source srcset="<?php echo e(asset('assets/admin/dark/user.svg')); ?>" media="(prefers-color-scheme: light)">
+                            <img src="<?php echo e(asset('assets/admin/user.svg')); ?>" alt="" width="32" height="32" class="inline-block">
+                        </picture>
                         <?php echo e(__('Все пользователи')); ?>
 
                      <?php echo $__env->renderComponent(); ?>
@@ -57,7 +60,10 @@
 <?php $attributes = $attributes->except(collect($constructor->getParameters())->map->getName()->all()); ?>
 <?php endif; ?>
 <?php $component->withAttributes(['href' => \Illuminate\View\Compilers\BladeCompiler::sanitizeComponentAttribute(route('admin.categories.index')),'active' => \Illuminate\View\Compilers\BladeCompiler::sanitizeComponentAttribute(request()->routeIs('admin.categories.index'))]); ?>
-                        <img src="<?php echo e(asset('assets/admin/category.svg')); ?>" alt="" width="32" height="32" class="inline-block">
+                        <picture>
+                            <source srcset="<?php echo e(asset('assets/admin/dark/category.svg')); ?>" media="(prefers-color-scheme: light)">
+                            <img src="<?php echo e(asset('assets/admin/category.svg')); ?>" alt="" width="32" height="32" class="inline-block">
+                        </picture>
                         <?php echo e(__('Категории')); ?>
 
                      <?php echo $__env->renderComponent(); ?>
@@ -75,7 +81,10 @@
 <?php $attributes = $attributes->except(collect($constructor->getParameters())->map->getName()->all()); ?>
 <?php endif; ?>
 <?php $component->withAttributes(['href' => \Illuminate\View\Compilers\BladeCompiler::sanitizeComponentAttribute(route('admin.menus.index')),'active' => \Illuminate\View\Compilers\BladeCompiler::sanitizeComponentAttribute(request()->routeIs('admin.menus.index'))]); ?>
-                        <img src="<?php echo e(asset('assets/admin/menu.svg')); ?>" alt="" width="32" height="32" class="inline-block">
+                        <picture>
+                            <source srcset="<?php echo e(asset('assets/admin/dark/menu.svg')); ?>" media="(prefers-color-scheme: light)">
+                            <img src="<?php echo e(asset('assets/admin/menu.svg')); ?>" alt="" width="32" height="32" class="inline-block">
+                        </picture>
                         <?php echo e(__('Блюда')); ?>
 
                      <?php echo $__env->renderComponent(); ?>
@@ -93,7 +102,10 @@
 <?php $attributes = $attributes->except(collect($constructor->getParameters())->map->getName()->all()); ?>
 <?php endif; ?>
 <?php $component->withAttributes(['href' => \Illuminate\View\Compilers\BladeCompiler::sanitizeComponentAttribute(route('admin.tables.index')),'active' => \Illuminate\View\Compilers\BladeCompiler::sanitizeComponentAttribute(request()->routeIs('admin.tables.index'))]); ?>
-                        <img src="<?php echo e(asset('assets/admin/table.svg')); ?>" alt="" width="32" height="32" class="inline-block">
+                        <picture>
+                            <source srcset="<?php echo e(asset('assets/admin/dark/table.svg')); ?>" media="(prefers-color-scheme: light)">
+                            <img src="<?php echo e(asset('assets/admin/table.svg')); ?>" alt="" width="32" height="32" class="inline-block">
+                        </picture>
                         <?php echo e(__('Столы/дорожки/места')); ?>
 
                      <?php echo $__env->renderComponent(); ?>
@@ -111,7 +123,10 @@
 <?php $attributes = $attributes->except(collect($constructor->getParameters())->map->getName()->all()); ?>
 <?php endif; ?>
 <?php $component->withAttributes(['href' => \Illuminate\View\Compilers\BladeCompiler::sanitizeComponentAttribute(route('admin.reservations.index')),'active' => \Illuminate\View\Compilers\BladeCompiler::sanitizeComponentAttribute(request()->routeIs('admin.reservations.index'))]); ?>
-                        <img src="<?php echo e(asset('assets/admin/reservation.svg')); ?>" alt="" width="32" height="32" class="inline-block">
+                        <picture>
+                            <source srcset="<?php echo e(asset('assets/admin/dark/reservation.svg')); ?>" media="(prefers-color-scheme: light)">
+                            <img src="<?php echo e(asset('assets/admin/reservation.svg')); ?>" alt="" width="32" height="32" class="inline-block">
+                        </picture>
                         <?php echo e(__('Бронирования')); ?>
 
                      <?php echo $__env->renderComponent(); ?>
@@ -129,7 +144,10 @@
 <?php $attributes = $attributes->except(collect($constructor->getParameters())->map->getName()->all()); ?>
 <?php endif; ?>
 <?php $component->withAttributes(['href' => \Illuminate\View\Compilers\BladeCompiler::sanitizeComponentAttribute(route('admin.reviews.index')),'active' => \Illuminate\View\Compilers\BladeCompiler::sanitizeComponentAttribute(request()->routeIs('admin.reviews.index'))]); ?>
-                        <img src="<?php echo e(asset('assets/admin/review.svg')); ?>" alt="" width="32" height="32" class="inline-block">
+                        <picture>
+                            <source srcset="<?php echo e(asset('assets/admin/dark/review.svg')); ?>" media="(prefers-color-scheme: light)">
+                            <img src="<?php echo e(asset('assets/admin/review.svg')); ?>" alt="" width="32" height="32" class="inline-block">
+                        </picture>
                         <?php echo e(__('Отзывы')); ?>
 
                      <?php echo $__env->renderComponent(); ?>
@@ -147,7 +165,10 @@
 <?php $attributes = $attributes->except(collect($constructor->getParameters())->map->getName()->all()); ?>
 <?php endif; ?>
 <?php $component->withAttributes(['href' => \Illuminate\View\Compilers\BladeCompiler::sanitizeComponentAttribute(route('mainpage')),'active' => \Illuminate\View\Compilers\BladeCompiler::sanitizeComponentAttribute(request()->routeIs('mainpage'))]); ?>
-                        <img src="<?php echo e(asset('assets/admin/home.svg')); ?>" alt="" width="32" height="32" class="inline-block">
+                        <picture>
+                            <source srcset="<?php echo e(asset('assets/admin/dark/home.svg')); ?>" media="(prefers-color-scheme: light)">
+                            <img src="<?php echo e(asset('assets/admin/home.svg')); ?>" alt="" width="32" height="32" class="inline-block">
+                        </picture>
                         <?php echo e(__('На главную')); ?>
 
                      <?php echo $__env->renderComponent(); ?>
@@ -158,7 +179,10 @@
 <?php endif; ?>
                     <div @click.away="open = false" class="relative" x-data="{ open: false }">
                         <button @click="open = !open" class="flex flex-row items-center w-full px-4 py-2 mt-2 text-sm font-semibold text-left bg-transparent rounded-lg dark:bg-transparent dark:focus:text-white dark:hover:text-white dark:focus:bg-gray-600 dark:hover:bg-gray-600 md:block hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline">
-                            <img src="<?php echo e(asset('assets/admin/profile.svg')); ?>" alt="" width="24" height="24" class="inline-block mr-2">
+                            <picture>
+                                <source srcset="<?php echo e(asset('assets/admin/dark/profile.svg')); ?>" media="(prefers-color-scheme: light)">
+                                <img src="<?php echo e(asset('assets/admin/profile.svg')); ?>" alt="" width="24" height="24" class="inline-block mr-2">
+                            </picture>
                             <span><?php echo e(Auth::user()->first_name); ?></span>
                             <svg fill="currentColor" viewBox="0 0 20 20" :class="{'rotate-180': open, 'rotate-0': !open}" class="inline w-4 h-4 mt-1 ml-1 transition-transform duration-200 transform md:-mt-1"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
                         </button>
@@ -192,7 +216,7 @@
                     </div>
                 </nav>
             </div>
-            <main class="m-2 p-8 w-full">
+            <main class="w-[calc(100%-256px)]">
                 <div>
                     <?php if(session()->has('danger')): ?>
                         <div class="p-4 mb-4 text-sm text-red-700 bg-red-100 rounded-lg dark:bg-red-200 dark:text-red-800" role="alert">

@@ -34,7 +34,7 @@
                             Изучите наше меню и выберите то, что вам особенно по вкусу! Вы можете удивить и побаловать ваших близких, закажите любое блюдо нашего ресторана и вам не придется ждать по приходу!
                         </p>
                         <div class="relative flex">
-                            <a href="#_"
+                            <a href="{{ route('menus.index') }}"
                                class="flex items-center w-full px-6 py-3 mb-3 text-lg text-white bg-green-600 rounded-md sm:mb-0 hover:bg-green-700 sm:w-auto">
                                 Помотреть меню
                                 <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 ml-1" viewBox="0 0 24 24"
