@@ -1,4 +1,5 @@
 require('./bootstrap');
+require('./datatable');
 
 import Alpine from 'alpinejs';
 

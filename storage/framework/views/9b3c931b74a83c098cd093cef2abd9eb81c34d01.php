@@ -14,7 +14,7 @@
         </h2>
      <?php $__env->endSlot(); ?>
 
-    <div class="py-12">
+    <div class="py-12 bk-page">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="flex justify-end m-2 p-2">
                 <a href="<?php echo e(route('admin.users.create')); ?>" class="px-4 py-2 bg-indigo-500 hover:bg-indigo-700 rounded-lg text-white">
@@ -22,7 +22,7 @@
                 </a>
             </div>
             <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
-                <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+                <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400 bk-table">
                     <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                     <tr>
                         <th scope="col" class="px-6 py-3">
@@ -75,11 +75,7 @@
                                 <?php echo e($user->created_at); ?>
 
                             </td>
-                            <?php if($user->id == 0): ?>
-                                <td class="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap">
-                                    Системный пользователь
-                                </td>
-                            <?php elseif($user->id == 1): ?>
+                            <?php if($user->id == 1 || $user->id == 2): ?>
                                 <td class="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap">
                                     Системный пользователь
                                 </td>

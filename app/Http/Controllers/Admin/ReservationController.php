@@ -51,7 +51,7 @@ class ReservationController extends Controller
         return view('admin.reservations.edit', compact('reservation', 'min_date', 'max_date', 'tables', 'res_date'));
     }
 
-    public function update(Request $request, Reservation $reservation)
+    public function update(ReservationStoreRequest $request, Reservation $reservation)
     {
         $table = Table::findOrFail($request->table_id);
         if($request->guest_number > $table->guest_number){
@@ -82,6 +82,6 @@ class ReservationController extends Controller
     {
         $reservation->delete();
 
-        return to_route('admin.reservations.index')->with('danger', 'Блюдо удалено успешно!');
+        return to_route('admin.reservations.index')->with('danger', 'Бронирование удалено успешно!');
     }
 }
