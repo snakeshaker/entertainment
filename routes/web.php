@@ -19,6 +19,8 @@ Route::get('/categories/{category}', [\App\Http\Controllers\Frontend\CategoryCon
 Route::post('/categories/store-review', [\App\Http\Controllers\Frontend\CategoryController::class, 'storeReview'])->name('categories.store.review');
 Route::get('/menus', [\App\Http\Controllers\Frontend\MenuController::class, 'index'])->name('menus.index');
 Route::get('/cart', [\App\Http\Controllers\Frontend\CartController::class, 'index'])->name('cart.index');
+Route::get('/reviews', [\App\Http\Controllers\Frontend\ReviewController::class, 'index'])->name('reviews.index');
+Route::post('/reviews/store', [\App\Http\Controllers\Frontend\ReviewController::class, 'store'])->name('reviews.store');
 Route::get('/reservation/step-one', [\App\Http\Controllers\Frontend\ReservationController::class, 'stepOne'])->name('reservations.step.one');
 Route::post('/reservation/step-one', [\App\Http\Controllers\Frontend\ReservationController::class, 'storeStepOne'])->name('reservations.store.step.one');
 Route::get('/reservation/step-two', [\App\Http\Controllers\Frontend\ReservationController::class, 'stepTwo'])->name('reservations.step.two');

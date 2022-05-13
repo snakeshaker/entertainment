@@ -1,4 +1,4 @@
-<x-guest-layout>
+<sec>
     <!-- Main Hero Content -->
     <div class="container max-w-lg px-4 py-32 mx-auto text-left bg-center bg-no-repeat bg-cover md:max-w-none md:text-center"
          style="background-image: url('{{ asset('assets/'.$category->image) }}')">
@@ -119,5 +119,7 @@
                 </div>
             </div>
         </div>
+            </div>
+            </div>
     </section>
 </x-guest-layout>

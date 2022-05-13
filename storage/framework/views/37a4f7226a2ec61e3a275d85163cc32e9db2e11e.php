@@ -86,10 +86,18 @@
     <div class="container flex flex-wrap items-center justify-center px-4 py-8 mx-auto lg:justify-between">
         <div class="flex flex-wrap justify-center">
             <ul class="flex items-center space-x-4 text-white">
-                <li>Home</li>
-                <li>About</li>
-                <li>Contact</li>
-                <li>Terms</li>
+                <li>
+                    <a href="<?php echo e(route('mainpage')); ?>" class="hover:text-green-400">Тех поддержка</a>
+                </li>
+                <li>
+                    <a href="<?php echo e(route('reviews.index')); ?>" class="hover:text-green-400">Отзывы</a>
+                </li>
+                <li>
+                    <a href="<?php echo e(route('mainpage')); ?>" class="hover:text-green-400">Контактные данные</a>
+                </li>
+                <li>
+                    <a href="<?php echo e(route('mainpage')); ?>" class="hover:text-green-400">Новости</a>
+                </li>
             </ul>
         </div>
         <div class="flex justify-center mt-4 lg:mt-0">

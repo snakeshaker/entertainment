@@ -89,7 +89,7 @@
                     <a href="{{ route('mainpage') }}" class="hover:text-green-400">Тех поддержка</a>
                 </li>
                 <li>
-                    <a href="{{ route('mainpage') }}" class="hover:text-green-400">Отзывы</a>
+                    <a href="{{ route('reviews.index') }}" class="hover:text-green-400">Отзывы</a>
                 </li>
                 <li>
                     <a href="{{ route('mainpage') }}" class="hover:text-green-400">Контактные данные</a>
