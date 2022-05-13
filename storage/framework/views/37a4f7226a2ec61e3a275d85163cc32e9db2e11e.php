@@ -93,10 +93,10 @@
                     <a href="<?php echo e(route('reviews.index')); ?>" class="hover:text-green-400">Отзывы</a>
                 </li>
                 <li>
-                    <a href="<?php echo e(route('mainpage')); ?>" class="hover:text-green-400">Контактные данные</a>
+                    <a href="<?php echo e(route('contacts.index')); ?>" class="hover:text-green-400">Контактные данные</a>
                 </li>
                 <li>
-                    <a href="<?php echo e(route('mainpage')); ?>" class="hover:text-green-400">Новости</a>
+                    <a href="<?php echo e(route('news.index')); ?>" class="hover:text-green-400">Новости</a>
                 </li>
             </ul>
         </div>

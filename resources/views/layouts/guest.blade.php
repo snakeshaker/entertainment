@@ -92,10 +92,10 @@
                     <a href="{{ route('reviews.index') }}" class="hover:text-green-400">Отзывы</a>
                 </li>
                 <li>
-                    <a href="{{ route('mainpage') }}" class="hover:text-green-400">Контактные данные</a>
+                    <a href="{{ route('contacts.index') }}" class="hover:text-green-400">Контактные данные</a>
                 </li>
                 <li>
-                    <a href="{{ route('mainpage') }}" class="hover:text-green-400">Новости</a>
+                    <a href="{{ route('news.index') }}" class="hover:text-green-400">Новости</a>
                 </li>
             </ul>
         </div>
