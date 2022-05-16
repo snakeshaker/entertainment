@@ -32,6 +32,9 @@
                             Картинка
                         </th>
                         <th scope="col" class="px-6 py-3">
+                            Описание
+                        </th>
+                        <th scope="col" class="px-6 py-3">
                             Цена
                         </th>
                         <th scope="col" class="px-6 py-3">
@@ -48,6 +51,10 @@
                                 </td>
                                 <td class="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap">
                                     <img src="<?php echo e(asset('assets/'.$menu->image)); ?>" alt="Image" class="w-16 h-16 rounded">
+                                </td>
+                                <td class="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap max-w-xl truncate">
+                                    <?php echo e($menu->description); ?>
+
                                 </td>
                                 <td class="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap">
                                     <?php echo e($menu->price); ?>

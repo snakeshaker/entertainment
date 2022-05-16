@@ -58,12 +58,12 @@
     <section class="px-2 py-10 bg-blue-100 md:px-0">
         <div class="container w-full px-20 mx-auto">
             <h1 class="font-medium leading-tight text-5xl mb-2 text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-blue-500 hover:text-green-400">Отзывы</h1>
+            <?php if(\Illuminate\Support\Facades\Auth::user()): ?>
             <form class="max-w-xl" method="POST" action="<?php echo e(route('categories.store.review')); ?>">
                 <?php echo csrf_field(); ?>
                 <div class="sm:col-span-6">
                     <label for="name" class="block text-sm font-medium text-gray-700"> Имя </label>
                     <div class="mt-1">
-                        <?php if(\Illuminate\Support\Facades\Auth::user()): ?>
                         <input required value="<?php echo e(\Illuminate\Support\Facades\Auth::user()->first_name); ?>" readonly type="text" id="name" name="name" class="<?php $__errorArgs = ['name'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
 if ($__bag->has($__errorArgs[0])) :
@@ -72,15 +72,6 @@ $message = $__bag->first($__errorArgs[0]); ?> border-red-400 <?php unset($messag
 if (isset($__messageOriginal)) { $message = $__messageOriginal; }
 endif;
 unset($__errorArgs, $__bag); ?> block w-full transition duration-150 ease-in-out appearance-none bg-white border border-gray-400 rounded-md py-2 px-3 text-base leading-normal transition duration-150 ease-in-out sm:text-sm sm:leading-5" />
-                        <?php else: ?> <input required value="Гость" type="text" id="name" name="name" class="<?php $__errorArgs = ['name'];
-$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
-if ($__bag->has($__errorArgs[0])) :
-if (isset($message)) { $__messageOriginal = $message; }
-$message = $__bag->first($__errorArgs[0]); ?> border-red-400 <?php unset($message);
-if (isset($__messageOriginal)) { $message = $__messageOriginal; }
-endif;
-unset($__errorArgs, $__bag); ?> block w-full transition duration-150 ease-in-out appearance-none bg-white border border-gray-400 rounded-md py-2 px-3 text-base leading-normal transition duration-150 ease-in-out sm:text-sm sm:leading-5" />
-                        <?php endif; ?>
                     </div>
                     <?php $__errorArgs = ['name'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
@@ -149,6 +140,8 @@ unset($__errorArgs, $__bag); ?>
                 <input value="<?php echo e($category->id); ?>" type="text" id="category_id" name="category_id" class="hidden" readonly/>
                 <button type="submit" class=" mt-2 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Оставить отзыв</button>
             </form>
+            <?php else: ?> <div><a href="<?php echo e(route('register')); ?>" class="text-green-600 hover:text-green-400">Зарегистрируйтесь,</a> чтобы оставить отзыв</div>
+            <?php endif; ?>
             <div class="w-full">
                 <?php $__currentLoopData = $reviews; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $review): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                     <div class="flex flex-col bg-white shadow-lg rounded-lg overflow-hidden mt-5">

@@ -31,12 +31,6 @@ class ReviewController extends Controller
 
     public function store(ReviewStoreRequest $request)
     {
-        if(Auth::user()) {
-            $request->user_id = Auth::user()->id;
-        } else {
-            $request->user_id = 0;
-        }
-
         Review::create([
             'user_id' => $request->user_id,
             'category_id' => $request->category_id ,

@@ -49,15 +49,13 @@
     <section class="px-2 py-10 bg-blue-100 md:px-0">
         <div class="container w-full px-20 mx-auto">
             <h1 class="font-medium leading-tight text-5xl mb-2 text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-blue-500 hover:text-green-400">Отзывы</h1>
+            @if(\Illuminate\Support\Facades\Auth::user())
             <form class="max-w-xl" method="POST" action="{{ route('categories.store.review') }}">
                 @csrf
                 <div class="sm:col-span-6">
                     <label for="name" class="block text-sm font-medium text-gray-700"> Имя </label>
                     <div class="mt-1">
-                        @if(\Illuminate\Support\Facades\Auth::user())
                         <input required value="{{ \Illuminate\Support\Facades\Auth::user()->first_name }}" readonly type="text" id="name" name="name" class="@error('name') border-red-400 @enderror block w-full transition duration-150 ease-in-out appearance-none bg-white border border-gray-400 rounded-md py-2 px-3 text-base leading-normal transition duration-150 ease-in-out sm:text-sm sm:leading-5" />
-                        @else <input required value="Гость" type="text" id="name" name="name" class="@error('name') border-red-400 @enderror block w-full transition duration-150 ease-in-out appearance-none bg-white border border-gray-400 rounded-md py-2 px-3 text-base leading-normal transition duration-150 ease-in-out sm:text-sm sm:leading-5" />
-                        @endif
                     </div>
                     @error('name')
                     <div class="text-sm text-red-400">{{ $message }}</div>
@@ -90,6 +88,8 @@
                 <input value="{{ $category->id }}" type="text" id="category_id" name="category_id" class="hidden" readonly/>
                 <button type="submit" class=" mt-2 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Оставить отзыв</button>
             </form>
+            @else <div><a href="{{ route('register') }}" class="text-green-600 hover:text-green-400">Зарегистрируйтесь,</a> чтобы оставить отзыв</div>
+            @endif
             <div class="w-full">
                 @foreach ($reviews as $review)
                     <div class="flex flex-col bg-white shadow-lg rounded-lg overflow-hidden mt-5">
