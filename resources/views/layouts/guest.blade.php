@@ -86,7 +86,7 @@
         <div class="flex flex-wrap justify-center">
             <ul class="flex items-center space-x-4 text-white">
                 <li>
-                    <a href="{{ route('mainpage') }}" class="hover:text-green-400">Тех поддержка</a>
+                    <a href="{{ route('tech-support.index') }}" class="hover:text-green-400">Тех поддержка</a>
                 </li>
                 <li>
                     <a href="{{ route('reviews.index') }}" class="hover:text-green-400">Отзывы</a>

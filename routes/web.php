@@ -24,6 +24,8 @@ Route::post('/reviews/store', [\App\Http\Controllers\Frontend\ReviewController::
 Route::get('/contacts', [\App\Http\Controllers\Frontend\ContactsController::class, 'index'])->name('contacts.index');
 Route::get('/news', [\App\Http\Controllers\Frontend\NewsController::class, 'index'])->name('news.index');
 Route::get('/news/{news}', [\App\Http\Controllers\Frontend\NewsController::class, 'show'])->name('news.show');
+Route::get('/tech-support', [\App\Http\Controllers\Frontend\TechSupportController::class, 'index'])->name('tech-support.index');
+Route::post('/tech-support/store', [\App\Http\Controllers\Frontend\TechSupportController::class, 'store'])->name('tech-support.store');
 Route::get('/reservation/step-one', [\App\Http\Controllers\Frontend\ReservationController::class, 'stepOne'])->name('reservations.step.one');
 Route::post('/reservation/step-one', [\App\Http\Controllers\Frontend\ReservationController::class, 'storeStepOne'])->name('reservations.store.step.one');
 Route::get('/reservation/step-two', [\App\Http\Controllers\Frontend\ReservationController::class, 'stepTwo'])->name('reservations.step.two');
@@ -43,6 +45,7 @@ Route::middleware(['auth', 'admin'])->name('admin.')->prefix('admin')->group(fun
     Route::resource('/reservations', \App\Http\Controllers\Admin\ReservationController::class);
     Route::resource('/reviews', \App\Http\Controllers\Admin\ReviewController::class);
     Route::resource('/news', \App\Http\Controllers\Admin\NewsController::class);
+    Route::resource('/tech-support', \App\Http\Controllers\Admin\TechSupportController::class);
 });
 
 require __DIR__.'/auth.php';

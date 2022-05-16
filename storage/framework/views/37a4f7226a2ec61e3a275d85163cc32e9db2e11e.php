@@ -87,7 +87,7 @@
         <div class="flex flex-wrap justify-center">
             <ul class="flex items-center space-x-4 text-white">
                 <li>
-                    <a href="<?php echo e(route('mainpage')); ?>" class="hover:text-green-400">Тех поддержка</a>
+                    <a href="<?php echo e(route('tech-support.index')); ?>" class="hover:text-green-400">Тех поддержка</a>
                 </li>
                 <li>
                     <a href="<?php echo e(route('reviews.index')); ?>" class="hover:text-green-400">Отзывы</a>

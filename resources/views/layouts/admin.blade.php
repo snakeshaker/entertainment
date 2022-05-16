@@ -79,6 +79,13 @@
                         </picture>
                         {{ __('Новости') }}
                     </x-admin-nav-link>
+                    <x-admin-nav-link :href="route('admin.tech-support.index')" :active="request()->routeIs('admin.tech-support.index')">
+                        <picture>
+                            <source srcset="{{ asset('assets/admin/dark/tech_support.svg') }}" media="(prefers-color-scheme: light)">
+                            <img src="{{ asset('assets/admin/tech_support.svg') }}" alt="" width="32" height="32" class="inline-block">
+                        </picture>
+                        {{ __('Заявки ТП') }}
+                    </x-admin-nav-link>
                     <x-admin-nav-link :href="route('mainpage')" :active="request()->routeIs('mainpage')">
                         <picture>
                             <source srcset="{{ asset('assets/admin/dark/home.svg') }}" media="(prefers-color-scheme: light)">

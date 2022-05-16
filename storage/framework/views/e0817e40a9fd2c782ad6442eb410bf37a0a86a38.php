@@ -22,6 +22,13 @@
     <section class="px-2 py-10 md:px-0">
         <div class="container w-full px-20 mx-auto">
             <h1 class="font-medium leading-tight text-5xl mb-2 text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-blue-500 hover:text-green-400">Отзывы</h1>
+            <div class="mt-5">
+                <?php if(session()->has('success')): ?>
+                    <div class="p-4 mb-4 text-green-700 bg-green-100 rounded-lg dark:bg-green-200 dark:text-green-800" role="alert">
+                        <span class="font-medium"><?php echo e(session()->get('success')); ?></span>
+                    </div>
+                <?php endif; ?>
+            </div>
             <?php if(\Illuminate\Support\Facades\Auth::user()): ?>
             <form class="max-w-xl" method="POST" action="<?php echo e(route('reviews.store')); ?>">
                 <?php echo csrf_field(); ?>

@@ -33,13 +33,13 @@ class CategoryController extends Controller
     public function storeReview(Request $request)
     {
         Review::create([
-            'user_id' => $request->user_id,
+            'user_id' => Auth::user()->id,
             'name' => $request->name,
             'review_text' => $request->review_text,
             'review_degree' => $request->review_degree,
             'category_id' => $request->category_id
         ]);
         $category = Category::where('id', $request->category_id)->first();
-        return to_route('categories.show', compact('category'));
+        return to_route('categories.show', compact('category'))->with('success', 'Отзыв отправлен успешно!');
     }
 }
