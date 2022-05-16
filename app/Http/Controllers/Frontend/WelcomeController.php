@@ -4,15 +4,15 @@ namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
 use App\Models\Category;
+use App\Models\News;
 use Illuminate\Http\Request;
 
 class WelcomeController extends Controller
 {
     public function index()
     {
-        $specials = Category::where('name', 'specials')->first();
-
-        return view('welcome', compact('specials'));
+        $news = News::latest()->take(3)->get();
+        return view('welcome', compact('news'));
     }
     public function thankyou()
     {

@@ -1,6 +1,6 @@
 <x-guest-layout>
     <section class="px-2 py-10 bg-white md:px-0">
-        <h2 class="text-center uppercase text-4xl xl:text-5xl text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-blue-500 hover:text-green-400">Новости</h2>
+        <h2 class="text-center uppercase text-4xl xl:text-5xl text-transparent bg-clip-text bg-gradient-to-b from-green-400 to-blue-500 hover:text-green-400">Новости</h2>
         <div class="container w-100 lg:w-4/5 mx-auto flex flex-col">
         @foreach($news as $new)
             <a href="{{ route('news.show', $new->id) }}">

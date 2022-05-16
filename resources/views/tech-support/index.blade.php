@@ -12,7 +12,7 @@
     <!-- End Main Hero Content -->
     <section class="px-2 py-10 md:px-0">
         <div class="container w-full px-20 mx-auto">
-            <h1 class="font-medium leading-tight text-5xl mb-2 text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-blue-500 hover:text-green-400">
+            <h1 class="font-medium leading-tight text-5xl mb-2 text-transparent bg-clip-text bg-gradient-to-b from-green-400 to-blue-500 hover:text-green-400">
                 Опишите вашу проблему
             </h1>
             @if(\Illuminate\Support\Facades\Auth::user())

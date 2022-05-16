@@ -23,7 +23,7 @@
     <!-- End Main Hero Content -->
     <section class="px-2 py-10 bg-white md:px-0">
         <div class="container w-full px-20 mx-auto">
-            <h1 class="font-medium leading-tight text-5xl mb-2 text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-blue-500 hover:text-green-400">Список развлечений</h1>
+            <h1 class="font-medium leading-tight text-5xl mb-2 text-transparent bg-clip-text bg-gradient-to-b from-green-400 to-blue-500 hover:text-green-400">Список развлечений</h1>
             <div class="flex flex-wrap -mx-4 px-20">
                 <?php $__currentLoopData = $categories; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $category): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                     <div class="w-full sm:w-1/2 md:w-1/2 xl:w-1/4 p-4">
