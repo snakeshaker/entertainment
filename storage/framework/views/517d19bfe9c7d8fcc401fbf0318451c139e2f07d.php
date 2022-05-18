@@ -118,6 +118,17 @@ if (isset($__messageOriginal)) { $message = $__messageOriginal; }
 endif;
 unset($__errorArgs, $__bag); ?>
                         </div>
+                        <div class="sm:col-span-6 pt-5">
+                            <label for="categories" class="block text-sm font-medium text-gray-700">Categories</label>
+                            <div class="mt-1">
+                                <select id="categories" name="categories[]" class="form-multiselect block w-full mt-1"
+                                        multiple>
+                                    <?php $__currentLoopData = $foodCategories; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $foodCategory): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                        <option value="<?php echo e($foodCategory->id); ?>"><?php echo e($foodCategory->name); ?></option>
+                                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                                </select>
+                            </div>
+                        </div>
                         <div class="mt-6 p-4">
                             <button type="submit" class="px-4 py-2 bg-indigo-500 hover:bg-indigo-700 rounded-lg text-white">
                                 Добавить

@@ -20,6 +20,9 @@
                             Название
                         </th>
                         <th scope="col" class="px-6 py-3">
+                            Категория
+                        </th>
+                        <th scope="col" class="px-6 py-3">
                             Картинка
                         </th>
                         <th scope="col" class="px-6 py-3">
@@ -38,6 +41,13 @@
                             <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
                                 <td class="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap">
                                     {{ $menu->name }}
+                                </td>
+                                <td class="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap">
+                                    @foreach($menu->food_categories as $category)
+                                        @if($loop->last) {{ $category->name }}
+                                        @else {{ $category->name }},
+                                        @endif
+                                    @endforeach
                                 </td>
                                 <td class="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap">
                                     <img src="{{ asset('assets/'.$menu->image) }}" alt="Image" class="w-16 h-16 rounded">

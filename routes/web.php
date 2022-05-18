@@ -46,6 +46,7 @@ Route::middleware(['auth', 'admin'])->name('admin.')->prefix('admin')->group(fun
     Route::resource('/reviews', \App\Http\Controllers\Admin\ReviewController::class);
     Route::resource('/news', \App\Http\Controllers\Admin\NewsController::class);
     Route::resource('/tech-support', \App\Http\Controllers\Admin\TechSupportController::class);
+    Route::resource('/food-categories', \App\Http\Controllers\Admin\FoodCategoryController::class);
 });
 
 require __DIR__.'/auth.php';

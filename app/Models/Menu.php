@@ -15,4 +15,9 @@ class Menu extends Model
       'description',
       'image'
     ];
+
+    public function food_categories()
+    {
+        return $this->belongsToMany(FoodCategory::class, 'food_category_menu');
+    }
 }

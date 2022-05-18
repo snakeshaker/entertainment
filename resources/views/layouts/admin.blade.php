@@ -42,7 +42,14 @@
                             <source srcset="{{ asset('assets/admin/dark/category.svg') }}" media="(prefers-color-scheme: light)">
                             <img src="{{ asset('assets/admin/category.svg') }}" alt="" width="32" height="32" class="inline-block">
                         </picture>
-                        {{ __('Категории') }}
+                        {{ __('Развлечения') }}
+                    </x-admin-nav-link>
+                    <x-admin-nav-link :href="route('admin.food-categories.index')" :active="request()->routeIs('admin.food-categories.index')">
+                        <picture>
+                            <source srcset="{{ asset('assets/admin/dark/food-category.svg') }}" media="(prefers-color-scheme: light)">
+                            <img src="{{ asset('assets/admin/food-category.svg') }}" alt="" width="32" height="32" class="inline-block">
+                        </picture>
+                        {{ __('Категории блюд') }}
                     </x-admin-nav-link>
                     <x-admin-nav-link :href="route('admin.menus.index')" :active="request()->routeIs('admin.menus.index')">
                         <picture>

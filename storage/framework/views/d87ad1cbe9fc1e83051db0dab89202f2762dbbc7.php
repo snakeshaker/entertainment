@@ -7,7 +7,7 @@
 <?php $attributes = $attributes->except(collect($constructor->getParameters())->map->getName()->all()); ?>
 <?php endif; ?>
 <?php $component->withAttributes([]); ?>
-     <?php $__env->slot('header', null, []); ?>
+     <?php $__env->slot('header', null, []); ?> 
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
             <?php echo e(__('Личный кабинет')); ?>
 
@@ -126,11 +126,13 @@ endif;
 unset($__errorArgs, $__bag); ?>
                         </div>
                         <div class="sm:col-span-6 pt-5">
-                            <label for="body" class="block text-sm font-medium text-gray-700">Категория</label>
+                            <label for="categories" class="block text-sm font-medium text-gray-700">Categories</label>
                             <div class="mt-1">
-                                <select multiple id="categories" name="catagories" class="form-multiselect block w-full mt-1">
-                                    <?php $__currentLoopData = $categories; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $category): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                        <option value="<?php echo e($category->id); ?>" <?php if($menu->categories->contains($category)): echo 'selected'; endif; ?>><?php echo e($category->name); ?></option>
+                                <select id="categories" name="categories[]" class="form-multiselect block w-full mt-1"
+                                        multiple>
+                                    <?php $__currentLoopData = $foodCategories; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $foodCategory): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                        <option value="<?php echo e($foodCategory->id); ?>" <?php if($menu->food_categories->contains($foodCategory)): echo 'selected'; endif; ?>>
+                                            <?php echo e($foodCategory->name); ?></option>
                                     <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                 </select>
                             </div>

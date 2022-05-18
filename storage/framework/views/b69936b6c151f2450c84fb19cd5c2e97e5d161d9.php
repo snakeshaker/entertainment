@@ -29,6 +29,9 @@
                             Название
                         </th>
                         <th scope="col" class="px-6 py-3">
+                            Категория
+                        </th>
+                        <th scope="col" class="px-6 py-3">
                             Картинка
                         </th>
                         <th scope="col" class="px-6 py-3">
@@ -48,6 +51,14 @@
                                 <td class="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap">
                                     <?php echo e($menu->name); ?>
 
+                                </td>
+                                <td class="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap">
+                                    <?php $__currentLoopData = $menu->food_categories; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $category): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                        <?php if($loop->last): ?> <?php echo e($category->name); ?>
+
+                                        <?php else: ?> <?php echo e($category->name); ?>,
+                                        <?php endif; ?>
+                                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                 </td>
                                 <td class="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap">
                                     <img src="<?php echo e(asset('assets/'.$menu->image)); ?>" alt="Image" class="w-16 h-16 rounded">
