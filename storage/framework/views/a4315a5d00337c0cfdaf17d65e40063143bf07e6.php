@@ -27,17 +27,17 @@
                class="bg-blue-400 hover:bg-green-400 text-white text-sm px-4 py-2  border rounded-full">
                 Все блюда
             </a>
-            <?php $__currentLoopData = $foodCategories; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $foodCategory): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                <?php if($foodCategory->id == $menus[0]->getRawOriginal('pivot_food_category_id')): ?>
-                    <a href="<?php echo e(route('menus.show', $foodCategory->id)); ?>" type="button"
+            <?php $__currentLoopData = $foodCategories; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $category): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                <?php if($foodCategory->id == $category->id): ?>
+                    <a href="<?php echo e(route('menus.show', $category->id)); ?>" type="button"
                        class="bg-green-400 hover:bg-green-600 text-white text-sm px-4 py-2  border rounded-full">
-                        <?php echo e($foodCategory->name); ?>
+                        <?php echo e($category->name); ?>
 
                     </a>
                 <?php else: ?>
-                    <a href="<?php echo e(route('menus.show', $foodCategory->id)); ?>" type="button"
+                    <a href="<?php echo e(route('menus.show', $category->id)); ?>" type="button"
                        class="bg-blue-400 hover:bg-green-400 text-white text-sm px-4 py-2  border rounded-full">
-                        <?php echo e($foodCategory->name); ?>
+                        <?php echo e($category->name); ?>
 
                     </a>
                 <?php endif; ?>

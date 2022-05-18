@@ -20,6 +20,6 @@ class MenuController extends Controller
     {
         $menus = $foodCategory->menus;
         $foodCategories = FoodCategory::all();
-        return view('menus.show', compact('menus', 'foodCategories'));
+        return view('menus.show', compact('foodCategory','menus', 'foodCategories'));
     }
 }

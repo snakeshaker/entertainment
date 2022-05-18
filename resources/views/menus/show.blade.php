@@ -19,16 +19,16 @@
                class="bg-blue-400 hover:bg-green-400 text-white text-sm px-4 py-2  border rounded-full">
                 Все блюда
             </a>
-            @foreach($foodCategories as $foodCategory)
-                @if($foodCategory->id == $menus[0]->getRawOriginal('pivot_food_category_id'))
-                    <a href="{{ route('menus.show', $foodCategory->id) }}" type="button"
+            @foreach($foodCategories as $category)
+                @if($foodCategory->id == $category->id)
+                    <a href="{{ route('menus.show', $category->id) }}" type="button"
                        class="bg-green-400 hover:bg-green-600 text-white text-sm px-4 py-2  border rounded-full">
-                        {{ $foodCategory->name }}
+                        {{ $category->name }}
                     </a>
                 @else
-                    <a href="{{ route('menus.show', $foodCategory->id) }}" type="button"
+                    <a href="{{ route('menus.show', $category->id) }}" type="button"
                        class="bg-blue-400 hover:bg-green-400 text-white text-sm px-4 py-2  border rounded-full">
-                        {{ $foodCategory->name }}
+                        {{ $category->name }}
                     </a>
                 @endif
             @endforeach
