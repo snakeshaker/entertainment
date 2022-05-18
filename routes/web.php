@@ -68,6 +68,7 @@ Route::middleware(['auth', 'admin'])->name('admin.')->prefix('admin')->group(fun
     Route::resource('/news', \App\Http\Controllers\Admin\NewsController::class);
     Route::resource('/tech-support', \App\Http\Controllers\Admin\TechSupportController::class);
     Route::resource('/food-categories', \App\Http\Controllers\Admin\FoodCategoryController::class);
+    Route::resource('/songs', \App\Http\Controllers\Admin\SongController::class);
 });
 
 require __DIR__.'/auth.php';
