@@ -15,7 +15,6 @@ class MenuController extends Controller
     public function index()
     {
         $menus = Menu::all();
-//        dd($menus[2]->food_categories);
         return view('admin.menus.index', compact('menus'));
     }
 
@@ -36,7 +35,6 @@ class MenuController extends Controller
             'price' => $request->price
         ]);
 
-//        dd($request);
         if ($request->has('categories')) {
             $menu->food_categories()->attach($request->categories);
         }

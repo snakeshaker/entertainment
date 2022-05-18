@@ -12,25 +12,35 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+use App\Http\Controllers\Frontend\WelcomeController;
+use App\Http\Controllers\Frontend\CategoryController;
+use App\Http\Controllers\Frontend\CartController;
+use App\Http\Controllers\Frontend\ReviewController;
+use App\Http\Controllers\Frontend\MenuController;
+use App\Http\Controllers\Frontend\ContactsController;
+use App\Http\Controllers\Frontend\NewsController;
+use App\Http\Controllers\Admin\TechSupportController;
+use App\Http\Controllers\Frontend\ReservationController;
 
-Route::get('/', [\App\Http\Controllers\Frontend\WelcomeController::class, 'index'])->name('mainpage');
-Route::get('/categories', [\App\Http\Controllers\Frontend\CategoryController::class, 'index'])->name('categories.index');
-Route::get('/categories/{category}', [\App\Http\Controllers\Frontend\CategoryController::class, 'show'])->name('categories.show');
-Route::post('/categories/store-review', [\App\Http\Controllers\Frontend\CategoryController::class, 'storeReview'])->name('categories.store.review');
-Route::get('/menus', [\App\Http\Controllers\Frontend\MenuController::class, 'index'])->name('menus.index');
-Route::get('/cart', [\App\Http\Controllers\Frontend\CartController::class, 'index'])->name('cart.index');
-Route::get('/reviews', [\App\Http\Controllers\Frontend\ReviewController::class, 'index'])->name('reviews.index');
-Route::post('/reviews/store', [\App\Http\Controllers\Frontend\ReviewController::class, 'store'])->name('reviews.store');
-Route::get('/contacts', [\App\Http\Controllers\Frontend\ContactsController::class, 'index'])->name('contacts.index');
-Route::get('/news', [\App\Http\Controllers\Frontend\NewsController::class, 'index'])->name('news.index');
-Route::get('/news/{news}', [\App\Http\Controllers\Frontend\NewsController::class, 'show'])->name('news.show');
-Route::get('/tech-support', [\App\Http\Controllers\Frontend\TechSupportController::class, 'index'])->name('tech-support.index');
-Route::post('/tech-support/store', [\App\Http\Controllers\Frontend\TechSupportController::class, 'store'])->name('tech-support.store');
-Route::get('/reservation/step-one', [\App\Http\Controllers\Frontend\ReservationController::class, 'stepOne'])->name('reservations.step.one');
-Route::post('/reservation/step-one', [\App\Http\Controllers\Frontend\ReservationController::class, 'storeStepOne'])->name('reservations.store.step.one');
-Route::get('/reservation/step-two', [\App\Http\Controllers\Frontend\ReservationController::class, 'stepTwo'])->name('reservations.step.two');
-Route::post('/reservation/step-two', [\App\Http\Controllers\Frontend\ReservationController::class, 'storeStepTwo'])->name('reservations.store.step.two');
-Route::get('/thankyou', [\App\Http\Controllers\Frontend\WelcomeController::class, 'thankyou'])->name('thankyou');
+Route::get('/', [WelcomeController::class, 'index'])->name('mainpage');
+Route::get('/thankyou', [WelcomeController::class, 'thankyou'])->name('thankyou');
+Route::get('/categories', [CategoryController::class, 'index'])->name('categories.index');
+Route::get('/categories/{category}', [CategoryController::class, 'show'])->name('categories.show');
+Route::post('/categories/store-review', [CategoryController::class, 'storeReview'])->name('categories.store.review');
+Route::get('/menus', [MenuController::class, 'index'])->name('menus.index');
+Route::get('/menus/{foodCategory}', [MenuController::class, 'show'])->name('menus.show');
+Route::get('/cart', [CartController::class, 'index'])->name('cart.index');
+Route::get('/reviews', [ReviewController::class, 'index'])->name('reviews.index');
+Route::post('/reviews/store', [ReviewController::class, 'store'])->name('reviews.store');
+Route::get('/contacts', [ContactsController::class, 'index'])->name('contacts.index');
+Route::get('/news', [NewsController::class, 'index'])->name('news.index');
+Route::get('/news/{news}', [NewsController::class, 'show'])->name('news.show');
+Route::get('/tech-support', [TechSupportController::class, 'index'])->name('tech-support.index');
+Route::post('/tech-support/store', [TechSupportController::class, 'store'])->name('tech-support.store');
+Route::get('/reservation/step-one', [ReservationController::class, 'stepOne'])->name('reservations.step.one');
+Route::post('/reservation/step-one', [ReservationController::class, 'storeStepOne'])->name('reservations.store.step.one');
+Route::get('/reservation/step-two', [ReservationController::class, 'stepTwo'])->name('reservations.step.two');
+Route::post('/reservation/step-two', [ReservationController::class, 'storeStepTwo'])->name('reservations.store.step.two');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
