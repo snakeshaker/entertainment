@@ -95,8 +95,9 @@
 
                                     </th>
                                     <td class="px-6 py-4 truncate max-w-[200px]">
-                                        <?php echo e($song->video_link); ?>
-
+                                        <a href="<?php echo e($song->video_link); ?>" target="_blank">
+                                            <img src="<?php echo e(asset('assets/youtube.svg')); ?>" alt="" width="32">
+                                        </a>
                                     </td>
                                 </tr>
                             <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>

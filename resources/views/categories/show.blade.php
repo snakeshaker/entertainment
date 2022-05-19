@@ -83,7 +83,9 @@
                                         {{ $song->genre }}
                                     </th>
                                     <td class="px-6 py-4 truncate max-w-[200px]">
-                                        {{ $song->video_link }}
+                                        <a href="{{ $song->video_link }}" target="_blank">
+                                            <img src="{{ asset('assets/youtube.svg') }}" alt="" width="32">
+                                        </a>
                                     </td>
                                 </tr>
                             @endforeach
