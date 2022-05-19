@@ -2,11 +2,14 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Exports\CategoriesExport;
+use App\Exports\NewsExport;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\CategoryStoreRequest;
 use App\Models\Category;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use Maatwebsite\Excel\Facades\Excel;
 
 class CategoryController extends Controller
 {
@@ -75,5 +78,10 @@ class CategoryController extends Controller
         $category->delete();
 
         return to_route('admin.categories.index')->with('danger', 'Категория удалена успешно!');
+    }
+
+    public function show()
+    {
+        return Excel::download(new CategoriesExport, 'Список развлечений.xlsx');
     }
 }

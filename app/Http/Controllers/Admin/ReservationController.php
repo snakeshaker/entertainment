@@ -2,12 +2,15 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Exports\ReservationsExport;
+use App\Exports\ReviewsExport;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\ReservationStoreRequest;
 use App\Models\Reservation;
 use App\Models\Table;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Maatwebsite\Excel\Facades\Excel;
 
 class ReservationController extends Controller
 {
@@ -83,5 +86,10 @@ class ReservationController extends Controller
         $reservation->delete();
 
         return to_route('admin.reservations.index')->with('danger', 'Бронирование удалено успешно!');
+    }
+
+    public function show()
+    {
+        return Excel::download(new ReservationsExport, 'Бронирования.xlsx');
     }
 }

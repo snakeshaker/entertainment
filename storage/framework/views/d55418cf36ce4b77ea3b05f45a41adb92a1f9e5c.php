@@ -17,6 +17,9 @@
     <div class="py-12 bk-page">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="flex justify-end m-2 p-2">
+                <a href="<?php echo e(route('admin.categories.export')); ?>" class="px-4 py-2 bg-indigo-500 hover:bg-indigo-700 rounded-lg text-white mr-2">
+                    Скачать excel таблицу
+                </a>
                 <a href="<?php echo e(route('admin.categories.create')); ?>" class="px-4 py-2 bg-indigo-500 hover:bg-indigo-700 rounded-lg text-white">
                     Создать категорию
                 </a>

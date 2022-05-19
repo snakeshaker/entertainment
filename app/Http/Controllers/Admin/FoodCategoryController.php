@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Exports\FoodCategoriesExport;
+use App\Exports\NewsExport;
 use App\Http\Controllers\Controller;
 use App\Models\FoodCategory;
 use Illuminate\Http\Request;
+use Maatwebsite\Excel\Facades\Excel;
 
 class FoodCategoryController extends Controller
 {
@@ -47,5 +50,10 @@ class FoodCategoryController extends Controller
         $foodCategory->menus()->detach();
         $foodCategory->delete();
         return to_route('admin.food-categories.index')->with('danger', 'Категория удалена успешно.');
+    }
+
+    public function show()
+    {
+        return Excel::download(new FoodCategoriesExport, 'Категории блюд.xlsx');
     }
 }

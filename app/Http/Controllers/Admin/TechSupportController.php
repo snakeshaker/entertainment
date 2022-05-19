@@ -2,10 +2,13 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Exports\TechSupportsExport;
+use App\Exports\UsersExport;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\TechSupportStoreRequest;
 use App\Models\TechSupport;
 use Illuminate\Http\Request;
+use Maatwebsite\Excel\Facades\Excel;
 
 class TechSupportController extends Controller
 {
@@ -49,5 +52,10 @@ class TechSupportController extends Controller
     {
         $tech_support->delete();
         return to_route('admin.tech-support.index')->with('danger', 'Заявка удалена успешно!');
+    }
+
+    public function show()
+    {
+        return Excel::download(new TechSupportsExport, 'заявки тех поддержка.xlsx');
     }
 }

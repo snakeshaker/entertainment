@@ -2,12 +2,15 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Exports\ReviewsExport;
+use App\Exports\SongsExport;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\ReviewStoreRequest;
 use App\Models\Category;
 use App\Models\Review;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Maatwebsite\Excel\Facades\Excel;
 
 class ReviewController extends Controller
 {
@@ -69,5 +72,10 @@ class ReviewController extends Controller
     {
         $review->delete();
         return to_route('admin.reviews.index')->with('danger', 'Отзыв удален успешно!');
+    }
+
+    public function show()
+    {
+        return Excel::download(new ReviewsExport, 'Отзывы.xlsx');
     }
 }

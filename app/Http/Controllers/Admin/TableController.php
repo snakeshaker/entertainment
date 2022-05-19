@@ -2,11 +2,14 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Exports\TablesExport;
+use App\Exports\TechSupportsExport;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\TableStoreRequest;
 use App\Models\Category;
 use App\Models\Table;
 use Illuminate\Http\Request;
+use Maatwebsite\Excel\Facades\Excel;
 
 class TableController extends Controller
 {
@@ -63,5 +66,10 @@ class TableController extends Controller
         $table->reservations()->delete();
 
         return to_route('admin.tables.index')->with('danger', 'Стол удален успешно!');
+    }
+
+    public function show()
+    {
+        return Excel::download(new TablesExport, 'Места для бронирования.xlsx');
     }
 }

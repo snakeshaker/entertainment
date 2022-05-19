@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Exports\UsersExport;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\UserStoreRequest;
 use App\Models\User;
@@ -9,6 +10,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
+use Maatwebsite\Excel\Facades\Excel;
 
 class UserController extends Controller
 {
@@ -64,5 +66,10 @@ class UserController extends Controller
     {
         $user->delete();
         return to_route('admin.users.index')->with('danger', 'Пользователь удален успешно!');
+    }
+
+    public function show()
+    {
+        return Excel::download(new UsersExport, 'пользователи.xlsx');
     }
 }

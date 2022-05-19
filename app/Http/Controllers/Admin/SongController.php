@@ -2,10 +2,13 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Exports\SongsExport;
+use App\Exports\TablesExport;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\SongStoreRequest;
 use App\Models\Song;
 use Illuminate\Http\Request;
+use Maatwebsite\Excel\Facades\Excel;
 
 class SongController extends Controller
 {
@@ -60,5 +63,10 @@ class SongController extends Controller
     {
         $song->delete();
         return to_route('admin.songs.index')->with('danger', 'Песня удалена успешно!');
+    }
+
+    public function show()
+    {
+        return Excel::download(new SongsExport, 'Список песен.xlsx');
     }
 }

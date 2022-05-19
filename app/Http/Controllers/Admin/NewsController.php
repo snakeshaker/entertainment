@@ -2,11 +2,14 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Exports\NewsExport;
+use App\Exports\ReservationsExport;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\NewsStoreRequest;
 use App\Models\News;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use Maatwebsite\Excel\Facades\Excel;
 
 class NewsController extends Controller
 {
@@ -66,5 +69,10 @@ class NewsController extends Controller
         $news->delete();
 
         return to_route('admin.news.index')->with('danger', 'Новость удалена успешно!');
+    }
+
+    public function show()
+    {
+        return Excel::download(new NewsExport, 'Новости.xlsx');
     }
 }

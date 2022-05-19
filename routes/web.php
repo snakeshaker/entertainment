@@ -59,6 +59,7 @@ Route::get('/dashboard', function () {
 //ADMIN
 Route::middleware(['auth', 'admin'])->name('admin.')->prefix('admin')->group(function (){
     Route::get('/',[\App\Http\Controllers\Admin\AdminController::class, 'index'])->name('index');
+    //CRUDS
     Route::resource('/users', \App\Http\Controllers\Admin\UserController::class);
     Route::resource('/categories', \App\Http\Controllers\Admin\CategoryController::class);
     Route::resource('/menus', \App\Http\Controllers\Admin\MenuController::class);
@@ -69,6 +70,17 @@ Route::middleware(['auth', 'admin'])->name('admin.')->prefix('admin')->group(fun
     Route::resource('/tech-support', \App\Http\Controllers\Admin\TechSupportController::class);
     Route::resource('/food-categories', \App\Http\Controllers\Admin\FoodCategoryController::class);
     Route::resource('/songs', \App\Http\Controllers\Admin\SongController::class);
+    //EXPORT EXCEL
+    Route::get('users/export/', [\App\Http\Controllers\Admin\UserController::class, 'show'])->name('users.export');
+    Route::get('categories/export/', [\App\Http\Controllers\Admin\CategoryController::class, 'show'])->name('categories.export');
+    Route::get('menus/export/', [\App\Http\Controllers\Admin\MenuController::class, 'show'])->name('menus.export');
+    Route::get('tables/export/', [\App\Http\Controllers\Admin\TableController::class, 'show'])->name('tables.export');
+    Route::get('reservations/export/', [\App\Http\Controllers\Admin\ReservationController::class, 'show'])->name('reservations.export');
+    Route::get('reviews/export/', [\App\Http\Controllers\Admin\ReviewController::class, 'show'])->name('reviews.export');
+    Route::get('news/export/', [\App\Http\Controllers\Admin\NewsController::class, 'show'])->name('news.export');
+    Route::get('tech-support/export/', [\App\Http\Controllers\Admin\TechSupportController::class, 'show'])->name('tech-support.export');
+    Route::get('food-categories/export/', [\App\Http\Controllers\Admin\FoodCategoryController::class, 'show'])->name('food-categories.export');
+    Route::get('songs/export/', [\App\Http\Controllers\Admin\SongController::class, 'show'])->name('songs.export');
 });
 
 require __DIR__.'/auth.php';

@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Exports\MenusExport;
+use App\Exports\ReservationsExport;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\MenuStoreRequest;
 use App\Models\Category;
@@ -9,6 +11,7 @@ use App\Models\FoodCategory;
 use App\Models\Menu;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use Maatwebsite\Excel\Facades\Excel;
 
 class MenuController extends Controller
 {
@@ -82,5 +85,10 @@ class MenuController extends Controller
 
         return to_route('admin.menus.index')->with('danger', 'Блюдо удалено успешно!');
 
+    }
+
+    public function show()
+    {
+        return Excel::download(new MenusExport, 'Список блюд.xlsx');
     }
 }
