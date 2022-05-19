@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Frontend;
 use App\Http\Controllers\Controller;
 use App\Models\Category;
 use App\Models\Review;
+use App\Models\Song;
 use App\Models\Table;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -22,12 +23,13 @@ class CategoryController extends Controller
     {
         $tables = Table::where('location', 'like', $category->name)->get();
         $reviews = Review::where('category_id', 'like', $category->id)->orderBy('created_at', 'desc')->paginate(3);
+        $songs = Song::all();
         $degrees = [
             'Отрицательный',
             'Нейтральный',
             'Положительный',
         ];
-        return view('categories.show', compact('category', 'tables', 'reviews', 'degrees'));
+        return view('categories.show', compact('category', 'tables', 'reviews', 'degrees', 'songs'));
     }
 
     public function storeReview(Request $request)
