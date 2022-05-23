@@ -7,7 +7,7 @@
 <?php $attributes = $attributes->except(collect($constructor->getParameters())->map->getName()->all()); ?>
 <?php endif; ?>
 <?php $component->withAttributes([]); ?>
-     <?php $__env->slot('header', null, []); ?>
+     <?php $__env->slot('header', null, []); ?> 
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
             <?php echo e(__('Личный кабинет')); ?>
 
@@ -17,19 +17,28 @@
     <div class="py-12 bk-page">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="flex justify-end m-2 p-2">
+                <a href="<?php echo e(route('admin.menus.export')); ?>" class="px-4 py-2 bg-indigo-500 hover:bg-indigo-700 rounded-lg text-white mr-2">
+                    Скачать excel таблицу
+                </a>
                 <a href="<?php echo e(route('admin.menus.create')); ?>" class="px-4 py-2 bg-indigo-500 hover:bg-indigo-700 rounded-lg text-white">
                     Создать блюдо
                 </a>
             </div>
             <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
-                <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400 bk-table">
+                <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400 bk-table admin-table">
                     <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                     <tr>
                         <th scope="col" class="px-6 py-3">
                             Название
                         </th>
                         <th scope="col" class="px-6 py-3">
+                            Категория
+                        </th>
+                        <th scope="col" class="px-6 py-3">
                             Картинка
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                            Описание
                         </th>
                         <th scope="col" class="px-6 py-3">
                             Цена
@@ -47,7 +56,19 @@
 
                                 </td>
                                 <td class="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap">
+                                    <?php $__currentLoopData = $menu->food_categories; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $category): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                        <?php if($loop->last): ?> <?php echo e($category->name); ?>
+
+                                        <?php else: ?> <?php echo e($category->name); ?>,
+                                        <?php endif; ?>
+                                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                                </td>
+                                <td class="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap">
                                     <img src="<?php echo e(asset('assets/'.$menu->image)); ?>" alt="Image" class="w-16 h-16 rounded">
+                                </td>
+                                <td class="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap max-w-xl truncate">
+                                    <?php echo e($menu->description); ?>
+
                                 </td>
                                 <td class="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap">
                                     <?php echo e($menu->price); ?>
@@ -59,6 +80,7 @@
                                             Изменить
                                         </a>
                                         <form class="px-4 py-2 bg-red-500 hover:bg-red-700 rounded-lg text-white"
+                                              id="destroy_entry"
                                               method="POST"
                                               action="<?php echo e(route('admin.menus.destroy', $menu->id)); ?>"
                                               >

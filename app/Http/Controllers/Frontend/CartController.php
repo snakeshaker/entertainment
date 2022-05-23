@@ -13,7 +13,9 @@ class CartController extends Controller
 {
     public function index()
     {
-        echo 'Корзина в разработке';
+        $cart = Cart::all();
+        $menus = Menu::all();
+        return view('cart.index', compact('cart', 'menus'));
     }
 
     public function add(Request $request)
@@ -38,5 +40,17 @@ class CartController extends Controller
         } else {
             return response()->json(['status' => 'login']);
         }
+    }
+
+    public function destroy(Cart $cart)
+    {
+        $cart->delete();
+        return to_route('cart.index');
+    }
+
+    public function create()
+    {
+        Cart::truncate();
+        return to_route('cart.index');
     }
 }

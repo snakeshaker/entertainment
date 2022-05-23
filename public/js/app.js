@@ -5203,6 +5203,31 @@ $(document).ready(function () {
       }
     });
   });
+  $('.delete-all').click(function (e) {
+    e.preventDefault();
+    Swal.fire({
+      title: 'Вы уверены?',
+      text: "Все данные будут утеряны!",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      cancelButtonText: 'Отмена',
+      confirmButtonText: 'Да, удалить!'
+    }).then(function (result) {
+      if (result.isConfirmed) {
+        Swal.fire('Удалено!', 'Запись успешно удалена.', 'success').then(function () {
+          window.location.href = "cart/create";
+        });
+      }
+    });
+  });
+  $(".cart-body").on('change', 'input.menu_qty', function () {
+    var menu_price = $(this).closest(".cart-item").find('.menu_init_price').val();
+    $(this).closest(".cart-item").find('.menu_price').html(menu_price * $(this).val());
+    console.log(menu_price);
+    console.log($(this).closest(".cart-item").find('.menu_price'));
+  });
 });
 
 /***/ }),

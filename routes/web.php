@@ -33,6 +33,10 @@ Route::get('/menus', [MenuController::class, 'index'])->name('menus.index');
 Route::get('/menus/{foodCategory}', [MenuController::class, 'show'])->name('menus.show');
 //CART
 Route::get('/cart', [CartController::class, 'index'])->name('cart.index');
+Route::middleware(['auth'])->group(function (){
+    Route::post('add-to-cart', [CartController::class, 'add']);
+});
+Route::resource('/cart', CartController::class);
 //REVIEWS
 Route::get('/reviews', [ReviewController::class, 'index'])->name('reviews.index');
 Route::post('/reviews/store', [ReviewController::class, 'store'])->name('reviews.store');
@@ -55,10 +59,6 @@ Route::get('/thankyou', [WelcomeController::class, 'thankyou'])->name('thankyou'
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
-
-Route::middleware(['auth'])->group(function (){
-    Route::post('add-to-cart', [CartController::class, 'add']);
-});
 
 //ADMIN
 Route::middleware(['auth', 'admin'])->name('admin.')->prefix('admin')->group(function (){
