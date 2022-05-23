@@ -36,8 +36,9 @@
             <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
             <div class="flex flex-wrap -mx-4 px-20">
                 <?php $__currentLoopData = $menus; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $menu): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                    <div class="w-full sm:w-1/2 md:w-1/2 xl:w-1/4 p-4">
+                    <div class="w-full sm:w-1/2 md:w-1/2 xl:w-1/4 p-4 menu_data">
                         <div class="c-card block bg-white shadow-md hover:shadow-xl rounded-lg overflow-hidden">
+                            <input type="hidden" value="<?php echo e($menu->id); ?>" class="menu_id">
                             <div class="relative pb-48 overflow-hidden">
                                 <img class="absolute inset-0 h-full w-full object-cover" src="<?php echo e(asset('assets/'.$menu->image)); ?>" alt="Image">
                             </div>
@@ -55,7 +56,7 @@
                                         <span class="font-bold text-xl"><?php echo e($menu->price); ?></span>&nbsp;
                                         <span class="text-sm font-semibold">₽</span>
                                     </div>
-                                    <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full">+</button>
+                                    <button class="add-to-cart bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full">+</button>
                                 </div>
                             </div>
                         </div>

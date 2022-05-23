@@ -56,6 +56,10 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
 
+Route::middleware(['auth'])->group(function (){
+    Route::post('add-to-cart', [CartController::class, 'add']);
+});
+
 //ADMIN
 Route::middleware(['auth', 'admin'])->name('admin.')->prefix('admin')->group(function (){
     Route::get('/',[\App\Http\Controllers\Admin\AdminController::class, 'index'])->name('index');

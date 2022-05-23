@@ -16,7 +16,7 @@
                 </a>
             </div>
             <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
-                <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400 bk-table">
+                <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400 bk-table admin-table">
                     <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                     <tr>
                         <th scope="col" class="px-6 py-3">
@@ -74,9 +74,10 @@
                                             Изменить
                                         </a>
                                         <form class="px-4 py-2 bg-red-500 hover:bg-red-700 rounded-lg text-white"
+                                              id="destroy_entry"
                                               method="POST"
                                               action="{{ route('admin.users.destroy', $user->id) }}"
-                                              onsubmit="return confirm('Вы уверены?')">
+                                              >
                                             @csrf
                                             @method("DELETE")
                                             <button type="submit">Удалить</button>

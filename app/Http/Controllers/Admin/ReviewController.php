@@ -35,7 +35,7 @@ class ReviewController extends Controller
     public function store(ReviewStoreRequest $request)
     {
         Review::create([
-            'user_id' => $request->user_id,
+            'user_id' => 1,
             'category_id' => $request->category_id ,
             'name' =>  $request->name,
             'review_text' =>  $request->review_text,

@@ -9,6 +9,7 @@ window._ = require('lodash');
 try {
     window.$ = window.jQuery = require("jquery");
     window.dt = require("datatables.net");
+    window.Swal = require('sweetalert2');
 
 } catch (e) {}
 

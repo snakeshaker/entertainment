@@ -89,9 +89,10 @@
                                             Изменить
                                         </a>
                                         <form class="px-4 py-2 bg-red-500 hover:bg-red-700 rounded-lg text-white"
+                                              id="destroy_entry"
                                               method="POST"
                                               action="<?php echo e(route('admin.users.destroy', $user->id)); ?>"
-                                              onsubmit="return confirm('Вы уверены?')">
+                                              >
                                             <?php echo csrf_field(); ?>
                                             <?php echo method_field("DELETE"); ?>
                                             <button type="submit">Удалить</button>
