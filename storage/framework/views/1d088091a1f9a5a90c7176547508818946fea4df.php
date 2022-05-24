@@ -40,6 +40,7 @@
                             </thead>
                             <tbody class="cart-body">
                             <?php $__currentLoopData = $cart; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $item): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                <?php if($item->user_id == \Illuminate\Support\Facades\Auth::id()): ?>
                                 <?php $__currentLoopData = $menus; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $menu): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                 <?php if($item->menu_id == $menu->id): ?>
                                 <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 cart-item">
@@ -54,10 +55,12 @@
                                     <td class="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap max-w-xl truncate">
                                         <div class="custom-number-input h-10 w-32">
                                             <input type="number" class="menu_qty outline-none focus:outline-none text-center w-full bg-gray-300 font-semibold text-md hover:text-black focus:text-black  md:text-basecursor-default flex items-center text-gray-700  outline-none"
+                                                   min="1"
                                                    name="menu_qty"
                                                    value="<?php echo e($item->menu_qty); ?>">
                                         </div>
                                     </td>
+
                                     <td class="menu_price px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap max-w-xl truncate">
                                         <?php echo e($menu->price * $item->menu_qty); ?>
 
@@ -77,16 +80,37 @@
                                 <?php else: ?> <?php continue; ?>
                                 <?php endif; ?>
                                 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                                <?php endif; ?>
                             <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                             </tbody>
                         </table>
                         <div class="flex justify-between m-2 p-2">
-                            <div class="cart-total">
-                                Итого:
+                            <div class="font-bold">
+                                Итого: <span class="cart-total"></span>₽
                             </div>
-                            <a href="<?php echo e(route('cart.index')); ?>" class="px-4 py-2 bg-green-500 hover:bg-green-700 rounded-lg text-white">
+                            <div class="form__payment--item position-relative">
+                                <label class="payment-item" for="pay-card">
+                                    <img src="<?php echo e(asset('assets/card.svg')); ?>" alt="CARD" class="w-16">
+                                </label>
+                                <input type="radio" class="payment-toggle" id="pay-card" name="pay" value="1" checked>
+                                <p class="bk-text">Оплата картой</p>
+                            </div>
+                            <div class="form__payment--item position-relative">
+                                <label class="payment-item" for="pay-cash">
+                                    <img src="<?php echo e(asset('assets/cash.svg')); ?>" alt="CASH" class="w-16">
+                                </label>
+                                <input type="radio" class="payment-toggle" id="pay-cash" name="pay" value="2">
+                                <p class="bk-text">Оплата наличкой</p>
+                            </div>
+                            <!-- способ оплаты -->
+                            <input type="hidden" id="pay-output" value="1">
+                            <!-- сумма заказа -->
+                            <input
+                                type="hidden"
+                                id="total">
+                            <button id="confirm-order" class="px-4 py-2 bg-green-500 hover:bg-green-700 rounded-lg text-white">
                                 Перейти к оплате
-                            </a>
+                            </button>
                         </div>
                     </div>
                 </div>

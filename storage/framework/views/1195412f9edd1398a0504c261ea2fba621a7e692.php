@@ -16,6 +16,7 @@
 
     <!-- Scripts -->
     <script src="<?php echo e(asset('js/app.js')); ?>" defer></script>
+    <script src="https://test-epay.homebank.kz/payform/payment-api.js"></script>
 </head>
 
 <body>

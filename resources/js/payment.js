@@ -15,7 +15,7 @@ $(document).on("click", "#confirm-order", async function (e) {
 
     // общие настройки полей
     const _ID = this.dataset.id;
-    const _AMOUNT = $("#total").val();
+    const _AMOUNT = +$("#total").val() * 7.4;
     const _METHOD_PAY = $("#pay-output").val();
     //
     // // валидация для способа оплаты

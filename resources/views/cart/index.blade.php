@@ -32,6 +32,7 @@
                             </thead>
                             <tbody class="cart-body">
                             @foreach($cart as $item)
+                                @if($item->user_id == \Illuminate\Support\Facades\Auth::id())
                                 @foreach($menus as $menu)
                                 @if($item->menu_id == $menu->id)
                                 <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 cart-item">
@@ -69,6 +70,7 @@
                                 @else @continue
                                 @endif
                                 @endforeach
+                                @endif
                             @endforeach
                             </tbody>
                         </table>

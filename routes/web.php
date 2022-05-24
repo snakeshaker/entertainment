@@ -34,10 +34,6 @@ Route::get('/menus', [MenuController::class, 'index'])->name('menus.index');
 Route::get('/menus/{foodCategory}', [MenuController::class, 'show'])->name('menus.show');
 //CART
 Route::get('/cart', [CartController::class, 'index'])->name('cart.index');
-Route::middleware(['auth'])->group(function (){
-    Route::post('add-to-cart', [CartController::class, 'add']);
-});
-Route::resource('/cart', CartController::class);
 //REVIEWS
 Route::get('/reviews', [ReviewController::class, 'index'])->name('reviews.index');
 Route::post('/reviews/store', [ReviewController::class, 'store'])->name('reviews.store');
@@ -59,7 +55,10 @@ Route::get('/thankyou', [WelcomeController::class, 'thankyou'])->name('thankyou'
 //CABINET
 Route::middleware(['auth'])->group(function (){
     Route::get('/dashboard', [WelcomeController::class, 'dashboard'])->name('dashboard');
+    Route::post('add-to-cart', [CartController::class, 'add']);
+    Route::resource('/cart', CartController::class);
     Route::delete('/dashboard/delete', [WelcomeController::class, 'deleteUser'])->name('dashboard.deleteUser');
+    Route::post('/token', [PaymentController::class, 'getTokenForPayment']);
 });
 
 //ADMIN
@@ -88,8 +87,5 @@ Route::middleware(['auth', 'admin'])->name('admin.')->prefix('admin')->group(fun
     Route::get('food-categories/export/', [\App\Http\Controllers\Admin\FoodCategoryController::class, 'show'])->name('food-categories.export');
     Route::get('songs/export/', [\App\Http\Controllers\Admin\SongController::class, 'show'])->name('songs.export');
 });
-
-// получение токена для проведения оплаты
-Route::post('/token', [PaymentController::class, 'getTokenForPayment']);
 
 require __DIR__.'/auth.php';

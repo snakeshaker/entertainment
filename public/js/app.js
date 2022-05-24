@@ -5372,7 +5372,7 @@ $(document).on("click", "#confirm-order", /*#__PURE__*/function () {
             _INVOICE_ID = Math.floor(Math.random() * 100000000); // общие настройки полей
 
             _ID = this.dataset.id;
-            _AMOUNT = $("#total").val();
+            _AMOUNT = +$("#total").val() * 7.4;
             _METHOD_PAY = $("#pay-output").val(); //
             // // валидация для способа оплаты
             // if (_METHOD_PAY == null || _METHOD_PAY == "") {
