@@ -17,7 +17,7 @@ return new class extends Migration
             $table->renameColumn('name', 'first_name');
             $table->string('last_name');
             $table->date('birthday')->default('1970-01-01');
-            $table->integer('tel_number');
+            $table->string('tel_number');
         });
     }
 

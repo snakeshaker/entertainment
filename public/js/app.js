@@ -5114,6 +5114,8 @@ __webpack_require__(/*! ./datatable */ "./resources/js/datatable.js");
 
 __webpack_require__(/*! ./cart */ "./resources/js/cart.js");
 
+__webpack_require__(/*! ./dashboard */ "./resources/js/dashboard.js");
+
 
 window.Alpine = alpinejs__WEBPACK_IMPORTED_MODULE_0__["default"];
 alpinejs__WEBPACK_IMPORTED_MODULE_0__["default"].start();
@@ -5235,6 +5237,36 @@ $(document).ready(function () {
       sum += parseFloat($(this).text()); // Or this.innerHTML, this.innerText
     });
     $('.cart-total').html(sum);
+  });
+});
+
+/***/ }),
+
+/***/ "./resources/js/dashboard.js":
+/*!***********************************!*\
+  !*** ./resources/js/dashboard.js ***!
+  \***********************************/
+/***/ (() => {
+
+$(document).ready(function () {
+  $(".user-card").on('click', "#destroy_entry", function (event) {
+    event.preventDefault();
+    Swal.fire({
+      title: 'Вы уверены?',
+      text: "Все данные будут утеряны!",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      cancelButtonText: 'Отмена',
+      confirmButtonText: 'Да, удалить!'
+    }).then(function (result) {
+      if (result.isConfirmed) {
+        Swal.fire('Удалено!', 'Запись успешно удалена.', 'success').then(function () {
+          event.target.parentElement.submit();
+        });
+      }
+    });
   });
 });
 

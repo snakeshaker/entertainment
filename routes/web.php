@@ -56,9 +56,10 @@ Route::post('/reservation/step-two', [ReservationController::class, 'storeStepTw
 Route::get('/thankyou', [WelcomeController::class, 'thankyou'])->name('thankyou');
 
 //CABINET
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth'])->name('dashboard');
+Route::middleware(['auth'])->group(function (){
+    Route::get('/dashboard', [WelcomeController::class, 'dashboard'])->name('dashboard');
+    Route::delete('/dashboard/delete', [WelcomeController::class, 'deleteUser'])->name('dashboard.deleteUser');
+});
 
 //ADMIN
 Route::middleware(['auth', 'admin'])->name('admin.')->prefix('admin')->group(function (){

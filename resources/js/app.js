@@ -2,6 +2,7 @@ require('./bootstrap');
 require('./admin');
 require('./datatable');
 require('./cart');
+require('./dashboard');
 
 import Alpine from 'alpinejs';
 
