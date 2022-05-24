@@ -21,6 +21,7 @@ use App\Http\Controllers\Frontend\ContactsController;
 use App\Http\Controllers\Frontend\NewsController;
 use App\Http\Controllers\Admin\TechSupportController;
 use App\Http\Controllers\Frontend\ReservationController;
+use App\Http\Controllers\Frontend\PaymentController;
 
 //MAIN PAGE
 Route::get('/', [WelcomeController::class, 'index'])->name('mainpage');
@@ -87,5 +88,8 @@ Route::middleware(['auth', 'admin'])->name('admin.')->prefix('admin')->group(fun
     Route::get('food-categories/export/', [\App\Http\Controllers\Admin\FoodCategoryController::class, 'show'])->name('food-categories.export');
     Route::get('songs/export/', [\App\Http\Controllers\Admin\SongController::class, 'show'])->name('songs.export');
 });
+
+// получение токена для проведения оплаты
+Route::post('/token', [PaymentController::class, 'getTokenForPayment']);
 
 require __DIR__.'/auth.php';

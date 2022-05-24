@@ -74,7 +74,7 @@ $(document).ready(function (){
         init += parseFloat($(this).text());  // Or this.innerHTML, this.innerText
     });
     $('.cart-total').html(init);
-
+    $('#total').val(init);
     $(".cart-body").on('change', 'input.menu_qty', function () {
         let menu_price = $(this).closest(".cart-item").find('.menu_init_price').val();
         $(this).closest(".cart-item").find('.menu_price').html(menu_price * $(this).val());
@@ -84,5 +84,6 @@ $(document).ready(function (){
             sum += parseFloat($(this).text());  // Or this.innerHTML, this.innerText
         });
         $('.cart-total').html(sum);
+        $('#total').val(sum);
     });
 });
