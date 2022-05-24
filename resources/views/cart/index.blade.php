@@ -45,6 +45,7 @@
                                     <td class="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap max-w-xl truncate">
                                         <div class="custom-number-input h-10 w-32">
                                             <input type="number" class="menu_qty outline-none focus:outline-none text-center w-full bg-gray-300 font-semibold text-md hover:text-black focus:text-black  md:text-basecursor-default flex items-center text-gray-700  outline-none"
+                                                   min="1"
                                                    name="menu_qty"
                                                    value="{{ $item->menu_qty }}">
                                         </div>
