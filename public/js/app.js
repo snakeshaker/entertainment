@@ -5222,11 +5222,19 @@ $(document).ready(function () {
       }
     });
   });
+  var init = 0;
+  $('.menu_price').each(function () {
+    init += parseFloat($(this).text()); // Or this.innerHTML, this.innerText
+  });
+  $('.cart-total').html(init);
   $(".cart-body").on('change', 'input.menu_qty', function () {
     var menu_price = $(this).closest(".cart-item").find('.menu_init_price').val();
     $(this).closest(".cart-item").find('.menu_price').html(menu_price * $(this).val());
-    console.log(menu_price);
-    console.log($(this).closest(".cart-item").find('.menu_price'));
+    var sum = 0;
+    $('.menu_price').each(function () {
+      sum += parseFloat($(this).text()); // Or this.innerHTML, this.innerText
+    });
+    $('.cart-total').html(sum);
   });
 });
 
