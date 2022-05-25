@@ -59,6 +59,9 @@ Route::middleware(['auth'])->group(function (){
     Route::resource('/cart', CartController::class);
     Route::delete('/dashboard/delete', [WelcomeController::class, 'deleteUser'])->name('dashboard.deleteUser');
     Route::post('/token', [PaymentController::class, 'getTokenForPayment']);
+    Route::get('/success', [PaymentController::class, 'success']);
+    Route::get('/failure', [PaymentController::class, 'failure']);
+    Route::post('/create-order', [CartController::class, 'createOrder']);
 });
 
 //ADMIN
@@ -75,6 +78,7 @@ Route::middleware(['auth', 'admin'])->name('admin.')->prefix('admin')->group(fun
     Route::resource('/tech-support', \App\Http\Controllers\Admin\TechSupportController::class);
     Route::resource('/food-categories', \App\Http\Controllers\Admin\FoodCategoryController::class);
     Route::resource('/songs', \App\Http\Controllers\Admin\SongController::class);
+    Route::resource('/orders', \App\Http\Controllers\Admin\OrderController::class);
     //EXPORT EXCEL
     Route::get('users/export/', [\App\Http\Controllers\Admin\UserController::class, 'show'])->name('users.export');
     Route::get('categories/export/', [\App\Http\Controllers\Admin\CategoryController::class, 'show'])->name('categories.export');
@@ -86,6 +90,7 @@ Route::middleware(['auth', 'admin'])->name('admin.')->prefix('admin')->group(fun
     Route::get('tech-support/export/', [\App\Http\Controllers\Admin\TechSupportController::class, 'show'])->name('tech-support.export');
     Route::get('food-categories/export/', [\App\Http\Controllers\Admin\FoodCategoryController::class, 'show'])->name('food-categories.export');
     Route::get('songs/export/', [\App\Http\Controllers\Admin\SongController::class, 'show'])->name('songs.export');
+    Route::get('orders/export/', [\App\Http\Controllers\Admin\OrderController::class, 'show'])->name('orders.export');
 });
 
 require __DIR__.'/auth.php';

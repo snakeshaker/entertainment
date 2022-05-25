@@ -5351,85 +5351,84 @@ function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try
 
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 
-// способ оплаты
 $(document).on("change", ".payment-toggle", function (e) {
   $("#pay-output").val(this.value);
-}); // стилизация выбранного способа оплаты
-
-$(".payment-item").on("click", function (e) {
-  $(".form__payment--item").removeClass("active-pay");
-  $(this.parentNode).addClass("active-pay");
-}); // оформление заказа
-
+});
 $(document).on("click", "#confirm-order", /*#__PURE__*/function () {
   var _ref = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee(e) {
-    var _INVOICE_ID, _ID, _AMOUNT, _METHOD_PAY, auth;
+    var _INVOICE_ID, _AMOUNT, _METHOD_PAY, order, auth;
 
     return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_context) {
       while (1) {
         switch (_context.prev = _context.next) {
           case 0:
-            _INVOICE_ID = Math.floor(Math.random() * 100000000); // общие настройки полей
-
-            _ID = this.dataset.id;
+            _INVOICE_ID = Math.floor(Math.random() * 100000000);
             _AMOUNT = +$("#total").val() * 7.4;
-            _METHOD_PAY = $("#pay-output").val(); //
-            // // валидация для способа оплаты
-            // if (_METHOD_PAY == null || _METHOD_PAY == "") {
-            //     alert("Необходимо выбрать способ оплаты");
-            //     return;
-            // }
-            // создаем заказ в БД
-            // let response = (
-            //     await axios.post(`/carts/${_ID}`, {
-            //         code: _INVOICE_ID,
-            //         pay: _METHOD_PAY,
-            //         amount: _AMOUNT,
-            //         status: 1,
-            //         check: 0,
-            //     })
-            // ).data;
-            // если оплата онлайн картой
+            _METHOD_PAY = $("#pay-output").val();
 
-            if (!(_METHOD_PAY == 1)) {
-              _context.next = 9;
+            if (!(_METHOD_PAY == null || _METHOD_PAY == "")) {
+              _context.next = 6;
               break;
             }
 
-            _context.next = 7;
+            Swal.fire({
+              icon: 'error',
+              title: 'Ошибка',
+              text: 'Выберите способ оплаты!'
+            });
+            return _context.abrupt("return");
+
+          case 6:
+            _context.next = 8;
+            return axios.post("/create-order", {
+              code: _INVOICE_ID,
+              pay: _METHOD_PAY,
+              amount: _AMOUNT,
+              check: 0
+            });
+
+          case 8:
+            order = _context.sent;
+
+            if (!(_METHOD_PAY == 1)) {
+              _context.next = 14;
+              break;
+            }
+
+            _context.next = 12;
             return axios.post("/token", {
               order: _INVOICE_ID,
               amount: _AMOUNT
             });
 
-          case 7:
+          case 12:
             auth = _context.sent;
             halyk.pay(createPaymentObject(auth.data, _INVOICE_ID, _AMOUNT));
 
-          case 9:
-            console.log(_METHOD_PAY); // если оплата наличкой
-
+          case 14:
             if (_METHOD_PAY == 2) {
-              window.location.href = window.location.origin + "/payment/" + _INVOICE_ID;
+              Swal.fire('Успешно!', 'Администратор свяжется с вами в ближайшее время!', 'success').then(function () {
+                window.location.href = "/dashboard/";
+              });
             }
 
-          case 11:
+          case 15:
           case "end":
             return _context.stop();
         }
       }
-    }, _callee, this);
+    }, _callee);
   }));
 
   return function (_x) {
     return _ref.apply(this, arguments);
   };
-}()); // параметры для метода halyk.pay()
+}());
 
 var createPaymentObject = function createPaymentObject(auth, invoiceId, amount) {
   var paymentObject = {
     invoiceId: invoiceId,
-    backLink: window.location.origin + "/payment/" + invoiceId,
+    backLink: window.location.origin + "/success",
     failureBackLink: window.location.origin,
     postLink: window.location.origin + "/success",
     failurePostLink: window.location.origin + "/failure",

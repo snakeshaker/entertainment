@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Frontend;
 use App\Http\Controllers\Controller;
 use App\Models\Cart;
 use App\Models\Menu;
+use App\Models\Order;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -52,5 +53,16 @@ class CartController extends Controller
     {
         Cart::truncate();
         return to_route('cart.index');
+    }
+
+    public function createOrder(Request $request)
+    {
+        Order::create([
+            'user_id' => Auth::id(),
+            'code' => $request->code,
+            'pay' => $request->pay,
+            'total' => $request->amount / 7.4,
+            'check' => $request->check,
+        ]);
     }
 }

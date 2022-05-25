@@ -1,63 +1,54 @@
-// способ оплаты
 $(document).on("change", ".payment-toggle", function (e) {
     $("#pay-output").val(this.value);
 });
 
-// стилизация выбранного способа оплаты
-$(".payment-item").on("click", function (e) {
-    $(".form__payment--item").removeClass("active-pay");
-    $(this.parentNode).addClass("active-pay");
-});
-
-// оформление заказа
 $(document).on("click", "#confirm-order", async function (e) {
     const _INVOICE_ID = Math.floor(Math.random() * 100000000);
 
-    // общие настройки полей
-    const _ID = this.dataset.id;
     const _AMOUNT = +$("#total").val() * 7.4;
     const _METHOD_PAY = $("#pay-output").val();
-    //
-    // // валидация для способа оплаты
-    // if (_METHOD_PAY == null || _METHOD_PAY == "") {
-    //     alert("Необходимо выбрать способ оплаты");
-    //     return;
-    // }
 
-    // создаем заказ в БД
-    // let response = (
-    //     await axios.post(`/carts/${_ID}`, {
-    //         code: _INVOICE_ID,
-    //         pay: _METHOD_PAY,
-    //         amount: _AMOUNT,
-    //         status: 1,
-    //         check: 0,
-    //     })
-    // ).data;
+    if (_METHOD_PAY == null || _METHOD_PAY == "") {
+        Swal.fire({
+            icon: 'error',
+            title: 'Ошибка',
+            text: 'Выберите способ оплаты!'
+        })
+        return;
+    }
 
-    // если оплата онлайн картой
+    let order = await axios.post("/create-order", {
+        code: _INVOICE_ID,
+        pay: _METHOD_PAY,
+        amount: _AMOUNT,
+        check: 0,
+    });
+
     if (_METHOD_PAY == 1) {
         var auth = await axios.post("/token", {
             order: _INVOICE_ID,
-            amount: _AMOUNT,
+            amount: _AMOUNT
         });
         halyk.pay(
             createPaymentObject(auth.data, _INVOICE_ID, _AMOUNT)
         );
     }
-    console.log(_METHOD_PAY);
 
-    // если оплата наличкой
     if (_METHOD_PAY == 2) {
-        window.location.href = window.location.origin + "/payment/" + _INVOICE_ID;
+        Swal.fire(
+            'Успешно!',
+            'Администратор свяжется с вами в ближайшее время!',
+            'success'
+        ).then(function (){
+            window.location.href = "/dashboard/";
+        })
     }
 });
 
-// параметры для метода halyk.pay()
 var createPaymentObject = function (auth, invoiceId, amount) {
     var paymentObject = {
         invoiceId: invoiceId,
-        backLink: window.location.origin + "/payment/" + invoiceId,
+        backLink: window.location.origin + "/success",
         failureBackLink: window.location.origin,
         postLink: window.location.origin + "/success",
         failurePostLink: window.location.origin + "/failure",

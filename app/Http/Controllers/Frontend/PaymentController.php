@@ -3,7 +3,9 @@
 namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
+use App\Models\Order;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Http;
 
 class PaymentController extends Controller
@@ -11,7 +13,6 @@ class PaymentController extends Controller
     private $terminalID   = '67e34d63-102f-4bd1-898e-370781d0074d';
     private $clientID     = 'test';
     private $clientSecret = 'yF587AV9Ms94qN2QShFzVR3vFnWkhjbAK3sG';
-    private $url          = 'https://testoauth.homebank.kz/epay2/oauth2/token';
 
     public function getTokenForPayment(Request $request)
     {
@@ -31,4 +32,20 @@ class PaymentController extends Controller
         return json_decode($response);
     }
 
+    public function success()
+    {
+        $order = Order::where('user_id', Auth::id())->latest('created_at')->first();
+
+        $order->update([
+            'check' => 1
+        ]);
+
+        $user = Auth::user();
+        return view('dashboard', compact('user'));
+    }
+
+    public function failure()
+    {
+        return view('dashboard');
+    }
 }
