@@ -28,9 +28,6 @@ class DashboardController extends Controller
     {
         $reservation = Reservation::where('id', $id)->first();
         $reservation->delete();
-        $user = Auth::user();
-        $reservations = Reservation::where('user_id', Auth::id())->get();
-        $orders = Order::where('user_id', Auth::id())->get();
         return to_route('dashboard.index');
     }
 }
