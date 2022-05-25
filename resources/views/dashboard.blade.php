@@ -120,6 +120,101 @@
                 </div>
             </div>
             <h1 class="font-medium leading-tight text-5xl mb-2 text-transparent bg-clip-text bg-gradient-to-b from-green-400 to-blue-500 hover:text-green-400 mt-5">История бронирований</h1>
+            <div class="bk-page">
+                <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+                    <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
+                        <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400 bk-table">
+                            <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                            <tr>
+                                <th scope="col" class="px-6 py-3">
+                                    Дата бронирования
+                                </th>
+                                <th scope="col" class="px-6 py-3">
+                                    Стол
+                                </th>
+                                <th scope="col" class="px-6 py-3">
+                                    Кол-во гостей
+                                </th>
+                                <th scope="col" class="px-6 py-3">
+                                    <span>отменить</span>
+                                </th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            @foreach($reservations as $reservation)
+                                <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                                    <td class="px-6 py-4">
+                                        {{ $reservation->res_date }}
+                                    </td>
+                                    <td class="px-6 py-4">
+                                        {{ $reservation->table->name }}
+                                    </td>
+                                    <td class="px-6 py-4">
+                                        {{ $reservation->guest_number }}
+                                    </td>
+                                    <td class="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap">
+                                            <form class="px-4 py-2 bg-red-500 hover:bg-red-700 rounded-lg text-white"
+                                                  id="destroy_entry"
+                                                  method="POST"
+                                                  action="{{ route('dashboard.destroy', $reservation->id) }}"
+                                            >
+                                                @csrf
+                                                @method("DELETE")
+                                                <button type="submit">Отменить</button>
+                                            </form>
+                                    </td>
+                                </tr>
+                            @endforeach
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <h1 class="font-medium leading-tight text-5xl mb-2 text-transparent bg-clip-text bg-gradient-to-b from-green-400 to-blue-500 hover:text-green-400 mt-5">История заказов блюд</h1>
+                <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+                    <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
+                        <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400 bk-table admin-table">
+                            <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                            <tr>
+                                <th scope="col" class="px-6 py-3">
+                                    Код оплаты
+                                </th>
+                                <th scope="col" class="px-6 py-3">
+                                    Оплата
+                                </th>
+                                <th scope="col" class="px-6 py-3">
+                                    Сумма
+                                </th>
+                                <th scope="col" class="px-6 py-3">
+                                    Статус
+                                </th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            @foreach($orders as $order)
+                                <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                                    <td class="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap">
+                                        №{{ $order->code }}
+                                    </td>
+                                    <td class="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap">
+                                        @if($order->pay == 1) Картой
+                                        @else Наличными
+                                        @endif
+                                    </td>
+                                    <td class="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap">
+                                        ₽{{ $order->total }}
+                                    </td>
+                                    <td class="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap">
+                                        @if($order->check == 1) Оплачено
+                                        @else Не оплачено
+                                        @endif
+                                    </td>
+                                </tr>
+                            @endforeach
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 </x-guest-layout>

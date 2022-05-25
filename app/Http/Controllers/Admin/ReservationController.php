@@ -40,7 +40,7 @@ class ReservationController extends Controller
                 return back()->with('warning', 'Данный стол уже забронирован на эту дату и время');
             }
         }
-        Reservation::create($request->validated());
+        Reservation::create($request->all());
 
         return to_route('admin.reservations.index')->with('success', 'Бронирование выполнено успешно!');
     }
@@ -69,6 +69,7 @@ class ReservationController extends Controller
             }
         }
         $reservation->update([
+            'user_id' => 1,
             'first_name' => $request->first_name,
             'last_name' => $request->last_name,
             'email' => $request->email,

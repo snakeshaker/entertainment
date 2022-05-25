@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
 use App\Models\Order;
+use App\Models\Reservation;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Http;
@@ -41,7 +42,9 @@ class PaymentController extends Controller
         ]);
 
         $user = Auth::user();
-        return view('dashboard', compact('user'));
+        $reservations = Reservation::where('user_id', Auth::id())->get();
+        $orders = Order::where('user_id', Auth::id())->get();
+        return view('dashboard', compact('user', 'reservations', 'orders'));
     }
 
     public function failure()

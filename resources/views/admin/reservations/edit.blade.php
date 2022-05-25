@@ -17,6 +17,7 @@
                     <form method="POST" action="{{ route('admin.reservations.update', $reservation->id) }}">
                         @csrf
                         @method('PUT')
+                        <input type="number" id="user_id" name="user_id" value="1" class="hidden">
                         <div class="sm:col-span-6">
                             <label for="first_name" class="block text-sm font-medium text-gray-700">Имя</label>
                             <div class="mt-1">

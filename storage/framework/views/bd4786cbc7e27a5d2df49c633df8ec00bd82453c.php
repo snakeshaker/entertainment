@@ -76,7 +76,7 @@
 <?php $attributes = $attributes->except(collect($constructor->getParameters())->map->getName()->all()); ?>
 <?php endif; ?>
 <?php $component->withAttributes(['align' => 'right','width' => '48']); ?>
-                     <?php $__env->slot('trigger', null, []); ?> 
+                     <?php $__env->slot('trigger', null, []); ?>
                         <button
                             class="flex items-center text-sm font-medium text-gray-500 hover:text-gray-700 hover:border-gray-300 focus:outline-none focus:text-gray-700 focus:border-gray-300 transition duration-150 ease-in-out">
                             <div><?php echo e(Auth::user()->first_name); ?></div>
@@ -92,7 +92,7 @@
                         </button>
                      <?php $__env->endSlot(); ?>
 
-                     <?php $__env->slot('content', null, []); ?> 
+                     <?php $__env->slot('content', null, []); ?>
                         <!-- Authentication -->
                         <form method="POST" action="<?php echo e(route('logout')); ?>">
                             <?php echo csrf_field(); ?>

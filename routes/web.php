@@ -22,6 +22,7 @@ use App\Http\Controllers\Frontend\NewsController;
 use App\Http\Controllers\Admin\TechSupportController;
 use App\Http\Controllers\Frontend\ReservationController;
 use App\Http\Controllers\Frontend\PaymentController;
+use App\Http\Controllers\Frontend\DashboardController;
 
 //MAIN PAGE
 Route::get('/', [WelcomeController::class, 'index'])->name('mainpage');
@@ -54,7 +55,7 @@ Route::get('/thankyou', [WelcomeController::class, 'thankyou'])->name('thankyou'
 
 //CABINET
 Route::middleware(['auth'])->group(function (){
-    Route::get('/dashboard', [WelcomeController::class, 'dashboard'])->name('dashboard');
+    Route::resource('/dashboard', DashboardController::class);
     Route::post('add-to-cart', [CartController::class, 'add']);
     Route::resource('/cart', CartController::class);
     Route::delete('/dashboard/delete', [WelcomeController::class, 'deleteUser'])->name('dashboard.deleteUser');
