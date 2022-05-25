@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Frontend\TechSupportController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -19,7 +20,6 @@ use App\Http\Controllers\Frontend\ReviewController;
 use App\Http\Controllers\Frontend\MenuController;
 use App\Http\Controllers\Frontend\ContactsController;
 use App\Http\Controllers\Frontend\NewsController;
-use App\Http\Controllers\Admin\TechSupportController;
 use App\Http\Controllers\Frontend\ReservationController;
 use App\Http\Controllers\Frontend\PaymentController;
 use App\Http\Controllers\Frontend\DashboardController;
