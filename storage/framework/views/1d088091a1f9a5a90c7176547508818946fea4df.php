@@ -88,23 +88,21 @@
                             <div class="font-bold">
                                 Итого: <span class="cart-total"></span>₽
                             </div>
-                            <div class="form__payment--item position-relative">
+                            <div class="flex items-center gap-1">
                                 <label class="payment-item" for="pay-card">
-                                    <img src="<?php echo e(asset('assets/card.svg')); ?>" alt="CARD" class="w-16">
+                                    <img src="<?php echo e(asset('assets/card.svg')); ?>" alt="CARD" class="w-10">
                                 </label>
-                                <input type="radio" class="payment-toggle" id="pay-card" name="pay" value="1" checked>
-                                <p class="bk-text">Оплата картой</p>
+                                <input type="radio" class="payment-toggle" id="pay-card" name="pay" value="1">
+                                <p>Оплата картой</p>
                             </div>
-                            <div class="form__payment--item position-relative">
+                            <div class="flex items-center gap-1">
                                 <label class="payment-item" for="pay-cash">
-                                    <img src="<?php echo e(asset('assets/cash.svg')); ?>" alt="CASH" class="w-16">
+                                    <img src="<?php echo e(asset('assets/cash.svg')); ?>" alt="CASH" class="w-10">
                                 </label>
                                 <input type="radio" class="payment-toggle" id="pay-cash" name="pay" value="2">
-                                <p class="bk-text">Оплата наличкой</p>
+                                <p>Оплата наличкой</p>
                             </div>
-                            <!-- способ оплаты -->
-                            <input type="hidden" id="pay-output" value="1">
-                            <!-- сумма заказа -->
+                            <input type="hidden" id="pay-output">
                             <input
                                 type="hidden"
                                 id="total">

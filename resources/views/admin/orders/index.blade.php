@@ -33,7 +33,6 @@
                         </th><th scope="col" class="px-6 py-3">
                             <span>Удалить</span>
                         </th>
-
                     </tr>
                     </thead>
                     <tbody>
@@ -53,9 +52,18 @@
                                 <td class="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap">
                                     ₽{{ $order->total }}
                                 </td>
-                                <td class="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap">
+                                <td class="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap text-center">
                                     @if($order->check == 1) Оплачено
                                     @else Не оплачено
+                                    <form class="px-4 py-2 bg-green-500 hover:bg-green-700 rounded-lg text-white"
+                                          method="POST"
+                                          id="payment_update"
+                                          action="{{ route('admin.orders.update', $order->id) }}"
+                                    >
+                                        @csrf
+                                        @method("PUT")
+                                        <button type="submit" class="w-full">Оплачено</button>
+                                    </form>
                                     @endif
                                 </td>
                                 <td class="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap">
