@@ -36,10 +36,11 @@ class PaymentController extends Controller
     public function success()
     {
         $order = Order::where('user_id', Auth::id())->latest('created_at')->first();
-
-        $order->update([
-            'check' => 1
-        ]);
+        if($order) {
+            $order->update([
+                'check' => 1
+            ]);
+        }
 
         $user = Auth::user();
         $reservations = Reservation::where('user_id', Auth::id())->get();
