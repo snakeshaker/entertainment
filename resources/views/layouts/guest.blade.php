@@ -25,6 +25,7 @@
         <div class="flex items-center justify-between">
             <a class="text-xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-blue-500 md:text-2xl hover:text-green-400"
                href="/">
+                <img src="{{ asset('/assets/logo.svg') }}" alt="Logo" width="50px" class="inline-block">
                 Развлекательный центр
             </a>
             <!-- Mobile menu button -->
