@@ -10,6 +10,7 @@ try {
     window.$ = window.jQuery = require("jquery");
     window.dt = require("datatables.net");
     window.Swal = require('sweetalert2');
+    window.AirDatepicker = require('air-datepicker');
 
 } catch (e) {}
 

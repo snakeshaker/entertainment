@@ -3,13 +3,11 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Exports\ReservationsExport;
-use App\Exports\ReviewsExport;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\ReservationStoreRequest;
 use App\Models\Reservation;
 use App\Models\Table;
 use Carbon\Carbon;
-use Illuminate\Http\Request;
 use Maatwebsite\Excel\Facades\Excel;
 
 class ReservationController extends Controller
@@ -23,9 +21,7 @@ class ReservationController extends Controller
     public function create()
     {
         $tables = Table::where('status', 'like', '%Свободен%')->get();
-        $min_date = Carbon::today();
-        $max_date = Carbon::now()->addWeek();
-        return view('admin.reservations.create', compact('tables', 'min_date', 'max_date'));
+        return view('admin.reservations.create', compact('tables'));
     }
 
     public function store(ReservationStoreRequest $request)

@@ -2,12 +2,9 @@
 
 namespace App\Http\Controllers\Frontend;
 
-use App\Enums\TableStatus;
 use App\Http\Controllers\Controller;
 use App\Models\Reservation;
 use App\Models\Table;
-use App\Rules\DateBetween;
-use App\Rules\TimeBetween;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 
@@ -27,7 +24,7 @@ class ReservationController extends Controller
             'first_name' => ['required'],
             'last_name' => ['required'],
             'email' => ['required', 'email'],
-            'res_date' => ['required', 'date', new DateBetween, new TimeBetween],
+            'res_date' => ['required'],
             'tel_number' => ['required'],
             'guest_number' => ['required'],
         ]);

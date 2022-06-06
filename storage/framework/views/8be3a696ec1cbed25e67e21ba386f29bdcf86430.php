@@ -121,17 +121,14 @@ unset($__errorArgs, $__bag); ?>
                         <div class="sm:col-span-6">
                             <label for="res_date" class="block text-sm font-medium text-gray-700">Дата бронирования</label>
                             <div class="mt-1">
-                                <input type="datetime-local" id="res_date" name="res_date"
-                                       min="<?php echo e($min_date->format('Y-m-d\TH:i:s')); ?>"
-                                       max="<?php echo e($max_date->format('Y-m-d\TH:i:s')); ?>"
-                                       class="<?php $__errorArgs = ['res_date'];
+                                <input autocomplete="off" name="res_date" id="res_date" placeholder="Выберите дату" class="<?php $__errorArgs = ['res_date'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
 if ($__bag->has($__errorArgs[0])) :
 if (isset($message)) { $__messageOriginal = $message; }
 $message = $__bag->first($__errorArgs[0]); ?> border-red-400 <?php unset($message);
 if (isset($__messageOriginal)) { $message = $__messageOriginal; }
 endif;
-unset($__errorArgs, $__bag); ?> block w-full transition duration-150 ease-in-out appearance-none bg-white border border-gray-400 rounded-md py-2 px-3 text-base leading-normal transition duration-150 ease-in-out sm:text-sm sm:leading-5" />
+unset($__errorArgs, $__bag); ?> airdatepicker block w-full transition duration-150 ease-in-out appearance-none bg-white border border-gray-400 rounded-md py-2 px-3 text-base leading-normal transition duration-150 ease-in-out sm:text-sm sm:leading-5"/>
                             </div>
                             <span class="text-xs">Пожалуйста выберите время с 15:00 до 00:00.</span>
                             <?php $__errorArgs = ['res_date'];
@@ -170,7 +167,7 @@ endif;
 unset($__errorArgs, $__bag); ?>
                         </div>
                         <div class="sm:col-span-6 pt-5">
-                            <label for="table_id" class="block text-sm font-medium text-gray-700">Стол</label>
+                            <label for="table_id" class="block text-sm font-medium text-gray-700">Место</label>
                             <div class="mt-1">
                                 <select id="table_id" name="table_id" class="<?php $__errorArgs = ['table_id'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
