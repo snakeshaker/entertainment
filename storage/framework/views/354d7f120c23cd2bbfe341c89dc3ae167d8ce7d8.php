@@ -7,7 +7,7 @@
 <?php $attributes = $attributes->except(collect($constructor->getParameters())->map->getName()->all()); ?>
 <?php endif; ?>
 <?php $component->withAttributes([]); ?>
-     <?php $__env->slot('header', null, []); ?> 
+     <?php $__env->slot('header', null, []); ?>
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
             <?php echo e(__('Личный кабинет')); ?>
 
@@ -38,7 +38,7 @@
                             Дата бронирования
                         </th>
                         <th scope="col" class="px-6 py-3">
-                            Стол
+                            Место
                         </th>
                         <th scope="col" class="px-6 py-3">
                             Кол-во гостей

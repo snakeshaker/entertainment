@@ -39,7 +39,7 @@ class TableController extends Controller
             'location' => $request->location,
         ]);
 
-        return to_route('admin.tables.index')->with('success', 'Стол создан успешно!');
+        return to_route('admin.tables.index')->with('success', 'Место создано успешно!');
     }
 
     public function edit(Table $table)
@@ -57,7 +57,7 @@ class TableController extends Controller
     {
         $table->update($request->validated());
 
-        return to_route('admin.tables.index')->with('success', 'Стол обновлен успешно!');
+        return to_route('admin.tables.index')->with('success', 'Место обновлено успешно!');
     }
 
     public function destroy(Table $table)
@@ -65,7 +65,7 @@ class TableController extends Controller
         $table->delete();
         $table->reservations()->delete();
 
-        return to_route('admin.tables.index')->with('danger', 'Стол удален успешно!');
+        return to_route('admin.tables.index')->with('danger', 'Место удалено успешно!');
     }
 
     public function show()

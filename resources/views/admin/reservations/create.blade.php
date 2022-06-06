@@ -77,7 +77,7 @@
                             @enderror
                         </div>
                         <div class="sm:col-span-6 pt-5">
-                            <label for="table_id" class="block text-sm font-medium text-gray-700">Стол</label>
+                            <label for="table_id" class="block text-sm font-medium text-gray-700">Место</label>
                             <div class="mt-1">
                                 <select id="table_id" name="table_id" class="@error('table_id') border-red-400 @enderror form-multiselect block w-full mt-1">
                                     @foreach($tables as $table)

@@ -32,12 +32,12 @@ class ReservationController extends Controller
     {
         $table = Table::findOrFail($request->table_id);
         if($request->guest_number > $table->guest_number){
-            return back()->with('warning', 'Кол-во гостей превышает максимально допустимое для данного стола');
+            return back()->with('warning', 'Кол-во гостей превышает максимально допустимое для данного места');
         }
         $request_date = Carbon::parse($request->res_date);
         foreach ($table->reservations as $res) {
             if($res->res_date->format('Y-m-d\TH:i:s') == $request_date->format('Y-m-d\TH:i:s')){
-                return back()->with('warning', 'Данный стол уже забронирован на эту дату и время');
+                return back()->with('warning', 'Данное место уже забронирован на эту дату и время');
             }
         }
         Reservation::create($request->all());
@@ -58,13 +58,13 @@ class ReservationController extends Controller
     {
         $table = Table::findOrFail($request->table_id);
         if($request->guest_number > $table->guest_number){
-            return back()->with('warning', 'Кол-во гостей превышает максимально допустимое для данного стола');
+            return back()->with('warning', 'Кол-во гостей превышает максимально допустимое для данного места');
         }
         $request_date = Carbon::parse($request->res_date);
         foreach ($table->reservations as $res) {
             if($res->id != $reservation->id) {
                 if($res->res_date->format('Y-m-d\TH:i:s') == $request_date->format('Y-m-d\TH:i:s')){
-                    return back()->with('warning', 'Данный стол уже забронирован на эту дату и время');
+                    return back()->with('warning', 'Данное место уже забронировано на эту дату и время');
                 }
             }
         }

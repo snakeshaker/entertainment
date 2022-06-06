@@ -673,11 +673,11 @@ select {
 .-m-4 {
   margin: -1rem;
 }
-.m-auto {
-  margin: auto;
-}
 .m-0 {
   margin: 0px;
+}
+.m-auto {
+  margin: auto;
 }
 .mx-auto {
   margin-left: auto;
@@ -691,6 +691,10 @@ select {
   margin-left: -0.75rem;
   margin-right: -0.75rem;
 }
+.mx-5 {
+  margin-left: 1.25rem;
+  margin-right: 1.25rem;
+}
 .mx-2 {
   margin-left: 0.5rem;
   margin-right: 0.5rem;
@@ -698,10 +702,6 @@ select {
 .my-2 {
   margin-top: 0.5rem;
   margin-bottom: 0.5rem;
-}
-.mx-5 {
-  margin-left: 1.25rem;
-  margin-right: 1.25rem;
 }
 .ml-3 {
   margin-left: 0.75rem;
@@ -832,11 +832,11 @@ select {
 .h-auto {
   height: auto;
 }
-.h-20 {
-  height: 5rem;
-}
 .h-4 {
   height: 1rem;
+}
+.h-20 {
+  height: 5rem;
 }
 .h-64 {
   height: 16rem;
@@ -880,11 +880,11 @@ select {
 .w-20 {
   width: 5rem;
 }
-.w-48 {
-  width: 12rem;
-}
 .w-4 {
   width: 1rem;
+}
+.w-48 {
+  width: 12rem;
 }
 .w-\[calc\(100\%-256px\)\] {
   width: calc(100% - 256px);
@@ -1406,6 +1406,10 @@ select {
   padding-left: 2.5rem;
   padding-right: 2.5rem;
 }
+.py-1\.5 {
+  padding-top: 0.375rem;
+  padding-bottom: 0.375rem;
+}
 .py-6 {
   padding-top: 1.5rem;
   padding-bottom: 1.5rem;
@@ -1413,10 +1417,6 @@ select {
 .px-1 {
   padding-left: 0.25rem;
   padding-right: 0.25rem;
-}
-.py-1\.5 {
-  padding-top: 0.375rem;
-  padding-bottom: 0.375rem;
 }
 .pb-48 {
   padding-bottom: 12rem;
@@ -2001,6 +2001,10 @@ table.dataTable thead .sorting_desc_disabled {
   --tw-border-opacity: 1;
   border-color: rgb(99 102 241 / var(--tw-border-opacity));
 }
+.focus\:border-blue-600:focus {
+  --tw-border-opacity: 1;
+  border-color: rgb(37 99 235 / var(--tw-border-opacity));
+}
 .focus\:border-indigo-300:focus {
   --tw-border-opacity: 1;
   border-color: rgb(165 180 252 / var(--tw-border-opacity));
@@ -2013,9 +2017,9 @@ table.dataTable thead .sorting_desc_disabled {
   --tw-border-opacity: 1;
   border-color: rgb(67 56 202 / var(--tw-border-opacity));
 }
-.focus\:border-blue-600:focus {
-  --tw-border-opacity: 1;
-  border-color: rgb(37 99 235 / var(--tw-border-opacity));
+.focus\:bg-white:focus {
+  --tw-bg-opacity: 1;
+  background-color: rgb(255 255 255 / var(--tw-bg-opacity));
 }
 .focus\:bg-gray-200:focus {
   --tw-bg-opacity: 1;
@@ -2033,10 +2037,6 @@ table.dataTable thead .sorting_desc_disabled {
   --tw-bg-opacity: 1;
   background-color: rgb(249 250 251 / var(--tw-bg-opacity));
 }
-.focus\:bg-white:focus {
-  --tw-bg-opacity: 1;
-  background-color: rgb(255 255 255 / var(--tw-bg-opacity));
-}
 .focus\:text-gray-400:focus {
   --tw-text-opacity: 1;
   color: rgb(156 163 175 / var(--tw-text-opacity));
@@ -2045,13 +2045,13 @@ table.dataTable thead .sorting_desc_disabled {
   --tw-text-opacity: 1;
   color: rgb(0 0 0 / var(--tw-text-opacity));
 }
-.focus\:text-gray-900:focus {
-  --tw-text-opacity: 1;
-  color: rgb(17 24 39 / var(--tw-text-opacity));
-}
 .focus\:text-gray-700:focus {
   --tw-text-opacity: 1;
   color: rgb(55 65 81 / var(--tw-text-opacity));
+}
+.focus\:text-gray-900:focus {
+  --tw-text-opacity: 1;
+  color: rgb(17 24 39 / var(--tw-text-opacity));
 }
 .focus\:text-gray-500:focus {
   --tw-text-opacity: 1;
@@ -2570,10 +2570,6 @@ table.dataTable thead .sorting_desc_disabled {
 
   .xl\:w-1\/3 {
     width: 33.333333%;
-  }
-
-  .xl\:w-96 {
-    width: 24rem;
   }
 
   .xl\:px-5 {

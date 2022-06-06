@@ -97,7 +97,7 @@
                             <form
                                 id="destroy_entry"
                                 method="POST"
-                                action="{{ route('dashboard.deleteUser') }}"
+                                action="{{ route('cabinet.destroy', $user->id) }}"
                             >
                                 @csrf
                                 @method("DELETE")
@@ -120,7 +120,7 @@
                 </div>
             </div>
             <h1 class="font-medium leading-tight text-5xl mb-2 text-transparent bg-clip-text bg-gradient-to-b from-green-400 to-blue-500 hover:text-green-400 mt-5">История бронирований</h1>
-            <div class="bk-page">
+            <div class="bk-page res-card">
                 <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
                     <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
                         <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400 bk-table">
@@ -130,7 +130,7 @@
                                     Дата бронирования
                                 </th>
                                 <th scope="col" class="px-6 py-3">
-                                    Стол
+                                    Место
                                 </th>
                                 <th scope="col" class="px-6 py-3">
                                     Кол-во гостей

@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\Frontend\TechSupportController;
+
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -23,6 +23,8 @@ use App\Http\Controllers\Frontend\NewsController;
 use App\Http\Controllers\Frontend\ReservationController;
 use App\Http\Controllers\Frontend\PaymentController;
 use App\Http\Controllers\Frontend\DashboardController;
+use App\Http\Controllers\Frontend\TechSupportController;
+use App\Http\Controllers\Frontend\UserController;
 
 //MAIN PAGE
 Route::get('/', [WelcomeController::class, 'index'])->name('mainpage');
@@ -58,7 +60,8 @@ Route::middleware(['auth'])->group(function (){
     Route::resource('/dashboard', DashboardController::class);
     Route::post('add-to-cart', [CartController::class, 'add']);
     Route::resource('/cart', CartController::class);
-    Route::delete('/dashboard/delete', [WelcomeController::class, 'deleteUser'])->name('dashboard.deleteUser');
+    Route::delete('/dashboard/{user}', [DashboardController::class, 'deleteUser'])->name('dashboard.deleteUser');
+    Route::resource('/cabinet', UserController::class);
     Route::post('/token', [PaymentController::class, 'getTokenForPayment']);
     Route::get('/success', [PaymentController::class, 'success']);
     Route::get('/failure', [PaymentController::class, 'failure']);

@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Frontend;
 use App\Http\Controllers\Controller;
 use App\Models\Order;
 use App\Models\Reservation;
+use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 
 class DashboardController extends Controller
@@ -17,17 +18,12 @@ class DashboardController extends Controller
         return view('dashboard', compact('user', 'reservations', 'orders'));
     }
 
-    public function deleteUser()
-    {
-        $user = Auth::user();
-        $user->delete();
-        return to_route('mainpage');
-    }
-
     public function destroy($id)
     {
         $reservation = Reservation::where('id', $id)->first();
-        $reservation->delete();
+        if($reservation) {
+            $reservation->delete();
+        }
         return to_route('dashboard.index');
     }
 }

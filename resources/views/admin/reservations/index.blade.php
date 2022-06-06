@@ -29,7 +29,7 @@
                             Дата бронирования
                         </th>
                         <th scope="col" class="px-6 py-3">
-                            Стол
+                            Место
                         </th>
                         <th scope="col" class="px-6 py-3">
                             Кол-во гостей
