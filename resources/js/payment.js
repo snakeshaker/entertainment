@@ -17,6 +17,15 @@ $(document).on("click", "#confirm-order", async function (e) {
         return;
     }
 
+    if (_AMOUNT == 0) {
+        Swal.fire({
+            icon: 'error',
+            title: 'Ошибка',
+            text: 'Корзина пуста!'
+        })
+        return;
+    }
+
     let order = await axios.post("/create-order", {
         code: _INVOICE_ID,
         pay: _METHOD_PAY,
@@ -35,6 +44,25 @@ $(document).on("click", "#confirm-order", async function (e) {
     }
 
     if (_METHOD_PAY == 2) {
+        var auth = await axios.post("/token", {
+            order: _INVOICE_ID,
+            amount: _AMOUNT / 2
+        });
+        halyk.pay(
+            createPaymentObject(auth.data, _INVOICE_ID, _AMOUNT / 2)
+        );
+    }
+
+    if (_METHOD_PAY == 3) {
+        let text = $('#dostavka-info').val();
+        if(!text) {
+            Swal.fire({
+                icon: 'error',
+                title: 'Ошибка',
+                text: 'Примечание обязательно для заполнения!'
+            })
+            return;
+        }
         Swal.fire(
             'Успешно!',
             'Администратор свяжется с вами в ближайшее время!',

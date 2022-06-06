@@ -29,6 +29,9 @@
                             ID пользователя
                         </th>
                         <th scope="col" class="px-6 py-3">
+                            Время заказа
+                        </th>
+                        <th scope="col" class="px-6 py-3">
                             Код оплаты
                         </th>
                         <th scope="col" class="px-6 py-3">
@@ -52,20 +55,40 @@
 
                                 </td>
                                 <td class="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap">
+                                    <?php echo e($order->created_at); ?>
+
+                                </td>
+                                <td class="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap">
                                     №<?php echo e($order->code); ?>
 
                                 </td>
                                 <td class="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap">
                                     <?php if($order->pay == 1): ?> Картой
-                                    <?php else: ?> Наличными
+                                    <?php elseif($order->pay == 3): ?> Доставка
+                                    <?php else: ?> Предоплата 50%
                                     <?php endif; ?>
                                 </td>
                                 <td class="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap">
-                                    ₽<?php echo e($order->total); ?>
+                                    <?php if($order->pay == 1): ?> ₽<?php echo e($order->total); ?>
 
+                                    <?php elseif($order->pay == 3): ?> ₽<?php echo e($order->total); ?>
+
+                                    <?php else: ?> ₽<?php echo e($order->total/2); ?>/₽<?php echo e($order->total); ?>
+
+                                    <?php endif; ?>
                                 </td>
                                 <td class="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap text-center">
-                                    <?php if($order->check == 1): ?> Оплачено
+                                    <?php if($order->check == 1 && $order->pay == 1): ?> Оплачено
+                                    <?php elseif($order->check == 1 && $order->pay == 2): ?> Частично оплачено
+                                    <form class="px-4 py-2 bg-green-500 hover:bg-green-700 rounded-lg text-white"
+                                          method="POST"
+                                          id="payment_update"
+                                          action="<?php echo e(route('admin.orders.update', $order->id)); ?>"
+                                    >
+                                        <?php echo csrf_field(); ?>
+                                        <?php echo method_field("PUT"); ?>
+                                        <button type="submit" class="w-full">Оплачено</button>
+                                    </form>
                                     <?php else: ?> Не оплачено
                                     <form class="px-4 py-2 bg-green-500 hover:bg-green-700 rounded-lg text-white"
                                           method="POST"

@@ -20,6 +20,9 @@
                             ID пользователя
                         </th>
                         <th scope="col" class="px-6 py-3">
+                            Время заказа
+                        </th>
+                        <th scope="col" class="px-6 py-3">
                             Код оплаты
                         </th>
                         <th scope="col" class="px-6 py-3">
@@ -42,18 +45,35 @@
                                     {{ $order->user_id }}
                                 </td>
                                 <td class="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap">
+                                    {{ $order->created_at }}
+                                </td>
+                                <td class="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap">
                                     №{{ $order->code }}
                                 </td>
                                 <td class="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap">
                                     @if($order->pay == 1) Картой
-                                    @else Наличными
+                                    @elseif($order->pay == 3) Доставка
+                                    @else Предоплата 50%
                                     @endif
                                 </td>
                                 <td class="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap">
-                                    ₽{{ $order->total }}
+                                    @if($order->pay == 1) ₽{{ $order->total }}
+                                    @elseif($order->pay == 3) ₽{{ $order->total }}
+                                    @else ₽{{ $order->total/2 }}/₽{{ $order->total }}
+                                    @endif
                                 </td>
                                 <td class="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap text-center">
-                                    @if($order->check == 1) Оплачено
+                                    @if($order->check == 1 && $order->pay == 1) Оплачено
+                                    @elseif($order->check == 1 && $order->pay == 2) Частично оплачено
+                                    <form class="px-4 py-2 bg-green-500 hover:bg-green-700 rounded-lg text-white"
+                                          method="POST"
+                                          id="payment_update"
+                                          action="{{ route('admin.orders.update', $order->id) }}"
+                                    >
+                                        @csrf
+                                        @method("PUT")
+                                        <button type="submit" class="w-full">Оплачено</button>
+                                    </form>
                                     @else Не оплачено
                                     <form class="px-4 py-2 bg-green-500 hover:bg-green-700 rounded-lg text-white"
                                           method="POST"

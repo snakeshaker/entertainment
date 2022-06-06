@@ -5258,7 +5258,7 @@ $(document).ready(function () {
   });
   var init = 0;
   $('.menu_price').each(function () {
-    init += parseFloat($(this).text()); // Or this.innerHTML, this.innerText
+    init += parseFloat($(this).text());
   });
   $('.cart-total').html(init);
   $('#total').val(init);
@@ -5267,10 +5267,21 @@ $(document).ready(function () {
     $(this).closest(".cart-item").find('.menu_price').html(menu_price * $(this).val());
     var sum = 0;
     $('.menu_price').each(function () {
-      sum += parseFloat($(this).text()); // Or this.innerHTML, this.innerText
+      sum += parseFloat($(this).text());
     });
     $('.cart-total').html(sum);
     $('#total').val(sum);
+  });
+  $('#dostavka').click(function () {
+    if ($('#dostavka').is(':checked')) {
+      $('.dostavka-checked').toggleClass('hidden');
+      $('.payment-radio').toggleClass('hidden');
+      $("#pay-dostavka").prop("checked", true).change();
+    } else {
+      $('.dostavka-checked').toggleClass('hidden');
+      $('.payment-radio').toggleClass('hidden');
+      $("#pay-dostavka").prop("checked", false).change();
+    }
   });
 });
 
@@ -5376,7 +5387,7 @@ $(document).on("change", ".payment-toggle", function (e) {
 });
 $(document).on("click", "#confirm-order", /*#__PURE__*/function () {
   var _ref = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee(e) {
-    var _INVOICE_ID, _AMOUNT, _METHOD_PAY, order, auth;
+    var _INVOICE_ID, _AMOUNT, _METHOD_PAY, order, auth, text;
 
     return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_context) {
       while (1) {
@@ -5399,7 +5410,20 @@ $(document).on("click", "#confirm-order", /*#__PURE__*/function () {
             return _context.abrupt("return");
 
           case 6:
-            _context.next = 8;
+            if (!(_AMOUNT == 0)) {
+              _context.next = 9;
+              break;
+            }
+
+            Swal.fire({
+              icon: 'error',
+              title: 'Ошибка',
+              text: 'Корзина пуста!'
+            });
+            return _context.abrupt("return");
+
+          case 9:
+            _context.next = 11;
             return axios.post("/create-order", {
               code: _INVOICE_ID,
               pay: _METHOD_PAY,
@@ -5407,32 +5431,66 @@ $(document).on("click", "#confirm-order", /*#__PURE__*/function () {
               check: 0
             });
 
-          case 8:
+          case 11:
             order = _context.sent;
 
             if (!(_METHOD_PAY == 1)) {
-              _context.next = 14;
+              _context.next = 17;
               break;
             }
 
-            _context.next = 12;
+            _context.next = 15;
             return axios.post("/token", {
               order: _INVOICE_ID,
               amount: _AMOUNT
             });
 
-          case 12:
+          case 15:
             auth = _context.sent;
             halyk.pay(createPaymentObject(auth.data, _INVOICE_ID, _AMOUNT));
 
-          case 14:
-            if (_METHOD_PAY == 2) {
-              Swal.fire('Успешно!', 'Администратор свяжется с вами в ближайшее время!', 'success').then(function () {
-                window.location.href = "/dashboard/";
-              });
+          case 17:
+            if (!(_METHOD_PAY == 2)) {
+              _context.next = 22;
+              break;
             }
 
-          case 15:
+            _context.next = 20;
+            return axios.post("/token", {
+              order: _INVOICE_ID,
+              amount: _AMOUNT / 2
+            });
+
+          case 20:
+            auth = _context.sent;
+            halyk.pay(createPaymentObject(auth.data, _INVOICE_ID, _AMOUNT / 2));
+
+          case 22:
+            if (!(_METHOD_PAY == 3)) {
+              _context.next = 28;
+              break;
+            }
+
+            text = $('#dostavka-info').val();
+
+            if (text) {
+              _context.next = 27;
+              break;
+            }
+
+            Swal.fire({
+              icon: 'error',
+              title: 'Ошибка',
+              text: 'Примечание обязательно для заполнения!'
+            });
+            return _context.abrupt("return");
+
+          case 27:
+            Swal.fire('Успешно!', 'Администратор свяжется с вами в ближайшее время!', 'success').then(function () {
+              window.location.href = "/dashboard/";
+            });
+
+          case 28:
           case "end":
             return _context.stop();
         }

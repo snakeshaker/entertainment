@@ -88,20 +88,29 @@
                             <div class="font-bold">
                                 Итого: <span class="cart-total"></span>₽
                             </div>
-                            <div class="flex items-center gap-1">
+                            <div class="form-check">
+                                <input
+                                    class="form-check-input appearance-none h-4 w-4 border border-gray-300 rounded-sm bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer"
+                                    type="checkbox" value="" id="dostavka" name="dostavka">
+                                <label class="form-check-label inline-block text-gray-800" for="dostavka">
+                                    Доставка на дом
+                                </label>
+                            </div>
+                            <div class="flex items-center gap-1 payment-radio">
                                 <label class="payment-item" for="pay-card">
                                     <img src="<?php echo e(asset('assets/card.svg')); ?>" alt="CARD" class="w-10">
                                 </label>
                                 <input type="radio" class="payment-toggle" id="pay-card" name="pay" value="1">
                                 <p>Оплата картой</p>
                             </div>
-                            <div class="flex items-center gap-1">
+                            <div class="flex items-center gap-1 payment-radio">
                                 <label class="payment-item" for="pay-cash">
                                     <img src="<?php echo e(asset('assets/cash.svg')); ?>" alt="CASH" class="w-10">
                                 </label>
                                 <input type="radio" class="payment-toggle" id="pay-cash" name="pay" value="2">
-                                <p>Оплата наличкой</p>
+                                <p>Предоплата 50%</p>
                             </div>
+                            <input type="radio" class="payment-toggle hidden" id="pay-dostavka" name="pay" value="3">
                             <input type="hidden" id="pay-output">
                             <input
                                 type="hidden"
@@ -109,6 +118,21 @@
                             <button id="confirm-order" class="px-4 py-2 bg-green-500 hover:bg-green-700 rounded-lg text-white">
                                 Перейти к оплате
                             </button>
+                        </div>
+                        <div class="flex justify-center hidden dostavka-checked">
+                            <div class="mb-3 w-full mx-5">
+                                <p class="text-xs text-red-600 font-bold">Доставка в течение часа</p>
+                                <label for="dostavka-info" class="form-label inline-block mb-2 text-gray-700">
+                                    Примечание к заказу
+                                </label>
+                                <textarea
+                                    class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+                                    id="dostavka-info"
+                                    name="dostavka-info"
+                                    rows="3"
+                                    placeholder="Адрес доставки и прочая информация..."
+                                ></textarea>
+                            </div>
                         </div>
                     </div>
                 </div>

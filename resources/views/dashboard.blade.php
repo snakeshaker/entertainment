@@ -197,7 +197,7 @@
                                     </td>
                                     <td class="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap">
                                         @if($order->pay == 1) Картой
-                                        @else Наличными
+                                        @else Предоплата 50%
                                         @endif
                                     </td>
                                     <td class="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap">

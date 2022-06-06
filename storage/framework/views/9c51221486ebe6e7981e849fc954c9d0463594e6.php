@@ -210,7 +210,7 @@
                                     </td>
                                     <td class="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap">
                                         <?php if($order->pay == 1): ?> Картой
-                                        <?php else: ?> Наличными
+                                        <?php else: ?> Предоплата 50%
                                         <?php endif; ?>
                                     </td>
                                     <td class="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap">

@@ -71,7 +71,7 @@ $(document).ready(function (){
 
     let init = 0;
     $('.menu_price').each(function(){
-        init += parseFloat($(this).text());  // Or this.innerHTML, this.innerText
+        init += parseFloat($(this).text());
     });
     $('.cart-total').html(init);
     $('#total').val(init);
@@ -81,9 +81,21 @@ $(document).ready(function (){
 
         let sum = 0;
         $('.menu_price').each(function(){
-            sum += parseFloat($(this).text());  // Or this.innerHTML, this.innerText
+            sum += parseFloat($(this).text());
         });
         $('.cart-total').html(sum);
         $('#total').val(sum);
+    });
+    $('#dostavka').click(function() {
+        if( $('#dostavka').is(':checked') ){
+            $('.dostavka-checked').toggleClass('hidden');
+            $('.payment-radio').toggleClass('hidden');
+            $("#pay-dostavka").prop("checked", true).change();
+        }
+        else{
+            $('.dostavka-checked').toggleClass('hidden');
+            $('.payment-radio').toggleClass('hidden');
+            $("#pay-dostavka").prop("checked", false).change();
+        }
     });
 });
