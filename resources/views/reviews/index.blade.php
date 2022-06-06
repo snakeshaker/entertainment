@@ -57,12 +57,12 @@
                     <div class="text-sm text-red-400">{{ $message }}</div>
                     @enderror
                 </div>
-                <div class="sm:col-span-6 pt-2">
+                <div class="sm:col-span-6 pt-2 hidden">
                     <label for="category_id" class="block text-sm font-medium text-gray-700">Категория</label>
                     <div class="mt-1">
                         <select id="category_id" name="category_id" class="@error('category_id') border-red-400 @enderror form-multiselect block w-full mt-1">
                             @foreach($categories as $category)
-                                <option value="{{ $category->id }}">
+                                <option value="0">
                                     {{ $category->id }} ({{ $category->name }})
                                 </option>
                             @endforeach

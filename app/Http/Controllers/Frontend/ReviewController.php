@@ -30,7 +30,7 @@ class ReviewController extends Controller
             'name' => $request->name,
             'review_text' => $request->review_text,
             'review_degree' => $request->review_degree,
-            'category_id' => $request->category_id
+            'category_id' => 1
         ]);
 
         return to_route('reviews.index')->with('success', 'Отзыв отправлен успешно!');

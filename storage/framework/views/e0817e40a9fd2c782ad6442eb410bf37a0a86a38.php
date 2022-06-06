@@ -108,7 +108,7 @@ if (isset($__messageOriginal)) { $message = $__messageOriginal; }
 endif;
 unset($__errorArgs, $__bag); ?>
                 </div>
-                <div class="sm:col-span-6 pt-2">
+                <div class="sm:col-span-6 pt-2 hidden">
                     <label for="category_id" class="block text-sm font-medium text-gray-700">Категория</label>
                     <div class="mt-1">
                         <select id="category_id" name="category_id" class="<?php $__errorArgs = ['category_id'];
@@ -120,7 +120,7 @@ if (isset($__messageOriginal)) { $message = $__messageOriginal; }
 endif;
 unset($__errorArgs, $__bag); ?> form-multiselect block w-full mt-1">
                             <?php $__currentLoopData = $categories; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $category): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                <option value="<?php echo e($category->id); ?>">
+                                <option value="0">
                                     <?php echo e($category->id); ?> (<?php echo e($category->name); ?>)
                                 </option>
                             <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>

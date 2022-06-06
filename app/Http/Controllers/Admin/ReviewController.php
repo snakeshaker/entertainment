@@ -17,13 +17,13 @@ class ReviewController extends Controller
     public function index()
     {
         $reviews = Review::all();
-        $categories = Category::all();
+        $categories = Category::where('id', '!=', 1)->get();
         return view('admin.reviews.index', compact('reviews', 'categories'));
     }
 
     public function create()
     {
-        $categories = Category::all();
+        $categories = Category::where('id', '!=', 1)->get();
         $degrees = [
             'Отрицательный',
             'Нейтральный',
@@ -47,7 +47,7 @@ class ReviewController extends Controller
 
     public function edit(Review $review)
     {
-        $categories = Category::all();
+        $categories = Category::where('id', '!=', 1)->get();
         $degrees = [
             'Отрицательный',
             'Нейтральный',

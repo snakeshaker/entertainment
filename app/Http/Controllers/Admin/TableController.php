@@ -21,7 +21,7 @@ class TableController extends Controller
 
     public function create()
     {
-        $locations = Category::all();
+        $locations = Category::where('id', '!=', 1)->get();
         $statuses = [
           'Ожидание',
           'Свободен',
@@ -44,7 +44,7 @@ class TableController extends Controller
 
     public function edit(Table $table)
     {
-        $locations = Category::all();
+        $locations = Category::where('id', '!=', 1)->get();
         $statuses = [
             'Ожидание',
             'Свободен',

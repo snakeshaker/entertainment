@@ -56,6 +56,11 @@
                                 <?php echo e($category->description); ?>
 
                             </td>
+                            <?php if($category->id == 1): ?>
+                                <td class="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap">
+                                    Системная категория
+                                </td>
+                            <?php else: ?>
                             <td class="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap">
                                 <div class="flex space-x-2">
                                     <a href="<?php echo e(route('admin.categories.edit', $category->id)); ?>" class="px-4 py-2 bg-green-500 hover:bg-green-700 rounded-lg text-white">
@@ -72,6 +77,7 @@
                                     </form>
                                 </div>
                             </td>
+                            <?php endif; ?>
                         </tr>
                     <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                     </tbody>

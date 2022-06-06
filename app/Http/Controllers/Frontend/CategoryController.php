@@ -14,7 +14,7 @@ class CategoryController extends Controller
 {
     public function index()
     {
-        $categories = Category::all();
+        $categories = Category::where('id', '!=', 1)->get();
         $reviews = Review::all();
         return view('categories.index', compact('categories', 'reviews'));
     }

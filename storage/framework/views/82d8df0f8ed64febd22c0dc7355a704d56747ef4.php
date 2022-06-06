@@ -42,7 +42,6 @@
                         </th><th scope="col" class="px-6 py-3">
                             <span>Удалить</span>
                         </th>
-
                     </tr>
                     </thead>
                     <tbody>
@@ -65,9 +64,18 @@
                                     ₽<?php echo e($order->total); ?>
 
                                 </td>
-                                <td class="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap">
+                                <td class="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap text-center">
                                     <?php if($order->check == 1): ?> Оплачено
                                     <?php else: ?> Не оплачено
+                                    <form class="px-4 py-2 bg-green-500 hover:bg-green-700 rounded-lg text-white"
+                                          method="POST"
+                                          id="payment_update"
+                                          action="<?php echo e(route('admin.orders.update', $order->id)); ?>"
+                                    >
+                                        <?php echo csrf_field(); ?>
+                                        <?php echo method_field("PUT"); ?>
+                                        <button type="submit" class="w-full">Оплачено</button>
+                                    </form>
                                     <?php endif; ?>
                                 </td>
                                 <td class="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap">

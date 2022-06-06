@@ -60,7 +60,7 @@
                             @enderror
                         </div>
                         <div class="sm:col-span-6 pt-5">
-                            <label for="categories" class="block text-sm font-medium text-gray-700">Categories</label>
+                            <label for="categories" class="block text-sm font-medium text-gray-700">Категории блюд</label>
                             <div class="mt-1">
                                 <select id="categories" name="categories[]" class="form-multiselect block w-full mt-1"
                                         multiple>
