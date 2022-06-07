@@ -1,0 +1,25 @@
+.karaoke-room:before {
+    content: '';
+    position: absolute;
+    bottom: 0; right: 0;
+    border-right: 90px solid white;
+    border-top: 90px solid lightblue;
+    width: 0;
+}
+
+.karaoke-room:after {
+    content: 'Вход';
+    position: absolute;
+    bottom: 0; right: 0;
+    color: #749fec;
+    font-size: 20px;
+    transform: rotate(-45deg) translateY(-52px);
+}
+
+.window {
+    transform: rotate(-90deg);
+}
+
+#modal {
+    background: rgba(45, 55, 72, 0.5);
+}

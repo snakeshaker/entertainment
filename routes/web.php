@@ -48,12 +48,6 @@ Route::get('/news/{news}', [NewsController::class, 'show'])->name('news.show');
 //TECH SUPPORT
 Route::get('/tech-support', [TechSupportController::class, 'index'])->name('tech-support.index');
 Route::post('/tech-support/store', [TechSupportController::class, 'store'])->name('tech-support.store');
-//RESERVATION
-Route::get('/reservation/step-one', [ReservationController::class, 'stepOne'])->name('reservations.step.one');
-Route::post('/reservation/step-one', [ReservationController::class, 'storeStepOne'])->name('reservations.store.step.one');
-Route::get('/reservation/step-two', [ReservationController::class, 'stepTwo'])->name('reservations.step.two');
-Route::post('/reservation/step-two', [ReservationController::class, 'storeStepTwo'])->name('reservations.store.step.two');
-Route::get('/thankyou', [WelcomeController::class, 'thankyou'])->name('thankyou');
 
 //CABINET
 Route::middleware(['auth'])->group(function (){
@@ -66,6 +60,7 @@ Route::middleware(['auth'])->group(function (){
     Route::get('/success', [PaymentController::class, 'success']);
     Route::get('/failure', [PaymentController::class, 'failure']);
     Route::post('/create-order', [CartController::class, 'createOrder']);
+    Route::post('/reserve', [ReservationController::class, 'store'])->name('reserve.store');
 });
 
 //ADMIN

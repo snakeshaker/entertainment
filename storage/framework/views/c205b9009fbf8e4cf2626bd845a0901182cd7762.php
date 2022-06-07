@@ -23,36 +23,81 @@
     <section class="px-2 py-10 bg-white md:px-0">
         <div class="container w-full px-20 mx-auto">
             <h1 class="font-medium leading-tight text-5xl mb-2 text-transparent bg-clip-text bg-gradient-to-b from-green-400 to-blue-500 hover:text-green-400">Список мест</h1>
-            <div class="flex flex-wrap -mx-4 px-20">
-                <?php $__currentLoopData = $tables; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $table): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                    <div class="w-full sm:w-1/2 md:w-1/2 xl:w-1/4 p-4">
-                        <div class="c-card block bg-white hover:shadow-xl rounded-lg overflow-hidden">
-                            <div class="relative pb-48 overflow-hidden">
-                                <img class="absolute inset-0 mx-auto object-cover" src="<?php echo e(asset('assets/'.$category->space_image)); ?>" alt="Table">
+            <?php if($category->name == 'Караоке-бар'): ?>
+                <h2 class="mt-2 mb-2 font-bold text-transparent bg-clip-text bg-gradient-to-b from-green-400 to-blue-500 hover:text-green-400">Кликните по столу для бронирования</h2>
+                <?php if(\Illuminate\Support\Facades\Auth::user()): ?>
+                <div class="flex flex-wrap justify-center overflow-hidden relative karaoke-room border">
+                    <div class="mb-10 w-full overflow-hidden bg-green-100 h-20 flex items-center justify-center rounded-lg">
+                        <h1 class="font-medium leading-tight text-5xl mb-2 text-transparent bg-clip-text bg-gradient-to-b from-green-400 to-blue-500 hover:text-green-400">Бар</h1>
+                    </div>
+                    <div class="mb-10 w-1/4 overflow-hidden bg-green-100 h-20 flex items-center justify-center rounded-lg absolute -left-[7em] top-[50%] window">
+                        <h1 class="font-medium leading-tight text-5xl mb-2 text-transparent bg-clip-text bg-gradient-to-b from-green-400 to-blue-500 hover:text-green-400">Окно</h1>
+                    </div>
+                    <?php $__currentLoopData = $tables; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $table): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                        <?php if($table->status == 'Свободен'): ?>
+                        <div class="my-2 px-2 w-1/4 overflow-hidden hover:scale-125 hover:cursor-pointer hover:text-blue-400 transition-all add-reservation relative" data-table="<?php echo e($table->id); ?>" data-max="<?php echo e($table->guest_number); ?>">
+                            <h2 class="mt-2 mb-2 uppercase font-bold md:text-xs text-center"><?php echo e($table->name); ?></h2>
+                            <p class="text-xs text-green-600 text-center">Стол свободен</p>
+                            <div class="rounded-full h-4 w-4 bg-green-500 inline-block absolute top-2 right-20"></div>
+                            <img class="mx-auto object-none" src="<?php echo e(asset('assets/'.$category->space_image)); ?>" alt="Table">
+                        </div>
+                        <?php elseif($table->status == 'Ожидание'): ?>
+                            <div class="my-2 px-2 w-1/4 overflow-hidden hover:cursor-pointer hover:text-blue-400 transition-all relative table-pending">
+                                <h2 class="mt-2 mb-2 uppercase font-bold md:text-xs text-center"><?php echo e($table->name); ?></h2>
+                                <p class="text-xs text-yellow-400 text-center">Стол в режиме ожидания</p>
+                                <div class="rounded-full h-4 w-4 bg-yellow-500 inline-block absolute top-2 right-20"></div>
+                                <img class="mx-auto object-none" src="<?php echo e(asset('assets/'.$category->space_image)); ?>" alt="Table">
                             </div>
-                            <div class="p-4">
-                                <span class="inline-block px-2 py-1 leading-none bg-orange-200 text-orange-800 rounded-full font-semibold uppercase tracking-wide text-xs">БРОНИРОВАНИЕ</span>
-                                <h2 class="mt-2 mb-2 uppercase font-bold"><?php echo e($table->name); ?></h2>
-                                <p class="text-sm inline-block">Статус: <?php echo e($table->status); ?></p>
-                                <?php if($table->status == 'Свободен'): ?>
-                                    <div class="rounded-full h-4 w-4 bg-green-500 inline-block"></div>
-                                <?php elseif($table->status == 'Ожидание'): ?>
-                                    <div class="rounded-full h-4 w-4 bg-yellow-500 inline-block"></div>
-                                <?php else: ?>
-                                    <div class="rounded-full h-4 w-4 bg-red-500 inline-block"></div>
-                                <?php endif; ?>
+                        <?php else: ?>
+                            <div class="my-2 px-2 w-1/4 overflow-hidden hover:cursor-pointer hover:text-blue-400 transition-all relative table-blocked">
+                                <h2 class="mt-2 mb-2 uppercase font-bold md:text-xs text-center"><?php echo e($table->name); ?></h2>
+                                <p class="text-xs text-red-600 text-center">Стол занят</p>
+                                <div class="rounded-full h-4 w-4 bg-red-500 inline-block absolute top-2 right-20"></div>
+                                <img class="mx-auto object-none" src="<?php echo e(asset('assets/'.$category->space_image)); ?>" alt="Table">
                             </div>
-                            <div class="p-4 border-t border-b text-xs text-gray-700">
-                                <h2 class="mt-2 mb-2 uppercase font-bold">Макс. кол-во мест</h2>
-                                <span class="ml-2"><?php echo e($table->guest_number); ?></span>
-                            </div>
-                            <div class="flex justify-center my-2">
-                                <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Забронировать</button>
+                        <?php endif; ?>
+                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                    <div class="mt-20 w-1/4 overflow-hidden bg-green-100 h-20 flex items-center justify-center rounded-lg">
+                        <h1 class="font-medium leading-tight text-5xl mb-2 text-transparent bg-clip-text bg-gradient-to-b from-green-400 to-blue-500 hover:text-green-400">Сцена</h1>
+                    </div>
+                </div>
+                <?php else: ?> <div><a href="<?php echo e(route('register')); ?>" class="text-green-600 hover:text-green-400">Зарегистрируйтесь,</a> чтобы забронировать стол</div>
+                <?php endif; ?>
+            <?php else: ?>
+                <?php if(\Illuminate\Support\Facades\Auth::user()): ?>
+                <div class="flex flex-wrap -mx-4 px-20">
+                    <?php $__currentLoopData = $tables; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $table): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                        <div class="w-full sm:w-1/2 md:w-1/5 xl:w-1/5 p-4">
+                            <div class="c-card block bg-white hover:shadow-xl rounded-lg overflow-hidden">
+                                <div class="relative pb-48 overflow-hidden">
+                                    <img class="absolute inset-0 mx-auto object-cover" src="<?php echo e(asset('assets/'.$category->space_image)); ?>" alt="Table">
+                                </div>
+                                <div class="p-4">
+                                    <span class="inline-block px-2 py-1 leading-none bg-orange-200 text-orange-800 rounded-full font-semibold uppercase tracking-wide text-xs md:hidden">БРОНИРОВАНИЕ</span>
+                                    <h2 class="mt-2 mb-2 uppercase font-bold md:text-xs"><?php echo e($table->name); ?></h2>
+                                    <p class="text-sm inline-block">Статус: <?php echo e($table->status); ?></p>
+                                    <?php if($table->status == 'Свободен'): ?>
+                                        <div class="rounded-full h-4 w-4 bg-green-500 inline-block"></div>
+                                    <?php elseif($table->status == 'Ожидание'): ?>
+                                        <div class="rounded-full h-4 w-4 bg-yellow-500 inline-block"></div>
+                                    <?php else: ?>
+                                        <div class="rounded-full h-4 w-4 bg-red-500 inline-block"></div>
+                                    <?php endif; ?>
+                                </div>
+                                <div class="p-4 border-t border-b text-xs text-gray-700">
+                                    <h2 class="mt-2 mb-2 uppercase font-bold">Макс. кол-во мест</h2>
+                                    <span class="ml-2"><?php echo e($table->guest_number); ?></span>
+                                </div>
+                                <div class="flex justify-center my-2">
+                                    <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded add-reservation md:text-xs">Забронировать</button>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-            </div>
+                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                </div>
+                <?php else: ?> <div><a href="<?php echo e(route('register')); ?>" class="text-green-600 hover:text-green-400">Зарегистрируйтесь,</a> чтобы забронировать место</div>
+                <?php endif; ?>
+            <?php endif; ?>
         </div>
     </section>
     <?php if($category->name == 'Караоке-бар'): ?>
@@ -108,7 +153,6 @@
             </div>
         </div>
     </section>
-    <?php else: ?>
     <?php endif; ?>
     <section class="px-2 py-10 bg-white md:px-0">
         <div class="container w-full px-20 mx-auto">
@@ -236,6 +280,38 @@ unset($__errorArgs, $__bag); ?>
             </div>
         </div>
     </section>
+    <div class="py-12 bg-gray-700 transition duration-150 ease-in-out z-10 fixed top-0 right-0 bottom-0 left-0 flex justify-center items-center hidden" id="modal">
+        <div role="alert" class="container mx-auto w-11/12 md:w-2/3 max-w-lg rounded-lg relative">
+            <div class="close-button absolute right-0 top-5 w-10 z-10 hover:cursor-pointer">X</div>
+            <div class="relative py-8 px-5 md:px-10 bg-white shadow-md rounded border border-gray-400">
+                <h1 class="font-medium leading-tight text-5xl mb-2 text-transparent bg-clip-text bg-gradient-to-b from-green-400 to-blue-500 hover:text-green-400">Забронировать</h1>
+                <form method="POST" action="<?php echo e(route('reserve.store')); ?>">
+                    <?php echo csrf_field(); ?>
+                    <div class="sm:col-span-6">
+                        <label for="res_date" class="block text-sm font-medium text-gray-700">Дата бронирования</label>
+                        <div class="mt-1">
+                            <input autocomplete="off" name="res_date" id="res_date" placeholder="Выберите дату" class="airdatepicker block w-full transition duration-150 ease-in-out appearance-none bg-white border border-gray-400 rounded-md py-2 px-3 text-base leading-normal transition duration-150 ease-in-out sm:text-sm sm:leading-5"/>
+                        </div>
+                        <span class="text-xs">Пожалуйста выберите время с 15:00 до 00:00.</span>
+                    </div>
+                    <div class="sm:col-span-6 pt-5">
+                        <label for="guest_number" class="block text-sm font-medium text-gray-700">Число гостей</label>
+                        <div class="mt-1">
+                            <input type="number" id="guest_number" name="guest_number" min="1" required
+                                   class="block w-full transition duration-150 ease-in-out appearance-none bg-white border border-gray-400 rounded-md py-2 px-3 text-base leading-normal transition duration-150 ease-in-out sm:text-sm sm:leading-5" />
+                        </div>
+                        <span class="text-xs num-span"></span>
+                    </div>
+                    <input type="hidden" class="table-id" id="table_id" name="table_id">
+                    <div class="mt-6 p-4 text-center">
+                        <button type="submit" class="px-4 py-2 bg-blue-500 hover:bg-blue-700 rounded-lg text-white submit-reserve">
+                            Забронировать
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
  <?php echo $__env->renderComponent(); ?>
 <?php endif; ?>
 <?php if (isset($__componentOriginalc3251b308c33b100480ddc8862d4f9c79f6df015)): ?>

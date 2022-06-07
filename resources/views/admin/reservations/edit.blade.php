@@ -57,11 +57,7 @@
                         <div class="sm:col-span-6">
                             <label for="res_date" class="block text-sm font-medium text-gray-700">Дата бронирования</label>
                             <div class="mt-1">
-                                <input type="datetime-local" id="res_date" name="res_date"
-                                       value="{{ $res_date }}"
-                                       min="{{ $min_date->format('Y-m-d\TH:i:s') }}"
-                                       max="{{ $max_date->format('Y-m-d\TH:i:s') }}"
-                                       class="@error('res_date') border-red-400 @enderror block w-full transition duration-150 ease-in-out appearance-none bg-white border border-gray-400 rounded-md py-2 px-3 text-base leading-normal transition duration-150 ease-in-out sm:text-sm sm:leading-5" />
+                                <input value="{{ $reservation->res_date }}" autocomplete="off" name="res_date" id="res_date" placeholder="Выберите дату" class="@error('res_date') border-red-400 @enderror airdatepicker block w-full transition duration-150 ease-in-out appearance-none bg-white border border-gray-400 rounded-md py-2 px-3 text-base leading-normal transition duration-150 ease-in-out sm:text-sm sm:leading-5"/>
                             </div>
                             <span class="text-xs">Пожалуйста выберите время с 15:00 до 00:00.</span>
                             @error('res_date')
@@ -71,7 +67,7 @@
                         <div class="sm:col-span-6 pt-5">
                             <label for="guest_number" class="block text-sm font-medium text-gray-700">Число гостей</label>
                             <div class="mt-1">
-                                <input type="number" id="guest_number" name="guest_number" value="{{ $reservation->guest_number }}"
+                                <input type="number" id="guest_number" name="guest_number" min="1" value="{{ $reservation->guest_number }}"
                                        class="@error('guest_number') border-red-400 @enderror block w-full transition duration-150 ease-in-out appearance-none bg-white border border-gray-400 rounded-md py-2 px-3 text-base leading-normal transition duration-150 ease-in-out sm:text-sm sm:leading-5" />
                             </div>
                             @error('guest_number')

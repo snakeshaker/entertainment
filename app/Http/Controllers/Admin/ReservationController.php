@@ -7,7 +7,6 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\ReservationStoreRequest;
 use App\Models\Reservation;
 use App\Models\Table;
-use Carbon\Carbon;
 use Maatwebsite\Excel\Facades\Excel;
 
 class ReservationController extends Controller
@@ -30,12 +29,7 @@ class ReservationController extends Controller
         if($request->guest_number > $table->guest_number){
             return back()->with('warning', 'Кол-во гостей превышает максимально допустимое для данного места');
         }
-        $request_date = Carbon::parse($request->res_date);
-        foreach ($table->reservations as $res) {
-            if($res->res_date->format('Y-m-d\TH:i:s') == $request_date->format('Y-m-d\TH:i:s')){
-                return back()->with('warning', 'Данное место уже забронирован на эту дату и время');
-            }
-        }
+
         Reservation::create($request->all());
 
         return to_route('admin.reservations.index')->with('success', 'Бронирование выполнено успешно!');
@@ -44,10 +38,8 @@ class ReservationController extends Controller
     public function edit(Reservation $reservation)
     {
         $tables = Table::where('status', 'like', '%Свободен%')->get();
-        $min_date = Carbon::today();
-        $max_date = Carbon::now()->addWeek();
-        $res_date = Carbon::parse($reservation->res_date)->format('Y-m-d\TH:i');
-        return view('admin.reservations.edit', compact('reservation', 'min_date', 'max_date', 'tables', 'res_date'));
+
+        return view('admin.reservations.edit', compact('reservation', 'tables'));
     }
 
     public function update(ReservationStoreRequest $request, Reservation $reservation)
@@ -56,14 +48,7 @@ class ReservationController extends Controller
         if($request->guest_number > $table->guest_number){
             return back()->with('warning', 'Кол-во гостей превышает максимально допустимое для данного места');
         }
-        $request_date = Carbon::parse($request->res_date);
-        foreach ($table->reservations as $res) {
-            if($res->id != $reservation->id) {
-                if($res->res_date->format('Y-m-d\TH:i:s') == $request_date->format('Y-m-d\TH:i:s')){
-                    return back()->with('warning', 'Данное место уже забронировано на эту дату и время');
-                }
-            }
-        }
+
         $reservation->update([
             'user_id' => 1,
             'first_name' => $request->first_name,

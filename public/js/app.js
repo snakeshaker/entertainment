@@ -5611,28 +5611,39 @@ $(document).ready(function () {
           };
         }
       }
+    },
+    onSelect: function onSelect(_ref2) {
+      var date = _ref2.date;
+
+      if ($('#res_date').val() !== '') {
+        $('.submit-reserve').removeClass('hidden');
+      }
     }
   });
   $('.add-reservation').click(function (e) {
+    $('#modal').toggleClass('hidden');
+    $('.submit-reserve').toggleClass('hidden');
+    var tableID = $(this).attr('data-table');
+    var tableMax = $(this).attr('data-max');
+    $('.table-id').val(tableID);
+    $('#guest_number').attr('max', tableMax);
+    $('.num-span').html("\u041C\u0430\u043A\u0441\u0438\u043C\u0430\u043B\u044C\u043D\u043E \u0434\u043E\u043F\u0443\u0441\u0442\u0438\u043C\u043E\u0435 \u043A\u043E\u043B-\u0432\u043E \u0434\u043B\u044F \u0434\u0430\u043D\u043D\u043E\u0433\u043E \u0441\u0442\u043E\u043B\u0430 - ".concat(tableMax));
+  });
+  $('.close-button').click(function (e) {
+    $('#modal').toggleClass('hidden');
+  });
+  $('.table-pending').click(function (e) {
     Swal.fire({
-      title: 'Забронировать место',
-      html: "<form method=\"POST\" action=\"{{ route('admin.reservations.store') }}\">\n                        <input type=\"number\" id=\"user_id\" name=\"user_id\" value=\"1\" class=\"hidden\">\n                        <div class=\"sm:col-span-6\">\n                            <label for=\"first_name\" class=\"block text-sm font-medium text-gray-700\">\u0418\u043C\u044F</label>\n                            <div class=\"mt-1\">\n                                <input type=\"text\" id=\"first_name\" name=\"first_name\" class=\"@error('first_name') border-red-400 @enderror block w-full transition duration-150 ease-in-out appearance-none bg-white border border-gray-400 rounded-md py-2 px-3 text-base leading-normal transition duration-150 ease-in-out sm:text-sm sm:leading-5\" />\n                            </div>\n                        </div>\n                        <div class=\"sm:col-span-6\">\n                            <label for=\"last_name\" class=\"block text-sm font-medium text-gray-700\">\u0424\u0430\u043C\u0438\u043B\u0438\u044F</label>\n                            <div class=\"mt-1\">\n                                <input type=\"text\" id=\"last_name\" name=\"last_name\" class=\"@error('last_name') border-red-400 @enderror block w-full transition duration-150 ease-in-out appearance-none bg-white border border-gray-400 rounded-md py-2 px-3 text-base leading-normal transition duration-150 ease-in-out sm:text-sm sm:leading-5\" />\n                            </div>\n                        </div>\n                        <div class=\"sm:col-span-6\">\n                            <label for=\"email\" class=\"block text-sm font-medium text-gray-700\">\u042D\u043B\u0435\u043A\u0442\u0440\u043E\u043D\u043D\u0430\u044F \u043F\u043E\u0447\u0442\u0430</label>\n                            <div class=\"mt-1\">\n                                <input type=\"email\" id=\"email\" name=\"email\" class=\"@error('email') border-red-400 @enderror block w-full transition duration-150 ease-in-out appearance-none bg-white border border-gray-400 rounded-md py-2 px-3 text-base leading-normal transition duration-150 ease-in-out sm:text-sm sm:leading-5\" />\n                            </div>\n                        </div>\n                        <div class=\"sm:col-span-6\">\n                            <label for=\"tel_number\" class=\"block text-sm font-medium text-gray-700\">\u041D\u043E\u043C\u0435\u0440 \u0442\u0435\u043B\u0435\u0444\u043E\u043D\u0430</label>\n                            <div class=\"mt-1\">\n                                <input type=\"text\" id=\"tel_number\" name=\"tel_number\" class=\"@error('tel_number') border-red-400 @enderror block w-full transition duration-150 ease-in-out appearance-none bg-white border border-gray-400 rounded-md py-2 px-3 text-base leading-normal transition duration-150 ease-in-out sm:text-sm sm:leading-5\" />\n                            </div>\n                        </div>\n                        <div class=\"sm:col-span-6\">\n                            <label for=\"res_date\" class=\"block text-sm font-medium text-gray-700\">\u0414\u0430\u0442\u0430 \u0431\u0440\u043E\u043D\u0438\u0440\u043E\u0432\u0430\u043D\u0438\u044F</label>\n                            <div class=\"mt-1\">\n                                <input type=\"datetime-local\" id=\"res_date\" name=\"res_date\"\n                                       min=\"{{ $min_date->format('Y-m-d\\TH:i:s') }}\"\n                                       max=\"{{ $max_date->format('Y-m-d\\TH:i:s') }}\"\n                                       class=\"@error('res_date') border-red-400 @enderror block w-full transition duration-150 ease-in-out appearance-none bg-white border border-gray-400 rounded-md py-2 px-3 text-base leading-normal transition duration-150 ease-in-out sm:text-sm sm:leading-5\" />\n                            </div>\n                            <span class=\"text-xs\">\u041F\u043E\u0436\u0430\u043B\u0443\u0439\u0441\u0442\u0430 \u0432\u044B\u0431\u0435\u0440\u0438\u0442\u0435 \u0432\u0440\u0435\u043C\u044F \u0441 15:00 \u0434\u043E 00:00.</span>\n                        </div>\n                        <div class=\"sm:col-span-6 pt-5\">\n                            <label for=\"guest_number\" class=\"block text-sm font-medium text-gray-700\">\u0427\u0438\u0441\u043B\u043E \u0433\u043E\u0441\u0442\u0435\u0439</label>\n                            <div class=\"mt-1\">\n                                <input type=\"number\" id=\"guest_number\" name=\"guest_number\"\n                                       class=\"@error('guest_number') border-red-400 @enderror block w-full transition duration-150 ease-in-out appearance-none bg-white border border-gray-400 rounded-md py-2 px-3 text-base leading-normal transition duration-150 ease-in-out sm:text-sm sm:leading-5\" />\n                            </div>\n                        </div>\n                        <div class=\"sm:col-span-6 pt-5\">\n                            <label for=\"table_id\" class=\"block text-sm font-medium text-gray-700\">\u041C\u0435\u0441\u0442\u043E</label>\n                            <div class=\"mt-1\">\n                                <select id=\"table_id\" name=\"table_id\" class=\"@error('table_id') border-red-400 @enderror form-multiselect block w-full mt-1\">\n                                    @foreach($tables as $table)\n                                        <option value=\"{{ $table->id }}\">\n                                            {{ $table->name }} ({{ $table->guest_number }} \u0433\u043E\u0441\u0442\u044C(-\u044F/\u0435\u0439) \u043C\u0430\u043A\u0441\u0438\u043C\u0443\u043C)\n                                        </option>\n                                    @endforeach\n                                </select>\n                            </div>\n                        </div>\n                        <div class=\"mt-6 p-4\">\n                            <button type=\"submit\" class=\"px-4 py-2 bg-indigo-500 hover:bg-indigo-700 rounded-lg text-white\">\n                                \u0417\u0430\u0431\u0440\u043E\u043D\u0438\u0440\u043E\u0432\u0430\u0442\u044C\n                            </button>\n                        </div>\n                    </form>",
-      focusConfirm: false,
-      preConfirm: function preConfirm() {
-        var login = Swal.getPopup().querySelector('#login').value;
-        var password = Swal.getPopup().querySelector('#password').value;
-
-        if (!login || !password) {
-          Swal.showValidationMessage("Please enter login and password");
-        }
-
-        return {
-          login: login,
-          password: password
-        };
-      }
-    }).then(function (result) {
-      Swal.fire("\n            Login: ".concat(result.value.login, "\n            Password: ").concat(result.value.password, "\n          ").trim());
+      icon: 'error',
+      title: 'Ошибка',
+      text: 'Стол в режиме ожидания! Выберите свободный стол'
+    });
+  });
+  $('.table-blocked').click(function (e) {
+    Swal.fire({
+      icon: 'error',
+      title: 'Ошибка',
+      text: 'Стол занят! Выберите свободный стол'
     });
   });
 });
