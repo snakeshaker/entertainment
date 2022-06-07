@@ -66,7 +66,7 @@
                                 <div class="p-4">
                                     <span class="inline-block px-2 py-1 leading-none bg-orange-200 text-orange-800 rounded-full font-semibold uppercase tracking-wide text-xs md:hidden">БРОНИРОВАНИЕ</span>
                                     <h2 class="mt-2 mb-2 uppercase font-bold md:text-xs">{{ $table->name }}</h2>
-                                    <p class="text-sm inline-block">Статус: {{ $table->status }}</p>
+                                    <p class="text-sm inline-block">Статус: <br> {{ $table->status }}</p>
                                     @if ($table->status == 'Свободен')
                                         <div class="rounded-full h-4 w-4 bg-green-500 inline-block"></div>
                                     @elseif($table->status == 'Ожидание')
@@ -80,7 +80,13 @@
                                     <span class="ml-2">{{ $table->guest_number }}</span>
                                 </div>
                                 <div class="flex justify-center my-2">
-                                    <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded add-reservation md:text-xs">Забронировать</button>
+                                    @if ($table->status == 'Свободен')
+                                    <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded add-reservation md:text-xs" data-table="{{ $table->id }}" data-max="{{ $table->guest_number }}">Забронировать</button>
+                                    @elseif($table->status == 'Ожидание')
+                                    <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded table-pending md:text-xs" data-table="{{ $table->id }}" data-max="{{ $table->guest_number }}">Забронировать</button>
+                                    @else
+                                    <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded table-blocked md:text-xs" data-table="{{ $table->id }}" data-max="{{ $table->guest_number }}">Забронировать</button>
+                                    @endif
                                 </div>
                             </div>
                         </div>

@@ -75,7 +75,7 @@
                                 <div class="p-4">
                                     <span class="inline-block px-2 py-1 leading-none bg-orange-200 text-orange-800 rounded-full font-semibold uppercase tracking-wide text-xs md:hidden">БРОНИРОВАНИЕ</span>
                                     <h2 class="mt-2 mb-2 uppercase font-bold md:text-xs"><?php echo e($table->name); ?></h2>
-                                    <p class="text-sm inline-block">Статус: <?php echo e($table->status); ?></p>
+                                    <p class="text-sm inline-block">Статус: <br> <?php echo e($table->status); ?></p>
                                     <?php if($table->status == 'Свободен'): ?>
                                         <div class="rounded-full h-4 w-4 bg-green-500 inline-block"></div>
                                     <?php elseif($table->status == 'Ожидание'): ?>
@@ -89,7 +89,13 @@
                                     <span class="ml-2"><?php echo e($table->guest_number); ?></span>
                                 </div>
                                 <div class="flex justify-center my-2">
-                                    <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded add-reservation md:text-xs">Забронировать</button>
+                                    <?php if($table->status == 'Свободен'): ?>
+                                    <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded add-reservation md:text-xs" data-table="<?php echo e($table->id); ?>" data-max="<?php echo e($table->guest_number); ?>">Забронировать</button>
+                                    <?php elseif($table->status == 'Ожидание'): ?>
+                                    <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded table-pending md:text-xs" data-table="<?php echo e($table->id); ?>" data-max="<?php echo e($table->guest_number); ?>">Забронировать</button>
+                                    <?php else: ?>
+                                    <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded table-blocked md:text-xs" data-table="<?php echo e($table->id); ?>" data-max="<?php echo e($table->guest_number); ?>">Забронировать</button>
+                                    <?php endif; ?>
                                 </div>
                             </div>
                         </div>
