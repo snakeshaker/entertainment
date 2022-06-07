@@ -197,6 +197,7 @@
                                     </td>
                                     <td class="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap">
                                         @if($order->pay == 1) Картой
+                                        @elseif($order->pay == 3) Доставка
                                         @else Предоплата 50%
                                         @endif
                                     </td>
