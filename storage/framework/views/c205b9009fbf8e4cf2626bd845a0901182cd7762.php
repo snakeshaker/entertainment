@@ -298,7 +298,8 @@ unset($__errorArgs, $__bag); ?>
                         <div class="mt-1">
                             <input autocomplete="off" name="res_date" id="res_date" placeholder="Выберите дату" class="airdatepicker block w-full transition duration-150 ease-in-out appearance-none bg-white border border-gray-400 rounded-md py-2 px-3 text-base leading-normal transition duration-150 ease-in-out sm:text-sm sm:leading-5"/>
                         </div>
-                        <span class="text-xs">Пожалуйста выберите время с 15:00 до 00:00.</span>
+                        <span class="text-xs reserve-info">Пожалуйста выберите время с 15:00 до 00:00.</span>
+                        <span class="text-xs text-red-600 block hidden reserve-err">Это время занято!</span>
                     </div>
                     <div class="sm:col-span-6 pt-5">
                         <label for="guest_number" class="block text-sm font-medium text-gray-700">Число гостей</label>

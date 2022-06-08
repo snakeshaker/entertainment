@@ -5609,6 +5609,9 @@ $(document).ready(function () {
   var today = new Date();
   var minDate = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
   var maxDate = today.setDate(today.getDate() + 7);
+  var pickedPlace = {};
+  var responseObject = {};
+  var tableID;
   new air_datepicker__WEBPACK_IMPORTED_MODULE_0__["default"]('.airdatepicker', {
     timepicker: true,
     minDate: minDate,
@@ -5630,16 +5633,40 @@ $(document).ready(function () {
     },
     onSelect: function onSelect(_ref2) {
       var date = _ref2.date;
+      pickedPlace = {
+        res_date: $('#res_date').val(),
+        table_id: parseInt(tableID)
+      };
+      var same = false;
+      $.each(responseObject, function (key, value) {
+        if (pickedPlace.res_date === value.res_date && pickedPlace.table_id === value.table_id) {
+          same = true;
+          return false;
+        }
+      });
 
-      if ($('#res_date').val() !== '') {
+      if ($('#res_date').val() !== '' && !same) {
+        $('.reserve-err').addClass('hidden');
         $('.submit-reserve').removeClass('hidden');
+      } else {
+        $('.reserve-err').removeClass('hidden');
+        $('.submit-reserve').addClass('hidden');
       }
     }
   });
   $('.add-reservation').click(function (e) {
+    $.ajax({
+      url: '/reserve-all',
+      type: "GET",
+      dataType: "json",
+      success: function success(response) {
+        pickedPlace = {};
+        responseObject = response;
+      }
+    });
     $('#modal').toggleClass('hidden');
     $('.submit-reserve').toggleClass('hidden');
-    var tableID = $(this).attr('data-table');
+    tableID = $(this).attr('data-table');
     var tableMax = $(this).attr('data-max');
     $('.table-id').val(tableID);
     $('#guest_number').attr('max', tableMax);

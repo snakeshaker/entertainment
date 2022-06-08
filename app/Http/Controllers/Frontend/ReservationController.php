@@ -25,4 +25,10 @@ class ReservationController extends Controller
 
         return to_route('dashboard.index');
     }
+
+    public function show()
+    {
+        $reservations = Reservation::select('res_date','table_id')->get();;
+        return $reservations;
+    }
 }
