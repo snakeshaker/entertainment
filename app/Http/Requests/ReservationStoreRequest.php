@@ -29,7 +29,7 @@ class ReservationStoreRequest extends FormRequest
             'email' => ['required', 'email'],
             'res_date' => ['required'],
             'guest_number' => ['required'],
-            'tel_number' => ['required'],
+            'tel_number' => ['required', 'regex: /^(\+7|7|8)?[\s\-]?\(?[0-9][0-9]{2}\)?[\s\-]?[0-9]{3}[\s\-]?[0-9]{2}[\s\-]?[0-9]{2}$/'],
             'table_id' => ['required'],
         ];
     }

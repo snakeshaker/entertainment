@@ -176,6 +176,9 @@
                             <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                             <tr>
                                 <th scope="col" class="px-6 py-3">
+                                    Дата заказа
+                                </th>
+                                <th scope="col" class="px-6 py-3">
                                     Код оплаты
                                 </th>
                                 <th scope="col" class="px-6 py-3">
@@ -192,6 +195,9 @@
                             <tbody>
                             @foreach($orders as $order)
                                 <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                                    <td class="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap">
+                                        {{ $order->created_at }}
+                                    </td>
                                     <td class="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap">
                                         №{{ $order->code }}
                                     </td>

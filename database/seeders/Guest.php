@@ -20,7 +20,7 @@ class Guest extends Seeder
             'id' => 2,
             'first_name' =>  'Гость',
             'last_name' =>  'Гость',
-            'tel_number' =>  000,
+            'tel_number' =>  '+7 (222) 222 2222',
             'email' => 'guest@gmail.com',
             'email_verified_at' => now(),
             'password' => 'null',

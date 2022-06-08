@@ -23,6 +23,9 @@
                             ID пользователя
                         </th>
                         <th scope="col" class="px-6 py-3">
+                            Номер телефона
+                        </th>
+                        <th scope="col" class="px-6 py-3">
                             Имя
                         </th>
                         <th scope="col" class="px-6 py-3">
@@ -44,6 +47,9 @@
                         <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
                             <th scope="row" class="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap">
                                 {{ $tech_support->user_id }}
+                            </th>
+                            <th class="px-6 py-4">
+                                {{ $tech_support->user->tel_number }}
                             </th>
                             <th class="px-6 py-4">
                                 {{ $tech_support->user->first_name }}
