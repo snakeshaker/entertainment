@@ -7,7 +7,7 @@
                     <img class="block w-full lg:w-48 flex-none bg-cover h-24" src="{{ asset('assets/location.svg') }}">
                     <div class="bg-white rounded-b lg:rounded-b-none lg:rounded-r p-4 flex flex-col justify-between leading-normal">
                         <div class="text-black font-bold text-xl mb-2 leading-tight">Наш адрес</div>
-                        <p class="text-grey-darker text-base">г. Байконур, ул. Абая 14</p>
+                        <p class="text-grey-darker text-base">г. Алматы, улица Сатпаева 90/5</p>
                     </div>
                 </div>
             </div>
