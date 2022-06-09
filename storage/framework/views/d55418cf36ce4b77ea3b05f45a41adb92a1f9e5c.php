@@ -38,6 +38,9 @@
                             Описание
                         </th>
                         <th scope="col" class="px-6 py-3">
+                            Цена бронирования
+                        </th>
+                        <th scope="col" class="px-6 py-3">
                             <span>Изменить/удалить</span>
                         </th>
                     </tr>
@@ -54,6 +57,10 @@
                             </td>
                             <td class="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap max-w-xl truncate">
                                 <?php echo e($category->description); ?>
+
+                            </td>
+                            <td class="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap max-w-xl truncate">
+                                <?php echo e($category->res_price); ?>
 
                             </td>
                             <?php if($category->id == 1): ?>

@@ -13,6 +13,7 @@ class Category extends Model
         'name',
         'image',
         'space_image',
+        'res_price',
         'description'
     ];
 

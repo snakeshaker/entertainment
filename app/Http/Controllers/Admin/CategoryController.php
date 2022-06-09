@@ -33,6 +33,7 @@ class CategoryController extends Controller
             'name' => $request->name,
             'image' => $image,
             'space_image' => $space_image,
+            'res_price' => $request->res_price,
             'description' => $request->description
         ]);
 
@@ -64,6 +65,7 @@ class CategoryController extends Controller
         $category->update([
             'name' => $request->name,
             'description' => $request->description,
+            'res_price' => $request->res_price,
             'image' => $image,
             'space_image' => $space_image
         ]);

@@ -106,60 +106,6 @@
             <?php endif; ?>
         </div>
     </section>
-    <?php if($category->name == 'Караоке-бар'): ?>
-    <section class="px-2 py-10 bg-blue-100 md:px-0">
-        <div class="container w-full px-20 mx-auto">
-            <h1 class="font-medium leading-tight text-5xl mb-2 text-transparent bg-clip-text bg-gradient-to-b from-green-400 to-blue-500 hover:text-green-400">Каталог песен</h1>
-            <div class="py-6 bk-page">
-                <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-                    <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
-                        <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400 bk-table">
-                            <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
-                            <tr>
-                                <th scope="col" class="px-6 py-3">
-                                    Исполнитель
-                                </th>
-                                <th scope="col" class="px-6 py-3">
-                                    Название песни
-                                </th>
-                                <th scope="col" class="px-6 py-3">
-                                    Жанр
-                                </th>
-                                <th scope="col" class="px-6 py-3">
-                                    Ссылка на видео
-                                </th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            <?php $__currentLoopData = $songs; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $song): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
-                                    <th scope="row" class="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap">
-                                        <?php echo e($song->singer); ?>
-
-                                    </th>
-                                    <th class="px-6 py-4">
-                                        <?php echo e($song->song_name); ?>
-
-                                    </th>
-                                    <th class="px-6 py-4">
-                                        <?php echo e($song->genre); ?>
-
-                                    </th>
-                                    <td class="px-6 py-4 truncate max-w-[200px]">
-                                        <a href="<?php echo e($song->video_link); ?>" target="_blank">
-                                            <img src="<?php echo e(asset('assets/youtube.svg')); ?>" alt="" width="32">
-                                        </a>
-                                    </td>
-                                </tr>
-                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <?php endif; ?>
     <section class="px-2 py-10 bg-white md:px-0">
         <div class="container w-full px-20 mx-auto">
             <h1 class="font-medium leading-tight text-5xl mb-2 text-transparent bg-clip-text bg-gradient-to-b from-green-400 to-blue-500 hover:text-green-400">Отзывы</h1>

@@ -6,6 +6,7 @@ require('./dashboard');
 require('./payment');
 require('./reservation');
 require('./phone-mask');
+require('./zoom');
 
 
 import Alpine from 'alpinejs';

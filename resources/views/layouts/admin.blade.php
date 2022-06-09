@@ -107,6 +107,13 @@
                         </picture>
                         {{ __('Заказы') }}
                     </x-admin-nav-link>
+                    <x-admin-nav-link :href="route('admin.galleries.index')" :active="request()->routeIs('admin.orders.index')">
+                        <picture>
+                            <source srcset="{{ asset('assets/admin/dark/gallery.svg') }}" media="(prefers-color-scheme: light)">
+                            <img src="{{ asset('assets/admin/gallery.svg') }}" alt="" width="32" height="32" class="inline-block">
+                        </picture>
+                        {{ __('Фотогалерея') }}
+                    </x-admin-nav-link>
                     <x-admin-nav-link :href="route('mainpage')" :active="request()->routeIs('mainpage')">
                         <picture>
                             <source srcset="{{ asset('assets/admin/dark/home.svg') }}" media="(prefers-color-scheme: light)">

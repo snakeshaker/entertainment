@@ -23,13 +23,13 @@ class CategoryController extends Controller
     {
         $tables = Table::where('location', 'like', $category->name)->get();
         $reviews = Review::where('category_id', 'like', $category->id)->orderBy('created_at', 'desc')->paginate(3);
-        $songs = Song::all();
+
         $degrees = [
             'Отрицательный',
             'Нейтральный',
             'Положительный',
         ];
-        return view('categories.show', compact('category', 'tables', 'reviews', 'degrees', 'songs'));
+        return view('categories.show', compact('category', 'tables', 'reviews', 'degrees'));
     }
 
     public function storeReview(Request $request)

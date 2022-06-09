@@ -17,6 +17,7 @@
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
     <script src="https://test-epay.homebank.kz/payform/payment-api.js"></script>
+    <style>@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');</style>
 </head>
 
 <body>
@@ -26,7 +27,6 @@
             <a class="text-xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-blue-500 md:text-2xl hover:text-green-400"
                href="/">
                 <img src="{{ asset('/assets/logo.svg') }}" alt="Logo" width="50px" class="inline-block">
-                Развлекательный центр
             </a>
             <!-- Mobile menu button -->
             <div @click="isOpen = !isOpen" class="flex md:hidden">
@@ -59,6 +59,16 @@
                href="{{ route('menus.index') }}">
                 <img src="{{ asset('assets/menu.svg') }}" alt="" width="24" height="24" class="inline-block">
                 Наше меню
+            </a>
+            <a class="text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-blue-500 hover:text-green-400"
+               href="{{ route('music.index') }}">
+                <img src="{{ asset('assets/song.svg') }}" alt="" width="24" height="24" class="inline-block">
+                Каталог песен
+            </a>
+            <a class="text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-blue-500 hover:text-green-400"
+               href="{{ route('gallery.index') }}">
+                <img src="{{ asset('assets/gallery.svg') }}" alt="" width="24" height="24" class="inline-block">
+                Фотогалерея
             </a>
             <a class="text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-blue-500 hover:text-green-400"
                href="{{ route('cart.index') }}">

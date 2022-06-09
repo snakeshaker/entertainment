@@ -25,6 +25,9 @@ use App\Http\Controllers\Frontend\PaymentController;
 use App\Http\Controllers\Frontend\DashboardController;
 use App\Http\Controllers\Frontend\TechSupportController;
 use App\Http\Controllers\Frontend\UserController;
+use App\Http\Controllers\Frontend\MusicController;
+use App\Http\Controllers\Frontend\GalleryController;
+
 
 //MAIN PAGE
 Route::get('/', [WelcomeController::class, 'index'])->name('mainpage');
@@ -37,6 +40,8 @@ Route::get('/menus', [MenuController::class, 'index'])->name('menus.index');
 Route::get('/menus/{foodCategory}', [MenuController::class, 'show'])->name('menus.show');
 //CART
 Route::get('/cart', [CartController::class, 'index'])->name('cart.index');
+//MUSIC CATALOGUE
+Route::get('/music', [MusicController::class, 'index'])->name('music.index');
 //REVIEWS
 Route::get('/reviews', [ReviewController::class, 'index'])->name('reviews.index');
 Route::post('/reviews/store', [ReviewController::class, 'store'])->name('reviews.store');
@@ -48,6 +53,8 @@ Route::get('/news/{news}', [NewsController::class, 'show'])->name('news.show');
 //TECH SUPPORT
 Route::get('/tech-support', [TechSupportController::class, 'index'])->name('tech-support.index');
 Route::post('/tech-support/store', [TechSupportController::class, 'store'])->name('tech-support.store');
+//GALLERY
+Route::get('/gallery', [GalleryController::class, 'index'])->name('gallery.index');
 
 //CABINET
 Route::middleware(['auth'])->group(function (){
@@ -79,6 +86,7 @@ Route::middleware(['auth', 'admin'])->name('admin.')->prefix('admin')->group(fun
     Route::resource('/food-categories', \App\Http\Controllers\Admin\FoodCategoryController::class);
     Route::resource('/songs', \App\Http\Controllers\Admin\SongController::class);
     Route::resource('/orders', \App\Http\Controllers\Admin\OrderController::class);
+    Route::resource('/galleries', \App\Http\Controllers\Admin\GalleryController::class);
     //EXPORT EXCEL
     Route::get('users/export/', [\App\Http\Controllers\Admin\UserController::class, 'show'])->name('users.export');
     Route::get('categories/export/', [\App\Http\Controllers\Admin\CategoryController::class, 'show'])->name('categories.export');

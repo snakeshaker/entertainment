@@ -1,21 +1,23 @@
 <x-guest-layout>
     <!-- Main Hero Content -->
-    <div class="container max-w-lg px-4 py-32 mx-auto text-left md:max-w-none md:text-center bg-green-100">
+    <div class="container max-w-lg px-4 py-32 mx-auto text-left md:max-w-none md:text-center bg-top bg-no-repeat bg-cover relative"
+         style="background-image: url('{{ asset('assets/mainbanner.jpg') }}'); font-family: 'Pacifico'">
         <h1
-            class="font-mono text-3xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-blue-500 md:text-center sm:leading-none lg:text-5xl">
+            class="text-3xl text-white md:text-center sm:leading-none lg:text-5xl z-[2] relative">
             <span class="inline md:block">Развлекательный центр</span>
         </h1>
-        <div class="mx-auto mt-2 md:text-center lg:text-lg text-[#16a34a]">
+        <div class="mx-auto mt-3 md:text-center md:text-lg text-white lg:text-2xl z-[2] relative">
             Добро пожаловать! Ознакомьтесь с нашим списком заведений, меню и закажите всё онлайн!
         </div>
-        <div class="flex flex-col items-center mt-12 text-center">
+        <div class="flex flex-col items-center mt-12 text-center z-[2] relative">
             <span class="relative inline-flex w-full md:w-auto">
                 <a href="{{ route('categories.index') }}" type="button"
-                   class="inline-flex items-center justify-center px-6 py-2 text-base font-bold leading-6 text-white bg-green-600 rounded-full lg:w-full md:w-auto hover:bg-green-500 focus:outline-none">
+                   class="font-sans inline-flex items-center justify-center px-6 py-2 text-base font-bold leading-6 text-white bg-green-600 rounded-full lg:w-full md:w-auto hover:bg-green-500 focus:outline-none">
                     Посмотреть список развлечений
                 </a>
             </span>
         </div>
+        <div class="w-full h-full absolute top-0 right-0 z-0 backdrop-blur"></div>
     </div>
     <!-- End Main Hero Content -->
     <section class="px-2 py-32 bg-white md:px-0">
@@ -64,7 +66,7 @@
                         <div class="relative flex">
                             <a href="{{ route('menus.index') }}"
                                class="flex items-center w-full px-6 py-3 mb-3 text-lg text-white bg-green-600 rounded-md sm:mb-0 hover:bg-green-700 sm:w-auto">
-                                Помотреть меню
+                                Посмотреть меню
                                 <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 ml-1" viewBox="0 0 24 24"
                                      fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                                      stroke-linejoin="round">
