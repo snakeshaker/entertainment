@@ -8,12 +8,14 @@
 <?php endif; ?>
 <?php $component->withAttributes([]); ?>
     <!-- Main Hero Content -->
-    <div class="container max-w-lg px-4 py-32 mx-auto text-left md:max-w-none md:text-center bg-green-100">
+    <div class="container max-w-lg px-4 py-32 mx-auto text-left md:max-w-none md:text-center bg-green-100"
+         style="font-family: 'Pacifico'"
+    >
         <h1
-            class="font-mono text-3xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-blue-500 md:text-center sm:leading-none lg:text-5xl">
+            class="text-3xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-blue-500 md:text-center sm:leading-none lg:text-5xl">
             <span class="inline md:block">Техническая поддержка</span>
         </h1>
-        <div class="mx-auto mt-2 md:text-center lg:text-lg text-[#16a34a]">
+        <div class="mx-auto mt-2 md:text-center lg:text-2xl md:text-lg text-[#16a34a]">
             Столкнулись с проблемой? Не беда! Оставьте заявку и мы рассмотрим её в ближайшее время!
         </div>
     </div>

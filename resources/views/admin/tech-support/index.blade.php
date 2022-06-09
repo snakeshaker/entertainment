@@ -26,6 +26,9 @@
                             Номер телефона
                         </th>
                         <th scope="col" class="px-6 py-3">
+                            Почта
+                        </th>
+                        <th scope="col" class="px-6 py-3">
                             Имя
                         </th>
                         <th scope="col" class="px-6 py-3">
@@ -50,6 +53,9 @@
                             </th>
                             <th class="px-6 py-4">
                                 {{ $tech_support->user->tel_number }}
+                            </th>
+                            <th class="px-6 py-4">
+                                {{ $tech_support->user->email }}
                             </th>
                             <th class="px-6 py-4">
                                 {{ $tech_support->user->first_name }}

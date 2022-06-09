@@ -25,31 +25,39 @@
         <div class="container w-full px-20 mx-auto">
             <h1 class="font-medium leading-tight text-5xl mb-2 text-transparent bg-clip-text bg-gradient-to-b from-green-400 to-blue-500 hover:text-green-400">Список блюд</h1>
             <a href="<?php echo e(route('menus.index')); ?>" type="button"
-               class="bg-green-400 hover:bg-green-600 text-white text-sm px-4 py-2  border rounded-full">
+               class="bg-blue-400 hover:bg-green-400 text-white text-sm px-4 py-2  border rounded-full">
                 Все блюда
             </a>
-            <?php $__currentLoopData = $foodCategories; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $foodCategory): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                <a href="<?php echo e(route('menus.show',$foodCategory->id)); ?>" type="button"
-                   class="bg-blue-400 hover:bg-green-400 text-white text-sm px-4 py-2  border rounded-full">
-                    <?php echo e($foodCategory->name); ?>
+            <?php $__currentLoopData = $foodCategories; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $category): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                <?php if($foodCategory->id == $category->id): ?>
+                    <a href="<?php echo e(route('menus.show', $category->id)); ?>" type="button"
+                       class="bg-green-400 hover:bg-green-600 text-white text-sm px-4 py-2  border rounded-full">
+                        <?php echo e($category->name); ?>
 
-                </a>
+                    </a>
+                <?php else: ?>
+                    <a href="<?php echo e(route('menus.show', $category->id)); ?>" type="button"
+                       class="bg-blue-400 hover:bg-green-400 text-white text-sm px-4 py-2  border rounded-full">
+                        <?php echo e($category->name); ?>
+
+                    </a>
+                <?php endif; ?>
             <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
             <div class="flex flex-wrap -mx-4 px-20">
                 <?php $__currentLoopData = $menus; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $menu): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                    <div class="w-full sm:w-1/2 md:w-1/2 xl:w-1/4 p-4 menu_data">
+                    <div class="w-full sm:w-1/2 md:w-1/2 xl:w-1/4 p-4">
                         <div class="c-card block bg-white shadow-md hover:shadow-xl rounded-lg overflow-hidden">
                             <input type="hidden" value="<?php echo e($menu->id); ?>" class="menu_id">
                             <div class="relative pb-48 overflow-hidden">
                                 <img class="absolute inset-0 h-full w-full object-cover" src="<?php echo e(asset('assets/'.$menu->image)); ?>" alt="Image">
                             </div>
                             <div class="p-4">
-                                    <?php $__currentLoopData = $menu->food_categories; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $category): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                        <span class="inline-block px-2 py-1 leading-none bg-blue-100 text-indigo-500 rounded-full font-semibold uppercase tracking-wide text-xs">
+                                <?php $__currentLoopData = $menu->food_categories; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $category): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                    <span class="inline-block px-2 py-1 leading-none bg-blue-100 text-indigo-500 rounded-full font-semibold uppercase tracking-wide text-xs">
                                             <?php echo e($category->name); ?>
 
                                         </span>
-                                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                 <h2 class="mt-2 mb-2  font-bold"><?php echo e($menu->name); ?></h2>
                                 <p class="text-sm"><?php echo e($menu->description); ?></p>
                                 <div class="mt-4 flex justify-between">
@@ -72,4 +80,4 @@
 <?php $component = $__componentOriginalc3251b308c33b100480ddc8862d4f9c79f6df015; ?>
 <?php unset($__componentOriginalc3251b308c33b100480ddc8862d4f9c79f6df015); ?>
 <?php endif; ?>
-<?php /**PATH C:\Users\OpenServer\domains\entertainment.ru\resources\views/menus/index.blade.php ENDPATH**/ ?>
+<?php /**PATH C:\Users\OpenServer\domains\entertainment.ru\resources\views/menus/show.blade.php ENDPATH**/ ?>
