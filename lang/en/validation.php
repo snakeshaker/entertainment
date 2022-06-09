@@ -112,7 +112,7 @@ return [
     'prohibited_if' => 'Поле :attribute запрещено, когда :other равно :value.',
     'prohibited_unless' => 'Поле :attribute запрещено, если только :other не находится в :values.',
     'prohibits' => 'Поле :attribute запрещает присутствие :other.',
-    'regex' => 'Недопустимый формат :attribute.',
+    'regex' => 'Недопустимый формат номера телефона.',
     'required' => 'Поле :attribute является обязательным.',
     'required_array_keys' => 'Поле :attribute должно содержать записи для: :values.',
     'required_if' => 'Поле :attribute является обязательным, если :other равно :value.',

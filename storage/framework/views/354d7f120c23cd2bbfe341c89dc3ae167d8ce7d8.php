@@ -35,6 +35,9 @@
                             Электронная почта
                         </th>
                         <th scope="col" class="px-6 py-3">
+                            Номер телефона
+                        </th>
+                        <th scope="col" class="px-6 py-3">
                             Дата бронирования
                         </th>
                         <th scope="col" class="px-6 py-3">
@@ -57,6 +60,10 @@
                             </th>
                             <td class="px-6 py-4">
                                 <?php echo e($reservation->email); ?>
+
+                            </td>
+                            <td class="px-6 py-4">
+                                <?php echo e($reservation->tel_number); ?>
 
                             </td>
                             <td class="px-6 py-4">
