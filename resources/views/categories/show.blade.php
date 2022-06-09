@@ -22,7 +22,7 @@
                     <div class="mb-10 w-full overflow-hidden bg-green-100 h-20 flex items-center justify-center rounded-lg">
                         <h1 class="font-medium leading-tight text-5xl mb-2 text-transparent bg-clip-text bg-gradient-to-b from-green-400 to-blue-500 hover:text-green-400">Бар</h1>
                     </div>
-                    <div class="mb-10 w-1/4 overflow-hidden bg-green-100 h-20 flex items-center justify-center rounded-lg absolute -left-[7em] top-[50%] window">
+                    <div class="mb-10 w-1/4 overflow-hidden bg-green-100 h-20 flex items-center justify-center rounded-lg absolute -left-[8.1em] top-[50%] window">
                         <h1 class="font-medium leading-tight text-5xl mb-2 text-transparent bg-clip-text bg-gradient-to-b from-green-400 to-blue-500 hover:text-green-400">Окно</h1>
                     </div>
                     @foreach ($tables as $table)
