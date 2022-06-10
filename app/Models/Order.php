@@ -16,4 +16,9 @@ class Order extends Model
         'total',
         'check'
     ];
+
+    public function order_info()
+    {
+        return $this->hasOne(OrderInfo::class);
+    }
 }

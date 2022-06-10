@@ -23,7 +23,6 @@ class TableController extends Controller
     {
         $locations = Category::where('id', '!=', 1)->get();
         $statuses = [
-          'Ожидание',
           'Свободен',
           'Занят'
         ];
@@ -46,7 +45,6 @@ class TableController extends Controller
     {
         $locations = Category::where('id', '!=', 1)->get();
         $statuses = [
-            'Ожидание',
             'Свободен',
             'Занят'
         ];

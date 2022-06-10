@@ -3,6 +3,9 @@ $(document).ready(function (){
         e.preventDefault();
 
         let menu_id = $(this).closest('.menu_data').find('.menu_id').val();
+        let song_id = $(this).closest('.music_data').find('.song_id').val();
+        let res_id = $(this).closest('#modal').find('#table_id').val();
+        let res_date = $(this).closest('#modal').find('#res_date').val();
         let menu_qty = 1;
 
         $.ajaxSetup({
@@ -16,6 +19,9 @@ $(document).ready(function (){
             url: '/add-to-cart',
             data: {
                 'menu_id': menu_id,
+                'song_id': song_id,
+                'res_id': res_id,
+                'res_date': res_date,
                 'menu_qty': menu_qty
             },
             statusCode: {
@@ -32,14 +38,14 @@ $(document).ready(function (){
                 if(response.status === 'success') {
                     Swal.fire(
                         'Успешно!',
-                        'Блюдо добавлено в корзину!',
+                        'Добавлено в корзину!',
                         'success'
                     )
                 } else if(response.status === 'exists') {
                     Swal.fire({
                         icon: 'error',
                         title: 'Ошибка',
-                        text: 'Блюдо уже есть в корзине!'
+                        text: 'Уже есть в корзине!'
                     })
                 }
             }

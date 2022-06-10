@@ -8,7 +8,7 @@ $(document).ready(function (){
     let maxDate = today.setDate(today.getDate() + 7);
     let pickedPlace = {};
     let responseObject = {};
-    let tableID;
+    let tableID, tableMax;
     new AirDatepicker('.airdatepicker', {
         timepicker: true,
         minDate: minDate,
@@ -38,12 +38,22 @@ $(document).ready(function (){
                 }
             });
             if($('#res_date').val() !== '' && !same) {
+                if($('#guest_number').val() !== '') {
+                    $('.submit-reserve').removeClass('hidden');
+                }
                 $('.reserve-err').addClass('hidden');
-                $('.submit-reserve').removeClass('hidden');
             } else {
                 $('.reserve-err').removeClass('hidden');
                 $('.submit-reserve').addClass('hidden');
             }
+        }
+    });
+    $('#modal').on('input', function () {
+        if($('#guest_number').val() != '' && parseInt($('#guest_number').val()) <= parseInt(tableMax) && $('#guest_number').val() != 0) {
+            $('.res_date').removeClass('hidden');
+        } else {
+            $('.res_date').addClass('hidden');
+            $('.submit-reserve').addClass('hidden');
         }
     });
     $('.add-reservation').click(function (e){
@@ -59,20 +69,13 @@ $(document).ready(function (){
         $('#modal').toggleClass('hidden');
         $('.submit-reserve').toggleClass('hidden')
         tableID = $(this).attr('data-table');
-        let tableMax = $(this).attr('data-max');
+        tableMax = $(this).attr('data-max');
         $('.table-id').val(tableID);
         $('#guest_number').attr('max', tableMax);
         $('.num-span').html(`Максимально допустимое кол-во для данного стола - ${tableMax}`);
     });
     $('.close-button').click(function (e){
         $('#modal').toggleClass('hidden');
-    });
-    $('.table-pending').click(function (e){
-        Swal.fire({
-            icon: 'error',
-            title: 'Ошибка',
-            text: 'Стол в режиме ожидания! Выберите свободный стол'
-        });
     });
     $('.table-blocked').click(function (e){
         Swal.fire({

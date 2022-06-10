@@ -10,6 +10,7 @@
                         </a>
                     </div>
                     <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
+                        <h2 class="text-4xl text-green-600">Блюда</h2>
                         <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400 bk-table admin-table">
                             <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                             <tr>
@@ -74,6 +75,127 @@
                             @endforeach
                             </tbody>
                         </table>
+                        <h2 class="text-4xl text-green-600">Бронирования</h2>
+                        <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400 bk-table admin-table">
+                            <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                            <tr>
+                                <th scope="col" class="px-6 py-3">
+                                    Дата бронирования
+                                </th>
+                                <th scope="col" class="px-6 py-3">
+                                    Место
+                                </th>
+                                <th scope="col" class="px-6 py-3">
+                                    Кол-во гостей
+                                </th>
+                                <th scope="col" class="px-6 py-3">
+                                    Сумма
+                                </th>
+                                <th scope="col" class="px-6 py-3">
+                                    <span>Удалить</span>
+                                </th>
+                            </tr>
+                            </thead>
+                            <tbody class="cart-body">
+                            @foreach($cart as $item)
+                                @if($item->user_id == \Illuminate\Support\Facades\Auth::id())
+                                    @foreach($reservations as $reservation)
+                                        @if($item->res_id == $reservation->id)
+                                            <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 cart-item">
+                                                <td class="px-6 py-4">
+                                                    {{ $item->res_date }}
+                                                </td>
+                                                <td class="px-6 py-4">
+                                                    {{ $reservation->name }}
+                                                </td>
+                                                <td class="px-6 py-4">
+                                                    {{ $reservation->guest_number }}
+                                                </td>
+                                                <td class="px-6 py-4 menu_price">
+                                                    @foreach($categories as $cat)
+                                                        @if($cat->name == $reservation->location) {{ $cat->res_price }}
+                                                        @endif
+                                                    @endforeach
+                                                </td>
+                                                <td class="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap">
+                                                    <form class="px-4 py-2 bg-red-500 hover:bg-red-700 rounded-lg text-white text-center"
+                                                          id="destroy_entry"
+                                                          method="POST"
+                                                          action="{{ route('cart.destroy', $item->id) }}"
+                                                    >
+                                                        @csrf
+                                                        @method("DELETE")
+                                                        <button type="submit">Удалить</button>
+                                                    </form>
+                                                </td>
+                                            </tr>
+                                        @else @continue
+                                        @endif
+                                    @endforeach
+                                @endif
+                            @endforeach
+                            </tbody>
+                        </table>
+                        <h2 class="text-4xl text-green-600">Песни</h2>
+                        <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400 bk-table admin-table">
+                            <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                            <tr>
+                                <th scope="col" class="px-6 py-3">
+                                    Исполнитель
+                                </th>
+                                <th scope="col" class="px-6 py-3">
+                                    Название песни
+                                </th>
+                                <th scope="col" class="px-6 py-3">
+                                    Жанр
+                                </th>
+                                <th scope="col" class="px-6 py-3">
+                                    Ссылка на видео
+                                </th>
+                                <th scope="col" class="px-6 py-3">
+                                    <span>Удалить</span>
+                                </th>
+                            </tr>
+                            </thead>
+                            <tbody class="cart-body">
+                            @foreach($cart as $item)
+                                @if($item->user_id == \Illuminate\Support\Facades\Auth::id())
+                                    @foreach($songs as $song)
+                                        @if($item->song_id == $song->id)
+                                            <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 cart-item">
+                                                <th scope="row" class="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap">
+                                                    {{ $song->singer }}
+                                                </th>
+                                                <th class="px-6 py-4">
+                                                    {{ $song->song_name }}
+                                                </th>
+                                                <th class="px-6 py-4">
+                                                    {{ $song->genre }}
+                                                </th>
+                                                <td class="px-6 py-4 truncate max-w-[200px]">
+                                                    <a href="{{ $song->video_link }}" target="_blank">
+                                                        <img src="{{ asset('assets/youtube.svg') }}" alt="" width="32">
+                                                    </a>
+                                                </td>
+                                                <td class="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap">
+                                                    <form class="px-4 py-2 bg-red-500 hover:bg-red-700 rounded-lg text-white text-center"
+                                                          id="destroy_entry"
+                                                          method="POST"
+                                                          action="{{ route('cart.destroy', $item->id) }}"
+                                                    >
+                                                        @csrf
+                                                        @method("DELETE")
+                                                        <button type="submit">Удалить</button>
+                                                    </form>
+                                                </td>
+                                            </tr>
+                                        @else @continue
+                                        @endif
+                                    @endforeach
+                                @endif
+                            @endforeach
+                            </tbody>
+                        </table>
                         <div class="flex justify-between m-2 p-2">
                             <div class="font-bold">
                                 Итого: <span class="cart-total"></span>₽
@@ -91,10 +213,12 @@
                                     <img src="{{ asset('assets/card.svg') }}" alt="CARD" class="w-10">
                                 </label>
                                 <input type="radio" class="payment-toggle" id="pay-card" name="pay" value="1">
-                                <p>Оплата картой</p>
+                                <p>Полная оплата</p>
                             </div>
                             <div class="flex items-center gap-1 payment-radio">
-                                <label class="payment-item" for="pay-cash">
+                                <label class="payment-item flex" for="pay-cash">
+                                    <img src="{{ asset('assets/card.svg') }}" alt="CARD" class="w-10">
+                                    <span class="text-4xl mx-1">/</span>
                                     <img src="{{ asset('assets/cash.svg') }}" alt="CASH" class="w-10">
                                 </label>
                                 <input type="radio" class="payment-toggle" id="pay-cash" name="pay" value="2">

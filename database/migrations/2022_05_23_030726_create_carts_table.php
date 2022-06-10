@@ -16,8 +16,11 @@ return new class extends Migration
         Schema::create('carts', function (Blueprint $table) {
             $table->id();
             $table->string('user_id');
-            $table->string('menu_id');
-            $table->string('menu_qty');
+            $table->string('menu_id')->nullable();
+            $table->string('menu_qty')->nullable();
+            $table->string('res_id')->nullable();
+            $table->string('res_date')->nullable();
+            $table->string('song_id')->nullable();
             $table->timestamps();
         });
     }

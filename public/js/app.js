@@ -5237,6 +5237,9 @@ $(document).ready(function () {
   $('.add-to-cart').click(function (e) {
     e.preventDefault();
     var menu_id = $(this).closest('.menu_data').find('.menu_id').val();
+    var song_id = $(this).closest('.music_data').find('.song_id').val();
+    var res_id = $(this).closest('#modal').find('#table_id').val();
+    var res_date = $(this).closest('#modal').find('#res_date').val();
     var menu_qty = 1;
     $.ajaxSetup({
       headers: {
@@ -5248,6 +5251,9 @@ $(document).ready(function () {
       url: '/add-to-cart',
       data: {
         'menu_id': menu_id,
+        'song_id': song_id,
+        'res_id': res_id,
+        'res_date': res_date,
         'menu_qty': menu_qty
       },
       statusCode: {
@@ -5262,12 +5268,12 @@ $(document).ready(function () {
       },
       success: function success(response) {
         if (response.status === 'success') {
-          Swal.fire('Успешно!', 'Блюдо добавлено в корзину!', 'success');
+          Swal.fire('Успешно!', 'Добавлено в корзину!', 'success');
         } else if (response.status === 'exists') {
           Swal.fire({
             icon: 'error',
             title: 'Ошибка',
-            text: 'Блюдо уже есть в корзине!'
+            text: 'Уже есть в корзине!'
           });
         }
       }
@@ -5613,7 +5619,7 @@ $(document).ready(function () {
   var maxDate = today.setDate(today.getDate() + 7);
   var pickedPlace = {};
   var responseObject = {};
-  var tableID;
+  var tableID, tableMax;
   new air_datepicker__WEBPACK_IMPORTED_MODULE_0__["default"]('.airdatepicker', {
     timepicker: true,
     minDate: minDate,
@@ -5648,12 +5654,23 @@ $(document).ready(function () {
       });
 
       if ($('#res_date').val() !== '' && !same) {
+        if ($('#guest_number').val() !== '') {
+          $('.submit-reserve').removeClass('hidden');
+        }
+
         $('.reserve-err').addClass('hidden');
-        $('.submit-reserve').removeClass('hidden');
       } else {
         $('.reserve-err').removeClass('hidden');
         $('.submit-reserve').addClass('hidden');
       }
+    }
+  });
+  $('#modal').on('input', function () {
+    if ($('#guest_number').val() != '' && parseInt($('#guest_number').val()) <= parseInt(tableMax) && $('#guest_number').val() != 0) {
+      $('.res_date').removeClass('hidden');
+    } else {
+      $('.res_date').addClass('hidden');
+      $('.submit-reserve').addClass('hidden');
     }
   });
   $('.add-reservation').click(function (e) {
@@ -5669,20 +5686,13 @@ $(document).ready(function () {
     $('#modal').toggleClass('hidden');
     $('.submit-reserve').toggleClass('hidden');
     tableID = $(this).attr('data-table');
-    var tableMax = $(this).attr('data-max');
+    tableMax = $(this).attr('data-max');
     $('.table-id').val(tableID);
     $('#guest_number').attr('max', tableMax);
     $('.num-span').html("\u041C\u0430\u043A\u0441\u0438\u043C\u0430\u043B\u044C\u043D\u043E \u0434\u043E\u043F\u0443\u0441\u0442\u0438\u043C\u043E\u0435 \u043A\u043E\u043B-\u0432\u043E \u0434\u043B\u044F \u0434\u0430\u043D\u043D\u043E\u0433\u043E \u0441\u0442\u043E\u043B\u0430 - ".concat(tableMax));
   });
   $('.close-button').click(function (e) {
     $('#modal').toggleClass('hidden');
-  });
-  $('.table-pending').click(function (e) {
-    Swal.fire({
-      icon: 'error',
-      title: 'Ошибка',
-      text: 'Стол в режиме ожидания! Выберите свободный стол'
-    });
   });
   $('.table-blocked').click(function (e) {
     Swal.fire({
