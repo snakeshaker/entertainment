@@ -19,11 +19,15 @@
                             <th scope="col" class="px-6 py-3">
                                 Ссылка на видео
                             </th>
+                            <th scope="col" class="px-6 py-3">
+                                Заказать песню
+                            </th>
                         </tr>
                         </thead>
                         <tbody>
                         @foreach($songs as $song)
-                            <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                            <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 music_data">
+                                <input type="hidden" value="{{ $song->id }}" class="song_id">
                                 <th scope="row" class="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap">
                                     {{ $song->singer }}
                                 </th>
@@ -38,6 +42,12 @@
                                         <img src="{{ asset('assets/youtube.svg') }}" alt="" width="32">
                                     </a>
                                 </td>
+                                <th class="px-6 py-4">
+                                    @if(\Illuminate\Support\Facades\Auth::user())
+                                    <button class="add-to-cart bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full">заказать</button>
+                                    @else <div><a href="{{ route('register') }}" class="text-green-600 hover:text-green-400">Зарегистрируйтесь,</a> чтобы зказать песню</div>
+                                    @endif
+                                </th>
                             </tr>
                         @endforeach
                         </tbody>

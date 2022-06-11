@@ -33,13 +33,6 @@
                             <div class="rounded-full h-4 w-4 bg-green-500 inline-block absolute top-2 right-20"></div>
                             <img class="mx-auto object-none" src="{{ asset('assets/'.$category->space_image) }}" alt="Table">
                         </div>
-                        @elseif($table->status == 'Ожидание')
-                            <div class="my-2 px-2 w-1/4 overflow-hidden hover:cursor-pointer hover:text-blue-400 transition-all relative table-pending">
-                                <h2 class="mt-2 mb-2 uppercase font-bold md:text-xs text-center">{{ $table->name }}</h2>
-                                <p class="text-xs text-yellow-400 text-center">Стол в режиме ожидания</p>
-                                <div class="rounded-full h-4 w-4 bg-yellow-500 inline-block absolute top-2 right-20"></div>
-                                <img class="mx-auto object-none" src="{{ asset('assets/'.$category->space_image) }}" alt="Table">
-                            </div>
                         @else
                             <div class="my-2 px-2 w-1/4 overflow-hidden hover:cursor-pointer hover:text-blue-400 transition-all relative table-blocked">
                                 <h2 class="mt-2 mb-2 uppercase font-bold md:text-xs text-center">{{ $table->name }}</h2>
@@ -70,8 +63,6 @@
                                     <p class="text-sm inline-block">Статус: <br> {{ $table->status }}</p>
                                     @if ($table->status == 'Свободен')
                                         <div class="rounded-full h-4 w-4 bg-green-500 inline-block"></div>
-                                    @elseif($table->status == 'Ожидание')
-                                        <div class="rounded-full h-4 w-4 bg-yellow-500 inline-block"></div>
                                     @else
                                         <div class="rounded-full h-4 w-4 bg-red-500 inline-block"></div>
                                     @endif
@@ -83,8 +74,6 @@
                                 <div class="flex justify-center my-2">
                                     @if ($table->status == 'Свободен')
                                     <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded add-reservation md:text-xs" data-table="{{ $table->id }}" data-max="{{ $table->guest_number }}">Забронировать</button>
-                                    @elseif($table->status == 'Ожидание')
-                                    <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded table-pending md:text-xs" data-table="{{ $table->id }}" data-max="{{ $table->guest_number }}">Забронировать</button>
                                     @else
                                     <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded table-blocked md:text-xs" data-table="{{ $table->id }}" data-max="{{ $table->guest_number }}">Забронировать</button>
                                     @endif
@@ -184,15 +173,9 @@
             <div class="close-button absolute right-0 top-5 w-10 z-10 hover:cursor-pointer">X</div>
             <div class="relative py-8 px-5 md:px-10 bg-white shadow-md rounded border border-gray-400">
                 <h1 class="font-medium leading-tight text-5xl mb-2 text-transparent bg-clip-text bg-gradient-to-b from-green-400 to-blue-500 hover:text-green-400">Забронировать</h1>
-                <form method="POST" action="{{ route('reserve.store') }}">
-                    @csrf
+                <form>
                     <div class="sm:col-span-6">
-                        <label for="res_date" class="block text-sm font-medium text-gray-700">Дата бронирования</label>
-                        <div class="mt-1">
-                            <input autocomplete="off" name="res_date" id="res_date" placeholder="Выберите дату" class="airdatepicker block w-full transition duration-150 ease-in-out appearance-none bg-white border border-gray-400 rounded-md py-2 px-3 text-base leading-normal transition duration-150 ease-in-out sm:text-sm sm:leading-5"/>
-                        </div>
-                        <span class="text-xs reserve-info">Пожалуйста выберите время с 15:00 до 00:00.</span>
-                        <span class="text-xs text-red-600 block hidden reserve-err">Это время занято!</span>
+                        <h2 class="text-xl text-blue-600">Цена бронирования: {{ $category->res_price }}</h2>
                     </div>
                     <div class="sm:col-span-6 pt-5">
                         <label for="guest_number" class="block text-sm font-medium text-gray-700">Число гостей</label>
@@ -202,9 +185,17 @@
                         </div>
                         <span class="text-xs num-span"></span>
                     </div>
+                    <div class="sm:col-span-6 pt-5 hidden res_date">
+                        <label for="res_date" class="block text-sm font-medium text-gray-700">Дата бронирования</label>
+                        <div class="mt-1">
+                            <input autocomplete="off" name="res_date" id="res_date" placeholder="Выберите дату" class="airdatepicker block w-full transition duration-150 ease-in-out appearance-none bg-white border border-gray-400 rounded-md py-2 px-3 text-base leading-normal transition duration-150 ease-in-out sm:text-sm sm:leading-5"/>
+                        </div>
+                        <span class="text-xs reserve-info">Пожалуйста выберите время с 15:00 до 00:00.</span>
+                        <span class="text-xs text-red-600 block hidden reserve-err">Это время занято!</span>
+                    </div>
                     <input type="hidden" class="table-id" id="table_id" name="table_id">
                     <div class="mt-6 p-4 text-center">
-                        <button type="submit" class="px-4 py-2 bg-blue-500 hover:bg-blue-700 rounded-lg text-white submit-reserve">
+                        <button class="add-to-cart px-4 py-2 bg-blue-500 hover:bg-blue-700 rounded-lg text-white submit-reserve">
                             Забронировать
                         </button>
                     </div>

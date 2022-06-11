@@ -29,7 +29,7 @@
                             Текст отзыва
                         </th>
                         <th scope="col" class="px-6 py-3">
-                            ID Категории
+                            Категория
                         </th>
                         <th scope="col" class="px-6 py-3">
                             Вид отзыва
@@ -52,7 +52,7 @@
                                 {{ $review->review_text }}
                             </td>
                             <td class="px-6 py-4">
-                                {{ $review->category_id }}
+                                {{ $review->category->name }}
                             </td>
                             <td class="px-6 py-4">
                                 {{ $review->review_degree }}
