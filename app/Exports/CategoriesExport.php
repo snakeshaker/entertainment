@@ -24,6 +24,7 @@ class CategoriesExport implements FromCollection, WithHeadings
             'Описание',
             'Картинка',
             'Картинка места',
+            'Цена бронирования',
             'Дата создания',
             'Дата редактирования'
         ];
