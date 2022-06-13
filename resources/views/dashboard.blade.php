@@ -126,9 +126,6 @@
                                 <th scope="col" class="px-6 py-3">
                                     Кол-во гостей
                                 </th>
-                                <th scope="col" class="px-6 py-3">
-                                    <span>отменить</span>
-                                </th>
                             </tr>
                             </thead>
                             <tbody>
@@ -142,17 +139,6 @@
                                     </td>
                                     <td class="px-6 py-4">
                                         {{ $reservation->guest_number }}
-                                    </td>
-                                    <td class="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap">
-                                            <form class="px-4 py-2 bg-red-500 hover:bg-red-700 rounded-lg text-white"
-                                                  id="destroy_entry"
-                                                  method="POST"
-                                                  action="{{ route('dashboard.destroy', $reservation->id) }}"
-                                            >
-                                                @csrf
-                                                @method("DELETE")
-                                                <button type="submit">Отменить</button>
-                                            </form>
                                     </td>
                                 </tr>
                             @endforeach
@@ -199,10 +185,14 @@
                                         @endif
                                     </td>
                                     <td class="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap">
-                                        ₽{{ $order->total }}
+                                        @if($order->pay == 1) ₽{{ $order->total }}
+                                        @elseif($order->pay == 3) ₽{{ $order->total }}
+                                        @else ₽{{ $order->total/2 }}/₽{{ $order->total }}
+                                        @endif
                                     </td>
                                     <td class="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap">
-                                        @if($order->check == 1) Оплачено
+                                        @if($order->check == 1 && $order->pay == 1) Оплачено
+                                        @elseif($order->check == 1 && $order->pay == 2) Частично оплачено
                                         @else Не оплачено
                                         @endif
                                     </td>

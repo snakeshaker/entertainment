@@ -99,5 +99,6 @@ class CartController extends Controller
             'total' => $request->amount / 7.4,
             'check' => $request->check,
         ]);
+
     }
 }

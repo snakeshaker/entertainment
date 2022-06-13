@@ -1,4 +1,17 @@
 <x-guest-layout>
+    <!-- Main Hero Content -->
+    <div class="container max-w-lg px-4 py-32 mx-auto text-left bg-center bg-no-repeat bg-cover md:max-w-none md:text-center relative"
+         style="background-image: url('{{ asset('assets/music.jpg') }}'); font-family: 'Pacifico'">
+        <h1
+            class="text-3xl font-extrabold text-white md:text-center sm:leading-none lg:text-5xl z-[2] relative">
+            <span class="inline md:block">Каталог песен</span>
+        </h1>
+        <div class="mx-auto mt-2 text-green-50 md:text-center lg:text-2xl md:text-lg z-[2] relative">
+            Все хиты наших времён и вся «классика» в одном флаконе! В нашей фонотеке есть любые мелодии песен на русском языке на ваш выбор.
+        </div>
+        <div class="w-full h-full absolute top-0 right-0 z-0 backdrop-blur"></div>
+    </div>
+    <!-- End Main Hero Content -->
     <section class="px-2 py-10 bg-white md:px-0">
         <h2 class="text-center text-4xl xl:text-5xl text-transparent bg-clip-text bg-gradient-to-b from-green-400 to-blue-500 hover:text-green-400">Каталог песен</h2>
         <div class="container container max-w-4xl m-auto flex flex-wrap flex-col md:flex-row items-center justify-start mt-5">
