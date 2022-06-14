@@ -102,14 +102,15 @@
                                     @foreach($reservations as $reservation)
                                         @if($item->res_id == $reservation->id)
                                             <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 cart-item">
-                                                <td class="px-6 py-4">
+                                                <td class="px-6 py-4 res_date">
                                                     {{ $item->res_date }}
                                                 </td>
                                                 <td class="px-6 py-4">
                                                     {{ $reservation->name }}
                                                 </td>
-                                                <td class="px-6 py-4">
-                                                    {{ $reservation->guest_number }}
+                                                <input type="hidden" class="table_id" value="{{ $reservation->id }}">
+                                                <td class="px-6 py-4 res_guest">
+                                                    {{ $item->guest_number }}
                                                 </td>
                                                 <td class="px-6 py-4 menu_price">
                                                     @foreach($categories as $cat)

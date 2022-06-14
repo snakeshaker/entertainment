@@ -12,6 +12,9 @@ class Cart extends Model
     protected $fillable = [
         'user_id',
         'menu_id',
+        'song_id',
+        'res_id',
+        'guest_number',
         'menu_qty'
     ];
 }

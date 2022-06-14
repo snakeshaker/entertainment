@@ -67,7 +67,6 @@ Route::middleware(['auth'])->group(function (){
     Route::get('/success', [PaymentController::class, 'success']);
     Route::get('/failure', [PaymentController::class, 'failure']);
     Route::post('/create-order', [CartController::class, 'createOrder']);
-    Route::post('/reserve', [ReservationController::class, 'store'])->name('reserve.store');
     Route::get('/reserve-all', [ReservationController::class, 'show'])->name('reserve.show');
 });
 

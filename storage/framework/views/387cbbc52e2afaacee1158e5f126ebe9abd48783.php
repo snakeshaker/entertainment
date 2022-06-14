@@ -112,7 +112,7 @@
                                     <?php $__currentLoopData = $reservations; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $reservation): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                         <?php if($item->res_id == $reservation->id): ?>
                                             <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 cart-item">
-                                                <td class="px-6 py-4">
+                                                <td class="px-6 py-4 res_date">
                                                     <?php echo e($item->res_date); ?>
 
                                                 </td>
@@ -120,8 +120,9 @@
                                                     <?php echo e($reservation->name); ?>
 
                                                 </td>
-                                                <td class="px-6 py-4">
-                                                    <?php echo e($reservation->guest_number); ?>
+                                                <input type="hidden" class="table_id" value="<?php echo e($reservation->id); ?>">
+                                                <td class="px-6 py-4 res_guest">
+                                                    <?php echo e($item->guest_number); ?>
 
                                                 </td>
                                                 <td class="px-6 py-4 menu_price">

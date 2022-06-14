@@ -5240,6 +5240,7 @@ $(document).ready(function () {
     var song_id = $(this).closest('.music_data').find('.song_id').val();
     var res_id = $(this).closest('#modal').find('#table_id').val();
     var res_date = $(this).closest('#modal').find('#res_date').val();
+    var guest_number = $(this).closest('#modal').find('#guest_number').val();
     var menu_qty = 1;
     $.ajaxSetup({
       headers: {
@@ -5254,7 +5255,8 @@ $(document).ready(function () {
         'song_id': song_id,
         'res_id': res_id,
         'res_date': res_date,
-        'menu_qty': menu_qty
+        'menu_qty': menu_qty,
+        'guest_number': guest_number
       },
       statusCode: {
         401: function _() {
@@ -5439,6 +5441,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
 
 
+function _createForOfIteratorHelper(o, allowArrayLike) { var it = typeof Symbol !== "undefined" && o[Symbol.iterator] || o["@@iterator"]; if (!it) { if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") { if (it) o = it; var i = 0; var F = function F() {}; return { s: F, n: function n() { if (i >= o.length) return { done: true }; return { done: false, value: o[i++] }; }, e: function e(_e) { throw _e; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var normalCompletion = true, didErr = false, err; return { s: function s() { it = it.call(o); }, n: function n() { var step = it.next(); normalCompletion = step.done; return step; }, e: function e(_e2) { didErr = true; err = _e2; }, f: function f() { try { if (!normalCompletion && it["return"] != null) it["return"](); } finally { if (didErr) throw err; } } }; }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
 
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
@@ -5448,7 +5456,7 @@ $(document).on("change", ".payment-toggle", function (e) {
 });
 $(document).on("click", "#confirm-order", /*#__PURE__*/function () {
   var _ref = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee(e) {
-    var _INVOICE_ID, _AMOUNT, _METHOD_PAY, order, auth, text;
+    var _INVOICE_ID, _AMOUNT, _METHOD_PAY, res_dates, _iterator, _step, obj, table_ids, _iterator2, _step2, _obj, guests, _iterator3, _step3, _obj2, order, auth, text;
 
     return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_context) {
       while (1) {
@@ -5457,9 +5465,51 @@ $(document).on("click", "#confirm-order", /*#__PURE__*/function () {
             _INVOICE_ID = Math.floor(Math.random() * 100000000);
             _AMOUNT = +$("#total").val() * 7.4;
             _METHOD_PAY = $("#pay-output").val();
+            console.log($('.res_date'));
+            res_dates = [];
+            _iterator = _createForOfIteratorHelper($('.res_date'));
+
+            try {
+              for (_iterator.s(); !(_step = _iterator.n()).done;) {
+                obj = _step.value;
+                res_dates.push(obj.innerText);
+              }
+            } catch (err) {
+              _iterator.e(err);
+            } finally {
+              _iterator.f();
+            }
+
+            table_ids = [];
+            _iterator2 = _createForOfIteratorHelper($('.table_id'));
+
+            try {
+              for (_iterator2.s(); !(_step2 = _iterator2.n()).done;) {
+                _obj = _step2.value;
+                table_ids.push(_obj.value);
+              }
+            } catch (err) {
+              _iterator2.e(err);
+            } finally {
+              _iterator2.f();
+            }
+
+            guests = [];
+            _iterator3 = _createForOfIteratorHelper($('.res_guest'));
+
+            try {
+              for (_iterator3.s(); !(_step3 = _iterator3.n()).done;) {
+                _obj2 = _step3.value;
+                guests.push(_obj2.innerText);
+              }
+            } catch (err) {
+              _iterator3.e(err);
+            } finally {
+              _iterator3.f();
+            }
 
             if (!(_METHOD_PAY == null || _METHOD_PAY == "")) {
-              _context.next = 6;
+              _context.next = 16;
               break;
             }
 
@@ -5470,9 +5520,9 @@ $(document).on("click", "#confirm-order", /*#__PURE__*/function () {
             });
             return _context.abrupt("return");
 
-          case 6:
+          case 16:
             if (!(_AMOUNT == 0)) {
-              _context.next = 9;
+              _context.next = 19;
               break;
             }
 
@@ -5483,59 +5533,62 @@ $(document).on("click", "#confirm-order", /*#__PURE__*/function () {
             });
             return _context.abrupt("return");
 
-          case 9:
-            _context.next = 11;
+          case 19:
+            _context.next = 21;
             return axios.post("/create-order", {
               code: _INVOICE_ID,
               pay: _METHOD_PAY,
               amount: _AMOUNT,
-              check: 0
+              check: 0,
+              res_dates: res_dates,
+              table_ids: table_ids,
+              guests: guests
             });
 
-          case 11:
+          case 21:
             order = _context.sent;
 
             if (!(_METHOD_PAY == 1)) {
-              _context.next = 17;
+              _context.next = 27;
               break;
             }
 
-            _context.next = 15;
+            _context.next = 25;
             return axios.post("/token", {
               order: _INVOICE_ID,
               amount: _AMOUNT
             });
 
-          case 15:
+          case 25:
             auth = _context.sent;
             halyk.pay(createPaymentObject(auth.data, _INVOICE_ID, _AMOUNT));
 
-          case 17:
+          case 27:
             if (!(_METHOD_PAY == 2)) {
-              _context.next = 22;
+              _context.next = 32;
               break;
             }
 
-            _context.next = 20;
+            _context.next = 30;
             return axios.post("/token", {
               order: _INVOICE_ID,
               amount: _AMOUNT / 2
             });
 
-          case 20:
+          case 30:
             auth = _context.sent;
             halyk.pay(createPaymentObject(auth.data, _INVOICE_ID, _AMOUNT / 2));
 
-          case 22:
+          case 32:
             if (!(_METHOD_PAY == 3)) {
-              _context.next = 28;
+              _context.next = 38;
               break;
             }
 
             text = $('#dostavka-info').val();
 
             if (text) {
-              _context.next = 27;
+              _context.next = 37;
               break;
             }
 
@@ -5546,12 +5599,12 @@ $(document).on("click", "#confirm-order", /*#__PURE__*/function () {
             });
             return _context.abrupt("return");
 
-          case 27:
+          case 37:
             Swal.fire('Успешно!', 'Администратор свяжется с вами в ближайшее время!', 'success').then(function () {
               window.location.href = "/dashboard/";
             });
 
-          case 28:
+          case 38:
           case "end":
             return _context.stop();
         }

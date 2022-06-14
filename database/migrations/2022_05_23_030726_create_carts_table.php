@@ -21,6 +21,7 @@ return new class extends Migration
             $table->string('res_id')->nullable();
             $table->string('res_date')->nullable();
             $table->string('song_id')->nullable();
+            $table->string('guest_number')->nullable();
             $table->timestamps();
         });
     }

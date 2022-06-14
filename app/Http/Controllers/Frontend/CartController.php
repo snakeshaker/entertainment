@@ -8,6 +8,7 @@ use App\Models\Category;
 use App\Models\Menu;
 use App\Models\Order;
 use App\Models\OrderInfo;
+use App\Models\Reservation;
 use App\Models\Song;
 use App\Models\Table;
 use Illuminate\Database\Eloquent\Model;
@@ -69,6 +70,7 @@ class CartController extends Controller
                     $cartItem->res_date = $res_date;
                     $cartItem->user_id = Auth::id();
                     $cartItem->menu_qty = 1;
+                    $cartItem->guest_number = $request->guest_number;
                     $cartItem->save();
                     return response()->json(['status' => 'success']);
                 }
@@ -92,6 +94,19 @@ class CartController extends Controller
 
     public function createOrder(Request $request)
     {
+        for ($i = 0; $i < count($request->res_dates); $i++) {
+            Reservation::create([
+                'user_id' => Auth::id(),
+                'first_name' => Auth::user()->first_name,
+                'last_name' => Auth::user()->last_name,
+                'email' => Auth::user()->email,
+                'tel_number' => Auth::user()->tel_number,
+                'res_date' => $request->res_dates[$i],
+                'table_id' => $request->table_ids[$i],
+                'guest_number' => $request->guests[$i]
+            ]);
+        }
+
         Order::create([
             'user_id' => Auth::id(),
             'code' => $request->code,
@@ -99,6 +114,6 @@ class CartController extends Controller
             'total' => $request->amount / 7.4,
             'check' => $request->check,
         ]);
-
+        Cart::truncate();
     }
 }

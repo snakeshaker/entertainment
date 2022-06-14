@@ -6,6 +6,7 @@ $(document).ready(function (){
         let song_id = $(this).closest('.music_data').find('.song_id').val();
         let res_id = $(this).closest('#modal').find('#table_id').val();
         let res_date = $(this).closest('#modal').find('#res_date').val();
+        let guest_number = $(this).closest('#modal').find('#guest_number').val();
         let menu_qty = 1;
 
         $.ajaxSetup({
@@ -22,7 +23,8 @@ $(document).ready(function (){
                 'song_id': song_id,
                 'res_id': res_id,
                 'res_date': res_date,
-                'menu_qty': menu_qty
+                'menu_qty': menu_qty,
+                'guest_number': guest_number
             },
             statusCode: {
                 401: function() {

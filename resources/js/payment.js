@@ -7,6 +7,19 @@ $(document).on("click", "#confirm-order", async function (e) {
 
     const _AMOUNT = +$("#total").val() * 7.4;
     const _METHOD_PAY = $("#pay-output").val();
+    console.log($('.res_date'));
+    let res_dates = [];
+    for(let obj of $('.res_date')) {
+        res_dates.push(obj.innerText)
+    }
+    let table_ids = [];
+    for(let obj of $('.table_id')) {
+        table_ids.push(obj.value)
+    }
+    let guests = [];
+    for(let obj of $('.res_guest')) {
+        guests.push(obj.innerText)
+    }
 
     if (_METHOD_PAY == null || _METHOD_PAY == "") {
         Swal.fire({
@@ -31,6 +44,9 @@ $(document).on("click", "#confirm-order", async function (e) {
         pay: _METHOD_PAY,
         amount: _AMOUNT,
         check: 0,
+        res_dates: res_dates,
+        table_ids: table_ids,
+        guests: guests
     });
 
     if (_METHOD_PAY == 1) {
