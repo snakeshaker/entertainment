@@ -36,8 +36,8 @@
                                 @if($item->user_id == \Illuminate\Support\Facades\Auth::id())
                                 @foreach($menus as $menu)
                                 @if($item->menu_id == $menu->id)
-                                <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 cart-item">
-                                    <td class="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap">
+                                <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 cart-item food-item">
+                                    <td class="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap food-name">
                                         {{ $menu->name }}
                                     </td>
                                     <td class="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap">
@@ -164,13 +164,13 @@
                                     @foreach($songs as $song)
                                         @if($item->song_id == $song->id)
                                             <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 cart-item">
-                                                <th scope="row" class="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap">
+                                                <th scope="row" class="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap info-singer">
                                                     {{ $song->singer }}
                                                 </th>
-                                                <th class="px-6 py-4">
+                                                <th class="px-6 py-4 info-song">
                                                     {{ $song->song_name }}
                                                 </th>
-                                                <th class="px-6 py-4">
+                                                <th class="px-6 py-4 info-genres">
                                                     {{ $song->genre }}
                                                 </th>
                                                 <td class="px-6 py-4 truncate max-w-[200px]">

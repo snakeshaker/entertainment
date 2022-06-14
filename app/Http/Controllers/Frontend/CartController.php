@@ -94,6 +94,7 @@ class CartController extends Controller
 
     public function createOrder(Request $request)
     {
+//        dd($request->deliveryInfo);
         for ($i = 0; $i < count($request->res_dates); $i++) {
             Reservation::create([
                 'user_id' => Auth::id(),
@@ -114,6 +115,15 @@ class CartController extends Controller
             'total' => $request->amount / 7.4,
             'check' => $request->check,
         ]);
+
+        OrderInfo::create([
+            'order_id' => Order::all()->last()->id,
+            'delivery_info' => $request->deliveryInfo,
+            'food_info' => $request->foodsArr,
+            'res_info' => $request->resArr,
+            'song_info' => $request->songArr,
+        ]);
+
         Cart::truncate();
     }
 }

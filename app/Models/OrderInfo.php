@@ -10,10 +10,17 @@ class OrderInfo extends Model
     use HasFactory;
 
     protected $fillable = [
-        'order_id',
         'food_info',
         'res_info',
-        'song_info'
+        'song_info',
+        'order_id',
+        'delivery_info'
+    ];
+
+    protected $casts = [
+        'food_info' => 'array',
+        'res_info' => 'array',
+        'song_info' => 'array'
     ];
 
     public function order()

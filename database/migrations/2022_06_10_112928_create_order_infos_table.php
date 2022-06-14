@@ -16,9 +16,10 @@ return new class extends Migration
         Schema::create('order_infos', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('order_id');
-            $table->text('food_info')->nullable();
-            $table->text('res_info')->nullable();
-            $table->text('song_info')->nullable();
+            $table->json('food_info')->nullable();
+            $table->json('res_info')->nullable();
+            $table->json('song_info')->nullable();
+            $table->text('delivery_info')->nullable();
             $table->timestamps();
 
             $table->foreign('order_id')->references('id')->on('orders');

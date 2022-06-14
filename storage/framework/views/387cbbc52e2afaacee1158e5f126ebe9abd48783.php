@@ -44,8 +44,8 @@
                                 <?php if($item->user_id == \Illuminate\Support\Facades\Auth::id()): ?>
                                 <?php $__currentLoopData = $menus; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $menu): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                 <?php if($item->menu_id == $menu->id): ?>
-                                <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 cart-item">
-                                    <td class="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap">
+                                <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 cart-item food-item">
+                                    <td class="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap food-name">
                                         <?php echo e($menu->name); ?>
 
                                     </td>
@@ -178,15 +178,15 @@
                                     <?php $__currentLoopData = $songs; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $song): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                         <?php if($item->song_id == $song->id): ?>
                                             <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 cart-item">
-                                                <th scope="row" class="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap">
+                                                <th scope="row" class="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap info-singer">
                                                     <?php echo e($song->singer); ?>
 
                                                 </th>
-                                                <th class="px-6 py-4">
+                                                <th class="px-6 py-4 info-song">
                                                     <?php echo e($song->song_name); ?>
 
                                                 </th>
-                                                <th class="px-6 py-4">
+                                                <th class="px-6 py-4 info-genres">
                                                     <?php echo e($song->genre); ?>
 
                                                 </th>
