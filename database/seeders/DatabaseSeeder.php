@@ -17,5 +17,6 @@ class DatabaseSeeder extends Seeder
         $this->call(Admin::class);
         $this->call(Guest::class);
         $this->call(ReviewCategory::class);
+        $this->call(Contacts::class);
     }
 }

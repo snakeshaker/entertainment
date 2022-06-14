@@ -15,7 +15,7 @@
                     <img class="block w-full lg:w-48 flex-none bg-cover h-24" src="<?php echo e(asset('assets/location.svg')); ?>">
                     <div class="bg-white rounded-b lg:rounded-b-none lg:rounded-r p-4 flex flex-col justify-between leading-normal">
                         <div class="text-black font-bold text-xl mb-2 leading-tight">Наш адрес</div>
-                        <p class="text-grey-darker text-base">г. Алматы, улица Сатпаева 90/5</p>
+                        <p class="text-grey-darker text-base"><?php echo e($contact->address); ?></p>
                     </div>
                 </div>
             </div>
@@ -24,7 +24,7 @@
                     <img class="block w-full lg:w-48 flex-none bg-cover h-24" src="<?php echo e(asset('assets/phone.svg')); ?>">
                     <div class="bg-white rounded-b lg:rounded-b-none lg:rounded-r p-4 flex flex-col justify-between leading-normal">
                         <div class="text-black font-bold text-xl mb-2 leading-tight">Номер телефона</div>
-                        <p class="text-grey-darker text-base">+7 776 871 9177</p>
+                        <p class="text-grey-darker text-base"><?php echo e($contact->number); ?></p>
                     </div>
                 </div>
             </div>
@@ -33,7 +33,7 @@
                     <img class="block w-full lg:w-48 flex-none bg-cover h-24" src="<?php echo e(asset('assets/email.svg')); ?>">
                     <div class="bg-white rounded-b lg:rounded-b-none lg:rounded-r p-4 flex flex-col justify-between leading-normal">
                         <div class="text-black font-bold text-xl mb-2 leading-tight">Почта</div>
-                        <p class="text-grey-darker text-base">alik_99_99@list.ru</p>
+                        <p class="text-grey-darker text-base"><?php echo e($contact->email); ?></p>
                     </div>
                 </div>
             </div>
@@ -42,8 +42,7 @@
                     <img class="block w-full lg:w-48 flex-none bg-cover h-24" src="<?php echo e(asset('assets/clock.svg')); ?>">
                     <div class="bg-white rounded-b lg:rounded-b-none lg:rounded-r p-4 flex flex-col justify-between leading-normal">
                         <div class="text-black font-bold text-xl mb-2 leading-tight">График работы</div>
-                        <p class="text-grey-darker text-base">ПН - ВЫХОДНОЙ</p>
-                        <p class="text-grey-darker text-base">ВТ-ВС - с 15.00 до 02.00</p>
+                        <p class="text-grey-darker text-base w-[10em]"><?php echo e($contact->time); ?></p>
                     </div>
                 </div>
             </div>
