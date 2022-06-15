@@ -37,10 +37,14 @@ $(document).on("click", "#confirm-order", async function (e) {
     let resArr = [];
     let reses = document.querySelectorAll('.res_date');
     let tables = document.querySelectorAll('.table_id');
+    let guest_num = document.querySelectorAll('.res_guest');
+    let res_amount = document.querySelectorAll('.res_amount');
     for(let i = 0; i < reses.length; i++) {
         let res = {};
         res.date = reses[i].innerHTML.trim().replace(/&nbsp;/g, '');
         res.table = tables[i].value;
+        res.guest_num = guest_num[i].innerHTML.trim().replace(/&nbsp;/g, '');
+        res.res_amount = res_amount[i].innerHTML.trim().replace(/&nbsp;/g, '');
         resArr.push(res);
     }
 

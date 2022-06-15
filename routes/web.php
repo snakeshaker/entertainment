@@ -88,6 +88,7 @@ Route::middleware(['auth', 'admin'])->name('admin.')->prefix('admin')->group(fun
     Route::resource('/galleries', \App\Http\Controllers\Admin\GalleryController::class);
     Route::get('/contacts', [\App\Http\Controllers\Admin\ContactsController::class, 'index'])->name('contacts.index');
     Route::put('/contacts/update', [\App\Http\Controllers\Admin\ContactsController::class, 'update'])->name('contacts.update');
+    Route::get('/orders/{order}', [\App\Http\Controllers\Admin\OrderController::class, 'info'])->name('orders.info');
     //EXPORT EXCEL
     Route::get('users/export/', [\App\Http\Controllers\Admin\UserController::class, 'show'])->name('users.export');
     Route::get('categories/export/', [\App\Http\Controllers\Admin\CategoryController::class, 'show'])->name('categories.export');

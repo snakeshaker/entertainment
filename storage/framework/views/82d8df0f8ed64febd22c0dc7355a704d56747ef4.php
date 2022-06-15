@@ -26,7 +26,7 @@
                     <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                     <tr>
                         <th scope="col" class="px-6 py-3">
-                            ID пользователя
+                            Пользователь
                         </th>
                         <th scope="col" class="px-6 py-3">
                             Время заказа
@@ -42,8 +42,12 @@
                         </th>
                         <th scope="col" class="px-6 py-3">
                             Статус
-                        </th><th scope="col" class="px-6 py-3">
+                        </th>
+                        <th scope="col" class="px-6 py-3">
                             <span>Удалить</span>
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                            <span>Подробнее</span>
                         </th>
                     </tr>
                     </thead>
@@ -51,7 +55,7 @@
                         <?php $__currentLoopData = $orders; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $order): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                             <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
                                 <td class="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap">
-                                    <?php echo e($order->user_id); ?>
+                                    (ID<?php echo e($order->user->id); ?>) <?php echo e($order->user->first_name); ?> <?php echo e($order->user->last_name); ?>
 
                                 </td>
                                 <td class="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap">
@@ -111,6 +115,11 @@
                                         <?php echo method_field("DELETE"); ?>
                                         <button type="submit" class="w-full">Удалить</button>
                                     </form>
+                                </td>
+                                <td class="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap">
+                                    <a href="<?php echo e(route('admin.orders.info', $order->id)); ?>" class="px-4 py-2 bg-green-500 hover:bg-green-700 rounded-lg text-white">
+                                        Подробнее
+                                    </a>
                                 </td>
                             </tr>
                         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>

@@ -5301,7 +5301,7 @@ $(document).ready(function () {
     });
   });
   var init = 0;
-  $('.menu_price').each(function () {
+  $('.menu_price:visible').each(function () {
     init += parseFloat($(this).text());
   });
   $('.cart-total').html(init);
@@ -5320,11 +5320,25 @@ $(document).ready(function () {
     if ($('#dostavka').is(':checked')) {
       $('.dostavka-checked').toggleClass('hidden');
       $('.payment-radio').toggleClass('hidden');
+      $('.nedostavka').toggleClass('hidden');
       $("#pay-dostavka").prop("checked", true).change();
+      var _init = 0;
+      $('.menu_price:visible').each(function () {
+        _init += parseFloat($(this).text());
+      });
+      $('.cart-total').html(_init);
+      $('#total').val(_init);
     } else {
+      $('.nedostavka').toggleClass('hidden');
       $('.dostavka-checked').toggleClass('hidden');
       $('.payment-radio').toggleClass('hidden');
       $("#pay-dostavka").prop("checked", false).change();
+      var _init2 = 0;
+      $('.menu_price:visible').each(function () {
+        _init2 += parseFloat($(this).text());
+      });
+      $('.cart-total').html(_init2);
+      $('#total').val(_init2);
     }
   });
 });
@@ -5456,7 +5470,7 @@ $(document).on("change", ".payment-toggle", function (e) {
 });
 $(document).on("click", "#confirm-order", /*#__PURE__*/function () {
   var _ref = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee(e) {
-    var _INVOICE_ID, _AMOUNT, _METHOD_PAY, DEL_INFO, res_dates, _iterator, _step, obj, table_ids, _iterator2, _step2, _obj, guests, _iterator3, _step3, _obj2, foodsArr, foods, qtys, amounts, i, food, resArr, reses, tables, _i, res, songArr, artists, songNames, genres, _i2, song, order, auth, text;
+    var _INVOICE_ID, _AMOUNT, _METHOD_PAY, DEL_INFO, res_dates, _iterator, _step, obj, table_ids, _iterator2, _step2, _obj, guests, _iterator3, _step3, _obj2, foodsArr, foods, qtys, amounts, i, food, resArr, reses, tables, guest_num, res_amount, _i, res, songArr, artists, songNames, genres, _i2, song, order, auth, text;
 
     return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_context) {
       while (1) {
@@ -5524,11 +5538,15 @@ $(document).on("click", "#confirm-order", /*#__PURE__*/function () {
             resArr = [];
             reses = document.querySelectorAll('.res_date');
             tables = document.querySelectorAll('.table_id');
+            guest_num = document.querySelectorAll('.res_guest');
+            res_amount = document.querySelectorAll('.res_amount');
 
             for (_i = 0; _i < reses.length; _i++) {
               res = {};
               res.date = reses[_i].innerHTML.trim().replace(/&nbsp;/g, '');
               res.table = tables[_i].value;
+              res.guest_num = guest_num[_i].innerHTML.trim().replace(/&nbsp;/g, '');
+              res.res_amount = res_amount[_i].innerHTML.trim().replace(/&nbsp;/g, '');
               resArr.push(res);
             }
 
@@ -5546,7 +5564,7 @@ $(document).on("click", "#confirm-order", /*#__PURE__*/function () {
             }
 
             if (!(_METHOD_PAY == null || _METHOD_PAY == "")) {
-              _context.next = 30;
+              _context.next = 32;
               break;
             }
 
@@ -5557,9 +5575,9 @@ $(document).on("click", "#confirm-order", /*#__PURE__*/function () {
             });
             return _context.abrupt("return");
 
-          case 30:
+          case 32:
             if (!(_AMOUNT == 0)) {
-              _context.next = 33;
+              _context.next = 35;
               break;
             }
 
@@ -5570,8 +5588,8 @@ $(document).on("click", "#confirm-order", /*#__PURE__*/function () {
             });
             return _context.abrupt("return");
 
-          case 33:
-            _context.next = 35;
+          case 35:
+            _context.next = 37;
             return axios.post("/create-order", {
               code: _INVOICE_ID,
               pay: _METHOD_PAY,
@@ -5586,50 +5604,50 @@ $(document).on("click", "#confirm-order", /*#__PURE__*/function () {
               songArr: songArr
             });
 
-          case 35:
+          case 37:
             order = _context.sent;
 
             if (!(_METHOD_PAY == 1)) {
-              _context.next = 41;
+              _context.next = 43;
               break;
             }
 
-            _context.next = 39;
+            _context.next = 41;
             return axios.post("/token", {
               order: _INVOICE_ID,
               amount: _AMOUNT
             });
 
-          case 39:
+          case 41:
             auth = _context.sent;
             halyk.pay(createPaymentObject(auth.data, _INVOICE_ID, _AMOUNT));
 
-          case 41:
+          case 43:
             if (!(_METHOD_PAY == 2)) {
-              _context.next = 46;
+              _context.next = 48;
               break;
             }
 
-            _context.next = 44;
+            _context.next = 46;
             return axios.post("/token", {
               order: _INVOICE_ID,
               amount: _AMOUNT / 2
             });
 
-          case 44:
+          case 46:
             auth = _context.sent;
             halyk.pay(createPaymentObject(auth.data, _INVOICE_ID, _AMOUNT / 2));
 
-          case 46:
+          case 48:
             if (!(_METHOD_PAY == 3)) {
-              _context.next = 52;
+              _context.next = 54;
               break;
             }
 
             text = $('#dostavka-info').val();
 
             if (text) {
-              _context.next = 51;
+              _context.next = 53;
               break;
             }
 
@@ -5640,12 +5658,12 @@ $(document).on("click", "#confirm-order", /*#__PURE__*/function () {
             });
             return _context.abrupt("return");
 
-          case 51:
+          case 53:
             Swal.fire('Успешно!', 'Администратор свяжется с вами в ближайшее время!', 'success').then(function () {
               window.location.href = "/dashboard/";
             });
 
-          case 52:
+          case 54:
           case "end":
             return _context.stop();
         }

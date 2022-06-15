@@ -17,7 +17,7 @@
                     <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                     <tr>
                         <th scope="col" class="px-6 py-3">
-                            ID пользователя
+                            Пользователь
                         </th>
                         <th scope="col" class="px-6 py-3">
                             Время заказа
@@ -33,8 +33,12 @@
                         </th>
                         <th scope="col" class="px-6 py-3">
                             Статус
-                        </th><th scope="col" class="px-6 py-3">
+                        </th>
+                        <th scope="col" class="px-6 py-3">
                             <span>Удалить</span>
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                            <span>Подробнее</span>
                         </th>
                     </tr>
                     </thead>
@@ -42,7 +46,7 @@
                         @foreach($orders as $order)
                             <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
                                 <td class="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap">
-                                    {{ $order->user_id }}
+                                    (ID{{ $order->user->id }}) {{ $order->user->first_name }} {{ $order->user->last_name }}
                                 </td>
                                 <td class="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap">
                                     {{ $order->created_at }}
@@ -96,6 +100,11 @@
                                         @method("DELETE")
                                         <button type="submit" class="w-full">Удалить</button>
                                     </form>
+                                </td>
+                                <td class="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap">
+                                    <a href="{{ route('admin.orders.info', $order->id) }}" class="px-4 py-2 bg-green-500 hover:bg-green-700 rounded-lg text-white">
+                                        Подробнее
+                                    </a>
                                 </td>
                             </tr>
                         @endforeach

@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Admin;
 use App\Exports\OrderExport;
 use App\Http\Controllers\Controller;
 use App\Models\Order;
+use App\Models\OrderInfo;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Maatwebsite\Excel\Facades\Excel;
 
@@ -14,6 +16,11 @@ class OrderController extends Controller
     {
         $orders = Order::all();
         return view('admin.orders.index', compact('orders'));
+    }
+
+    public function info(Order $order)
+    {
+        return view('admin.orders.info', compact('order'));
     }
 
     public function destroy(Order $order)
