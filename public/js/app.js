@@ -5456,7 +5456,7 @@ $(document).on("change", ".payment-toggle", function (e) {
 });
 $(document).on("click", "#confirm-order", /*#__PURE__*/function () {
   var _ref = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee(e) {
-    var _INVOICE_ID, _AMOUNT, _METHOD_PAY, DEL_INFO, res_dates, _iterator, _step, obj, table_ids, _iterator2, _step2, _obj, guests, _iterator3, _step3, _obj2, foodsArr, food, foods, qtys, amounts, i, resArr, res, reses, tables, _i, songArr, song, artists, songNames, genres, _i2, order, auth, text;
+    var _INVOICE_ID, _AMOUNT, _METHOD_PAY, DEL_INFO, res_dates, _iterator, _step, obj, table_ids, _iterator2, _step2, _obj, guests, _iterator3, _step3, _obj2, foodsArr, foods, qtys, amounts, i, food, resArr, reses, tables, _i, res, songArr, artists, songNames, genres, _i2, song, order, auth, text;
 
     return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_context) {
       while (1) {
@@ -5509,16 +5509,12 @@ $(document).on("click", "#confirm-order", /*#__PURE__*/function () {
             }
 
             foodsArr = [];
-            food = {
-              name: '',
-              qty: '',
-              amount: ''
-            };
             foods = document.querySelectorAll('.food-name');
             qtys = document.querySelectorAll('.menu_qty');
             amounts = document.querySelectorAll('.menu_price');
 
             for (i = 0; i < foods.length; i++) {
+              food = {};
               food.name = foods[i].innerHTML.trim().replace(/&nbsp;/g, '');
               food.qty = qtys[i].value;
               food.amount = amounts[i].innerHTML.trim().replace(/&nbsp;/g, '');
@@ -5526,30 +5522,23 @@ $(document).on("click", "#confirm-order", /*#__PURE__*/function () {
             }
 
             resArr = [];
-            res = {
-              date: '',
-              table: ''
-            };
             reses = document.querySelectorAll('.res_date');
             tables = document.querySelectorAll('.table_id');
 
             for (_i = 0; _i < reses.length; _i++) {
+              res = {};
               res.date = reses[_i].innerHTML.trim().replace(/&nbsp;/g, '');
               res.table = tables[_i].value;
               resArr.push(res);
             }
 
             songArr = [];
-            song = {
-              artist: '',
-              songName: '',
-              genre: ''
-            };
             artists = document.querySelectorAll('.info-singer');
             songNames = document.querySelectorAll('.info-song');
             genres = document.querySelectorAll('.info-genres');
 
             for (_i2 = 0; _i2 < artists.length; _i2++) {
+              song = {};
               song.artist = artists[_i2].innerHTML.trim().replace(/&nbsp;/g, '');
               song.songName = songNames[_i2].innerHTML.trim().replace(/&nbsp;/g, '');
               song.genre = genres[_i2].innerHTML.trim().replace(/&nbsp;/g, '');
@@ -5557,7 +5546,7 @@ $(document).on("click", "#confirm-order", /*#__PURE__*/function () {
             }
 
             if (!(_METHOD_PAY == null || _METHOD_PAY == "")) {
-              _context.next = 33;
+              _context.next = 30;
               break;
             }
 
@@ -5568,9 +5557,9 @@ $(document).on("click", "#confirm-order", /*#__PURE__*/function () {
             });
             return _context.abrupt("return");
 
-          case 33:
+          case 30:
             if (!(_AMOUNT == 0)) {
-              _context.next = 36;
+              _context.next = 33;
               break;
             }
 
@@ -5581,8 +5570,8 @@ $(document).on("click", "#confirm-order", /*#__PURE__*/function () {
             });
             return _context.abrupt("return");
 
-          case 36:
-            _context.next = 38;
+          case 33:
+            _context.next = 35;
             return axios.post("/create-order", {
               code: _INVOICE_ID,
               pay: _METHOD_PAY,
@@ -5597,50 +5586,50 @@ $(document).on("click", "#confirm-order", /*#__PURE__*/function () {
               songArr: songArr
             });
 
-          case 38:
+          case 35:
             order = _context.sent;
 
             if (!(_METHOD_PAY == 1)) {
-              _context.next = 44;
+              _context.next = 41;
               break;
             }
 
-            _context.next = 42;
+            _context.next = 39;
             return axios.post("/token", {
               order: _INVOICE_ID,
               amount: _AMOUNT
             });
 
-          case 42:
+          case 39:
             auth = _context.sent;
             halyk.pay(createPaymentObject(auth.data, _INVOICE_ID, _AMOUNT));
 
-          case 44:
+          case 41:
             if (!(_METHOD_PAY == 2)) {
-              _context.next = 49;
+              _context.next = 46;
               break;
             }
 
-            _context.next = 47;
+            _context.next = 44;
             return axios.post("/token", {
               order: _INVOICE_ID,
               amount: _AMOUNT / 2
             });
 
-          case 47:
+          case 44:
             auth = _context.sent;
             halyk.pay(createPaymentObject(auth.data, _INVOICE_ID, _AMOUNT / 2));
 
-          case 49:
+          case 46:
             if (!(_METHOD_PAY == 3)) {
-              _context.next = 55;
+              _context.next = 52;
               break;
             }
 
             text = $('#dostavka-info').val();
 
             if (text) {
-              _context.next = 54;
+              _context.next = 51;
               break;
             }
 
@@ -5651,12 +5640,12 @@ $(document).on("click", "#confirm-order", /*#__PURE__*/function () {
             });
             return _context.abrupt("return");
 
-          case 54:
+          case 51:
             Swal.fire('Успешно!', 'Администратор свяжется с вами в ближайшее время!', 'success').then(function () {
               window.location.href = "/dashboard/";
             });
 
-          case 55:
+          case 52:
           case "end":
             return _context.stop();
         }
