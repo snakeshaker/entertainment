@@ -53,6 +53,7 @@ class MenuController extends Controller
 
     public function update(Request $request, Menu $menu)
     {
+        $checkbox = isset($request->is_active[0]) ? 1 : 0;
         $request->validate([
             'name' => 'required',
             'description' => 'required',
@@ -68,23 +69,14 @@ class MenuController extends Controller
             'name' => $request->name,
             'description' => $request->description,
             'image' => $image,
-            'price' => $request->price
+            'price' => $request->price,
+            'is_active' => $checkbox
         ]);
 
         if ($request->has('categories')) {
             $menu->food_categories()->sync($request->categories);
         }
         return to_route('admin.menus.index')->with('success', 'Блюдо обновлено успешно!');
-    }
-
-    public function destroy(Menu $menu)
-    {
-        Storage::delete($menu->image);
-        $menu->food_categories()->detach();
-        $menu->delete();
-
-        return to_route('admin.menus.index')->with('danger', 'Блюдо удалено успешно!');
-
     }
 
     public function show()

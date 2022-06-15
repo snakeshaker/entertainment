@@ -41,7 +41,7 @@
                             Местоположение
                         </th>
                         <th scope="col" class="px-6 py-3">
-                            <span>Изменить/удалить</span>
+                            <span>Изменить</span>
                         </th>
                     </tr>
                     </thead>
@@ -69,15 +69,6 @@
                                     <a href="<?php echo e(route('admin.tables.edit', $table->id)); ?>" class="px-4 py-2 bg-green-500 hover:bg-green-700 rounded-lg text-white">
                                         Изменить
                                     </a>
-                                    <form class="px-4 py-2 bg-red-500 hover:bg-red-700 rounded-lg text-white"
-                                          id="destroy_entry"
-                                          method="POST"
-                                          action="<?php echo e(route('admin.tables.destroy', $table->id)); ?>"
-                                          >
-                                        <?php echo csrf_field(); ?>
-                                        <?php echo method_field("DELETE"); ?>
-                                        <button type="submit">Удалить</button>
-                                    </form>
                                 </div>
                             </td>
                         </tr>

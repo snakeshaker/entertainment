@@ -53,17 +53,19 @@ class TableController extends Controller
 
     public function update(TableStoreRequest $request, Table $table)
     {
-        $table->update($request->validated());
+        $checkbox = isset($request->is_active[0]) ? 1 : 0;
+        if($checkbox) {
+            $request->status = 'Занят';
+        }
+        $table->update([
+            'name' => $request->name,
+            'guest_number' => $request->guest_number,
+            'status' => $request->status,
+            'location' => $request->location,
+            'is_active' => $checkbox
+        ]);
 
         return to_route('admin.tables.index')->with('success', 'Место обновлено успешно!');
-    }
-
-    public function destroy(Table $table)
-    {
-        $table->delete();
-        $table->reservations()->delete();
-
-        return to_route('admin.tables.index')->with('danger', 'Место удалено успешно!');
     }
 
     public function show()

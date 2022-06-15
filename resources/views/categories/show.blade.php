@@ -26,7 +26,7 @@
                         <h1 class="font-medium leading-tight text-5xl mb-2 text-transparent bg-clip-text bg-gradient-to-b from-green-400 to-blue-500 hover:text-green-400">Окно</h1>
                     </div>
                     @foreach ($tables as $table)
-                        @if ($table->status == 'Свободен')
+                        @if ($table->is_active)
                         <div class="my-2 px-2 w-1/4 overflow-hidden hover:scale-125 hover:cursor-pointer hover:text-blue-400 transition-all add-reservation relative" data-table="{{ $table->id }}" data-max="{{ $table->guest_number }}">
                             <h2 class="mt-2 mb-2 uppercase font-bold md:text-xs text-center">{{ $table->name }}</h2>
                             <p class="text-xs text-green-600 text-center">Стол свободен</p>
@@ -36,7 +36,7 @@
                         @else
                             <div class="my-2 px-2 w-1/4 overflow-hidden hover:cursor-pointer hover:text-blue-400 transition-all relative table-blocked">
                                 <h2 class="mt-2 mb-2 uppercase font-bold md:text-xs text-center">{{ $table->name }}</h2>
-                                <p class="text-xs text-red-600 text-center">Стол занят</p>
+                                <p class="text-xs text-red-600 text-center">Стол недоступен</p>
                                 <div class="rounded-full h-4 w-4 bg-red-500 inline-block absolute top-2 right-20"></div>
                                 <img class="mx-auto object-none" src="{{ asset('assets/'.$category->space_image) }}" alt="Table">
                             </div>
@@ -60,10 +60,11 @@
                                 <div class="p-4">
                                     <span class="inline-block px-2 py-1 leading-none bg-orange-200 text-orange-800 rounded-full font-semibold uppercase tracking-wide text-xs md:hidden">БРОНИРОВАНИЕ</span>
                                     <h2 class="mt-2 mb-2 uppercase font-bold md:text-xs">{{ $table->name }}</h2>
-                                    <p class="text-sm inline-block">Статус: <br> {{ $table->status }}</p>
-                                    @if ($table->status == 'Свободен')
+                                    @if ($table->is_active)
+                                        <p class="text-sm inline-block">Стол свободен</p>
                                         <div class="rounded-full h-4 w-4 bg-green-500 inline-block"></div>
                                     @else
+                                        <p class="text-sm inline-block">Стол недоступен</p>
                                         <div class="rounded-full h-4 w-4 bg-red-500 inline-block"></div>
                                     @endif
                                 </div>
@@ -72,7 +73,7 @@
                                     <span class="ml-2">{{ $table->guest_number }}</span>
                                 </div>
                                 <div class="flex justify-center my-2">
-                                    @if ($table->status == 'Свободен')
+                                    @if ($table->is_active)
                                     <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded add-reservation md:text-xs" data-table="{{ $table->id }}" data-max="{{ $table->guest_number }}">Забронировать</button>
                                     @else
                                     <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded table-blocked md:text-xs" data-table="{{ $table->id }}" data-max="{{ $table->guest_number }}">Забронировать</button>

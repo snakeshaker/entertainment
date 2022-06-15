@@ -26,7 +26,16 @@
                             <div class="text-sm text-red-400">{{ $message }}</div>
                             @enderror
                         </div>
-                        <div class="sm:col-span-6">
+                        <div class="sm:col-span-6 mt-5">
+                            <label for="is_active" class="block text-sm font-medium text-gray-700"> Активность </label>
+                            <div class="mt-1">
+                                <input type="checkbox" name="is_active" value="{{ $menu->is_active }}" {{ $menu->is_active ? 'checked' : ''}} id="is_active"/>
+                            </div>
+                            @error('is_active')
+                            <div class="text-sm text-red-400">{{ $message }}</div>
+                            @enderror
+                        </div>
+                        <div class="sm:col-span-6 mt-5">
                             <label for="image" class="block text-sm font-medium text-gray-700"> Картинка </label>
                             <div>
                                 <img src="{{ asset('assets/'.$menu->image) }}" alt="Image" class="w-32 h-32">

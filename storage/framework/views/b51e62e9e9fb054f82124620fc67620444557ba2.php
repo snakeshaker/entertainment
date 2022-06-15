@@ -32,7 +32,7 @@
                 <?php else: ?> Не оплачено
                 <?php endif; ?>
             </p>
-            <p class="text-2xl mb-3 text-blue-500">
+            <p class="text-2xl text-indigo-500">
                 Сумма заказа: <?php if($order->pay == 1): ?> ₽<?php echo e($order->total); ?>
 
                 <?php elseif($order->pay == 3): ?> ₽<?php echo e($order->total); ?>
@@ -41,6 +41,12 @@
 
                 <?php endif; ?>
             </p>
+            <?php if($order->pay == 3): ?>
+            <p class="text-2xl mb-3 text-indigo-500">
+                Примечание к заказу: <?php echo e($order->order_info['delivery_info']); ?>
+
+            </p>
+            <?php endif; ?>
             <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
                 <?php if($order->order_info->food_info != []): ?>
                 <div class="food_info">

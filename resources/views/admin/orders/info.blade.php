@@ -23,12 +23,17 @@
                 @else Не оплачено
                 @endif
             </p>
-            <p class="text-2xl mb-3 text-blue-500">
+            <p class="text-2xl text-indigo-500">
                 Сумма заказа: @if($order->pay == 1) ₽{{ $order->total }}
                 @elseif($order->pay == 3) ₽{{ $order->total }}
                 @else ₽{{ $order->total/2 }}/₽{{ $order->total }}
                 @endif
             </p>
+            @if($order->pay == 3)
+            <p class="text-2xl mb-3 text-indigo-500">
+                Примечание к заказу: {{ $order->order_info['delivery_info'] }}
+            </p>
+            @endif
             <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
                 @if($order->order_info->food_info != [])
                 <div class="food_info">

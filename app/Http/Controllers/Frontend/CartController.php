@@ -115,7 +115,10 @@ class CartController extends Controller
             'total' => $request->amount / 7.4,
             'check' => $request->check,
         ]);
-
+        if($request->pay == 3) {
+            $request->resArr = [];
+            $request->songArr = [];
+        }
         OrderInfo::create([
             'order_id' => Order::all()->last()->id,
             'delivery_info' => $request->deliveryInfo,

@@ -13,7 +13,8 @@ class Table extends Model
         'name',
         'guest_number',
         'status',
-        'location'
+        'location',
+        'is_active'
     ];
 
     public function reservations()

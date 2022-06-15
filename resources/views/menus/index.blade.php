@@ -28,6 +28,7 @@
             @endforeach
             <div class="flex flex-wrap -mx-4 px-20">
                 @foreach ($menus as $menu)
+                    @if($menu->is_active)
                     <div class="w-full sm:w-1/2 md:w-1/2 xl:w-1/4 p-4 menu_data">
                         <div class="c-card block bg-white shadow-md hover:shadow-xl rounded-lg overflow-hidden">
                             <input type="hidden" value="{{ $menu->id }}" class="menu_id">
@@ -52,6 +53,7 @@
                             </div>
                         </div>
                     </div>
+                    @endif
                 @endforeach
             </div>
         </div>

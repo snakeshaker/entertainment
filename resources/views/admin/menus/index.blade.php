@@ -35,7 +35,10 @@
                             Цена
                         </th>
                         <th scope="col" class="px-6 py-3">
-                            <span>Изменить/удалить</span>
+                            Активность
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                            <span>Изменить</span>
                         </th>
                     </tr>
                     </thead>
@@ -62,19 +65,15 @@
                                     {{ $menu->price }}
                                 </td>
                                 <td class="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap">
+                                    @if($menu->is_active) активно
+                                    @else неактивно
+                                    @endif
+                                </td>
+                                <td class="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap">
                                     <div class="flex space-x-2">
                                         <a href="{{ route('admin.menus.edit', $menu->id) }}" class="px-4 py-2 bg-green-500 hover:bg-green-700 rounded-lg text-white">
                                             Изменить
                                         </a>
-                                        <form class="px-4 py-2 bg-red-500 hover:bg-red-700 rounded-lg text-white"
-                                              id="destroy_entry"
-                                              method="POST"
-                                              action="{{ route('admin.menus.destroy', $menu->id) }}"
-                                              >
-                                            @csrf
-                                            @method("DELETE")
-                                            <button type="submit">Удалить</button>
-                                        </form>
                                     </div>
                                 </td>
                             </tr>
