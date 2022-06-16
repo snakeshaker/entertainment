@@ -115,7 +115,7 @@
                                                     </td>
                                                     <td class="px-6 py-4 menu_price res_amount">
                                                         @foreach($categories as $cat)
-                                                            @if($cat->id == $table->id) {{ $cat->res_price }}
+                                                            @if($cat->id == $table->category_id) {{ $cat->res_price }}
                                                             @endif
                                                         @endforeach
                                                     </td>

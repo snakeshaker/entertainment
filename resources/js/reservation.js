@@ -1,6 +1,3 @@
-import AirDatepicker from 'air-datepicker';
-import 'air-datepicker/air-datepicker.css';
-
 $(document).ready(function (){
     $("#res_date").prop("readonly", true);
     let today = new Date();
@@ -9,23 +6,62 @@ $(document).ready(function (){
     let pickedPlace = {};
     let responseObject = {};
     let tableID, tableMax;
-    new AirDatepicker('.airdatepicker', {
-        timepicker: true,
-        minDate: minDate,
-        maxDate: maxDate,
-        minHours: 15,
-        minutesStep: 30,
-        startDate: minDate,
-        onRenderCell({date, cellType}) {
-            if (cellType === 'day') {
-                if (date.getDay() === 1) {
-                    return {
-                        disabled: true
-                    }
-                }
+    if($('.airdatepicker')) {
+        $.ajax({
+            url: '/reserve-all',
+            type: "GET",
+            dataType: "json",
+            success:function(response) {
+                console.log(response);
+            }
+        });
+    }
+    // function getData() {
+    //     let curYear, curMonth, curDay, curHour, curMin, finalString;
+    //     $('.xdsoft_current').each(function() {
+    //         if($(this).attr('data-year')) {
+    //             curYear = $(this).attr('data-year')
+    //         }
+    //         if($(this).attr('data-month')) {
+    //             curMonth = $(this).attr('data-month')
+    //         }
+    //         if($(this).attr('data-date')) {
+    //             curDay = $(this).attr('data-date')
+    //         }
+    //         if($(this).attr('data-hour')) {
+    //             curHour = $(this).attr('data-hour')
+    //         }
+    //         if($(this).attr('data-minute')) {
+    //             if($(this).attr('data-minute') == 0) {
+    //                 curMin = `${$(this).attr('data-minute')}0`
+    //             } else {
+    //                 curMin = $(this).attr('data-minute')
+    //             }
+    //         }
+    //     })
+    //     finalString = `${curYear}/${curMonth}/${curDay} ${curHour}:${curMin}`
+    //     console.log(finalString);
+    // }
+    $.datetimepicker.setLocale('ru');
+    $('.airdatepicker').datetimepicker({
+        lang: 'ru',
+        i18n: {
+            ru: {
+                months: ['Январь','Февраль','Март','Апрель','Май','Июнь','Июль','Август','Сентябрь','Октябрь','Ноябрь','Декабрь'],
+                dayOfWeekShort: ["Вс","Пн","Вт","Ср","Чт","Пт","Сб"],
+                dayOfWeek: ["Воскресенье","Понедельник","Вторник","Среда","Четверг","Пятница","Суббота"]
             }
         },
-        onSelect({date}) {
+        defaultTime: '15:00',
+        step: 30,
+        minDate: minDate,
+        maxDate: maxDate,
+        disabledWeekDays: [1],
+        allowTimes:[
+            '15:00', '15:30', '16:00', '16:30', '17:00', '17:30', '18:00', '18:30', '19:00', '19:30', '20:00',
+            '20:30', '21:00', '21:30', '22:00', '22:30', '23:00', '23:30', '00:00', '00:30', '01:00', '01:30'
+        ],
+        onChangeDateTime() {
             pickedPlace = {
                 res_date: $('#res_date').val(),
                 table_id: parseInt(tableID)
@@ -76,6 +112,7 @@ $(document).ready(function (){
     });
     $('.close-button').click(function (e){
         $('#modal').toggleClass('hidden');
+        $('#res_date').val('');
     });
     $('.table-blocked').click(function (e){
         Swal.fire({

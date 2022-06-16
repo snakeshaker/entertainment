@@ -38,6 +38,7 @@ $(document).ready(function (){
             },
             success: function (response) {
                 if(response.status === 'success') {
+                    $('#modal').addClass('hidden');
                     Swal.fire(
                         'Успешно!',
                         'Добавлено в корзину!',

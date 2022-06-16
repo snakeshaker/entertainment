@@ -128,7 +128,7 @@
                                                     </td>
                                                     <td class="px-6 py-4 menu_price res_amount">
                                                         <?php $__currentLoopData = $categories; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $cat): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                                            <?php if($cat->id == $table->id): ?> <?php echo e($cat->res_price); ?>
+                                                            <?php if($cat->id == $table->category_id): ?> <?php echo e($cat->res_price); ?>
 
                                                             <?php endif; ?>
                                                         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>

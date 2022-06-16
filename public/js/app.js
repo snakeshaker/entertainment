@@ -12,34 +12,6 @@ module.exports = __webpack_require__(/*! regenerator-runtime */ "./node_modules/
 
 /***/ }),
 
-/***/ "./node_modules/air-datepicker/air-datepicker.js":
-/*!*******************************************************!*\
-  !*** ./node_modules/air-datepicker/air-datepicker.js ***!
-  \*******************************************************/
-/***/ (function(module) {
-
-!function(e,t){ true?module.exports=t():0}(this,(function(){return function(){"use strict";var e={d:function(t,i){for(var s in i)e.o(i,s)&&!e.o(t,s)&&Object.defineProperty(t,s,{enumerable:!0,get:i[s]})},o:function(e,t){return Object.prototype.hasOwnProperty.call(e,t)}},t={};e.d(t,{default:function(){return K}});var i={days:"days",months:"months",years:"years",day:"day",month:"month",year:"year",eventChangeViewDate:"changeViewDate",eventChangeCurrentView:"changeCurrentView",eventChangeFocusDate:"changeFocusDate",eventChangeSelectedDate:"changeSelectedDate",eventChangeTime:"changeTime",eventChangeLastSelectedDate:"changeLastSelectedDate",actionSelectDate:"selectDate",actionUnselectDate:"unselectDate",cssClassWeekend:"-weekend-"},s={classes:"",inline:!1,locale:{days:["Воскресенье","Понедельник","Вторник","Среда","Четверг","Пятница","Суббота"],daysShort:["Вос","Пон","Вто","Сре","Чет","Пят","Суб"],daysMin:["Вс","Пн","Вт","Ср","Чт","Пт","Сб"],months:["Январь","Февраль","Март","Апрель","Май","Июнь","Июль","Август","Сентябрь","Октябрь","Ноябрь","Декабрь"],monthsShort:["Янв","Фев","Мар","Апр","Май","Июн","Июл","Авг","Сен","Окт","Ноя","Дек"],today:"Сегодня",clear:"Очистить",dateFormat:"dd.MM.yyyy",timeFormat:"HH:mm",firstDay:1},startDate:new Date,firstDay:"",weekends:[6,0],dateFormat:"",altField:"",altFieldDateFormat:"T",toggleSelected:!0,keyboardNav:!0,selectedDates:!1,container:"",isMobile:!1,visible:!1,position:"bottom left",offset:12,view:i.days,minView:i.days,showOtherMonths:!0,selectOtherMonths:!0,moveToOtherMonthsOnSelect:!0,showOtherYears:!0,selectOtherYears:!0,moveToOtherYearsOnSelect:!0,minDate:"",maxDate:"",disableNavWhenOutOfRange:!0,multipleDates:!1,multipleDatesSeparator:", ",range:!1,dynamicRange:!0,buttons:!1,monthsField:"monthsShort",showEvent:"focus",autoClose:!1,prevHtml:'<svg><path d="M 17,12 l -5,5 l 5,5"></path></svg>',nextHtml:'<svg><path d="M 14,12 l 5,5 l -5,5"></path></svg>',navTitles:{days:"MMMM, <i>yyyy</i>",months:"yyyy",years:"yyyy1 - yyyy2"},timepicker:!1,onlyTimepicker:!1,dateTimeSeparator:" ",timeFormat:"",minHours:0,maxHours:24,minMinutes:0,maxMinutes:59,hoursStep:1,minutesStep:1,onSelect:!1,onChangeViewDate:!1,onChangeView:!1,onRenderCell:!1,onShow:!1,onHide:!1,onClickDayName:!1};function a(e){let t=arguments.length>1&&void 0!==arguments[1]?arguments[1]:document;return"string"==typeof e?t.querySelector(e):e}function n(){let{tagName:e="div",className:t="",innerHtml:i="",id:s="",attrs:a={}}=arguments.length>0&&void 0!==arguments[0]?arguments[0]:{},n=document.createElement(e);if(t&&n.classList.add(...t.split(" ")),s&&(n.id=s),i&&(n.innerHTML=i),a)for(let e in a)n.setAttribute(e,a[e]);return n}function r(e,t){for(let[i,s]of Object.entries(t))e.setAttribute(i,s);return e}function h(e){return new Date(e.getFullYear(),e.getMonth()+1,0).getDate()}function o(e){let t=e.getHours(),i=t%12==0?12:t%12;return{year:e.getFullYear(),month:e.getMonth(),fullMonth:e.getMonth()+1<10?"0"+(e.getMonth()+1):e.getMonth()+1,date:e.getDate(),fullDate:e.getDate()<10?"0"+e.getDate():e.getDate(),day:e.getDay(),hours:t,fullHours:l(t),hours12:i,fullHours12:l(i),minutes:e.getMinutes(),fullMinutes:e.getMinutes()<10?"0"+e.getMinutes():e.getMinutes()}}function l(e){return e<10?"0"+e:e}function d(e){let t=10*Math.floor(e.getFullYear()/10);return[t,t+9]}function c(){let e=[];for(var t=arguments.length,i=new Array(t),s=0;s<t;s++)i[s]=arguments[s];return i.forEach((t=>{if("object"==typeof t)for(let i in t)t[i]&&e.push(i);else t&&e.push(t)})),e.join(" ")}function u(e,t){let s=arguments.length>2&&void 0!==arguments[2]?arguments[2]:i.days;if(!e||!t)return!1;let a=o(e),n=o(t),r={[i.days]:a.date===n.date&&a.month===n.month&&a.year===n.year,[i.months]:a.month===n.month&&a.year===n.year,[i.years]:a.year===n.year};return r[s]}function p(e,t,i){let s=g(e,!1).getTime(),a=g(t,!1).getTime();return i?s>=a:s>a}function m(e,t){return!p(e,t,!0)}function g(e){let t=!(arguments.length>1&&void 0!==arguments[1])||arguments[1],i=new Date(e.getTime());return"boolean"!=typeof t||t||D(i),i}function D(e){return e.setHours(0,0,0,0),e}function v(e,t,i){e.length?e.forEach((e=>{e.addEventListener(t,i)})):e.addEventListener(t,i)}function y(e,t){return!(!e||e===document||e instanceof DocumentFragment)&&(e.matches(t)?e:y(e.parentNode,t))}function f(e,t,i){return e>i?i:e<t?t:e}function w(e){for(var t=arguments.length,i=new Array(t>1?t-1:0),s=1;s<t;s++)i[s-1]=arguments[s];return i.filter((e=>e)).forEach((t=>{for(let[i,s]of Object.entries(t))if(void 0!==s&&"[object Object]"===s.toString()){let t=void 0!==e[i]?e[i].toString():void 0,a=s.toString(),n=Array.isArray(s)?[]:{};e[i]=e[i]?t!==a?n:e[i]:n,w(e[i],s)}else e[i]=s})),e}function b(e){let t=e;return e instanceof Date||(t=new Date(e)),isNaN(t.getTime())&&(console.log('Unable to convert value "'.concat(e,'" to Date object')),t=!1),t}function k(e){let t="\\s|\\.|-|/|\\\\|,|\\$|\\!|\\?|:|;";return new RegExp("(^|>|"+t+")("+e+")($|<|"+t+")","g")}function C(e,t,i){return t in e?Object.defineProperty(e,t,{value:i,enumerable:!0,configurable:!0,writable:!0}):e[t]=i,e}class _{constructor(){let{type:e,date:t,dp:i,opts:s,body:a}=arguments.length>0&&void 0!==arguments[0]?arguments[0]:{};C(this,"focus",(()=>{this.$cell.classList.add("-focus-"),this.focused=!0})),C(this,"removeFocus",(()=>{this.$cell.classList.remove("-focus-"),this.focused=!1})),C(this,"select",(()=>{this.$cell.classList.add("-selected-"),this.selected=!0})),C(this,"removeSelect",(()=>{this.$cell.classList.remove("-selected-","-range-from-","-range-to-"),this.selected=!1})),C(this,"onChangeSelectedDate",(()=>{this.isDisabled||(this._handleSelectedStatus(),this.opts.range&&this._handleRangeStatus())})),C(this,"onChangeFocusDate",(e=>{if(!e)return void(this.focused&&this.removeFocus());let t=u(e,this.date,this.type);t?this.focus():!t&&this.focused&&this.removeFocus(),this.opts.range&&this._handleRangeStatus()})),C(this,"render",(()=>(this.$cell.innerHTML=this._getHtml(),this.$cell.adpCell=this,this.$cell))),this.type=e,this.singleType=this.type.slice(0,-1),this.date=t,this.dp=i,this.opts=s,this.body=a,this.customData=!1,this.init()}init(){let{range:e,onRenderCell:t}=this.opts;t&&(this.customData=t({date:this.date,cellType:this.singleType,datepicker:this.dp})),this._createElement(),this._bindDatepickerEvents(),this._handleInitialFocusStatus(),this.dp.hasSelectedDates&&(this._handleSelectedStatus(),e&&this._handleRangeStatus())}_bindDatepickerEvents(){this.dp.on(i.eventChangeSelectedDate,this.onChangeSelectedDate),this.dp.on(i.eventChangeFocusDate,this.onChangeFocusDate)}unbindDatepickerEvents(){this.dp.off(i.eventChangeSelectedDate,this.onChangeSelectedDate),this.dp.off(i.eventChangeFocusDate,this.onChangeFocusDate)}_createElement(){let{year:e,month:t,date:i}=o(this.date);this.$cell=n({className:this._getClassName(),attrs:{"data-year":e,"data-month":t,"data-date":i}})}_getClassName(){var e,t;let s=new Date,{selectOtherMonths:a,selectOtherYears:n}=this.opts,{minDate:r,maxDate:h}=this.dp,{day:l}=o(this.date),d=this._isOutOfMinMaxRange(),p=null===(e=this.customData)||void 0===e?void 0:e.disabled,m=c("air-datepicker-cell","-".concat(this.singleType,"-"),{"-current-":u(s,this.date,this.type),"-min-date-":r&&u(r,this.date,this.type),"-max-date-":h&&u(h,this.date,this.type)}),g="";switch(this.type){case i.days:g=c({"-weekend-":this.dp.isWeekend(l),"-other-month-":this.isOtherMonth,"-disabled-":this.isOtherMonth&&!a||d||p});break;case i.months:g=c({"-disabled-":d||p});break;case i.years:g=c({"-other-decade-":this.isOtherDecade,"-disabled-":d||this.isOtherDecade&&!n||p})}return c(m,g,null===(t=this.customData)||void 0===t?void 0:t.classes)}_getHtml(){var e;let{year:t,month:s,date:a}=o(this.date),{showOtherMonths:n,showOtherYears:r}=this.opts;if(null!==(e=this.customData)&&void 0!==e&&e.html)return this.customData.html;switch(this.type){case i.days:return!n&&this.isOtherMonth?"":a;case i.months:return this.dp.locale[this.opts.monthsField][s];case i.years:return!r&&this.isOtherDecade?"":t}}_isOutOfMinMaxRange(){let{minDate:e,maxDate:t}=this.dp,{type:s,date:a}=this,{month:n,year:r,date:h}=o(a),l=s===i.days,d=s===i.years,c=!!e&&new Date(r,d?e.getMonth():n,l?h:e.getDate()),u=!!t&&new Date(r,d?t.getMonth():n,l?h:t.getDate());return e&&t?m(c,e)||p(u,t):e?m(c,e):t?p(u,t):void 0}destroy(){this.unbindDatepickerEvents()}_handleRangeStatus(){let{rangeDateFrom:e,rangeDateTo:t}=this.dp,i=c({"-in-range-":e&&t&&(s=this.date,a=e,n=t,p(s,a)&&m(s,n)),"-range-from-":e&&u(this.date,e,this.type),"-range-to-":t&&u(this.date,t,this.type)});var s,a,n;this.$cell.classList.remove("-range-from-","-range-to-","-in-range-"),i&&this.$cell.classList.add(...i.split(" "))}_handleSelectedStatus(){let e=this.dp._checkIfDateIsSelected(this.date,this.type);e?this.select():!e&&this.selected&&this.removeSelect()}_handleInitialFocusStatus(){u(this.dp.focusDate,this.date,this.type)&&this.focus()}get isDisabled(){return this.$cell.matches(".-disabled-")}get isOtherMonth(){return this.dp.isOtherMonth(this.date)}get isOtherDecade(){return this.dp.isOtherDecade(this.date)}}function M(e,t,i){return t in e?Object.defineProperty(e,t,{value:i,enumerable:!0,configurable:!0,writable:!0}):e[t]=i,e}let $={[i.days]:'<div class="air-datepicker-body--day-names"></div>'+'<div class="air-datepicker-body--cells -'.concat(i.days,'-"></div>'),[i.months]:'<div class="air-datepicker-body--cells -'.concat(i.months,'-"></div>'),[i.years]:'<div class="air-datepicker-body--cells -'.concat(i.years,'-"></div>')};class S{constructor(e){let{dp:t,type:s,opts:a}=e;M(this,"handleClick",(e=>{let t=e.target.adpCell;if(t.isDisabled)return;if(!this.dp.isMinViewReached)return void this.dp.down();let i=this.dp._checkIfDateIsSelected(t.date,t.type);i?this.dp._handleAlreadySelectedDates(i,t.date):this.dp.selectDate(t.date)})),M(this,"handleDayNameClick",(e=>{let t=e.target.getAttribute("data-day-index");this.opts.onClickDayName({dayIndex:Number(t),datepicker:this.dp})})),M(this,"onChangeCurrentView",(e=>{e!==this.type?this.hide():(this.show(),this.render())})),M(this,"onMouseOverCell",(e=>{let t=y(e.target,".air-datepicker-cell");this.dp.setFocusDate(!!t&&t.adpCell.date)})),M(this,"onMouseOutCell",(()=>{this.dp.setFocusDate(!1)})),M(this,"onClickBody",(e=>{let{onClickDayName:t}=this.opts,i=e.target;i.closest(".air-datepicker-cell")&&this.handleClick(e),t&&i.closest(".air-datepicker-body--day-name")&&this.handleDayNameClick(e)})),M(this,"onMouseDown",(e=>{this.pressed=!0;let t=y(e.target,".air-datepicker-cell"),i=t&&t.adpCell;u(i.date,this.dp.rangeDateFrom)&&(this.rangeFromFocused=!0),u(i.date,this.dp.rangeDateTo)&&(this.rangeToFocused=!0)})),M(this,"onMouseMove",(e=>{if(!this.pressed||!this.dp.isMinViewReached)return;e.preventDefault();let t=y(e.target,".air-datepicker-cell"),i=t&&t.adpCell,{selectedDates:s,rangeDateTo:a,rangeDateFrom:n}=this.dp;if(!i||i.isDisabled)return;let{date:r}=i;if(2===s.length){if(this.rangeFromFocused&&!p(r,a)){let{hours:e,minutes:t}=o(n);r.setHours(e),r.setMinutes(t),this.dp.rangeDateFrom=r,this.dp.replaceDate(n,r)}if(this.rangeToFocused&&!m(r,n)){let{hours:e,minutes:t}=o(a);r.setHours(e),r.setMinutes(t),this.dp.rangeDateTo=r,this.dp.replaceDate(a,r)}}})),M(this,"onMouseUp",(()=>{this.pressed=!1,this.rangeFromFocused=!1,this.rangeToFocused=!1})),M(this,"onChangeViewDate",((e,t)=>{if(!this.isVisible)return;let s=d(e),a=d(t);switch(this.dp.currentView){case i.days:if(u(e,t,i.months))return;break;case i.months:if(u(e,t,i.years))return;break;case i.years:if(s[0]===a[0]&&s[1]===a[1])return}this.render()})),M(this,"render",(()=>{this.destroyCells(),this._generateCells(),this.cells.forEach((e=>{this.$cells.appendChild(e.render())}))})),this.dp=t,this.type=s,this.opts=a,this.cells=[],this.$el="",this.pressed=!1,this.isVisible=!0,this.init()}init(){this._buildBaseHtml(),this.type===i.days&&this.renderDayNames(),this.render(),this._bindEvents(),this._bindDatepickerEvents()}_bindEvents(){let{range:e,dynamicRange:t}=this.opts;v(this.$el,"mouseover",this.onMouseOverCell),v(this.$el,"mouseout",this.onMouseOutCell),v(this.$el,"click",this.onClickBody),e&&t&&(v(this.$el,"mousedown",this.onMouseDown),v(this.$el,"mousemove",this.onMouseMove),v(window.document,"mouseup",this.onMouseUp))}_bindDatepickerEvents(){this.dp.on(i.eventChangeViewDate,this.onChangeViewDate),this.dp.on(i.eventChangeCurrentView,this.onChangeCurrentView)}_buildBaseHtml(){this.$el=n({className:"air-datepicker-body -".concat(this.type,"-"),innerHtml:$[this.type]}),this.$names=a(".air-datepicker-body--day-names",this.$el),this.$cells=a(".air-datepicker-body--cells",this.$el)}_getDayNamesHtml(){let e=arguments.length>0&&void 0!==arguments[0]?arguments[0]:this.dp.locale.firstDay,t="",s=this.dp.isWeekend,{onClickDayName:a}=this.opts,n=e,r=0;for(;r<7;){let e=n%7,h=c("air-datepicker-body--day-name",{[i.cssClassWeekend]:s(e),"-clickable-":!!a}),o=this.dp.locale.daysMin[e];t+='<div class="'.concat(h,"\" data-day-index='").concat(e,"'>").concat(o,"</div>"),r++,n++}return t}_getDaysCells(){let{viewDate:e,locale:{firstDay:t}}=this.dp,i=h(e),{year:s,month:a}=o(e),n=new Date(s,a,1),r=new Date(s,a,i),l=n.getDay()-t,d=6-r.getDay()+t;l=l<0?l+7:l,d=d>6?d-7:d;let c=function(e,t){let{year:i,month:s,date:a}=o(e);return new Date(i,s,a-t)}(n,l),u=i+l+d,p=c.getDate(),{year:m,month:g}=o(c),D=0;for(;D<u;){let e=new Date(m,g,p+D);this._generateCell(e),D++}}_generateCell(e){let{type:t,dp:i,opts:s}=this,a=new _({type:t,dp:i,opts:s,date:e,body:this});return this.cells.push(a),a}_generateDayCells(){this._getDaysCells()}_generateMonthCells(){let{year:e}=this.dp.parsedViewDate,t=0;for(;t<12;)this.cells.push(this._generateCell(new Date(e,t))),t++}_generateYearCells(){let e=d(this.dp.viewDate),t=e[0]-1,i=e[1]+1,s=t;for(;s<=i;)this.cells.push(this._generateCell(new Date(s,0))),s++}renderDayNames(){this.$names.innerHTML=this._getDayNamesHtml()}_generateCells(){switch(this.type){case i.days:this._generateDayCells();break;case i.months:this._generateMonthCells();break;case i.years:this._generateYearCells()}}show(){this.isVisible=!0,this.$el.classList.remove("-hidden-")}hide(){this.isVisible=!1,this.$el.classList.add("-hidden-")}destroyCells(){this.cells.forEach((e=>e.destroy())),this.cells=[],this.$cells.innerHTML=""}destroy(){this.destroyCells(),this.dp.off(i.eventChangeViewDate,this.onChangeViewDate),this.dp.off(i.eventChangeCurrentView,this.onChangeCurrentView)}}function T(e,t,i){return t in e?Object.defineProperty(e,t,{value:i,enumerable:!0,configurable:!0,writable:!0}):e[t]=i,e}class F{constructor(e){let{dp:t,opts:i}=e;T(this,"onClickNav",(e=>{let t=y(e.target,".air-datepicker-nav--action");if(!t)return;let i=t.dataset.action;this.dp[i]()})),T(this,"onChangeViewDate",(()=>{this.render(),this._resetNavStatus(),this.handleNavStatus()})),T(this,"onChangeCurrentView",(()=>{this.render(),this._resetNavStatus(),this.handleNavStatus()})),T(this,"onClickNavTitle",(()=>{this.dp.isFinalView||this.dp.up()})),T(this,"update",(()=>{let{prevHtml:e,nextHtml:t}=this.opts;this.$prev.innerHTML=e,this.$next.innerHTML=t,this._resetNavStatus(),this.render(),this.handleNavStatus()})),T(this,"renderDelay",(()=>{setTimeout(this.render)})),T(this,"render",(()=>{this.$title.innerHTML=this._getTitle(),function(e,t){for(let i in t)t[i]?e.classList.add(i):e.classList.remove(i)}(this.$title,{"-disabled-":this.dp.isFinalView})})),this.dp=t,this.opts=i,this.init()}init(){this._createElement(),this._buildBaseHtml(),this._defineDOM(),this.render(),this.handleNavStatus(),this._bindEvents(),this._bindDatepickerEvents()}_defineDOM(){this.$title=a(".air-datepicker-nav--title",this.$el),this.$prev=a('[data-action="prev"]',this.$el),this.$next=a('[data-action="next"]',this.$el)}_bindEvents(){this.$el.addEventListener("click",this.onClickNav),this.$title.addEventListener("click",this.onClickNavTitle)}_bindDatepickerEvents(){this.dp.on(i.eventChangeViewDate,this.onChangeViewDate),this.dp.on(i.eventChangeCurrentView,this.onChangeCurrentView),this.isNavIsFunction&&(this.dp.on(i.eventChangeSelectedDate,this.renderDelay),this.dp.opts.timepicker&&this.dp.on(i.eventChangeTime,this.render))}destroy(){this.dp.off(i.eventChangeViewDate,this.onChangeViewDate),this.dp.off(i.eventChangeCurrentView,this.onChangeCurrentView),this.isNavIsFunction&&(this.dp.off(i.eventChangeSelectedDate,this.renderDelay),this.dp.opts.timepicker&&this.dp.off(i.eventChangeTime,this.render))}_createElement(){this.$el=n({tagName:"nav",className:"air-datepicker-nav"})}_getTitle(){let{dp:e,opts:t}=this,i=t.navTitles[e.currentView];return"function"==typeof i?i(e):e.formatDate(e.viewDate,i)}handleNavStatus(){let{disableNavWhenOutOfRange:e}=this.opts,{minDate:t,maxDate:s}=this.dp;if(!t&&!s||!e)return;let{year:a,month:n}=this.dp.parsedViewDate,r=!!t&&o(t),h=!!s&&o(s);switch(this.dp.currentView){case i.days:t&&r.month>=n&&r.year>=a&&this._disableNav("prev"),s&&h.month<=n&&h.year<=a&&this._disableNav("next");break;case i.months:t&&r.year>=a&&this._disableNav("prev"),s&&h.year<=a&&this._disableNav("next");break;case i.years:{let e=d(this.dp.viewDate);t&&r.year>=e[0]&&this._disableNav("prev"),s&&h.year<=e[1]&&this._disableNav("next");break}}}_disableNav(e){a('[data-action="'+e+'"]',this.$el).classList.add("-disabled-")}_resetNavStatus(){!function(e){for(var t=arguments.length,i=new Array(t>1?t-1:0),s=1;s<t;s++)i[s-1]=arguments[s];e.length?e.forEach((e=>{e.classList.remove(...i)})):e.classList.remove(...i)}(this.$el.querySelectorAll(".air-datepicker-nav--action"),"-disabled-")}_buildBaseHtml(){let{prevHtml:e,nextHtml:t}=this.opts;this.$el.innerHTML='<div class="air-datepicker-nav--action" data-action="prev">'.concat(e,"</div>")+'<div class="air-datepicker-nav--title"></div>'+'<div class="air-datepicker-nav--action" data-action="next">'.concat(t,"</div>")}get isNavIsFunction(){let{navTitles:e}=this.opts;return Object.keys(e).find((t=>"function"==typeof e[t]))}}var V={today:{content:e=>e.locale.today,onClick:e=>e.setViewDate(new Date)},clear:{content:e=>e.locale.clear,onClick:e=>e.clear()}};class x{constructor(e){let{dp:t,opts:i}=e;this.dp=t,this.opts=i,this.init()}init(){this.createElement(),this.render()}createElement(){this.$el=n({className:"air-datepicker-buttons"})}destroy(){this.$el.parentNode.removeChild(this.$el)}clearHtml(){return this.$el.innerHTML="",this}generateButtons(){let{buttons:e}=this.opts;Array.isArray(e)||(e=[e]),e.forEach((e=>{let t=e;"string"==typeof e&&V[e]&&(t=V[e]);let i=this.createButton(t);t.onClick&&this.attachEventToButton(i,t.onClick),this.$el.appendChild(i)}))}attachEventToButton(e,t){e.addEventListener("click",(()=>{t(this.dp)}))}createButton(e){let{content:t,className:i,tagName:s="button",attrs:a={}}=e,r="function"==typeof t?t(this.dp):t;return n({tagName:s,innerHtml:"<span tabindex='-1'>".concat(r,"</span>"),className:c("air-datepicker-button",i),attrs:a})}render(){this.generateButtons()}}function H(e,t,i){return t in e?Object.defineProperty(e,t,{value:i,enumerable:!0,configurable:!0,writable:!0}):e[t]=i,e}class L{constructor(){let{opts:e,dp:t}=arguments.length>0&&void 0!==arguments[0]?arguments[0]:{};H(this,"toggleTimepickerIsActive",(e=>{this.dp.timepickerIsActive=e})),H(this,"onChangeSelectedDate",(e=>{let{date:t,updateTime:i=!1}=e;t&&(this.setMinMaxTime(t),this.setCurrentTime(!!i&&t),this.addTimeToDate(t))})),H(this,"onChangeLastSelectedDate",(e=>{e&&(this.setTime(e),this.render())})),H(this,"onChangeInputRange",(e=>{let t=e.target;this[t.getAttribute("name")]=t.value,this.updateText(),this.dp.trigger(i.eventChangeTime,{hours:this.hours,minutes:this.minutes})})),H(this,"onMouseEnterLeave",(e=>{let t=e.target.getAttribute("name"),i=this.$minutesText;"hours"===t&&(i=this.$hoursText),i.classList.toggle("-focus-")})),H(this,"onFocus",(()=>{this.toggleTimepickerIsActive(!0)})),H(this,"onBlur",(()=>{this.toggleTimepickerIsActive(!1)})),this.opts=e,this.dp=t;let{timeFormat:s}=this.dp.locale;s&&(s.match(k("h"))||s.match(k("hh")))&&(this.ampm=!0),this.init()}init(){this.setTime(this.dp.lastSelectedDate||this.dp.viewDate),this.createElement(),this.buildHtml(),this.defineDOM(),this.render(),this.bindDatepickerEvents(),this.bindDOMEvents()}bindDatepickerEvents(){this.dp.on(i.eventChangeSelectedDate,this.onChangeSelectedDate),this.dp.on(i.eventChangeLastSelectedDate,this.onChangeLastSelectedDate)}bindDOMEvents(){let e="input";navigator.userAgent.match(/trident/gi)&&(e="change"),v(this.$ranges,e,this.onChangeInputRange),v(this.$ranges,"mouseenter",this.onMouseEnterLeave),v(this.$ranges,"mouseleave",this.onMouseEnterLeave),v(this.$ranges,"focus",this.onFocus),v(this.$ranges,"mousedown",this.onFocus),v(this.$ranges,"blur",this.onBlur)}createElement(){this.$el=n({className:c("air-datepicker-time",{"-am-pm-":this.dp.ampm})})}destroy(){this.dp.off(i.eventChangeSelectedDate,this.onChangeSelectedDate),this.dp.off(i.eventChangeLastSelectedDate,this.onChangeLastSelectedDate),this.$el.parentNode.removeChild(this.$el)}buildHtml(){let{ampm:e,hours:t,displayHours:i,minutes:s,minHours:a,minMinutes:n,maxHours:r,maxMinutes:h,dayPeriod:o,opts:{hoursStep:d,minutesStep:c}}=this;this.$el.innerHTML='<div class="air-datepicker-time--current">'+'   <span class="air-datepicker-time--current-hours">'.concat(l(i),"</span>")+'   <span class="air-datepicker-time--current-colon">:</span>'+'   <span class="air-datepicker-time--current-minutes">'.concat(l(s),"</span>")+"   ".concat(e?"<span class='air-datepicker-time--current-ampm'>".concat(o,"</span>"):"")+'</div><div class="air-datepicker-time--sliders">   <div class="air-datepicker-time--row">'+'      <input type="range" name="hours" value="'.concat(t,'" min="').concat(a,'" max="').concat(r,'" step="').concat(d,'"/>')+'   </div>   <div class="air-datepicker-time--row">'+'      <input type="range" name="minutes" value="'.concat(s,'" min="').concat(n,'" max="').concat(h,'" step="').concat(c,'"/>')+"   </div></div>"}defineDOM(){let e=e=>a(e,this.$el);this.$ranges=this.$el.querySelectorAll('[type="range"]'),this.$hours=e('[name="hours"]'),this.$minutes=e('[name="minutes"]'),this.$hoursText=e(".air-datepicker-time--current-hours"),this.$minutesText=e(".air-datepicker-time--current-minutes"),this.$ampm=e(".air-datepicker-time--current-ampm")}setTime(e){this.setMinMaxTime(e),this.setCurrentTime(e)}addTimeToDate(e){e&&(e.setHours(this.hours),e.setMinutes(this.minutes))}setMinMaxTime(e){if(this.setMinMaxTimeFromOptions(),e){let{minDate:t,maxDate:i}=this.dp;t&&u(e,t)&&this.setMinTimeFromMinDate(t),i&&u(e,i)&&this.setMaxTimeFromMaxDate(i)}}setCurrentTime(e){let{hours:t,minutes:i}=e?o(e):this;this.hours=f(t,this.minHours,this.maxHours),this.minutes=f(i,this.minMinutes,this.maxMinutes)}setMinMaxTimeFromOptions(){let{minHours:e,minMinutes:t,maxHours:i,maxMinutes:s}=this.opts;this.minHours=f(e,0,23),this.minMinutes=f(t,0,59),this.maxHours=f(i,0,23),this.maxMinutes=f(s,0,59)}setMinTimeFromMinDate(e){let{lastSelectedDate:t}=this.dp;this.minHours=e.getHours(),t&&t.getHours()>e.getHours()?this.minMinutes=this.opts.minMinutes:this.minMinutes=e.getMinutes()}setMaxTimeFromMaxDate(e){let{lastSelectedDate:t}=this.dp;this.maxHours=e.getHours(),t&&t.getHours()<e.getHours()?this.maxMinutes=this.opts.maxMinutes:this.maxMinutes=e.getMinutes()}getDayPeriod(e,t){let i=e,s=Number(e);e instanceof Date&&(i=o(e),s=Number(i.hours));let a="am";if(t||this.ampm){switch(!0){case 12===s:case s>11:a="pm"}s=s%12==0?12:s%12}return{hours:s,dayPeriod:a}}updateSliders(){r(this.$hours,{min:this.minHours,max:this.maxHours}).value=this.hours,r(this.$minutes,{min:this.minMinutes,max:this.maxMinutes}).value=this.minutes}updateText(){this.$hoursText.innerHTML=l(this.displayHours),this.$minutesText.innerHTML=l(this.minutes),this.ampm&&(this.$ampm.innerHTML=this.dayPeriod)}set hours(e){this._hours=e;let{hours:t,dayPeriod:i}=this.getDayPeriod(e);this.displayHours=t,this.dayPeriod=i}get hours(){return this._hours}render(){this.updateSliders(),this.updateText()}}function O(e,t,i){return t in e?Object.defineProperty(e,t,{value:i,enumerable:!0,configurable:!0,writable:!0}):e[t]=i,e}class A{constructor(e){let{dp:t,opts:i}=e;O(this,"pressedKeys",new Set),O(this,"hotKeys",new Map([[[["Control","ArrowRight"],["Control","ArrowUp"]],e=>e.month++],[[["Control","ArrowLeft"],["Control","ArrowDown"]],e=>e.month--],[[["Shift","ArrowRight"],["Shift","ArrowUp"]],e=>e.year++],[[["Shift","ArrowLeft"],["Shift","ArrowDown"]],e=>e.year--],[[["Alt","ArrowRight"],["Alt","ArrowUp"]],e=>e.year+=10],[[["Alt","ArrowLeft"],["Alt","ArrowDown"]],e=>e.year-=10],[["Control","Shift","ArrowUp"],(e,t)=>t.up()]])),O(this,"handleHotKey",(e=>{let t=this.hotKeys.get(e),i=o(this.getInitialFocusDate());t(i,this.dp);let{year:s,month:a,date:n}=i,r=h(new Date(s,a));r<n&&(n=r);let l=this.dp.getClampedDate(new Date(s,a,n));this.dp.setFocusDate(l,{viewDateTransition:!0})})),O(this,"isHotKeyPressed",(()=>{let e=!1,t=this.pressedKeys.size,i=e=>this.pressedKeys.has(e);for(let[s]of this.hotKeys){if(e)break;if(Array.isArray(s[0]))s.forEach((a=>{e||t!==a.length||(e=a.every(i)&&s)}));else{if(t!==s.length)continue;e=s.every(i)&&s}}return e})),O(this,"isArrow",(e=>e>=37&&e<=40)),O(this,"onKeyDown",(e=>{let{key:t,which:i}=e,{dp:s,dp:{focusDate:a},opts:n}=this;this.registerKey(t);let r=this.isHotKeyPressed();if(r)return e.preventDefault(),void this.handleHotKey(r);if(this.isArrow(i))return e.preventDefault(),void this.focusNextCell(t);if("Enter"===t){if(s.currentView!==n.minView)return void s.down();if(a){let e=s._checkIfDateIsSelected(a);return void(e?s._handleAlreadySelectedDates(e,a):s.selectDate(a))}}"Escape"===t&&this.dp.hide()})),O(this,"onKeyUp",(e=>{this.removeKey(e.key)})),this.dp=t,this.opts=i,this.init()}init(){this.bindKeyboardEvents()}bindKeyboardEvents(){let{$el:e}=this.dp;e.addEventListener("keydown",this.onKeyDown),e.addEventListener("keyup",this.onKeyUp)}destroy(){let{$el:e}=this.dp;e.removeEventListener("keydown",this.onKeyDown),e.removeEventListener("keyup",this.onKeyUp),this.hotKeys=null,this.pressedKeys=null}getInitialFocusDate(){let{focusDate:e,currentView:t,selectedDates:s,parsedViewDate:{year:a,month:n}}=this.dp,r=e||s[s.length-1];if(!r)switch(t){case i.days:r=new Date(a,n,(new Date).getDate());break;case i.months:r=new Date(a,n,1);break;case i.years:r=new Date(a,0,1)}return r}focusNextCell(e){let t=this.getInitialFocusDate(),{currentView:s}=this.dp,{days:a,months:n,years:r}=i,h=o(t),l=h.year,d=h.month,c=h.date;switch(e){case"ArrowLeft":s===a&&(c-=1),s===n&&(d-=1),s===r&&(l-=1);break;case"ArrowUp":s===a&&(c-=7),s===n&&(d-=3),s===r&&(l-=4);break;case"ArrowRight":s===a&&(c+=1),s===n&&(d+=1),s===r&&(l+=1);break;case"ArrowDown":s===a&&(c+=7),s===n&&(d+=3),s===r&&(l+=4)}let u=this.dp.getClampedDate(new Date(l,d,c));this.dp.setFocusDate(u,{viewDateTransition:!0})}registerKey(e){this.pressedKeys.add(e)}removeKey(e){this.pressedKeys.delete(e)}}let E={on(e,t){this.__events||(this.__events={}),this.__events[e]?this.__events[e].push(t):this.__events[e]=[t]},off(e,t){this.__events&&this.__events[e]&&(this.__events[e]=this.__events[e].filter((e=>e!==t)))},removeAllEvents(){this.__events={}},trigger(e){for(var t=arguments.length,i=new Array(t>1?t-1:0),s=1;s<t;s++)i[s-1]=arguments[s];this.__events&&this.__events[e]&&this.__events[e].forEach((e=>{e(...i)}))}};function N(e,t,i){return t in e?Object.defineProperty(e,t,{value:i,enumerable:!0,configurable:!0,writable:!0}):e[t]=i,e}let I="",R="",P="",B=!1;class K{constructor(e,t){var r=this;if(N(this,"viewIndexes",[i.days,i.months,i.years]),N(this,"next",(()=>{let{year:e,month:t}=this.parsedViewDate;switch(this.currentView){case i.days:this.setViewDate(new Date(e,t+1,1));break;case i.months:this.setViewDate(new Date(e+1,t,1));break;case i.years:this.setViewDate(new Date(e+10,0,1))}})),N(this,"prev",(()=>{let{year:e,month:t}=this.parsedViewDate;switch(this.currentView){case i.days:this.setViewDate(new Date(e,t-1,1));break;case i.months:this.setViewDate(new Date(e-1,t,1));break;case i.years:this.setViewDate(new Date(e-10,0,1))}})),N(this,"_finishHide",(()=>{this.hideAnimation=!1,this._destroyComponents(),this.$container.removeChild(this.$datepicker)})),N(this,"setPosition",(function(e){let t=arguments.length>1&&void 0!==arguments[1]&&arguments[1];if("function"==typeof(e=e||r.opts.position))return void(r.customHide=e({$datepicker:r.$datepicker,$target:r.$el,$pointer:r.$pointer,isViewChange:t,done:r._finishHide}));let i,s,{isMobile:a}=r.opts,n=r.$el.getBoundingClientRect(),h=r.$el.getBoundingClientRect(),o=r.$datepicker.offsetParent,l=r.$el.offsetParent,d=r.$datepicker.getBoundingClientRect(),c=e.split(" "),u=window.scrollY,p=window.scrollX,m=r.opts.offset,g=c[0],D=c[1];if(a)r.$datepicker.style.cssText="left: 50%; top: 50%";else{if(o===l&&o!==document.body&&(h={top:r.$el.offsetTop,left:r.$el.offsetLeft,width:n.width,height:r.$el.offsetHeight},u=0,p=0),o!==l&&o!==document.body){let e=o.getBoundingClientRect();h={top:n.top-e.top,left:n.left-e.left,width:n.width,height:n.height},u=0,p=0}switch(g){case"top":i=h.top-d.height-m;break;case"right":s=h.left+h.width+m;break;case"bottom":i=h.top+h.height+m;break;case"left":s=h.left-d.width-m}switch(D){case"top":i=h.top;break;case"right":s=h.left+h.width-d.width;break;case"bottom":i=h.top+h.height-d.height;break;case"left":s=h.left;break;case"center":/left|right/.test(g)?i=h.top+h.height/2-d.height/2:s=h.left+h.width/2-d.width/2}r.$datepicker.style.cssText="left: ".concat(s+p,"px; top: ").concat(i+u,"px")}})),N(this,"_setInputValue",(()=>{let{opts:e,$altField:t,locale:{dateFormat:i}}=this,{altFieldDateFormat:s,altField:a}=e;a&&t&&(t.value=this._getInputValue(s)),this.$el.value=this._getInputValue(i)})),N(this,"_getInputValue",(e=>{let{selectedDates:t,opts:i}=this,{multipleDates:s,multipleDatesSeparator:a}=i;if(!t.length)return"";let n="function"==typeof e,r=n?e(s?t:t[0]):t.map((t=>this.formatDate(t,e)));return r=n?r:r.join(a),r})),N(this,"_checkIfDateIsSelected",(function(e){let t=arguments.length>1&&void 0!==arguments[1]?arguments[1]:i.days,s=!1;return r.selectedDates.some((i=>{let a=u(e,i,t);return s=a&&i,a})),s})),N(this,"_scheduleCallAfterTransition",(e=>{this._cancelScheduledCall(),e&&e(!1),this._onTransitionEnd=()=>{e&&e(!0)},this.$datepicker.addEventListener("transitionend",this._onTransitionEnd,{once:!0})})),N(this,"_cancelScheduledCall",(()=>{this.$datepicker.removeEventListener("transitionend",this._onTransitionEnd)})),N(this,"setViewDate",(e=>{if(!((e=b(e))instanceof Date))return;if(u(e,this.viewDate))return;let t=this.viewDate;this.viewDate=e;let{onChangeViewDate:s}=this.opts;if(s){let{month:e,year:t}=this.parsedViewDate;s({month:e,year:t,decade:this.curDecade})}this.trigger(i.eventChangeViewDate,e,t)})),N(this,"setFocusDate",(function(e){let t=arguments.length>1&&void 0!==arguments[1]?arguments[1]:{};(!e||(e=b(e))instanceof Date)&&(r.focusDate=e,r.opts.range&&e&&r._handleRangeOnFocus(),r.trigger(i.eventChangeFocusDate,e,t))})),N(this,"setCurrentView",(e=>{if(this.viewIndexes.includes(e)){if(this.currentView=e,this.elIsInput&&this.visible&&this.setPosition(void 0,!0),this.trigger(i.eventChangeCurrentView,e),!this.views[e]){let t=this.views[e]=new S({dp:this,opts:this.opts,type:e});this.shouldUpdateDOM&&this.$content.appendChild(t.$el)}this.opts.onChangeView&&this.opts.onChangeView(e)}})),N(this,"_updateLastSelectedDate",(e=>{this.lastSelectedDate=e,this.trigger(i.eventChangeLastSelectedDate,e)})),N(this,"destroy",(()=>{let{showEvent:e,isMobile:t}=this.opts,i=this.$datepicker.parentNode;i&&i.removeChild(this.$datepicker),this.$el.removeEventListener(e,this._onFocus),this.$el.removeEventListener("blur",this._onBlur),window.removeEventListener("resize",this._onResize),t&&this._removeMobileAttributes(),this.keyboardNav&&this.keyboardNav.destroy(),this.views=null,this.nav=null,this.$datepicker=null,this.opts=null,this.$customContainer=null,this.viewDate=null,this.focusDate=null,this.selectedDates=null,this.rangeDateFrom=null,this.rangeDateTo=null})),N(this,"update",(e=>{let t=w({},this.opts);w(this.opts,e);let{timepicker:s,buttons:a,range:n,selectedDates:r,isMobile:h}=this.opts,o=this.visible||this.treatAsInline;this._createMinMaxDates(),this._limitViewDateByMaxMinDates(),this._handleLocale(),!t.selectedDates&&r&&this.selectDate(r),e.view&&this.setCurrentView(e.view),this._setInputValue(),t.range&&!n?(this.rangeDateTo=!1,this.rangeDateFrom=!1):!t.range&&n&&this.selectedDates.length&&(this.rangeDateFrom=this.selectedDates[0],this.rangeDateTo=this.selectedDates[1]),t.timepicker&&!s?(o&&this.timepicker.destroy(),this.timepicker=!1,this.$timepicker.parentNode.removeChild(this.$timepicker)):!t.timepicker&&s&&this._addTimepicker(),!t.buttons&&a?this._addButtons():t.buttons&&!a?(this.buttons.destroy(),this.$buttons.parentNode.removeChild(this.$buttons)):o&&t.buttons&&a&&this.buttons.clearHtml().render(),!t.isMobile&&h?(this.treatAsInline||P||this._createMobileOverlay(),this._addMobileAttributes(),this.visible&&this._showMobileOverlay()):t.isMobile&&!h&&(this._removeMobileAttributes(),this.visible&&(P.classList.remove("-active-"),"function"!=typeof this.opts.position&&this.setPosition())),o&&(this.nav.update(),this.views[this.currentView].render(),this.currentView===i.days&&this.views[this.currentView].renderDayNames())})),N(this,"isOtherMonth",(e=>{let{month:t}=o(e);return t!==this.parsedViewDate.month})),N(this,"isOtherYear",(e=>{let{year:t}=o(e);return t!==this.parsedViewDate.year})),N(this,"isOtherDecade",(e=>{let{year:t}=o(e),[i,s]=d(this.viewDate);return t<i||t>s})),N(this,"_onChangeSelectedDate",(e=>{let{silent:t}=e;setTimeout((()=>{this._setInputValue(),this.opts.onSelect&&!t&&this._triggerOnSelect()}))})),N(this,"_onChangeFocusedDate",(function(e){let{viewDateTransition:t}=arguments.length>1&&void 0!==arguments[1]?arguments[1]:{};if(!e)return;let i=!1;t&&(i=r.isOtherMonth(e)||r.isOtherYear(e)||r.isOtherDecade(e)),i&&r.setViewDate(e)})),N(this,"_onChangeTime",(e=>{let{hours:t,minutes:i}=e,s=new Date,{lastSelectedDate:a,opts:{onSelect:n}}=this,r=a;a||(r=s);let h=this.getCell(r,this.currentViewSingular),o=h&&h.adpCell;o&&o.isDisabled||(r.setHours(t),r.setMinutes(i),a?(this._setInputValue(),n&&this._triggerOnSelect()):this.selectDate(r))})),N(this,"_onFocus",(e=>{this.visible||this.show()})),N(this,"_onBlur",(e=>{this.inFocus||!this.visible||this.opts.isMobile||this.hide()})),N(this,"_onMouseDown",(e=>{this.inFocus=!0})),N(this,"_onMouseUp",(e=>{this.inFocus=!1,this.$el.focus()})),N(this,"_onResize",(()=>{this.visible&&"function"!=typeof this.opts.position&&this.setPosition()})),N(this,"_onClickOverlay",(()=>{this.visible&&this.hide()})),N(this,"isWeekend",(e=>this.opts.weekends.includes(e))),N(this,"getClampedDate",(e=>{let{minDate:t,maxDate:i}=this,s=e;return i&&p(e,i)?s=i:t&&m(e,t)&&(s=t),s})),this.$el=a(e),!this.$el)return;this.$datepicker=n({className:"air-datepicker"}),this.opts=w({},s,t),this.$customContainer=!!this.opts.container&&a(this.opts.container),this.$altField=a(this.opts.altField||!1),I||(I=a("body"));let{view:h,startDate:l}=this.opts;l||(this.opts.startDate=new Date),"INPUT"===this.$el.nodeName&&(this.elIsInput=!0),this.inited=!1,this.visible=!1,this.viewDate=b(this.opts.startDate),this.focusDate=!1,this.initialReadonly=this.$el.getAttribute("readonly"),this.customHide=!1,this.currentView=h,this.selectedDates=[],this.views={},this.keys=[],this.rangeDateFrom="",this.rangeDateTo="",this.timepickerIsActive=!1,this.treatAsInline=this.opts.inline||!this.elIsInput,this.init()}init(){let{opts:e,treatAsInline:t,opts:{inline:i,isMobile:s,selectedDates:a,keyboardNav:r,onlyTimepicker:h}}=this;var o;B||i||!this.elIsInput||(B=!0,R=n({className:o=K.defaultContainerId,id:o}),I.appendChild(R)),!s||P||t||this._createMobileOverlay(),this._handleLocale(),this._bindSubEvents(),this._createMinMaxDates(),this._limitViewDateByMaxMinDates(),this.elIsInput&&(i||this._bindEvents(),r&&!h&&(this.keyboardNav=new A({dp:this,opts:e}))),a&&this.selectDate(a,{silent:!0}),this.opts.visible&&!t&&this.show(),s&&!t&&this.$el.setAttribute("readonly",!0),t&&this._createComponents()}_createMobileOverlay(){P=n({className:"air-datepicker-overlay"}),R.appendChild(P)}_createComponents(){let{opts:e,treatAsInline:t,opts:{inline:i,buttons:s,timepicker:a,position:n,classes:r,onlyTimepicker:h,isMobile:o}}=this;this._buildBaseHtml(),this.elIsInput&&(i||this._setPositionClasses(n)),!i&&this.elIsInput||this.$datepicker.classList.add("-inline-"),r&&this.$datepicker.classList.add(...r.split(" ")),h&&this.$datepicker.classList.add("-only-timepicker-"),o&&!t&&this._addMobileAttributes(),this.views[this.currentView]=new S({dp:this,type:this.currentView,opts:e}),this.nav=new F({dp:this,opts:e}),a&&this._addTimepicker(),s&&this._addButtons(),this.$content.appendChild(this.views[this.currentView].$el),this.$nav.appendChild(this.nav.$el)}_destroyComponents(){for(let e in this.views)this.views[e].destroy();this.views={},this.nav.destroy(),this.timepicker&&this.timepicker.destroy()}_addMobileAttributes(){P.addEventListener("click",this._onClickOverlay),this.$datepicker.classList.add("-is-mobile-"),this.$el.setAttribute("readonly",!0)}_removeMobileAttributes(){P.removeEventListener("click",this._onClickOverlay),this.$datepicker.classList.remove("-is-mobile-"),this.initialReadonly||""===this.initialReadonly||this.$el.removeAttribute("readonly")}_createMinMaxDates(){let{minDate:e,maxDate:t}=this.opts;this.minDate=!!e&&b(e),this.maxDate=!!t&&b(t)}_addTimepicker(){this.$timepicker=n({className:"air-datepicker--time"}),this.$datepicker.appendChild(this.$timepicker),this.timepicker=new L({dp:this,opts:this.opts}),this.$timepicker.appendChild(this.timepicker.$el)}_addButtons(){this.$buttons=n({className:"air-datepicker--buttons"}),this.$datepicker.appendChild(this.$buttons),this.buttons=new x({dp:this,opts:this.opts}),this.$buttons.appendChild(this.buttons.$el)}_bindSubEvents(){this.on(i.eventChangeSelectedDate,this._onChangeSelectedDate),this.on(i.eventChangeFocusDate,this._onChangeFocusedDate),this.on(i.eventChangeTime,this._onChangeTime)}_buildBaseHtml(){let{inline:e}=this.opts;var t,i;this.elIsInput?e?(t=this.$datepicker,(i=this.$el).parentNode.insertBefore(t,i.nextSibling)):this.$container.appendChild(this.$datepicker):this.$el.appendChild(this.$datepicker),this.$datepicker.innerHTML='<i class="air-datepicker--pointer"></i><div class="air-datepicker--navigation"></div><div class="air-datepicker--content"></div>',this.$content=a(".air-datepicker--content",this.$datepicker),this.$pointer=a(".air-datepicker--pointer",this.$datepicker),this.$nav=a(".air-datepicker--navigation",this.$datepicker)}_handleLocale(){let{locale:e,dateFormat:t,firstDay:i,timepicker:s,onlyTimepicker:a,timeFormat:n,dateTimeSeparator:r}=this.opts;var h;this.locale=(h=e,JSON.parse(JSON.stringify(h))),t&&(this.locale.dateFormat=t),void 0!==n&&""!==n&&(this.locale.timeFormat=n);let{timeFormat:o}=this.locale;if(""!==i&&(this.locale.firstDay=i),s&&"function"!=typeof t){let e=o?r:"";this.locale.dateFormat=[this.locale.dateFormat,o||""].join(e)}a&&(this.locale.dateFormat=this.locale.timeFormat)}_setPositionClasses(e){if("function"==typeof e)return void this.$datepicker.classList.add("-custom-position-");let t=(e=e.split(" "))[0],i=e[1],s="air-datepicker -".concat(t,"-").concat(i,"- -from-").concat(t,"-");this.$datepicker.classList.add(...s.split(" "))}_bindEvents(){this.$el.addEventListener(this.opts.showEvent,this._onFocus),this.$el.addEventListener("blur",this._onBlur),this.$datepicker.addEventListener("mousedown",this._onMouseDown),this.$datepicker.addEventListener("mouseup",this._onMouseUp),window.addEventListener("resize",this._onResize)}_limitViewDateByMaxMinDates(){let{viewDate:e,minDate:t,maxDate:i}=this;i&&p(e,i)&&this.setViewDate(i),t&&m(e,t)&&this.setViewDate(t)}formatDate(){let e=arguments.length>0&&void 0!==arguments[0]?arguments[0]:this.viewDate,t=arguments.length>1?arguments[1]:void 0;if(e=b(e),!(e instanceof Date))return;let i=t,s=this.locale,a=o(e),n=d(e),r=K.replacer,h="am";this.opts.timepicker&&this.timepicker&&(h=this.timepicker.getDayPeriod(e).dayPeriod);let l={T:e.getTime(),m:a.minutes,mm:a.fullMinutes,h:a.hours12,hh:a.fullHours12,H:a.hours,HH:a.fullHours,aa:h,AA:h.toUpperCase(),E:s.daysShort[a.day],EEEE:s.days[a.day],d:a.date,dd:a.fullDate,M:a.month+1,MM:a.fullMonth,MMM:s.monthsShort[a.month],MMMM:s.months[a.month],yy:a.year.toString().slice(-2),yyyy:a.year,yyyy1:n[0],yyyy2:n[1]};for(let[e,t]of Object.entries(l))i=r(i,k(e),t);return i}down(e){this._handleUpDownActions(e,"down")}up(e){this._handleUpDownActions(e,"up")}selectDate(e){let t,s=arguments.length>1&&void 0!==arguments[1]?arguments[1]:{},{currentView:a,parsedViewDate:n,selectedDates:r}=this,{updateTime:h}=s,{moveToOtherMonthsOnSelect:o,moveToOtherYearsOnSelect:l,multipleDates:d,range:c,autoClose:u}=this.opts,m=r.length;if(Array.isArray(e))return e.forEach((e=>{this.selectDate(e,s)})),new Promise((e=>{setTimeout(e)}));if((e=b(e))instanceof Date){if(a===i.days&&e.getMonth()!==n.month&&o&&(t=new Date(e.getFullYear(),e.getMonth(),1)),a===i.years&&e.getFullYear()!==n.year&&l&&(t=new Date(e.getFullYear(),0,1)),t&&this.setViewDate(t),d&&!c){if(m===d)return;this._checkIfDateIsSelected(e)||r.push(e)}else if(c)switch(m){case 1:r.push(e),this.rangeDateTo||(this.rangeDateTo=e),p(this.rangeDateFrom,this.rangeDateTo)&&(this.rangeDateTo=this.rangeDateFrom,this.rangeDateFrom=e),this.selectedDates=[this.rangeDateFrom,this.rangeDateTo];break;case 2:this.selectedDates=[e],this.rangeDateFrom=e,this.rangeDateTo="";break;default:this.selectedDates=[e],this.rangeDateFrom=e}else this.selectedDates=[e];return this.trigger(i.eventChangeSelectedDate,{action:i.actionSelectDate,silent:null==s?void 0:s.silent,date:e,updateTime:h}),this._updateLastSelectedDate(e),u&&!this.timepickerIsActive&&this.visible&&(d||c?c&&1===m&&this.hide():this.hide()),new Promise((e=>{setTimeout(e)}))}}unselectDate(e){let t=this.selectedDates,s=this;if((e=b(e))instanceof Date)return t.some(((a,n)=>{if(u(a,e))return t.splice(n,1),s.selectedDates.length?s._updateLastSelectedDate(s.selectedDates[s.selectedDates.length-1]):(s.rangeDateFrom="",s.rangeDateTo="",s._updateLastSelectedDate(!1)),this.trigger(i.eventChangeSelectedDate,{action:i.actionUnselectDate,date:e}),!0}))}replaceDate(e,t){let s=this.selectedDates.find((t=>u(t,e,this.currentView))),a=this.selectedDates.indexOf(s);a<0||u(this.selectedDates[a],t,this.currentView)||(this.selectedDates[a]=t,this.trigger(i.eventChangeSelectedDate,{action:i.actionSelectDate,date:t,updateTime:!0}),this._updateLastSelectedDate(t))}clear(){let e=arguments.length>0&&void 0!==arguments[0]?arguments[0]:{};return this.selectedDates=[],this.rangeDateFrom=!1,this.rangeDateTo=!1,this.trigger(i.eventChangeSelectedDate,{action:i.actionUnselectDate,silent:e.silent}),new Promise((e=>{setTimeout(e)}))}show(){let{onShow:e,isMobile:t}=this.opts;this._cancelScheduledCall(),this.visible||this.hideAnimation||this._createComponents(),this.setPosition(this.opts.position),this.$datepicker.classList.add("-active-"),this.visible=!0,e&&this._scheduleCallAfterTransition(e),t&&this._showMobileOverlay()}hide(){let{onHide:e,isMobile:t}=this.opts,i=this._hasTransition();this.visible=!1,this.hideAnimation=!0,this.$datepicker.classList.remove("-active-"),this.customHide&&this.customHide(),this.elIsInput&&this.$el.blur(),this._scheduleCallAfterTransition((t=>{!this.customHide&&(t&&i||!t&&!i)&&this._finishHide(),e&&e(t)})),t&&P.classList.remove("-active-")}_triggerOnSelect(){let e=[],t=[],{selectedDates:i,locale:s,opts:{onSelect:a,multipleDates:n,range:r}}=this,h=n||r,o="function"==typeof s.dateFormat;i.length&&(e=i.map(g),t=o?n?s.dateFormat(e):e.map((e=>s.dateFormat(e))):e.map((e=>this.formatDate(e,s.dateFormat)))),a({date:h?e:e[0],formattedDate:h?t:t[0],datepicker:this})}_handleAlreadySelectedDates(e,t){let{range:i,toggleSelected:s}=this.opts;i?s?this.unselectDate(t):2!==this.selectedDates.length&&this.selectDate(t):s&&this.unselectDate(t),s||this._updateLastSelectedDate(e)}_handleUpDownActions(e,t){if(!((e=b(e||this.focusDate||this.viewDate))instanceof Date))return;let i="up"===t?this.viewIndex+1:this.viewIndex-1;i>2&&(i=2),i<0&&(i=0),this.setViewDate(new Date(e.getFullYear(),e.getMonth(),1)),this.setCurrentView(this.viewIndexes[i])}_handleRangeOnFocus(){1===this.selectedDates.length&&(p(this.selectedDates[0],this.focusDate)?(this.rangeDateTo=this.selectedDates[0],this.rangeDateFrom=this.focusDate):(this.rangeDateTo=this.focusDate,this.rangeDateFrom=this.selectedDates[0]))}getCell(e){let t=arguments.length>1&&void 0!==arguments[1]?arguments[1]:i.day;if(!((e=b(e))instanceof Date))return;let{year:s,month:a,date:n}=o(e),r='[data-year="'.concat(s,'"]'),h='[data-month="'.concat(a,'"]'),l='[data-date="'.concat(n,'"]'),d={[i.day]:"".concat(r).concat(h).concat(l),[i.month]:"".concat(r).concat(h),[i.year]:"".concat(r)};return this.views[this.currentView].$el.querySelector(d[t])}_showMobileOverlay(){P.classList.add("-active-")}_hasTransition(){return window.getComputedStyle(this.$datepicker).getPropertyValue("transition-duration").split(", ").reduce(((e,t)=>parseFloat(t)+e),0)>0}get shouldUpdateDOM(){return this.visible||this.treatAsInline}get parsedViewDate(){return o(this.viewDate)}get currentViewSingular(){return this.currentView.slice(0,-1)}get curDecade(){return d(this.viewDate)}get viewIndex(){return this.viewIndexes.indexOf(this.currentView)}get isFinalView(){return this.currentView===i.years}get hasSelectedDates(){return this.selectedDates.length>0}get isMinViewReached(){return this.currentView===this.opts.minView||this.currentView===i.days}get $container(){return this.$customContainer||R}static replacer(e,t,i){return e.replace(t,(function(e,t,s,a){return t+i+a}))}}var j;return N(K,"defaults",s),N(K,"version","3.2.0"),N(K,"defaultContainerId","air-datepicker-global-container"),j=K.prototype,Object.assign(j,E),t.default}()}));
-
-/***/ }),
-
-/***/ "./node_modules/air-datepicker/index.es.js":
-/*!*************************************************!*\
-  !*** ./node_modules/air-datepicker/index.es.js ***!
-  \*************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var _air_datepicker__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./air-datepicker */ "./node_modules/air-datepicker/air-datepicker.js");
-/* harmony import */ var _air_datepicker__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_air_datepicker__WEBPACK_IMPORTED_MODULE_0__);
-
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ((_air_datepicker__WEBPACK_IMPORTED_MODULE_0___default()));
-
-/***/ }),
-
 /***/ "./node_modules/alpinejs/dist/module.esm.js":
 /*!**************************************************!*\
   !*** ./node_modules/alpinejs/dist/module.esm.js ***!
@@ -5182,6 +5154,8 @@ __webpack_require__(/*! ./phone-mask */ "./resources/js/phone-mask.js");
 
 __webpack_require__(/*! ./zoom */ "./resources/js/zoom.js");
 
+__webpack_require__(/*! ./datepicker */ "./resources/js/datepicker.js");
+
 
 window.Alpine = alpinejs__WEBPACK_IMPORTED_MODULE_0__["default"];
 alpinejs__WEBPACK_IMPORTED_MODULE_0__["default"].start();
@@ -5205,7 +5179,6 @@ try {
   window.$ = window.jQuery = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
   window.dt = __webpack_require__(/*! datatables.net */ "./node_modules/datatables.net/js/jquery.dataTables.js");
   window.Swal = __webpack_require__(/*! sweetalert2 */ "./node_modules/sweetalert2/dist/sweetalert2.all.js");
-  window.AirDatepicker = __webpack_require__(/*! air-datepicker */ "./node_modules/air-datepicker/index.es.js");
   window.inputmask = __webpack_require__(/*! inputmask */ "./node_modules/inputmask/dist/inputmask.js");
 } catch (e) {}
 
@@ -5270,6 +5243,7 @@ $(document).ready(function () {
       },
       success: function success(response) {
         if (response.status === 'success') {
+          $('#modal').addClass('hidden');
           Swal.fire('Успешно!', 'Добавлено в корзину!', 'success');
         } else if (response.status === 'exists') {
           Swal.fire({
@@ -5439,6 +5413,1480 @@ $(document).ready(function () {
       });
     });
   }
+});
+
+/***/ }),
+
+/***/ "./resources/js/datepicker.js":
+/*!************************************!*\
+  !*** ./resources/js/datepicker.js ***!
+  \************************************/
+/***/ ((module, exports, __webpack_require__) => {
+
+var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
+
+var DateFormatter;
+!function () {
+  "use strict";
+
+  var D, _s, _r, a, n;
+
+  D = function D(e, t) {
+    return "string" == typeof e && "string" == typeof t && e.toLowerCase() === t.toLowerCase();
+  }, _s = function s(e, t, a) {
+    var n = a || "0",
+        r = e.toString();
+    return r.length < t ? _s(n + r, t) : r;
+  }, _r = function r(e) {
+    var t, a;
+
+    for (e = e || {}, t = 1; t < arguments.length; t++) {
+      if (a = arguments[t]) for (var n in a) {
+        a.hasOwnProperty(n) && ("object" == _typeof(a[n]) ? _r(e[n], a[n]) : e[n] = a[n]);
+      }
+    }
+
+    return e;
+  }, a = function a(e, t) {
+    for (var a = 0; a < t.length; a++) {
+      if (t[a].toLowerCase() === e.toLowerCase()) return a;
+    }
+
+    return -1;
+  }, n = {
+    dateSettings: {
+      days: ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+      daysShort: ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"],
+      months: ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
+      monthsShort: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
+      meridiem: ["AM", "PM"],
+      ordinal: function ordinal(e) {
+        var t = e % 10,
+            a = {
+          1: "st",
+          2: "nd",
+          3: "rd"
+        };
+        return 1 !== Math.floor(e % 100 / 10) && a[t] ? a[t] : "th";
+      }
+    },
+    separators: /[ \-+\/\.T:@]/g,
+    validParts: /[dDjlNSwzWFmMntLoYyaABgGhHisueTIOPZcrU]/g,
+    intParts: /[djwNzmnyYhHgGis]/g,
+    tzParts: /\b(?:[PMCEA][SDP]T|(?:Pacific|Mountain|Central|Eastern|Atlantic) (?:Standard|Daylight|Prevailing) Time|(?:GMT|UTC)(?:[-+]\d{4})?)\b/g,
+    tzClip: /[^-+\dA-Z]/g
+  }, (DateFormatter = function DateFormatter(e) {
+    var t = this,
+        a = _r(n, e);
+
+    t.dateSettings = a.dateSettings, t.separators = a.separators, t.validParts = a.validParts, t.intParts = a.intParts, t.tzParts = a.tzParts, t.tzClip = a.tzClip;
+  }).prototype = {
+    constructor: DateFormatter,
+    getMonth: function getMonth(e) {
+      var t;
+      return 0 === (t = a(e, this.dateSettings.monthsShort) + 1) && (t = a(e, this.dateSettings.months) + 1), t;
+    },
+    parseDate: function parseDate(e, t) {
+      var a,
+          n,
+          r,
+          o,
+          i,
+          s,
+          d,
+          u,
+          l,
+          f,
+          c = this,
+          m = !1,
+          h = !1,
+          g = c.dateSettings,
+          p = {
+        date: null,
+        year: null,
+        month: null,
+        day: null,
+        hour: 0,
+        min: 0,
+        sec: 0
+      };
+      if (!e) return null;
+      if (e instanceof Date) return e;
+      if ("U" === t) return (r = parseInt(e)) ? new Date(1e3 * r) : e;
+
+      switch (_typeof(e)) {
+        case "number":
+          return new Date(e);
+
+        case "string":
+          break;
+
+        default:
+          return null;
+      }
+
+      if (!(a = t.match(c.validParts)) || 0 === a.length) throw new Error("Invalid date format definition.");
+
+      for (n = e.replace(c.separators, "\0").split("\0"), r = 0; r < n.length; r++) {
+        switch (o = n[r], i = parseInt(o), a[r]) {
+          case "y":
+          case "Y":
+            if (!i) return null;
+            l = o.length, p.year = 2 === l ? parseInt((i < 70 ? "20" : "19") + o) : i, m = !0;
+            break;
+
+          case "m":
+          case "n":
+          case "M":
+          case "F":
+            if (isNaN(i)) {
+              if (!(0 < (s = c.getMonth(o)))) return null;
+              p.month = s;
+            } else {
+              if (!(1 <= i && i <= 12)) return null;
+              p.month = i;
+            }
+
+            m = !0;
+            break;
+
+          case "d":
+          case "j":
+            if (!(1 <= i && i <= 31)) return null;
+            p.day = i, m = !0;
+            break;
+
+          case "g":
+          case "h":
+            if (f = n[d = -1 < a.indexOf("a") ? a.indexOf("a") : -1 < a.indexOf("A") ? a.indexOf("A") : -1], -1 < d) u = D(f, g.meridiem[0]) ? 0 : D(f, g.meridiem[1]) ? 12 : -1, 1 <= i && i <= 12 && -1 < u ? p.hour = i + u - 1 : 0 <= i && i <= 23 && (p.hour = i);else {
+              if (!(0 <= i && i <= 23)) return null;
+              p.hour = i;
+            }
+            h = !0;
+            break;
+
+          case "G":
+          case "H":
+            if (!(0 <= i && i <= 23)) return null;
+            p.hour = i, h = !0;
+            break;
+
+          case "i":
+            if (!(0 <= i && i <= 59)) return null;
+            p.min = i, h = !0;
+            break;
+
+          case "s":
+            if (!(0 <= i && i <= 59)) return null;
+            p.sec = i, h = !0;
+        }
+      }
+
+      if (!0 === m && p.year && p.month && p.day) p.date = new Date(p.year, p.month - 1, p.day, p.hour, p.min, p.sec, 0);else {
+        if (!0 !== h) return null;
+        p.date = new Date(0, 0, 0, p.hour, p.min, p.sec, 0);
+      }
+      return p.date;
+    },
+    guessDate: function guessDate(e, t) {
+      if ("string" != typeof e) return e;
+      var a,
+          n,
+          r,
+          o,
+          i,
+          s,
+          d = e.replace(this.separators, "\0").split("\0"),
+          u = t.match(this.validParts),
+          l = new Date(),
+          f = 0;
+      if (!/^[djmn]/g.test(u[0])) return e;
+
+      for (r = 0; r < d.length; r++) {
+        if (f = 2, i = d[r], s = parseInt(i.substr(0, 2)), isNaN(s)) return null;
+
+        switch (r) {
+          case 0:
+            "m" === u[0] || "n" === u[0] ? l.setMonth(s - 1) : l.setDate(s);
+            break;
+
+          case 1:
+            "m" === u[0] || "n" === u[0] ? l.setDate(s) : l.setMonth(s - 1);
+            break;
+
+          case 2:
+            if (n = l.getFullYear(), f = (a = i.length) < 4 ? a : 4, !(n = parseInt(a < 4 ? n.toString().substr(0, 4 - a) + i : i.substr(0, 4)))) return null;
+            l.setFullYear(n);
+            break;
+
+          case 3:
+            l.setHours(s);
+            break;
+
+          case 4:
+            l.setMinutes(s);
+            break;
+
+          case 5:
+            l.setSeconds(s);
+        }
+
+        0 < (o = i.substr(f)).length && d.splice(r + 1, 0, o);
+      }
+
+      return l;
+    },
+    parseFormat: function parseFormat(e, _n) {
+      var _a,
+          t = this,
+          r = t.dateSettings,
+          o = /\\?(.?)/gi,
+          i = function i(e, t) {
+        return _a[e] ? _a[e]() : t;
+      };
+
+      return _a = {
+        d: function d() {
+          return _s(_a.j(), 2);
+        },
+        D: function D() {
+          return r.daysShort[_a.w()];
+        },
+        j: function j() {
+          return _n.getDate();
+        },
+        l: function l() {
+          return r.days[_a.w()];
+        },
+        N: function N() {
+          return _a.w() || 7;
+        },
+        w: function w() {
+          return _n.getDay();
+        },
+        z: function z() {
+          var e = new Date(_a.Y(), _a.n() - 1, _a.j()),
+              t = new Date(_a.Y(), 0, 1);
+          return Math.round((e - t) / 864e5);
+        },
+        W: function W() {
+          var e = new Date(_a.Y(), _a.n() - 1, _a.j() - _a.N() + 3),
+              t = new Date(e.getFullYear(), 0, 4);
+          return _s(1 + Math.round((e - t) / 864e5 / 7), 2);
+        },
+        F: function F() {
+          return r.months[_n.getMonth()];
+        },
+        m: function m() {
+          return _s(_a.n(), 2);
+        },
+        M: function M() {
+          return r.monthsShort[_n.getMonth()];
+        },
+        n: function n() {
+          return _n.getMonth() + 1;
+        },
+        t: function t() {
+          return new Date(_a.Y(), _a.n(), 0).getDate();
+        },
+        L: function L() {
+          var e = _a.Y();
+
+          return e % 4 == 0 && e % 100 != 0 || e % 400 == 0 ? 1 : 0;
+        },
+        o: function o() {
+          var e = _a.n(),
+              t = _a.W();
+
+          return _a.Y() + (12 === e && t < 9 ? 1 : 1 === e && 9 < t ? -1 : 0);
+        },
+        Y: function Y() {
+          return _n.getFullYear();
+        },
+        y: function y() {
+          return _a.Y().toString().slice(-2);
+        },
+        a: function a() {
+          return _a.A().toLowerCase();
+        },
+        A: function A() {
+          var e = _a.G() < 12 ? 0 : 1;
+          return r.meridiem[e];
+        },
+        B: function B() {
+          var e = 3600 * _n.getUTCHours(),
+              t = 60 * _n.getUTCMinutes(),
+              a = _n.getUTCSeconds();
+
+          return _s(Math.floor((e + t + a + 3600) / 86.4) % 1e3, 3);
+        },
+        g: function g() {
+          return _a.G() % 12 || 12;
+        },
+        G: function G() {
+          return _n.getHours();
+        },
+        h: function h() {
+          return _s(_a.g(), 2);
+        },
+        H: function H() {
+          return _s(_a.G(), 2);
+        },
+        i: function i() {
+          return _s(_n.getMinutes(), 2);
+        },
+        s: function s() {
+          return _s(_n.getSeconds(), 2);
+        },
+        u: function u() {
+          return _s(1e3 * _n.getMilliseconds(), 6);
+        },
+        e: function e() {
+          return /\((.*)\)/.exec(String(_n))[1] || "Coordinated Universal Time";
+        },
+        I: function I() {
+          return new Date(_a.Y(), 0) - Date.UTC(_a.Y(), 0) != new Date(_a.Y(), 6) - Date.UTC(_a.Y(), 6) ? 1 : 0;
+        },
+        O: function O() {
+          var e = _n.getTimezoneOffset(),
+              t = Math.abs(e);
+
+          return (0 < e ? "-" : "+") + _s(100 * Math.floor(t / 60) + t % 60, 4);
+        },
+        P: function P() {
+          var e = _a.O();
+
+          return e.substr(0, 3) + ":" + e.substr(3, 2);
+        },
+        T: function T() {
+          return (String(_n).match(t.tzParts) || [""]).pop().replace(t.tzClip, "") || "UTC";
+        },
+        Z: function Z() {
+          return 60 * -_n.getTimezoneOffset();
+        },
+        c: function c() {
+          return "Y-m-d\\TH:i:sP".replace(o, i);
+        },
+        r: function r() {
+          return "D, d M Y H:i:s O".replace(o, i);
+        },
+        U: function U() {
+          return _n.getTime() / 1e3 || 0;
+        }
+      }, i(e, e);
+    },
+    formatDate: function formatDate(e, t) {
+      var a,
+          n,
+          r,
+          o,
+          i,
+          s = "";
+      if ("string" == typeof e && !(e = this.parseDate(e, t))) return null;
+
+      if (e instanceof Date) {
+        for (r = t.length, a = 0; a < r; a++) {
+          "S" !== (i = t.charAt(a)) && "\\" !== i && (0 < a && "\\" === t.charAt(a - 1) ? s += i : (o = this.parseFormat(i, e), a !== r - 1 && this.intParts.test(i) && "S" === t.charAt(a + 1) && (n = parseInt(o) || 0, o += this.dateSettings.ordinal(n)), s += o));
+        }
+
+        return s;
+      }
+
+      return "";
+    }
+  };
+}();
+
+var datetimepickerFactory = function datetimepickerFactory(L) {
+  "use strict";
+
+  var s = {
+    i18n: {
+      ar: {
+        months: ["كانون الثاني", "شباط", "آذار", "نيسان", "مايو", "حزيران", "تموز", "آب", "أيلول", "تشرين الأول", "تشرين الثاني", "كانون الأول"],
+        dayOfWeekShort: ["ن", "ث", "ع", "خ", "ج", "س", "ح"],
+        dayOfWeek: ["الأحد", "الاثنين", "الثلاثاء", "الأربعاء", "الخميس", "الجمعة", "السبت", "الأحد"]
+      },
+      ro: {
+        months: ["Ianuarie", "Februarie", "Martie", "Aprilie", "Mai", "Iunie", "Iulie", "August", "Septembrie", "Octombrie", "Noiembrie", "Decembrie"],
+        dayOfWeekShort: ["Du", "Lu", "Ma", "Mi", "Jo", "Vi", "Sâ"],
+        dayOfWeek: ["Duminică", "Luni", "Marţi", "Miercuri", "Joi", "Vineri", "Sâmbătă"]
+      },
+      id: {
+        months: ["Januari", "Februari", "Maret", "April", "Mei", "Juni", "Juli", "Agustus", "September", "Oktober", "November", "Desember"],
+        dayOfWeekShort: ["Min", "Sen", "Sel", "Rab", "Kam", "Jum", "Sab"],
+        dayOfWeek: ["Minggu", "Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu"]
+      },
+      is: {
+        months: ["Janúar", "Febrúar", "Mars", "Apríl", "Maí", "Júní", "Júlí", "Ágúst", "September", "Október", "Nóvember", "Desember"],
+        dayOfWeekShort: ["Sun", "Mán", "Þrið", "Mið", "Fim", "Fös", "Lau"],
+        dayOfWeek: ["Sunnudagur", "Mánudagur", "Þriðjudagur", "Miðvikudagur", "Fimmtudagur", "Föstudagur", "Laugardagur"]
+      },
+      bg: {
+        months: ["Януари", "Февруари", "Март", "Април", "Май", "Юни", "Юли", "Август", "Септември", "Октомври", "Ноември", "Декември"],
+        dayOfWeekShort: ["Нд", "Пн", "Вт", "Ср", "Чт", "Пт", "Сб"],
+        dayOfWeek: ["Неделя", "Понеделник", "Вторник", "Сряда", "Четвъртък", "Петък", "Събота"]
+      },
+      fa: {
+        months: ["فروردین", "اردیبهشت", "خرداد", "تیر", "مرداد", "شهریور", "مهر", "آبان", "آذر", "دی", "بهمن", "اسفند"],
+        dayOfWeekShort: ["یکشنبه", "دوشنبه", "سه شنبه", "چهارشنبه", "پنجشنبه", "جمعه", "شنبه"],
+        dayOfWeek: ["یک‌شنبه", "دوشنبه", "سه‌شنبه", "چهارشنبه", "پنج‌شنبه", "جمعه", "شنبه", "یک‌شنبه"]
+      },
+      ru: {
+        months: ["Январь", "Февраль", "Март", "Апрель", "Май", "Июнь", "Июль", "Август", "Сентябрь", "Октябрь", "Ноябрь", "Декабрь"],
+        dayOfWeekShort: ["Вс", "Пн", "Вт", "Ср", "Чт", "Пт", "Сб"],
+        dayOfWeek: ["Воскресенье", "Понедельник", "Вторник", "Среда", "Четверг", "Пятница", "Суббота"]
+      },
+      uk: {
+        months: ["Січень", "Лютий", "Березень", "Квітень", "Травень", "Червень", "Липень", "Серпень", "Вересень", "Жовтень", "Листопад", "Грудень"],
+        dayOfWeekShort: ["Нд", "Пн", "Вт", "Ср", "Чт", "Пт", "Сб"],
+        dayOfWeek: ["Неділя", "Понеділок", "Вівторок", "Середа", "Четвер", "П'ятниця", "Субота"]
+      },
+      en: {
+        months: ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
+        dayOfWeekShort: ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"],
+        dayOfWeek: ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
+      },
+      el: {
+        months: ["Ιανουάριος", "Φεβρουάριος", "Μάρτιος", "Απρίλιος", "Μάιος", "Ιούνιος", "Ιούλιος", "Αύγουστος", "Σεπτέμβριος", "Οκτώβριος", "Νοέμβριος", "Δεκέμβριος"],
+        dayOfWeekShort: ["Κυρ", "Δευ", "Τρι", "Τετ", "Πεμ", "Παρ", "Σαβ"],
+        dayOfWeek: ["Κυριακή", "Δευτέρα", "Τρίτη", "Τετάρτη", "Πέμπτη", "Παρασκευή", "Σάββατο"]
+      },
+      de: {
+        months: ["Januar", "Februar", "März", "April", "Mai", "Juni", "Juli", "August", "September", "Oktober", "November", "Dezember"],
+        dayOfWeekShort: ["So", "Mo", "Di", "Mi", "Do", "Fr", "Sa"],
+        dayOfWeek: ["Sonntag", "Montag", "Dienstag", "Mittwoch", "Donnerstag", "Freitag", "Samstag"]
+      },
+      nl: {
+        months: ["januari", "februari", "maart", "april", "mei", "juni", "juli", "augustus", "september", "oktober", "november", "december"],
+        dayOfWeekShort: ["zo", "ma", "di", "wo", "do", "vr", "za"],
+        dayOfWeek: ["zondag", "maandag", "dinsdag", "woensdag", "donderdag", "vrijdag", "zaterdag"]
+      },
+      tr: {
+        months: ["Ocak", "Şubat", "Mart", "Nisan", "Mayıs", "Haziran", "Temmuz", "Ağustos", "Eylül", "Ekim", "Kasım", "Aralık"],
+        dayOfWeekShort: ["Paz", "Pts", "Sal", "Çar", "Per", "Cum", "Cts"],
+        dayOfWeek: ["Pazar", "Pazartesi", "Salı", "Çarşamba", "Perşembe", "Cuma", "Cumartesi"]
+      },
+      fr: {
+        months: ["Janvier", "Février", "Mars", "Avril", "Mai", "Juin", "Juillet", "Août", "Septembre", "Octobre", "Novembre", "Décembre"],
+        dayOfWeekShort: ["Dim", "Lun", "Mar", "Mer", "Jeu", "Ven", "Sam"],
+        dayOfWeek: ["dimanche", "lundi", "mardi", "mercredi", "jeudi", "vendredi", "samedi"]
+      },
+      es: {
+        months: ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"],
+        dayOfWeekShort: ["Dom", "Lun", "Mar", "Mié", "Jue", "Vie", "Sáb"],
+        dayOfWeek: ["Domingo", "Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado"]
+      },
+      th: {
+        months: ["มกราคม", "กุมภาพันธ์", "มีนาคม", "เมษายน", "พฤษภาคม", "มิถุนายน", "กรกฎาคม", "สิงหาคม", "กันยายน", "ตุลาคม", "พฤศจิกายน", "ธันวาคม"],
+        dayOfWeekShort: ["อา.", "จ.", "อ.", "พ.", "พฤ.", "ศ.", "ส."],
+        dayOfWeek: ["อาทิตย์", "จันทร์", "อังคาร", "พุธ", "พฤหัส", "ศุกร์", "เสาร์", "อาทิตย์"]
+      },
+      pl: {
+        months: ["styczeń", "luty", "marzec", "kwiecień", "maj", "czerwiec", "lipiec", "sierpień", "wrzesień", "październik", "listopad", "grudzień"],
+        dayOfWeekShort: ["nd", "pn", "wt", "śr", "cz", "pt", "sb"],
+        dayOfWeek: ["niedziela", "poniedziałek", "wtorek", "środa", "czwartek", "piątek", "sobota"]
+      },
+      pt: {
+        months: ["Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"],
+        dayOfWeekShort: ["Dom", "Seg", "Ter", "Qua", "Qui", "Sex", "Sab"],
+        dayOfWeek: ["Domingo", "Segunda", "Terça", "Quarta", "Quinta", "Sexta", "Sábado"]
+      },
+      ch: {
+        months: ["一月", "二月", "三月", "四月", "五月", "六月", "七月", "八月", "九月", "十月", "十一月", "十二月"],
+        dayOfWeekShort: ["日", "一", "二", "三", "四", "五", "六"]
+      },
+      se: {
+        months: ["Januari", "Februari", "Mars", "April", "Maj", "Juni", "Juli", "Augusti", "September", "Oktober", "November", "December"],
+        dayOfWeekShort: ["Sön", "Mån", "Tis", "Ons", "Tor", "Fre", "Lör"]
+      },
+      km: {
+        months: ["មករា​", "កុម្ភៈ", "មិនា​", "មេសា​", "ឧសភា​", "មិថុនា​", "កក្កដា​", "សីហា​", "កញ្ញា​", "តុលា​", "វិច្ឆិកា", "ធ្នូ​"],
+        dayOfWeekShort: ["អាទិ​", "ច័ន្ទ​", "អង្គារ​", "ពុធ​", "ព្រហ​​", "សុក្រ​", "សៅរ៍"],
+        dayOfWeek: ["អាទិត្យ​", "ច័ន្ទ​", "អង្គារ​", "ពុធ​", "ព្រហស្បតិ៍​", "សុក្រ​", "សៅរ៍"]
+      },
+      kr: {
+        months: ["1월", "2월", "3월", "4월", "5월", "6월", "7월", "8월", "9월", "10월", "11월", "12월"],
+        dayOfWeekShort: ["일", "월", "화", "수", "목", "금", "토"],
+        dayOfWeek: ["일요일", "월요일", "화요일", "수요일", "목요일", "금요일", "토요일"]
+      },
+      it: {
+        months: ["Gennaio", "Febbraio", "Marzo", "Aprile", "Maggio", "Giugno", "Luglio", "Agosto", "Settembre", "Ottobre", "Novembre", "Dicembre"],
+        dayOfWeekShort: ["Dom", "Lun", "Mar", "Mer", "Gio", "Ven", "Sab"],
+        dayOfWeek: ["Domenica", "Lunedì", "Martedì", "Mercoledì", "Giovedì", "Venerdì", "Sabato"]
+      },
+      da: {
+        months: ["Januar", "Februar", "Marts", "April", "Maj", "Juni", "Juli", "August", "September", "Oktober", "November", "December"],
+        dayOfWeekShort: ["Søn", "Man", "Tir", "Ons", "Tor", "Fre", "Lør"],
+        dayOfWeek: ["søndag", "mandag", "tirsdag", "onsdag", "torsdag", "fredag", "lørdag"]
+      },
+      no: {
+        months: ["Januar", "Februar", "Mars", "April", "Mai", "Juni", "Juli", "August", "September", "Oktober", "November", "Desember"],
+        dayOfWeekShort: ["Søn", "Man", "Tir", "Ons", "Tor", "Fre", "Lør"],
+        dayOfWeek: ["Søndag", "Mandag", "Tirsdag", "Onsdag", "Torsdag", "Fredag", "Lørdag"]
+      },
+      ja: {
+        months: ["1月", "2月", "3月", "4月", "5月", "6月", "7月", "8月", "9月", "10月", "11月", "12月"],
+        dayOfWeekShort: ["日", "月", "火", "水", "木", "金", "土"],
+        dayOfWeek: ["日曜", "月曜", "火曜", "水曜", "木曜", "金曜", "土曜"]
+      },
+      vi: {
+        months: ["Tháng 1", "Tháng 2", "Tháng 3", "Tháng 4", "Tháng 5", "Tháng 6", "Tháng 7", "Tháng 8", "Tháng 9", "Tháng 10", "Tháng 11", "Tháng 12"],
+        dayOfWeekShort: ["CN", "T2", "T3", "T4", "T5", "T6", "T7"],
+        dayOfWeek: ["Chủ nhật", "Thứ hai", "Thứ ba", "Thứ tư", "Thứ năm", "Thứ sáu", "Thứ bảy"]
+      },
+      sl: {
+        months: ["Januar", "Februar", "Marec", "April", "Maj", "Junij", "Julij", "Avgust", "September", "Oktober", "November", "December"],
+        dayOfWeekShort: ["Ned", "Pon", "Tor", "Sre", "Čet", "Pet", "Sob"],
+        dayOfWeek: ["Nedelja", "Ponedeljek", "Torek", "Sreda", "Četrtek", "Petek", "Sobota"]
+      },
+      cs: {
+        months: ["Leden", "Únor", "Březen", "Duben", "Květen", "Červen", "Červenec", "Srpen", "Září", "Říjen", "Listopad", "Prosinec"],
+        dayOfWeekShort: ["Ne", "Po", "Út", "St", "Čt", "Pá", "So"]
+      },
+      hu: {
+        months: ["Január", "Február", "Március", "Április", "Május", "Június", "Július", "Augusztus", "Szeptember", "Október", "November", "December"],
+        dayOfWeekShort: ["Va", "Hé", "Ke", "Sze", "Cs", "Pé", "Szo"],
+        dayOfWeek: ["vasárnap", "hétfő", "kedd", "szerda", "csütörtök", "péntek", "szombat"]
+      },
+      az: {
+        months: ["Yanvar", "Fevral", "Mart", "Aprel", "May", "Iyun", "Iyul", "Avqust", "Sentyabr", "Oktyabr", "Noyabr", "Dekabr"],
+        dayOfWeekShort: ["B", "Be", "Ça", "Ç", "Ca", "C", "Ş"],
+        dayOfWeek: ["Bazar", "Bazar ertəsi", "Çərşənbə axşamı", "Çərşənbə", "Cümə axşamı", "Cümə", "Şənbə"]
+      },
+      bs: {
+        months: ["Januar", "Februar", "Mart", "April", "Maj", "Jun", "Jul", "Avgust", "Septembar", "Oktobar", "Novembar", "Decembar"],
+        dayOfWeekShort: ["Ned", "Pon", "Uto", "Sri", "Čet", "Pet", "Sub"],
+        dayOfWeek: ["Nedjelja", "Ponedjeljak", "Utorak", "Srijeda", "Četvrtak", "Petak", "Subota"]
+      },
+      ca: {
+        months: ["Gener", "Febrer", "Març", "Abril", "Maig", "Juny", "Juliol", "Agost", "Setembre", "Octubre", "Novembre", "Desembre"],
+        dayOfWeekShort: ["Dg", "Dl", "Dt", "Dc", "Dj", "Dv", "Ds"],
+        dayOfWeek: ["Diumenge", "Dilluns", "Dimarts", "Dimecres", "Dijous", "Divendres", "Dissabte"]
+      },
+      "en-GB": {
+        months: ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
+        dayOfWeekShort: ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"],
+        dayOfWeek: ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
+      },
+      et: {
+        months: ["Jaanuar", "Veebruar", "Märts", "Aprill", "Mai", "Juuni", "Juuli", "August", "September", "Oktoober", "November", "Detsember"],
+        dayOfWeekShort: ["P", "E", "T", "K", "N", "R", "L"],
+        dayOfWeek: ["Pühapäev", "Esmaspäev", "Teisipäev", "Kolmapäev", "Neljapäev", "Reede", "Laupäev"]
+      },
+      eu: {
+        months: ["Urtarrila", "Otsaila", "Martxoa", "Apirila", "Maiatza", "Ekaina", "Uztaila", "Abuztua", "Iraila", "Urria", "Azaroa", "Abendua"],
+        dayOfWeekShort: ["Ig.", "Al.", "Ar.", "Az.", "Og.", "Or.", "La."],
+        dayOfWeek: ["Igandea", "Astelehena", "Asteartea", "Asteazkena", "Osteguna", "Ostirala", "Larunbata"]
+      },
+      fi: {
+        months: ["Tammikuu", "Helmikuu", "Maaliskuu", "Huhtikuu", "Toukokuu", "Kesäkuu", "Heinäkuu", "Elokuu", "Syyskuu", "Lokakuu", "Marraskuu", "Joulukuu"],
+        dayOfWeekShort: ["Su", "Ma", "Ti", "Ke", "To", "Pe", "La"],
+        dayOfWeek: ["sunnuntai", "maanantai", "tiistai", "keskiviikko", "torstai", "perjantai", "lauantai"]
+      },
+      gl: {
+        months: ["Xan", "Feb", "Maz", "Abr", "Mai", "Xun", "Xul", "Ago", "Set", "Out", "Nov", "Dec"],
+        dayOfWeekShort: ["Dom", "Lun", "Mar", "Mer", "Xov", "Ven", "Sab"],
+        dayOfWeek: ["Domingo", "Luns", "Martes", "Mércores", "Xoves", "Venres", "Sábado"]
+      },
+      hr: {
+        months: ["Siječanj", "Veljača", "Ožujak", "Travanj", "Svibanj", "Lipanj", "Srpanj", "Kolovoz", "Rujan", "Listopad", "Studeni", "Prosinac"],
+        dayOfWeekShort: ["Ned", "Pon", "Uto", "Sri", "Čet", "Pet", "Sub"],
+        dayOfWeek: ["Nedjelja", "Ponedjeljak", "Utorak", "Srijeda", "Četvrtak", "Petak", "Subota"]
+      },
+      ko: {
+        months: ["1월", "2월", "3월", "4월", "5월", "6월", "7월", "8월", "9월", "10월", "11월", "12월"],
+        dayOfWeekShort: ["일", "월", "화", "수", "목", "금", "토"],
+        dayOfWeek: ["일요일", "월요일", "화요일", "수요일", "목요일", "금요일", "토요일"]
+      },
+      lt: {
+        months: ["Sausio", "Vasario", "Kovo", "Balandžio", "Gegužės", "Birželio", "Liepos", "Rugpjūčio", "Rugsėjo", "Spalio", "Lapkričio", "Gruodžio"],
+        dayOfWeekShort: ["Sek", "Pir", "Ant", "Tre", "Ket", "Pen", "Šeš"],
+        dayOfWeek: ["Sekmadienis", "Pirmadienis", "Antradienis", "Trečiadienis", "Ketvirtadienis", "Penktadienis", "Šeštadienis"]
+      },
+      lv: {
+        months: ["Janvāris", "Februāris", "Marts", "Aprīlis ", "Maijs", "Jūnijs", "Jūlijs", "Augusts", "Septembris", "Oktobris", "Novembris", "Decembris"],
+        dayOfWeekShort: ["Sv", "Pr", "Ot", "Tr", "Ct", "Pk", "St"],
+        dayOfWeek: ["Svētdiena", "Pirmdiena", "Otrdiena", "Trešdiena", "Ceturtdiena", "Piektdiena", "Sestdiena"]
+      },
+      mk: {
+        months: ["јануари", "февруари", "март", "април", "мај", "јуни", "јули", "август", "септември", "октомври", "ноември", "декември"],
+        dayOfWeekShort: ["нед", "пон", "вто", "сре", "чет", "пет", "саб"],
+        dayOfWeek: ["Недела", "Понеделник", "Вторник", "Среда", "Четврток", "Петок", "Сабота"]
+      },
+      mn: {
+        months: ["1-р сар", "2-р сар", "3-р сар", "4-р сар", "5-р сар", "6-р сар", "7-р сар", "8-р сар", "9-р сар", "10-р сар", "11-р сар", "12-р сар"],
+        dayOfWeekShort: ["Дав", "Мяг", "Лха", "Пүр", "Бсн", "Бям", "Ням"],
+        dayOfWeek: ["Даваа", "Мягмар", "Лхагва", "Пүрэв", "Баасан", "Бямба", "Ням"]
+      },
+      "pt-BR": {
+        months: ["Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"],
+        dayOfWeekShort: ["Dom", "Seg", "Ter", "Qua", "Qui", "Sex", "Sáb"],
+        dayOfWeek: ["Domingo", "Segunda", "Terça", "Quarta", "Quinta", "Sexta", "Sábado"]
+      },
+      sk: {
+        months: ["Január", "Február", "Marec", "Apríl", "Máj", "Jún", "Júl", "August", "September", "Október", "November", "December"],
+        dayOfWeekShort: ["Ne", "Po", "Ut", "St", "Št", "Pi", "So"],
+        dayOfWeek: ["Nedeľa", "Pondelok", "Utorok", "Streda", "Štvrtok", "Piatok", "Sobota"]
+      },
+      sq: {
+        months: ["Janar", "Shkurt", "Mars", "Prill", "Maj", "Qershor", "Korrik", "Gusht", "Shtator", "Tetor", "Nëntor", "Dhjetor"],
+        dayOfWeekShort: ["Die", "Hën", "Mar", "Mër", "Enj", "Pre", "Shtu"],
+        dayOfWeek: ["E Diel", "E Hënë", "E Martē", "E Mërkurë", "E Enjte", "E Premte", "E Shtunë"]
+      },
+      "sr-YU": {
+        months: ["Januar", "Februar", "Mart", "April", "Maj", "Jun", "Jul", "Avgust", "Septembar", "Oktobar", "Novembar", "Decembar"],
+        dayOfWeekShort: ["Ned", "Pon", "Uto", "Sre", "čet", "Pet", "Sub"],
+        dayOfWeek: ["Nedelja", "Ponedeljak", "Utorak", "Sreda", "Četvrtak", "Petak", "Subota"]
+      },
+      sr: {
+        months: ["јануар", "фебруар", "март", "април", "мај", "јун", "јул", "август", "септембар", "октобар", "новембар", "децембар"],
+        dayOfWeekShort: ["нед", "пон", "уто", "сре", "чет", "пет", "суб"],
+        dayOfWeek: ["Недеља", "Понедељак", "Уторак", "Среда", "Четвртак", "Петак", "Субота"]
+      },
+      sv: {
+        months: ["Januari", "Februari", "Mars", "April", "Maj", "Juni", "Juli", "Augusti", "September", "Oktober", "November", "December"],
+        dayOfWeekShort: ["Sön", "Mån", "Tis", "Ons", "Tor", "Fre", "Lör"],
+        dayOfWeek: ["Söndag", "Måndag", "Tisdag", "Onsdag", "Torsdag", "Fredag", "Lördag"]
+      },
+      "zh-TW": {
+        months: ["一月", "二月", "三月", "四月", "五月", "六月", "七月", "八月", "九月", "十月", "十一月", "十二月"],
+        dayOfWeekShort: ["日", "一", "二", "三", "四", "五", "六"],
+        dayOfWeek: ["星期日", "星期一", "星期二", "星期三", "星期四", "星期五", "星期六"]
+      },
+      zh: {
+        months: ["一月", "二月", "三月", "四月", "五月", "六月", "七月", "八月", "九月", "十月", "十一月", "十二月"],
+        dayOfWeekShort: ["日", "一", "二", "三", "四", "五", "六"],
+        dayOfWeek: ["星期日", "星期一", "星期二", "星期三", "星期四", "星期五", "星期六"]
+      },
+      ug: {
+        months: ["1-ئاي", "2-ئاي", "3-ئاي", "4-ئاي", "5-ئاي", "6-ئاي", "7-ئاي", "8-ئاي", "9-ئاي", "10-ئاي", "11-ئاي", "12-ئاي"],
+        dayOfWeek: ["يەكشەنبە", "دۈشەنبە", "سەيشەنبە", "چارشەنبە", "پەيشەنبە", "جۈمە", "شەنبە"]
+      },
+      he: {
+        months: ["ינואר", "פברואר", "מרץ", "אפריל", "מאי", "יוני", "יולי", "אוגוסט", "ספטמבר", "אוקטובר", "נובמבר", "דצמבר"],
+        dayOfWeekShort: ["א'", "ב'", "ג'", "ד'", "ה'", "ו'", "שבת"],
+        dayOfWeek: ["ראשון", "שני", "שלישי", "רביעי", "חמישי", "שישי", "שבת", "ראשון"]
+      },
+      hy: {
+        months: ["Հունվար", "Փետրվար", "Մարտ", "Ապրիլ", "Մայիս", "Հունիս", "Հուլիս", "Օգոստոս", "Սեպտեմբեր", "Հոկտեմբեր", "Նոյեմբեր", "Դեկտեմբեր"],
+        dayOfWeekShort: ["Կի", "Երկ", "Երք", "Չոր", "Հնգ", "Ուրբ", "Շբթ"],
+        dayOfWeek: ["Կիրակի", "Երկուշաբթի", "Երեքշաբթի", "Չորեքշաբթի", "Հինգշաբթի", "Ուրբաթ", "Շաբաթ"]
+      },
+      kg: {
+        months: ["Үчтүн айы", "Бирдин айы", "Жалган Куран", "Чын Куран", "Бугу", "Кулжа", "Теке", "Баш Оона", "Аяк Оона", "Тогуздун айы", "Жетинин айы", "Бештин айы"],
+        dayOfWeekShort: ["Жек", "Дүй", "Шей", "Шар", "Бей", "Жум", "Ише"],
+        dayOfWeek: ["Жекшемб", "Дүйшөмб", "Шейшемб", "Шаршемб", "Бейшемби", "Жума", "Ишенб"]
+      },
+      rm: {
+        months: ["Schaner", "Favrer", "Mars", "Avrigl", "Matg", "Zercladur", "Fanadur", "Avust", "Settember", "October", "November", "December"],
+        dayOfWeekShort: ["Du", "Gli", "Ma", "Me", "Gie", "Ve", "So"],
+        dayOfWeek: ["Dumengia", "Glindesdi", "Mardi", "Mesemna", "Gievgia", "Venderdi", "Sonda"]
+      },
+      ka: {
+        months: ["იანვარი", "თებერვალი", "მარტი", "აპრილი", "მაისი", "ივნისი", "ივლისი", "აგვისტო", "სექტემბერი", "ოქტომბერი", "ნოემბერი", "დეკემბერი"],
+        dayOfWeekShort: ["კვ", "ორშ", "სამშ", "ოთხ", "ხუთ", "პარ", "შაბ"],
+        dayOfWeek: ["კვირა", "ორშაბათი", "სამშაბათი", "ოთხშაბათი", "ხუთშაბათი", "პარასკევი", "შაბათი"]
+      },
+      kk: {
+        months: ["Қаңтар", "Ақпан", "Наурыз", "Сәуір", "Мамыр", "Маусым", "Шілде", "Тамыз", "Қыркүйек", "Қазан", "Қараша", "Желтоқсан"],
+        dayOfWeekShort: ["Жк", "Дс", "Сс", "Ср", "Бс", "Жм", "Сб"],
+        dayOfWeek: ["Жексенбі", "Дүйсенбі", "Сейсенбі", "Сәрсенбі", "Бейсенбі", "Жұма", "Сенбі"]
+      }
+    },
+    ownerDocument: document,
+    contentWindow: window,
+    value: "",
+    rtl: !1,
+    format: "Y/m/d H:i",
+    formatTime: "H:i",
+    formatDate: "Y/m/d",
+    startDate: !1,
+    step: 60,
+    monthChangeSpinner: !0,
+    closeOnDateSelect: !1,
+    closeOnTimeSelect: !0,
+    closeOnWithoutClick: !0,
+    closeOnInputClick: !0,
+    openOnFocus: !0,
+    timepicker: !0,
+    datepicker: !0,
+    weeks: !1,
+    defaultTime: !1,
+    defaultDate: !1,
+    minDate: !1,
+    maxDate: !1,
+    minTime: !1,
+    maxTime: !1,
+    minDateTime: !1,
+    maxDateTime: !1,
+    allowTimes: [],
+    opened: !1,
+    initTime: !0,
+    inline: !1,
+    theme: "",
+    touchMovedThreshold: 5,
+    onSelectDate: function onSelectDate() {},
+    onSelectTime: function onSelectTime() {},
+    onChangeMonth: function onChangeMonth() {},
+    onGetWeekOfYear: function onGetWeekOfYear() {},
+    onChangeYear: function onChangeYear() {},
+    onChangeDateTime: function onChangeDateTime() {},
+    onShow: function onShow() {},
+    onClose: function onClose() {},
+    onGenerate: function onGenerate() {},
+    withoutCopyright: !0,
+    inverseButton: !1,
+    hours12: !1,
+    next: "xdsoft_next",
+    prev: "xdsoft_prev",
+    dayOfWeekStart: 0,
+    parentID: "body",
+    timeHeightInTimePicker: 25,
+    timepickerScrollbar: !0,
+    todayButton: !0,
+    prevButton: !0,
+    nextButton: !0,
+    defaultSelect: !0,
+    scrollMonth: !0,
+    scrollTime: !0,
+    scrollInput: !0,
+    lazyInit: !1,
+    mask: !1,
+    validateOnBlur: !0,
+    allowBlank: !0,
+    yearStart: 1950,
+    yearEnd: 2050,
+    monthStart: 0,
+    monthEnd: 11,
+    style: "",
+    id: "",
+    fixed: !1,
+    roundTime: "round",
+    className: "",
+    weekends: [],
+    highlightedDates: [],
+    highlightedPeriods: [],
+    allowDates: [],
+    allowDateRe: null,
+    disabledDates: [],
+    disabledWeekDays: [],
+    yearOffset: 0,
+    beforeShowDay: null,
+    enterLikeTab: !0,
+    showApplyButton: !1,
+    insideParent: !1
+  },
+      E = null,
+      n = null,
+      R = "en",
+      a = {
+    meridiem: ["AM", "PM"]
+  },
+      r = function r() {
+    var e = s.i18n[R],
+        t = {
+      days: e.dayOfWeek,
+      daysShort: e.dayOfWeekShort,
+      months: e.months,
+      monthsShort: L.map(e.months, function (e) {
+        return e.substring(0, 3);
+      })
+    };
+    "function" == typeof DateFormatter && (E = n = new DateFormatter({
+      dateSettings: L.extend({}, a, t)
+    }));
+  },
+      o = {
+    moment: {
+      default_options: {
+        format: "YYYY/MM/DD HH:mm",
+        formatDate: "YYYY/MM/DD",
+        formatTime: "HH:mm"
+      },
+      formatter: {
+        parseDate: function parseDate(e, t) {
+          if (i(t)) return n.parseDate(e, t);
+          var a = moment(e, t);
+          return !!a.isValid() && a.toDate();
+        },
+        formatDate: function formatDate(e, t) {
+          return i(t) ? n.formatDate(e, t) : moment(e).format(t);
+        },
+        formatMask: function formatMask(e) {
+          return e.replace(/Y{4}/g, "9999").replace(/Y{2}/g, "99").replace(/M{2}/g, "19").replace(/D{2}/g, "39").replace(/H{2}/g, "29").replace(/m{2}/g, "59").replace(/s{2}/g, "59");
+        }
+      }
+    }
+  };
+
+  L.datetimepicker = {
+    setLocale: function setLocale(e) {
+      var t = s.i18n[e] ? e : "en";
+      R !== t && (R = t, r());
+    },
+    setDateFormatter: function setDateFormatter(e) {
+      if ("string" == typeof e && o.hasOwnProperty(e)) {
+        var t = o[e];
+        L.extend(s, t.default_options), E = t.formatter;
+      } else E = e;
+    }
+  };
+
+  var t = {
+    RFC_2822: "D, d M Y H:i:s O",
+    ATOM: "Y-m-dTH:i:sP",
+    ISO_8601: "Y-m-dTH:i:sO",
+    RFC_822: "D, d M y H:i:s O",
+    RFC_850: "l, d-M-y H:i:s T",
+    RFC_1036: "D, d M y H:i:s O",
+    RFC_1123: "D, d M Y H:i:s O",
+    RSS: "D, d M Y H:i:s O",
+    W3C: "Y-m-dTH:i:sP"
+  },
+      i = function i(e) {
+    return -1 !== Object.values(t).indexOf(e);
+  };
+
+  function m(e, t, a) {
+    this.date = e, this.desc = t, this.style = a;
+  }
+
+  L.extend(L.datetimepicker, t), r(), window.getComputedStyle || (window.getComputedStyle = function (a) {
+    return this.el = a, this.getPropertyValue = function (e) {
+      var t = /(-([a-z]))/g;
+      return "float" === e && (e = "styleFloat"), t.test(e) && (e = e.replace(t, function (e, t, a) {
+        return a.toUpperCase();
+      })), a.currentStyle[e] || null;
+    }, this;
+  }), Array.prototype.indexOf || (Array.prototype.indexOf = function (e, t) {
+    var a, n;
+
+    for (a = t || 0, n = this.length; a < n; a += 1) {
+      if (this[a] === e) return a;
+    }
+
+    return -1;
+  }), Date.prototype.countDaysInMonth = function () {
+    return new Date(this.getFullYear(), this.getMonth() + 1, 0).getDate();
+  }, L.fn.xdsoftScroller = function (D, y) {
+    return this.each(function () {
+      var o,
+          i,
+          s,
+          d,
+          u,
+          l = L(this),
+          a = function a(e) {
+        var t,
+            a = {
+          x: 0,
+          y: 0
+        };
+        return "touchstart" === e.type || "touchmove" === e.type || "touchend" === e.type || "touchcancel" === e.type ? (t = e.originalEvent.touches[0] || e.originalEvent.changedTouches[0], a.x = t.clientX, a.y = t.clientY) : "mousedown" !== e.type && "mouseup" !== e.type && "mousemove" !== e.type && "mouseover" !== e.type && "mouseout" !== e.type && "mouseenter" !== e.type && "mouseleave" !== e.type || (a.x = e.clientX, a.y = e.clientY), a;
+      },
+          f = 0,
+          c = 100,
+          n = !1,
+          r = 0,
+          m = 0,
+          h = 0,
+          t = !1,
+          g = 0,
+          p = function p() {};
+
+      "hide" !== y ? (L(this).hasClass("xdsoft_scroller_box") || (o = l.children().eq(0), f = Math.abs(parseInt(o.css("marginTop"), 10)), i = l[0].clientHeight, s = o[0].offsetHeight, d = L('<div class="xdsoft_scrollbar"></div>'), u = L('<div class="xdsoft_scroller"></div>'), d.append(u), l.addClass("xdsoft_scroller_box").append(d), p = function p(e) {
+        var t = a(e).y - r + g;
+        t < 0 && (t = 0), t + u[0].offsetHeight > h && (t = h - u[0].offsetHeight), l.trigger("scroll_element.xdsoft_scroller", [c ? t / c : 0]);
+      }, u.on("touchstart.xdsoft_scroller mousedown.xdsoft_scroller", function (e) {
+        i || l.trigger("resize_scroll.xdsoft_scroller", [y]), r = a(e).y, g = parseInt(u.css("marginTop"), 10), h = d[0].offsetHeight, "mousedown" === e.type || "touchstart" === e.type ? (D.ownerDocument && L(D.ownerDocument.body).addClass("xdsoft_noselect"), L([D.ownerDocument.body, D.contentWindow]).on("touchend mouseup.xdsoft_scroller", function e() {
+          L([D.ownerDocument.body, D.contentWindow]).off("touchend mouseup.xdsoft_scroller", e).off("mousemove.xdsoft_scroller", p).removeClass("xdsoft_noselect");
+        }), L(D.ownerDocument.body).on("mousemove.xdsoft_scroller", p)) : (t = !0, e.stopPropagation(), e.preventDefault());
+      }).on("touchmove", function (e) {
+        t && (e.preventDefault(), p(e));
+      }).on("touchend touchcancel", function () {
+        t = !1, g = 0;
+      }), l.on("scroll_element.xdsoft_scroller", function (e, t) {
+        i || l.trigger("resize_scroll.xdsoft_scroller", [t, !0]), t = 1 < t ? 1 : t < 0 || isNaN(t) ? 0 : t, f = parseFloat(Math.abs((o[0].offsetHeight - i) * t).toFixed(4)), u.css("marginTop", c * t), o.css("marginTop", -f);
+      }).on("resize_scroll.xdsoft_scroller", function (e, t, a) {
+        var n, r;
+        i = l[0].clientHeight, s = o[0].offsetHeight, r = (n = i / s) * d[0].offsetHeight, 1 < n ? u.hide() : (u.show(), u.css("height", parseInt(10 < r ? r : 10, 10)), c = d[0].offsetHeight - u[0].offsetHeight, !0 !== a && l.trigger("scroll_element.xdsoft_scroller", [t || f / (s - i)]));
+      }), l.on("mousewheel", function (e) {
+        var t,
+            a,
+            n = (t = e.originalEvent, a = 0, "detail" in t && (a = t.detail), "wheelDelta" in t && (a = -t.wheelDelta / 120), "wheelDeltaY" in t && (a = -t.wheelDeltaY / 120), "axis" in t && t.axis === t.HORIZONTAL_AXIS && (a = 0), a *= 10, "deltaY" in t && (a = -t.deltaY), a && t.deltaMode && (1 === t.deltaMode ? a *= 40 : a *= 800), a),
+            r = Math.max(0, f - n);
+        return l.trigger("scroll_element.xdsoft_scroller", [r / (s - i)]), e.stopPropagation(), !1;
+      }), l.on("touchstart", function (e) {
+        n = a(e), m = f;
+      }), l.on("touchmove", function (e) {
+        if (n) {
+          e.preventDefault();
+          var t = a(e);
+          l.trigger("scroll_element.xdsoft_scroller", [(m - (t.y - n.y)) / (s - i)]);
+        }
+      }), l.on("touchend touchcancel", function () {
+        n = !1, m = 0;
+      })), l.trigger("resize_scroll.xdsoft_scroller", [y])) : l.find(".xdsoft_scrollbar").hide();
+    });
+  }, L.fn.datetimepicker = function (H, a) {
+    var n,
+        r,
+        o = this,
+        p = 17,
+        D = 13,
+        y = 27,
+        v = 37,
+        k = 38,
+        b = 39,
+        x = 40,
+        T = 9,
+        S = 116,
+        M = 65,
+        w = 67,
+        j = 86,
+        J = 90,
+        z = 89,
+        N = !1,
+        I = L.isPlainObject(H) || !H ? L.extend(!0, {}, s, H) : L.extend(!0, {}, s),
+        i = 0;
+    return n = function n(O) {
+      var t,
+          n,
+          a,
+          r,
+          W,
+          h,
+          _ = L('<div class="xdsoft_datetimepicker xdsoft_noselect"></div>'),
+          e = L('<div class="xdsoft_copyright"><a target="_blank" href="http://xdsoft.net/jqplugins/datetimepicker/">xdsoft.net</a></div>'),
+          g = L('<div class="xdsoft_datepicker active"></div>'),
+          F = L('<div class="xdsoft_monthpicker"><button type="button" class="xdsoft_prev"></button><button type="button" class="xdsoft_today_button"></button><div class="xdsoft_label xdsoft_month"><span></span><i></i></div><div class="xdsoft_label xdsoft_year"><span></span><i></i></div><button type="button" class="xdsoft_next"></button></div>'),
+          C = L('<div class="xdsoft_calendar"></div>'),
+          o = L('<div class="xdsoft_timepicker active"><button type="button" class="xdsoft_prev"></button><div class="xdsoft_time_box"></div><button type="button" class="xdsoft_next"></button></div>'),
+          u = o.find(".xdsoft_time_box").eq(0),
+          P = L('<div class="xdsoft_time_variant"></div>'),
+          i = L('<button type="button" class="xdsoft_save_selected blue-gradient-button">Save Selected</button>'),
+          Y = L('<div class="xdsoft_select xdsoft_monthselect"><div></div></div>'),
+          A = L('<div class="xdsoft_select xdsoft_yearselect"><div></div></div>'),
+          s = !1,
+          d = 0;
+
+      I.id && _.attr("id", I.id), I.style && _.attr("style", I.style), I.weeks && _.addClass("xdsoft_showweeks"), I.rtl && _.addClass("xdsoft_rtl"), _.addClass("xdsoft_" + I.theme), _.addClass(I.className), F.find(".xdsoft_month span").after(Y), F.find(".xdsoft_year span").after(A), F.find(".xdsoft_month,.xdsoft_year").on("touchstart mousedown.xdsoft", function (e) {
+        var t,
+            a,
+            n = L(this).find(".xdsoft_select").eq(0),
+            r = 0,
+            o = 0,
+            i = n.is(":visible");
+
+        for (F.find(".xdsoft_select").hide(), W.currentTime && (r = W.currentTime[L(this).hasClass("xdsoft_month") ? "getMonth" : "getFullYear"]()), n[i ? "hide" : "show"](), t = n.find("div.xdsoft_option"), a = 0; a < t.length && t.eq(a).data("value") !== r; a += 1) {
+          o += t[0].offsetHeight;
+        }
+
+        return n.xdsoftScroller(I, o / (n.children()[0].offsetHeight - n[0].clientHeight)), e.stopPropagation(), !1;
+      });
+
+      var l = function l(e) {
+        var t = e.originalEvent,
+            a = t.touches ? t.touches[0] : t;
+        this.touchStartPosition = this.touchStartPosition || a;
+        var n = Math.abs(this.touchStartPosition.clientX - a.clientX),
+            r = Math.abs(this.touchStartPosition.clientY - a.clientY);
+        Math.sqrt(n * n + r * r) > I.touchMovedThreshold && (this.touchMoved = !0);
+      };
+
+      function f() {
+        var e,
+            t = !1;
+        return I.startDate ? t = W.strToDate(I.startDate) : (t = I.value || (O && O.val && O.val() ? O.val() : "")) ? (t = W.strToDateTime(t), I.yearOffset && (t = new Date(t.getFullYear() - I.yearOffset, t.getMonth(), t.getDate(), t.getHours(), t.getMinutes(), t.getSeconds(), t.getMilliseconds()))) : I.defaultDate && (t = W.strToDateTime(I.defaultDate), I.defaultTime && (e = W.strtotime(I.defaultTime), t.setHours(e.getHours()), t.setMinutes(e.getMinutes()))), t && W.isValidDate(t) ? _.data("changed", !0) : t = "", t || 0;
+      }
+
+      function c(m) {
+        var h = function h(e, t) {
+          var a = e.replace(/([\[\]\/\{\}\(\)\-\.\+]{1})/g, "\\$1").replace(/_/g, "{digit+}").replace(/([0-9]{1})/g, "{digit$1}").replace(/\{digit([0-9]{1})\}/g, "[0-$1_]{1}").replace(/\{digit[\+]\}/g, "[0-9_]{1}");
+          return new RegExp(a).test(t);
+        },
+            g = function g(e, t) {
+          if (!(e = "string" == typeof e || e instanceof String ? m.ownerDocument.getElementById(e) : e)) return !1;
+
+          if (e.createTextRange) {
+            var a = e.createTextRange();
+            return a.collapse(!0), a.moveEnd("character", t), a.moveStart("character", t), a.select(), !0;
+          }
+
+          return !!e.setSelectionRange && (e.setSelectionRange(t, t), !0);
+        };
+
+        m.mask && O.off("keydown.xdsoft"), !0 === m.mask && (E.formatMask ? m.mask = E.formatMask(m.format) : m.mask = m.format.replace(/Y/g, "9999").replace(/F/g, "9999").replace(/m/g, "19").replace(/d/g, "39").replace(/H/g, "29").replace(/i/g, "59").replace(/s/g, "59")), "string" === L.type(m.mask) && (h(m.mask, O.val()) || (O.val(m.mask.replace(/[0-9]/g, "_")), g(O[0], 0)), O.on("paste.xdsoft", function (e) {
+          var t = (e.clipboardData || e.originalEvent.clipboardData || window.clipboardData).getData("text"),
+              a = this.value,
+              n = this.selectionStart;
+          return a = a.substr(0, n) + t + a.substr(n + t.length), n += t.length, h(m.mask, a) ? (this.value = a, g(this, n)) : "" === L.trim(a) ? this.value = m.mask.replace(/[0-9]/g, "_") : O.trigger("error_input.xdsoft"), e.preventDefault(), !1;
+        }), O.on("keydown.xdsoft", function (e) {
+          var t,
+              a = this.value,
+              n = e.which,
+              r = this.selectionStart,
+              o = this.selectionEnd,
+              i = r !== o;
+
+          if (48 <= n && n <= 57 || 96 <= n && n <= 105 || 8 === n || 46 === n) {
+            for (t = 8 === n || 46 === n ? "_" : String.fromCharCode(96 <= n && n <= 105 ? n - 48 : n), 8 === n && r && !i && (r -= 1);;) {
+              var s = m.mask.substr(r, 1),
+                  d = r < m.mask.length,
+                  u = 0 < r;
+              if (!(/[^0-9_]/.test(s) && d && u)) break;
+              r += 8 !== n || i ? 1 : -1;
+            }
+
+            if (e.metaKey && (i = !(r = 0)), i) {
+              var l = o - r,
+                  f = m.mask.replace(/[0-9]/g, "_"),
+                  c = f.substr(r, l).substr(1);
+              a = a.substr(0, r) + (t + c) + a.substr(r + l);
+            } else {
+              a = a.substr(0, r) + t + a.substr(r + 1);
+            }
+
+            if ("" === L.trim(a)) a = f;else if (r === m.mask.length) return e.preventDefault(), !1;
+
+            for (r += 8 === n ? 0 : 1; /[^0-9_]/.test(m.mask.substr(r, 1)) && r < m.mask.length && 0 < r;) {
+              r += 8 === n ? 0 : 1;
+            }
+
+            h(m.mask, a) ? (this.value = a, g(this, r)) : "" === L.trim(a) ? this.value = m.mask.replace(/[0-9]/g, "_") : O.trigger("error_input.xdsoft");
+          } else if (-1 !== [M, w, j, J, z].indexOf(n) && N || -1 !== [y, k, x, v, b, S, p, T, D].indexOf(n)) return !0;
+
+          return e.preventDefault(), !1;
+        }));
+      }
+
+      F.find(".xdsoft_select").xdsoftScroller(I).on("touchstart mousedown.xdsoft", function (e) {
+        var t = e.originalEvent;
+        this.touchMoved = !1, this.touchStartPosition = t.touches ? t.touches[0] : t, e.stopPropagation(), e.preventDefault();
+      }).on("touchmove", ".xdsoft_option", l).on("touchend mousedown.xdsoft", ".xdsoft_option", function () {
+        if (!this.touchMoved) {
+          void 0 !== W.currentTime && null !== W.currentTime || (W.currentTime = W.now());
+          var e = W.currentTime.getFullYear();
+          W && W.currentTime && W.currentTime[L(this).parent().parent().hasClass("xdsoft_monthselect") ? "setMonth" : "setFullYear"](L(this).data("value")), L(this).parent().parent().hide(), _.trigger("xchange.xdsoft"), I.onChangeMonth && L.isFunction(I.onChangeMonth) && I.onChangeMonth.call(_, W.currentTime, _.data("input")), e !== W.currentTime.getFullYear() && L.isFunction(I.onChangeYear) && I.onChangeYear.call(_, W.currentTime, _.data("input"));
+        }
+      }), _.getValue = function () {
+        return W.getCurrentTime();
+      }, _.setOptions = function (e) {
+        var l = {};
+        I = L.extend(!0, {}, I, e), e.allowTimes && L.isArray(e.allowTimes) && e.allowTimes.length && (I.allowTimes = L.extend(!0, [], e.allowTimes)), e.weekends && L.isArray(e.weekends) && e.weekends.length && (I.weekends = L.extend(!0, [], e.weekends)), e.allowDates && L.isArray(e.allowDates) && e.allowDates.length && (I.allowDates = L.extend(!0, [], e.allowDates)), e.allowDateRe && "[object String]" === Object.prototype.toString.call(e.allowDateRe) && (I.allowDateRe = new RegExp(e.allowDateRe)), e.highlightedDates && L.isArray(e.highlightedDates) && e.highlightedDates.length && (L.each(e.highlightedDates, function (e, t) {
+          var a,
+              n = L.map(t.split(","), L.trim),
+              r = new m(E.parseDate(n[0], I.formatDate), n[1], n[2]),
+              o = E.formatDate(r.date, I.formatDate);
+          void 0 !== l[o] ? (a = l[o].desc) && a.length && r.desc && r.desc.length && (l[o].desc = a + "\n" + r.desc) : l[o] = r;
+        }), I.highlightedDates = L.extend(!0, [], l)), e.highlightedPeriods && L.isArray(e.highlightedPeriods) && e.highlightedPeriods.length && (l = L.extend(!0, [], I.highlightedDates), L.each(e.highlightedPeriods, function (e, t) {
+          var a, n, r, o, i, s, d;
+          if (L.isArray(t)) a = t[0], n = t[1], r = t[2], d = t[3];else {
+            var u = L.map(t.split(","), L.trim);
+            a = E.parseDate(u[0], I.formatDate), n = E.parseDate(u[1], I.formatDate), r = u[2], d = u[3];
+          }
+
+          for (; a <= n;) {
+            o = new m(a, r, d), i = E.formatDate(a, I.formatDate), a.setDate(a.getDate() + 1), void 0 !== l[i] ? (s = l[i].desc) && s.length && o.desc && o.desc.length && (l[i].desc = s + "\n" + o.desc) : l[i] = o;
+          }
+        }), I.highlightedDates = L.extend(!0, [], l)), e.disabledDates && L.isArray(e.disabledDates) && e.disabledDates.length && (I.disabledDates = L.extend(!0, [], e.disabledDates)), e.disabledWeekDays && L.isArray(e.disabledWeekDays) && e.disabledWeekDays.length && (I.disabledWeekDays = L.extend(!0, [], e.disabledWeekDays)), !I.open && !I.opened || I.inline || O.trigger("open.xdsoft"), I.inline && (s = !0, _.addClass("xdsoft_inline"), O.after(_).hide()), I.inverseButton && (I.next = "xdsoft_prev", I.prev = "xdsoft_next"), I.datepicker ? g.addClass("active") : g.removeClass("active"), I.timepicker ? o.addClass("active") : o.removeClass("active"), I.value && (W.setCurrentTime(I.value), O && O.val && O.val(W.str)), isNaN(I.dayOfWeekStart) ? I.dayOfWeekStart = 0 : I.dayOfWeekStart = parseInt(I.dayOfWeekStart, 10) % 7, I.timepickerScrollbar || u.xdsoftScroller(I, "hide"), I.minDate && /^[\+\-](.*)$/.test(I.minDate) && (I.minDate = E.formatDate(W.strToDateTime(I.minDate), I.formatDate)), I.maxDate && /^[\+\-](.*)$/.test(I.maxDate) && (I.maxDate = E.formatDate(W.strToDateTime(I.maxDate), I.formatDate)), I.minDateTime && /^\+(.*)$/.test(I.minDateTime) && (I.minDateTime = W.strToDateTime(I.minDateTime).dateFormat(I.formatDate)), I.maxDateTime && /^\+(.*)$/.test(I.maxDateTime) && (I.maxDateTime = W.strToDateTime(I.maxDateTime).dateFormat(I.formatDate)), i.toggle(I.showApplyButton), F.find(".xdsoft_today_button").css("visibility", I.todayButton ? "visible" : "hidden"), F.find("." + I.prev).css("visibility", I.prevButton ? "visible" : "hidden"), F.find("." + I.next).css("visibility", I.nextButton ? "visible" : "hidden"), c(I), I.validateOnBlur && O.off("blur.xdsoft").on("blur.xdsoft", function () {
+          if (I.allowBlank && (!L.trim(L(this).val()).length || "string" == typeof I.mask && L.trim(L(this).val()) === I.mask.replace(/[0-9]/g, "_"))) L(this).val(null), _.data("xdsoft_datetime").empty();else {
+            var e = E.parseDate(L(this).val(), I.format);
+            if (e) L(this).val(E.formatDate(e, I.format));else {
+              var t = +[L(this).val()[0], L(this).val()[1]].join(""),
+                  a = +[L(this).val()[2], L(this).val()[3]].join("");
+              !I.datepicker && I.timepicker && 0 <= t && t < 24 && 0 <= a && a < 60 ? L(this).val([t, a].map(function (e) {
+                return 9 < e ? e : "0" + e;
+              }).join(":")) : L(this).val(E.formatDate(W.now(), I.format));
+            }
+
+            _.data("xdsoft_datetime").setCurrentTime(L(this).val());
+          }
+          _.trigger("changedatetime.xdsoft"), _.trigger("close.xdsoft");
+        }), I.dayOfWeekStartPrev = 0 === I.dayOfWeekStart ? 6 : I.dayOfWeekStart - 1, _.trigger("xchange.xdsoft").trigger("afterOpen.xdsoft");
+      }, _.data("options", I).on("touchstart mousedown.xdsoft", function (e) {
+        return e.stopPropagation(), e.preventDefault(), A.hide(), Y.hide(), !1;
+      }), u.append(P), u.xdsoftScroller(I), _.on("afterOpen.xdsoft", function () {
+        u.xdsoftScroller(I);
+      }), _.append(g).append(o), !0 !== I.withoutCopyright && _.append(e), g.append(F).append(C).append(i), I.insideParent ? L(O).parent().append(_) : L(I.parentID).append(_), W = new function () {
+        var r = this;
+        r.now = function (e) {
+          var t,
+              a,
+              n = new Date();
+          return !e && I.defaultDate && (t = r.strToDateTime(I.defaultDate), n.setFullYear(t.getFullYear()), n.setMonth(t.getMonth()), n.setDate(t.getDate())), n.setFullYear(n.getFullYear()), !e && I.defaultTime && (a = r.strtotime(I.defaultTime), n.setHours(a.getHours()), n.setMinutes(a.getMinutes()), n.setSeconds(a.getSeconds()), n.setMilliseconds(a.getMilliseconds())), n;
+        }, r.isValidDate = function (e) {
+          return "[object Date]" === Object.prototype.toString.call(e) && !isNaN(e.getTime());
+        }, r.setCurrentTime = function (e, t) {
+          "string" == typeof e ? r.currentTime = r.strToDateTime(e) : r.isValidDate(e) ? r.currentTime = e : e || t || !I.allowBlank || I.inline ? r.currentTime = r.now() : r.currentTime = null, _.trigger("xchange.xdsoft");
+        }, r.empty = function () {
+          r.currentTime = null;
+        }, r.getCurrentTime = function () {
+          return r.currentTime;
+        }, r.nextMonth = function () {
+          void 0 !== r.currentTime && null !== r.currentTime || (r.currentTime = r.now());
+          var e,
+              t = r.currentTime.getMonth() + 1;
+          return 12 === t && (r.currentTime.setFullYear(r.currentTime.getFullYear() + 1), t = 0), e = r.currentTime.getFullYear(), r.currentTime.setDate(Math.min(new Date(r.currentTime.getFullYear(), t + 1, 0).getDate(), r.currentTime.getDate())), r.currentTime.setMonth(t), I.onChangeMonth && L.isFunction(I.onChangeMonth) && I.onChangeMonth.call(_, W.currentTime, _.data("input")), e !== r.currentTime.getFullYear() && L.isFunction(I.onChangeYear) && I.onChangeYear.call(_, W.currentTime, _.data("input")), _.trigger("xchange.xdsoft"), t;
+        }, r.prevMonth = function () {
+          void 0 !== r.currentTime && null !== r.currentTime || (r.currentTime = r.now());
+          var e = r.currentTime.getMonth() - 1;
+          return -1 === e && (r.currentTime.setFullYear(r.currentTime.getFullYear() - 1), e = 11), r.currentTime.setDate(Math.min(new Date(r.currentTime.getFullYear(), e + 1, 0).getDate(), r.currentTime.getDate())), r.currentTime.setMonth(e), I.onChangeMonth && L.isFunction(I.onChangeMonth) && I.onChangeMonth.call(_, W.currentTime, _.data("input")), _.trigger("xchange.xdsoft"), e;
+        }, r.getWeekOfYear = function (e) {
+          if (I.onGetWeekOfYear && L.isFunction(I.onGetWeekOfYear)) {
+            var t = I.onGetWeekOfYear.call(_, e);
+            if (void 0 !== t) return t;
+          }
+
+          var a = new Date(e.getFullYear(), 0, 1);
+          return 4 !== a.getDay() && a.setMonth(0, 1 + (4 - a.getDay() + 7) % 7), Math.ceil(((e - a) / 864e5 + a.getDay() + 1) / 7);
+        }, r.strToDateTime = function (e) {
+          var t,
+              a,
+              n = [];
+          return e && e instanceof Date && r.isValidDate(e) ? e : ((n = /^([+-]{1})(.*)$/.exec(e)) && (n[2] = E.parseDate(n[2], I.formatDate)), a = n && n[2] ? (t = n[2].getTime() - 6e4 * n[2].getTimezoneOffset(), new Date(r.now(!0).getTime() + parseInt(n[1] + "1", 10) * t)) : e ? E.parseDate(e, I.format) : r.now(), r.isValidDate(a) || (a = r.now()), a);
+        }, r.strToDate = function (e) {
+          if (e && e instanceof Date && r.isValidDate(e)) return e;
+          var t = e ? E.parseDate(e, I.formatDate) : r.now(!0);
+          return r.isValidDate(t) || (t = r.now(!0)), t;
+        }, r.strtotime = function (e) {
+          if (e && e instanceof Date && r.isValidDate(e)) return e;
+          var t = e ? E.parseDate(e, I.formatTime) : r.now(!0);
+          return r.isValidDate(t) || (t = r.now(!0)), t;
+        }, r.str = function () {
+          var e = I.format;
+          return I.yearOffset && (e = (e = e.replace("Y", r.currentTime.getFullYear() + I.yearOffset)).replace("y", String(r.currentTime.getFullYear() + I.yearOffset).substring(2, 4))), E.formatDate(r.currentTime, e);
+        }, r.currentTime = this.now();
+      }(), i.on("touchend click", function (e) {
+        e.preventDefault(), _.data("changed", !0), W.setCurrentTime(f()), O.val(W.str()), _.trigger("close.xdsoft");
+      }), F.find(".xdsoft_today_button").on("touchend mousedown.xdsoft", function () {
+        _.data("changed", !0), W.setCurrentTime(0, !0), _.trigger("afterOpen.xdsoft");
+      }).on("dblclick.xdsoft", function () {
+        var e,
+            t,
+            a = W.getCurrentTime();
+        a = new Date(a.getFullYear(), a.getMonth(), a.getDate()), e = W.strToDate(I.minDate), a < (e = new Date(e.getFullYear(), e.getMonth(), e.getDate())) || (t = W.strToDate(I.maxDate), (t = new Date(t.getFullYear(), t.getMonth(), t.getDate())) < a || (O.val(W.str()), O.trigger("change"), _.trigger("close.xdsoft")));
+      }), F.find(".xdsoft_prev,.xdsoft_next").on("touchend mousedown.xdsoft", function () {
+        var a = L(this),
+            n = 0,
+            r = !1;
+        !function e(t) {
+          a.hasClass(I.next) ? W.nextMonth() : a.hasClass(I.prev) && W.prevMonth(), I.monthChangeSpinner && (r || (n = setTimeout(e, t || 100)));
+        }(500), L([I.ownerDocument.body, I.contentWindow]).on("touchend mouseup.xdsoft", function e() {
+          clearTimeout(n), r = !0, L([I.ownerDocument.body, I.contentWindow]).off("touchend mouseup.xdsoft", e);
+        });
+      }), o.find(".xdsoft_prev,.xdsoft_next").on("touchend mousedown.xdsoft", function () {
+        var o = L(this),
+            i = 0,
+            s = !1,
+            d = 110;
+        !function e(t) {
+          var a = u[0].clientHeight,
+              n = P[0].offsetHeight,
+              r = Math.abs(parseInt(P.css("marginTop"), 10));
+          r < I.timeHeightInTimePicker ? r = I.timeHeightInTimePicker : o.hasClass(I.next) && n - a < r && P.css("marginTop", "-" + n + "px"), o.hasClass(I.next) && r < n - a ? P.css("marginTop", "-" + (r + I.timeHeightInTimePicker) + "px") : o.hasClass(I.prev) && 0 <= r - I.timeHeightInTimePicker && P.css("marginTop", "-" + (r - I.timeHeightInTimePicker) + "px"), u.trigger("scroll_element.xdsoft_scroller", [Math.abs(parseInt(P[0].style.marginTop, 10) / (n - a))]), d = 10 < d ? 10 : d - 10, s || (i = setTimeout(e, t || d));
+        }(500), L([I.ownerDocument.body, I.contentWindow]).on("touchend mouseup.xdsoft", function e() {
+          clearTimeout(i), s = !0, L([I.ownerDocument.body, I.contentWindow]).off("touchend mouseup.xdsoft", e);
+        });
+      }), t = 0, _.on("xchange.xdsoft", function (e) {
+        clearTimeout(t), t = setTimeout(function () {
+          (void 0 === W.currentTime || null === W.currentTime || isNaN(W.currentTime.getTime())) && (W.currentTime = W.now());
+
+          for (var e, t, a, n, r, o, i, s, d, u, l = "", f = new Date(W.currentTime.getFullYear(), W.currentTime.getMonth(), 1, 12, 0, 0), c = 0, m = W.now(), h = !1, g = !1, p = !1, D = !1, y = [], v = !0, k = ""; f.getDay() !== I.dayOfWeekStart;) {
+            f.setDate(f.getDate() - 1);
+          }
+
+          for (l += "<table><thead><tr>", I.weeks && (l += "<th></th>"), e = 0; e < 7; e += 1) {
+            l += "<th>" + I.i18n[R].dayOfWeekShort[(e + I.dayOfWeekStart) % 7] + "</th>";
+          }
+
+          for (l += "</tr></thead>", l += "<tbody>", !1 !== I.maxDate && (h = W.strToDate(I.maxDate), h = new Date(h.getFullYear(), h.getMonth(), h.getDate(), 23, 59, 59, 999)), !1 !== I.minDate && (g = W.strToDate(I.minDate), g = new Date(g.getFullYear(), g.getMonth(), g.getDate())), !1 !== I.minDateTime && (p = W.strToDate(I.minDateTime), p = new Date(p.getFullYear(), p.getMonth(), p.getDate(), p.getHours(), p.getMinutes(), p.getSeconds())), !1 !== I.maxDateTime && (D = W.strToDate(I.maxDateTime), D = new Date(D.getFullYear(), D.getMonth(), D.getDate(), D.getHours(), D.getMinutes(), D.getSeconds())), !1 !== D && (u = 31 * (12 * D.getFullYear() + D.getMonth()) + D.getDate()); c < W.currentTime.countDaysInMonth() || f.getDay() !== I.dayOfWeekStart || W.currentTime.getMonth() === f.getMonth();) {
+            y = [], c += 1, a = f.getDay(), n = f.getDate(), r = f.getFullYear(), M = f.getMonth(), o = W.getWeekOfYear(f), d = "", y.push("xdsoft_date"), i = I.beforeShowDay && L.isFunction(I.beforeShowDay.call) ? I.beforeShowDay.call(_, f) : null, I.allowDateRe && "[object RegExp]" === Object.prototype.toString.call(I.allowDateRe) && (I.allowDateRe.test(E.formatDate(f, I.formatDate)) || y.push("xdsoft_disabled")), I.allowDates && 0 < I.allowDates.length && -1 === I.allowDates.indexOf(E.formatDate(f, I.formatDate)) && y.push("xdsoft_disabled");
+            var b = 31 * (12 * f.getFullYear() + f.getMonth()) + f.getDate();
+            (!1 !== h && h < f || !1 !== p && f < p || !1 !== g && f < g || !1 !== D && u < b || i && !1 === i[0]) && y.push("xdsoft_disabled"), -1 !== I.disabledDates.indexOf(E.formatDate(f, I.formatDate)) && y.push("xdsoft_disabled"), -1 !== I.disabledWeekDays.indexOf(a) && y.push("xdsoft_disabled"), O.is("[disabled]") && y.push("xdsoft_disabled"), i && "" !== i[1] && y.push(i[1]), W.currentTime.getMonth() !== M && y.push("xdsoft_other_month"), (I.defaultSelect || _.data("changed")) && E.formatDate(W.currentTime, I.formatDate) === E.formatDate(f, I.formatDate) && y.push("xdsoft_current"), E.formatDate(m, I.formatDate) === E.formatDate(f, I.formatDate) && y.push("xdsoft_today"), 0 !== f.getDay() && 6 !== f.getDay() && -1 === I.weekends.indexOf(E.formatDate(f, I.formatDate)) || y.push("xdsoft_weekend"), void 0 !== I.highlightedDates[E.formatDate(f, I.formatDate)] && (t = I.highlightedDates[E.formatDate(f, I.formatDate)], y.push(void 0 === t.style ? "xdsoft_highlighted_default" : t.style), d = void 0 === t.desc ? "" : t.desc), I.beforeShowDay && L.isFunction(I.beforeShowDay) && y.push(I.beforeShowDay(f)), v && (l += "<tr>", v = !1, I.weeks && (l += "<th>" + o + "</th>")), l += '<td data-date="' + n + '" data-month="' + M + '" data-year="' + r + '" class="xdsoft_date xdsoft_day_of_week' + f.getDay() + " " + y.join(" ") + '" title="' + d + '"><div>' + n + "</div></td>", f.getDay() === I.dayOfWeekStartPrev && (l += "</tr>", v = !0), f.setDate(n + 1);
+          }
+
+          l += "</tbody></table>", C.html(l), F.find(".xdsoft_label span").eq(0).text(I.i18n[R].months[W.currentTime.getMonth()]), F.find(".xdsoft_label span").eq(1).text(W.currentTime.getFullYear() + I.yearOffset), M = k = "";
+          var x = 0;
+
+          if (!1 !== I.minTime) {
+            var T = W.strtotime(I.minTime);
+            x = 60 * T.getHours() + T.getMinutes();
+          }
+
+          var S = 1440;
+
+          if (!1 !== I.maxTime) {
+            T = W.strtotime(I.maxTime);
+            S = 60 * T.getHours() + T.getMinutes();
+          }
+
+          if (!1 !== I.minDateTime) {
+            T = W.strToDateTime(I.minDateTime);
+
+            if (E.formatDate(W.currentTime, I.formatDate) === E.formatDate(T, I.formatDate)) {
+              var M = 60 * T.getHours() + T.getMinutes();
+              x < M && (x = M);
+            }
+          }
+
+          if (!1 !== I.maxDateTime) {
+            T = W.strToDateTime(I.maxDateTime);
+            if (E.formatDate(W.currentTime, I.formatDate) === E.formatDate(T, I.formatDate)) (M = 60 * T.getHours() + T.getMinutes()) < S && (S = M);
+          }
+
+          if (s = function s(e, t) {
+            var a,
+                n = W.now(),
+                r = I.allowTimes && L.isArray(I.allowTimes) && I.allowTimes.length;
+            n.setHours(e), e = parseInt(n.getHours(), 10), n.setMinutes(t), t = parseInt(n.getMinutes(), 10), y = [];
+            var o = 60 * e + t;
+            (O.is("[disabled]") || S <= o || o < x) && y.push("xdsoft_disabled"), (a = new Date(W.currentTime)).setHours(parseInt(W.currentTime.getHours(), 10)), r || a.setMinutes(Math[I.roundTime](W.currentTime.getMinutes() / I.step) * I.step), (I.initTime || I.defaultSelect || _.data("changed")) && a.getHours() === parseInt(e, 10) && (!r && 59 < I.step || a.getMinutes() === parseInt(t, 10)) && (I.defaultSelect || _.data("changed") ? y.push("xdsoft_current") : I.initTime && y.push("xdsoft_init_time")), parseInt(m.getHours(), 10) === parseInt(e, 10) && parseInt(m.getMinutes(), 10) === parseInt(t, 10) && y.push("xdsoft_today"), k += '<div class="xdsoft_time ' + y.join(" ") + '" data-hour="' + e + '" data-minute="' + t + '">' + E.formatDate(n, I.formatTime) + "</div>";
+          }, I.allowTimes && L.isArray(I.allowTimes) && I.allowTimes.length) for (c = 0; c < I.allowTimes.length; c += 1) {
+            s(W.strtotime(I.allowTimes[c]).getHours(), M = W.strtotime(I.allowTimes[c]).getMinutes());
+          } else for (e = c = 0; c < (I.hours12 ? 12 : 24); c += 1) {
+            for (e = 0; e < 60; e += I.step) {
+              var w = 60 * c + e;
+              w < x || S <= w || s((c < 10 ? "0" : "") + c, M = (e < 10 ? "0" : "") + e);
+            }
+          }
+
+          for (P.html(k), H = "", c = parseInt(I.yearStart, 10); c <= parseInt(I.yearEnd, 10); c += 1) {
+            H += '<div class="xdsoft_option ' + (W.currentTime.getFullYear() === c ? "xdsoft_current" : "") + '" data-value="' + c + '">' + (c + I.yearOffset) + "</div>";
+          }
+
+          for (A.children().eq(0).html(H), c = parseInt(I.monthStart, 10), H = ""; c <= parseInt(I.monthEnd, 10); c += 1) {
+            H += '<div class="xdsoft_option ' + (W.currentTime.getMonth() === c ? "xdsoft_current" : "") + '" data-value="' + c + '">' + I.i18n[R].months[c] + "</div>";
+          }
+
+          Y.children().eq(0).html(H), L(_).trigger("generate.xdsoft");
+        }, 10), e.stopPropagation();
+      }).on("afterOpen.xdsoft", function () {
+        var e, t, a, n;
+        I.timepicker && (P.find(".xdsoft_current").length ? e = ".xdsoft_current" : P.find(".xdsoft_init_time").length && (e = ".xdsoft_init_time"), e ? (t = u[0].clientHeight, (a = P[0].offsetHeight) - t < (n = P.find(e).index() * I.timeHeightInTimePicker + 1) && (n = a - t), u.trigger("scroll_element.xdsoft_scroller", [parseInt(n, 10) / (a - t)])) : u.trigger("scroll_element.xdsoft_scroller", [0]));
+      }), n = 0, C.on("touchend click.xdsoft", "td", function (e) {
+        e.stopPropagation(), n += 1;
+        var t = L(this),
+            a = W.currentTime;
+        if (null == a && (W.currentTime = W.now(), a = W.currentTime), t.hasClass("xdsoft_disabled")) return !1;
+        a.setDate(1), a.setFullYear(t.data("year")), a.setMonth(t.data("month")), a.setDate(t.data("date")), _.trigger("select.xdsoft", [a]), O.val(W.str()), I.onSelectDate && L.isFunction(I.onSelectDate) && I.onSelectDate.call(_, W.currentTime, _.data("input"), e), _.data("changed", !0), _.trigger("xchange.xdsoft"), _.trigger("changedatetime.xdsoft"), (1 < n || !0 === I.closeOnDateSelect || !1 === I.closeOnDateSelect && !I.timepicker) && !I.inline && _.trigger("close.xdsoft"), setTimeout(function () {
+          n = 0;
+        }, 200);
+      }), P.on("touchstart", "div", function (e) {
+        this.touchMoved = !1;
+      }).on("touchmove", "div", l).on("touchend click.xdsoft", "div", function (e) {
+        if (!this.touchMoved) {
+          e.stopPropagation();
+          var t = L(this),
+              a = W.currentTime;
+          if (null == a && (W.currentTime = W.now(), a = W.currentTime), t.hasClass("xdsoft_disabled")) return !1;
+          a.setHours(t.data("hour")), a.setMinutes(t.data("minute")), _.trigger("select.xdsoft", [a]), _.data("input").val(W.str()), I.onSelectTime && L.isFunction(I.onSelectTime) && I.onSelectTime.call(_, W.currentTime, _.data("input"), e), _.data("changed", !0), _.trigger("xchange.xdsoft"), _.trigger("changedatetime.xdsoft"), !0 !== I.inline && !0 === I.closeOnTimeSelect && _.trigger("close.xdsoft");
+        }
+      }), g.on("mousewheel.xdsoft", function (e) {
+        return !I.scrollMonth || (e.deltaY < 0 ? W.nextMonth() : W.prevMonth(), !1);
+      }), O.on("mousewheel.xdsoft", function (e) {
+        return !I.scrollInput || (!I.datepicker && I.timepicker ? (0 <= (a = P.find(".xdsoft_current").length ? P.find(".xdsoft_current").eq(0).index() : 0) + e.deltaY && a + e.deltaY < P.children().length && (a += e.deltaY), P.children().eq(a).length && P.children().eq(a).trigger("mousedown"), !1) : I.datepicker && !I.timepicker ? (g.trigger(e, [e.deltaY, e.deltaX, e.deltaY]), O.val && O.val(W.str()), _.trigger("changedatetime.xdsoft"), !1) : void 0);
+      }), _.on("changedatetime.xdsoft", function (e) {
+        if (I.onChangeDateTime && L.isFunction(I.onChangeDateTime)) {
+          var t = _.data("input");
+
+          I.onChangeDateTime.call(_, W.currentTime, t, e), delete I.value, t.trigger("change");
+        }
+      }).on("generate.xdsoft", function () {
+        I.onGenerate && L.isFunction(I.onGenerate) && I.onGenerate.call(_, W.currentTime, _.data("input")), s && (_.trigger("afterOpen.xdsoft"), s = !1);
+      }).on("click.xdsoft", function (e) {
+        e.stopPropagation();
+      }), a = 0, h = function h(e, t) {
+        do {
+          if (!(e = e.parentNode) || !1 === t(e)) break;
+        } while ("HTML" !== e.nodeName);
+      }, r = function r() {
+        var e, t, a, n, r, o, i, s, d, u, l, f, c;
+
+        if (e = (s = _.data("input")).offset(), t = s[0], u = "top", a = e.top + t.offsetHeight - 1, n = e.left, r = "absolute", d = L(I.contentWindow).width(), f = L(I.contentWindow).height(), c = L(I.contentWindow).scrollTop(), I.ownerDocument.documentElement.clientWidth - e.left < g.parent().outerWidth(!0)) {
+          var m = g.parent().outerWidth(!0) - t.offsetWidth;
+          n -= m;
+        }
+
+        "rtl" === s.parent().css("direction") && (n -= _.outerWidth() - s.outerWidth()), I.fixed ? (a -= c, n -= L(I.contentWindow).scrollLeft(), r = "fixed") : (i = !1, h(t, function (e) {
+          return null !== e && ("fixed" === I.contentWindow.getComputedStyle(e).getPropertyValue("position") ? !(i = !0) : void 0);
+        }), i && !I.insideParent ? (r = "fixed", a + _.outerHeight() > f + c ? (u = "bottom", a = f + c - e.top) : a -= c) : a + _[0].offsetHeight > f + c && (a = e.top - _[0].offsetHeight + 1), a < 0 && (a = 0), n + t.offsetWidth > d && (n = d - t.offsetWidth)), o = _[0], h(o, function (e) {
+          if ("relative" === I.contentWindow.getComputedStyle(e).getPropertyValue("position") && d >= e.offsetWidth) return n -= (d - e.offsetWidth) / 2, !1;
+        }), l = {
+          position: r,
+          left: I.insideParent ? t.offsetLeft : n,
+          top: "",
+          bottom: ""
+        }, I.insideParent ? l[u] = t.offsetTop + t.offsetHeight : l[u] = a, _.css(l);
+      }, _.on("open.xdsoft", function (e) {
+        var t = !0;
+        I.onShow && L.isFunction(I.onShow) && (t = I.onShow.call(_, W.currentTime, _.data("input"), e)), !1 !== t && (_.show(), r(), L(I.contentWindow).off("resize.xdsoft", r).on("resize.xdsoft", r), I.closeOnWithoutClick && L([I.ownerDocument.body, I.contentWindow]).on("touchstart mousedown.xdsoft", function e() {
+          _.trigger("close.xdsoft"), L([I.ownerDocument.body, I.contentWindow]).off("touchstart mousedown.xdsoft", e);
+        }));
+      }).on("close.xdsoft", function (e) {
+        var t = !0;
+        F.find(".xdsoft_month,.xdsoft_year").find(".xdsoft_select").hide(), I.onClose && L.isFunction(I.onClose) && (t = I.onClose.call(_, W.currentTime, _.data("input"), e)), !1 === t || I.opened || I.inline || _.hide(), e.stopPropagation();
+      }).on("toggle.xdsoft", function () {
+        _.is(":visible") ? _.trigger("close.xdsoft") : _.trigger("open.xdsoft");
+      }).data("input", O), d = 0, _.data("xdsoft_datetime", W), _.setOptions(I), W.setCurrentTime(f()), O.data("xdsoft_datetimepicker", _).on("open.xdsoft focusin.xdsoft mousedown.xdsoft touchstart", function () {
+        O.is(":disabled") || O.data("xdsoft_datetimepicker").is(":visible") && I.closeOnInputClick || I.openOnFocus && (clearTimeout(d), d = setTimeout(function () {
+          O.is(":disabled") || (s = !0, W.setCurrentTime(f(), !0), I.mask && c(I), _.trigger("open.xdsoft"));
+        }, 100));
+      }).on("keydown.xdsoft", function (e) {
+        var t,
+            a = e.which;
+        return -1 !== [D].indexOf(a) && I.enterLikeTab ? (t = L("input:visible,textarea:visible,button:visible,a:visible"), _.trigger("close.xdsoft"), t.eq(t.index(this) + 1).focus(), !1) : -1 !== [T].indexOf(a) ? (_.trigger("close.xdsoft"), !0) : void 0;
+      }).on("blur.xdsoft", function () {
+        _.trigger("close.xdsoft");
+      });
+    }, r = function r(e) {
+      var t = e.data("xdsoft_datetimepicker");
+      t && (t.data("xdsoft_datetime", null), t.remove(), e.data("xdsoft_datetimepicker", null).off(".xdsoft"), L(I.contentWindow).off("resize.xdsoft"), L([I.contentWindow, I.ownerDocument.body]).off("mousedown.xdsoft touchstart"), e.unmousewheel && e.unmousewheel());
+    }, L(I.ownerDocument).off("keydown.xdsoftctrl keyup.xdsoftctrl").off("keydown.xdsoftcmd keyup.xdsoftcmd").on("keydown.xdsoftctrl", function (e) {
+      e.keyCode === p && (N = !0);
+    }).on("keyup.xdsoftctrl", function (e) {
+      e.keyCode === p && (N = !1);
+    }).on("keydown.xdsoftcmd", function (e) {
+      91 === e.keyCode && !0;
+    }).on("keyup.xdsoftcmd", function (e) {
+      91 === e.keyCode && !1;
+    }), this.each(function () {
+      var t,
+          e = L(this).data("xdsoft_datetimepicker");
+
+      if (e) {
+        if ("string" === L.type(H)) switch (H) {
+          case "show":
+            L(this).select().focus(), e.trigger("open.xdsoft");
+            break;
+
+          case "hide":
+            e.trigger("close.xdsoft");
+            break;
+
+          case "toggle":
+            e.trigger("toggle.xdsoft");
+            break;
+
+          case "destroy":
+            r(L(this));
+            break;
+
+          case "reset":
+            this.value = this.defaultValue, this.value && e.data("xdsoft_datetime").isValidDate(E.parseDate(this.value, I.format)) || e.data("changed", !1), e.data("xdsoft_datetime").setCurrentTime(this.value);
+            break;
+
+          case "validate":
+            e.data("input").trigger("blur.xdsoft");
+            break;
+
+          default:
+            e[H] && L.isFunction(e[H]) && (o = e[H](a));
+        } else e.setOptions(H);
+        return 0;
+      }
+
+      "string" !== L.type(H) && (!I.lazyInit || I.open || I.inline ? n(L(this)) : (t = L(this)).on("open.xdsoft focusin.xdsoft mousedown.xdsoft touchstart", function e() {
+        t.is(":disabled") || t.data("xdsoft_datetimepicker") || (clearTimeout(i), i = setTimeout(function () {
+          t.data("xdsoft_datetimepicker") || n(t), t.off("open.xdsoft focusin.xdsoft mousedown.xdsoft touchstart", e).trigger("open.xdsoft");
+        }, 100));
+      }));
+    }), o;
+  }, L.fn.datetimepicker.defaults = s;
+};
+
+!function (e) {
+   true ? !(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js"), __webpack_require__(/*! jquery-mousewheel */ "./node_modules/jquery-mousewheel/jquery.mousewheel.js")], __WEBPACK_AMD_DEFINE_FACTORY__ = (e),
+		__WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ?
+		(__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__),
+		__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__)) : 0;
+}(datetimepickerFactory), function (e) {
+   true ? !(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js")], __WEBPACK_AMD_DEFINE_FACTORY__ = (e),
+		__WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ?
+		(__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__),
+		__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__)) : 0;
+}(function (c) {
+  var m,
+      h,
+      e = ["wheel", "mousewheel", "DOMMouseScroll", "MozMousePixelScroll"],
+      t = "onwheel" in document || 9 <= document.documentMode ? ["wheel"] : ["mousewheel", "DomMouseScroll", "MozMousePixelScroll"],
+      g = Array.prototype.slice;
+  if (c.event.fixHooks) for (var a = e.length; a;) {
+    c.event.fixHooks[e[--a]] = c.event.mouseHooks;
+  }
+  var p = c.event.special.mousewheel = {
+    version: "3.1.12",
+    setup: function setup() {
+      if (this.addEventListener) for (var e = t.length; e;) {
+        this.addEventListener(t[--e], n, !1);
+      } else this.onmousewheel = n;
+      c.data(this, "mousewheel-line-height", p.getLineHeight(this)), c.data(this, "mousewheel-page-height", p.getPageHeight(this));
+    },
+    teardown: function teardown() {
+      if (this.removeEventListener) for (var e = t.length; e;) {
+        this.removeEventListener(t[--e], n, !1);
+      } else this.onmousewheel = null;
+      c.removeData(this, "mousewheel-line-height"), c.removeData(this, "mousewheel-page-height");
+    },
+    getLineHeight: function getLineHeight(e) {
+      var t = c(e),
+          a = t["offsetParent" in c.fn ? "offsetParent" : "parent"]();
+      return a.length || (a = c("body")), parseInt(a.css("fontSize"), 10) || parseInt(t.css("fontSize"), 10) || 16;
+    },
+    getPageHeight: function getPageHeight(e) {
+      return c(e).height();
+    },
+    settings: {
+      adjustOldDeltas: !0,
+      normalizeOffset: !0
+    }
+  };
+
+  function n(e) {
+    var t,
+        a = e || window.event,
+        n = g.call(arguments, 1),
+        r = 0,
+        o = 0,
+        i = 0,
+        s = 0,
+        d = 0;
+
+    if ((e = c.event.fix(a)).type = "mousewheel", "detail" in a && (i = -1 * a.detail), "wheelDelta" in a && (i = a.wheelDelta), "wheelDeltaY" in a && (i = a.wheelDeltaY), "wheelDeltaX" in a && (o = -1 * a.wheelDeltaX), "axis" in a && a.axis === a.HORIZONTAL_AXIS && (o = -1 * i, i = 0), r = 0 === i ? o : i, "deltaY" in a && (r = i = -1 * a.deltaY), "deltaX" in a && (o = a.deltaX, 0 === i && (r = -1 * o)), 0 !== i || 0 !== o) {
+      if (1 === a.deltaMode) {
+        var u = c.data(this, "mousewheel-line-height");
+        r *= u, i *= u, o *= u;
+      } else if (2 === a.deltaMode) {
+        var l = c.data(this, "mousewheel-page-height");
+        r *= l, i *= l, o *= l;
+      }
+
+      if (t = Math.max(Math.abs(i), Math.abs(o)), (!h || t < h) && y(a, h = t) && (h /= 40), y(a, t) && (r /= 40, o /= 40, i /= 40), r = Math[1 <= r ? "floor" : "ceil"](r / h), o = Math[1 <= o ? "floor" : "ceil"](o / h), i = Math[1 <= i ? "floor" : "ceil"](i / h), p.settings.normalizeOffset && this.getBoundingClientRect) {
+        var f = this.getBoundingClientRect();
+        s = e.clientX - f.left, d = e.clientY - f.top;
+      }
+
+      return e.deltaX = o, e.deltaY = i, e.deltaFactor = h, e.offsetX = s, e.offsetY = d, e.deltaMode = 0, n.unshift(e, r, o, i), m && clearTimeout(m), m = setTimeout(D, 200), (c.event.dispatch || c.event.handle).apply(this, n);
+    }
+  }
+
+  function D() {
+    h = null;
+  }
+
+  function y(e, t) {
+    return p.settings.adjustOldDeltas && "mousewheel" === e.type && t % 120 == 0;
+  }
+
+  c.fn.extend({
+    mousewheel: function mousewheel(e) {
+      return e ? this.bind("mousewheel", e) : this.trigger("mousewheel");
+    },
+    unmousewheel: function unmousewheel(e) {
+      return this.unbind("mousewheel", e);
+    }
+  });
 });
 
 /***/ }),
@@ -5716,13 +7164,7 @@ $(document).ready(function () {
 /*!*************************************!*\
   !*** ./resources/js/reservation.js ***!
   \*************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var air_datepicker__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! air-datepicker */ "./node_modules/air-datepicker/index.es.js");
-/* harmony import */ var air_datepicker_air_datepicker_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! air-datepicker/air-datepicker.css */ "./node_modules/air-datepicker/air-datepicker.css");
-
+/***/ (() => {
 
 $(document).ready(function () {
   $("#res_date").prop("readonly", true);
@@ -5732,27 +7174,61 @@ $(document).ready(function () {
   var pickedPlace = {};
   var responseObject = {};
   var tableID, tableMax;
-  new air_datepicker__WEBPACK_IMPORTED_MODULE_0__["default"]('.airdatepicker', {
-    timepicker: true,
-    minDate: minDate,
-    maxDate: maxDate,
-    minHours: 15,
-    minutesStep: 30,
-    startDate: minDate,
-    onRenderCell: function onRenderCell(_ref) {
-      var date = _ref.date,
-          cellType = _ref.cellType;
 
-      if (cellType === 'day') {
-        if (date.getDay() === 1) {
-          return {
-            disabled: true
-          };
-        }
+  if ($('.airdatepicker')) {
+    $.ajax({
+      url: '/reserve-all',
+      type: "GET",
+      dataType: "json",
+      success: function success(response) {
+        console.log(response);
+      }
+    });
+  } // function getData() {
+  //     let curYear, curMonth, curDay, curHour, curMin, finalString;
+  //     $('.xdsoft_current').each(function() {
+  //         if($(this).attr('data-year')) {
+  //             curYear = $(this).attr('data-year')
+  //         }
+  //         if($(this).attr('data-month')) {
+  //             curMonth = $(this).attr('data-month')
+  //         }
+  //         if($(this).attr('data-date')) {
+  //             curDay = $(this).attr('data-date')
+  //         }
+  //         if($(this).attr('data-hour')) {
+  //             curHour = $(this).attr('data-hour')
+  //         }
+  //         if($(this).attr('data-minute')) {
+  //             if($(this).attr('data-minute') == 0) {
+  //                 curMin = `${$(this).attr('data-minute')}0`
+  //             } else {
+  //                 curMin = $(this).attr('data-minute')
+  //             }
+  //         }
+  //     })
+  //     finalString = `${curYear}/${curMonth}/${curDay} ${curHour}:${curMin}`
+  //     console.log(finalString);
+  // }
+
+
+  $.datetimepicker.setLocale('ru');
+  $('.airdatepicker').datetimepicker({
+    lang: 'ru',
+    i18n: {
+      ru: {
+        months: ['Январь', 'Февраль', 'Март', 'Апрель', 'Май', 'Июнь', 'Июль', 'Август', 'Сентябрь', 'Октябрь', 'Ноябрь', 'Декабрь'],
+        dayOfWeekShort: ["Вс", "Пн", "Вт", "Ср", "Чт", "Пт", "Сб"],
+        dayOfWeek: ["Воскресенье", "Понедельник", "Вторник", "Среда", "Четверг", "Пятница", "Суббота"]
       }
     },
-    onSelect: function onSelect(_ref2) {
-      var date = _ref2.date;
+    defaultTime: '15:00',
+    step: 30,
+    minDate: minDate,
+    maxDate: maxDate,
+    disabledWeekDays: [1],
+    allowTimes: ['15:00', '15:30', '16:00', '16:30', '17:00', '17:30', '18:00', '18:30', '19:00', '19:30', '20:00', '20:30', '21:00', '21:30', '22:00', '22:30', '23:00', '23:30', '00:00', '00:30', '01:00', '01:30'],
+    onChangeDateTime: function onChangeDateTime() {
       pickedPlace = {
         res_date: $('#res_date').val(),
         table_id: parseInt(tableID)
@@ -5805,6 +7281,7 @@ $(document).ready(function () {
   });
   $('.close-button').click(function (e) {
     $('#modal').toggleClass('hidden');
+    $('#res_date').val('');
   });
   $('.table-blocked').click(function (e) {
     Swal.fire({
@@ -6075,106 +7552,6 @@ $(document).ready(function () {
     new ZoomService().listen();
   });
 }(jQuery);
-
-/***/ }),
-
-/***/ "./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[6].oneOf[1].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[6].oneOf[1].use[2]!./node_modules/air-datepicker/air-datepicker.css":
-/*!******************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[6].oneOf[1].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[6].oneOf[1].use[2]!./node_modules/air-datepicker/air-datepicker.css ***!
-  \******************************************************************************************************************************************************************************************************************/
-/***/ ((module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var _css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
-/* harmony import */ var _css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__);
-// Imports
-
-var ___CSS_LOADER_EXPORT___ = _css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
-// Module
-___CSS_LOADER_EXPORT___.push([module.id, ".air-datepicker-cell.-day-.-other-month-,.air-datepicker-cell.-year-.-other-decade-{color:var(--adp-color-other-month)}.air-datepicker-cell.-day-.-other-month-:hover,.air-datepicker-cell.-year-.-other-decade-:hover{color:var(--adp-color-other-month-hover)}.-disabled-.-focus-.air-datepicker-cell.-day-.-other-month-,.-disabled-.-focus-.air-datepicker-cell.-year-.-other-decade-{color:var(--adp-color-other-month)}.-selected-.air-datepicker-cell.-day-.-other-month-,.-selected-.air-datepicker-cell.-year-.-other-decade-{color:#fff;background:var(--adp-background-color-selected-other-month)}.-selected-.-focus-.air-datepicker-cell.-day-.-other-month-,.-selected-.-focus-.air-datepicker-cell.-year-.-other-decade-{background:var(--adp-background-color-selected-other-month-focused)}.-in-range-.air-datepicker-cell.-day-.-other-month-,.-in-range-.air-datepicker-cell.-year-.-other-decade-{background-color:var(--adp-background-color-in-range);color:var(--adp-color)}.-in-range-.-focus-.air-datepicker-cell.-day-.-other-month-,.-in-range-.-focus-.air-datepicker-cell.-year-.-other-decade-{background-color:var(--adp-background-color-in-range-focused)}.air-datepicker-cell.-day-.-other-month-:empty,.air-datepicker-cell.-year-.-other-decade-:empty{background:none;border:none}.air-datepicker-cell{border-radius:var(--adp-cell-border-radius);box-sizing:border-box;cursor:pointer;display:flex;position:relative;align-items:center;justify-content:center;z-index:1}.air-datepicker-cell.-focus-{background:var(--adp-background-color-hover)}.air-datepicker-cell.-current-{color:var(--adp-color-current-date)}.air-datepicker-cell.-current-.-focus-{color:var(--adp-color)}.air-datepicker-cell.-current-.-in-range-{color:var(--adp-color-current-date)}.air-datepicker-cell.-disabled-{cursor:default;color:var(--adp-color-disabled)}.air-datepicker-cell.-disabled-.-focus-{color:var(--adp-color-disabled)}.air-datepicker-cell.-disabled-.-in-range-{color:var(--adp-color-disabled-in-range)}.air-datepicker-cell.-disabled-.-current-.-focus-{color:var(--adp-color-disabled)}.air-datepicker-cell.-in-range-{background:var(--adp-cell-background-color-in-range);border-radius:0}.air-datepicker-cell.-in-range-:hover{background:var(--adp-cell-background-color-in-range-hover)}.air-datepicker-cell.-range-from-{border:1px solid var(--adp-cell-border-color-in-range);background-color:var(--adp-cell-background-color-in-range);border-radius:var(--adp-cell-border-radius) 0 0 var(--adp-cell-border-radius)}.air-datepicker-cell.-range-to-{border:1px solid var(--adp-cell-border-color-in-range);background-color:var(--adp-cell-background-color-in-range);border-radius:0 var(--adp-cell-border-radius) var(--adp-cell-border-radius) 0}.air-datepicker-cell.-range-to-.-range-from-{border-radius:var(--adp-cell-border-radius)}.air-datepicker-cell.-selected-{color:#fff;border:none;background:var(--adp-cell-background-color-selected)}.air-datepicker-cell.-selected-.-current-{color:#fff;background:var(--adp-cell-background-color-selected)}.air-datepicker-cell.-selected-.-focus-{background:var(--adp-cell-background-color-selected-hover)}\r\n\r\n.air-datepicker-body{transition:all var(--adp-transition-duration) var(--adp-transition-ease)}.air-datepicker-body.-hidden-{display:none}.air-datepicker-body--day-names{display:grid;grid-template-columns:repeat(7, var(--adp-day-cell-width));margin:8px 0 3px}.air-datepicker-body--day-name{color:var(--adp-day-name-color);display:flex;align-items:center;justify-content:center;flex:1;text-align:center;text-transform:uppercase;font-size:.8em}.air-datepicker-body--day-name.-clickable-{cursor:pointer}.air-datepicker-body--day-name.-clickable-:hover{color:var(--adp-day-name-color-hover)}.air-datepicker-body--cells{display:grid}.air-datepicker-body--cells.-days-{grid-template-columns:repeat(7, var(--adp-day-cell-width));grid-auto-rows:var(--adp-day-cell-height)}.air-datepicker-body--cells.-months-{grid-template-columns:repeat(3, 1fr);grid-auto-rows:var(--adp-month-cell-height)}.air-datepicker-body--cells.-years-{grid-template-columns:repeat(4, 1fr);grid-auto-rows:var(--adp-year-cell-height)}\r\n\r\n.air-datepicker-nav{display:flex;justify-content:space-between;border-bottom:1px solid var(--adp-border-color-inner);min-height:var(--adp-nav-height);padding:var(--adp-padding);box-sizing:content-box}.-only-timepicker- .air-datepicker-nav{display:none}.air-datepicker-nav--title,.air-datepicker-nav--action{display:flex;cursor:pointer;align-items:center;justify-content:center}.air-datepicker-nav--action{width:var(--adp-nav-action-size);border-radius:var(--adp-border-radius);-webkit-user-select:none;-moz-user-select:none;user-select:none}.air-datepicker-nav--action:hover{background:var(--adp-background-color-hover)}.air-datepicker-nav--action:active{background:var(--adp-background-color-active)}.air-datepicker-nav--action.-disabled-{visibility:hidden}.air-datepicker-nav--action svg{width:32px;height:32px}.air-datepicker-nav--action path{fill:none;stroke:var(--adp-nav-arrow-color);stroke-width:2px}.air-datepicker-nav--title{border-radius:var(--adp-border-radius);padding:0 8px}.air-datepicker-nav--title i{font-style:normal;color:var(--adp-nav-color-secondary);margin-left:.3em}.air-datepicker-nav--title:hover{background:var(--adp-background-color-hover)}.air-datepicker-nav--title:active{background:var(--adp-background-color-active)}.air-datepicker-nav--title.-disabled-{cursor:default;background:none}\r\n\r\n.air-datepicker-buttons{display:grid;grid-auto-columns:1fr;grid-auto-flow:column}.air-datepicker-button{display:inline-flex;color:var(--adp-btn-color);border-radius:var(--adp-btn-border-radius);cursor:pointer;height:var(--adp-btn-height);border:none;background:rgba(255,255,255,0)}.air-datepicker-button:hover{color:var(--adp-btn-color-hover);background:var(--adp-btn-background-color-hover)}.air-datepicker-button:focus{color:var(--adp-btn-color-hover);background:var(--adp-btn-background-color-hover);outline:none}.air-datepicker-button:active{background:var(--adp-btn-background-color-active)}.air-datepicker-button span{outline:none;display:flex;align-items:center;justify-content:center;width:100%;height:100%}\r\n\r\n.air-datepicker-time{display:grid;grid-template-columns:-webkit-max-content 1fr;grid-template-columns:max-content 1fr;grid-column-gap:12px;align-items:center;position:relative;padding:0 var(--adp-time-padding-inner)}.-only-timepicker- .air-datepicker-time{border-top:none}.air-datepicker-time--current{display:flex;align-items:center;flex:1;font-size:14px;text-align:center}.air-datepicker-time--current-colon{margin:0 2px 3px;line-height:1}.air-datepicker-time--current-hours,.air-datepicker-time--current-minutes{line-height:1;font-size:19px;font-family:\"Century Gothic\", CenturyGothic, AppleGothic, sans-serif;position:relative;z-index:1}.air-datepicker-time--current-hours:after,.air-datepicker-time--current-minutes:after{content:'';background:var(--adp-background-color-hover);border-radius:var(--adp-border-radius);position:absolute;left:-2px;top:-3px;right:-2px;bottom:-2px;z-index:-1;opacity:0}.air-datepicker-time--current-hours.-focus-:after,.air-datepicker-time--current-minutes.-focus-:after{opacity:1}.air-datepicker-time--current-ampm{text-transform:uppercase;align-self:flex-end;color:var(--adp-time-day-period-color);margin-left:6px;font-size:11px;margin-bottom:1px}.air-datepicker-time--row{display:flex;align-items:center;font-size:11px;height:17px;background:linear-gradient(to right, var(--adp-time-track-color), var(--adp-time-track-color)) left 50%/100% var(--adp-time-track-height) no-repeat}.air-datepicker-time--row:first-child{margin-bottom:4px}.air-datepicker-time--row input[type='range']{background:none;cursor:pointer;flex:1;height:100%;width:100%;padding:0;margin:0;-webkit-appearance:none}.air-datepicker-time--row input[type='range']::-webkit-slider-thumb{-webkit-appearance:none}.air-datepicker-time--row input[type='range']::-ms-tooltip{display:none}.air-datepicker-time--row input[type='range']:hover::-webkit-slider-thumb{border-color:var(--adp-time-track-color-hover)}.air-datepicker-time--row input[type='range']:hover::-moz-range-thumb{border-color:var(--adp-time-track-color-hover)}.air-datepicker-time--row input[type='range']:hover::-ms-thumb{border-color:var(--adp-time-track-color-hover)}.air-datepicker-time--row input[type='range']:focus{outline:none}.air-datepicker-time--row input[type='range']:focus::-webkit-slider-thumb{background:var(--adp-cell-background-color-selected);border-color:var(--adp-cell-background-color-selected)}.air-datepicker-time--row input[type='range']:focus::-moz-range-thumb{background:var(--adp-cell-background-color-selected);border-color:var(--adp-cell-background-color-selected)}.air-datepicker-time--row input[type='range']:focus::-ms-thumb{background:var(--adp-cell-background-color-selected);border-color:var(--adp-cell-background-color-selected)}.air-datepicker-time--row input[type='range']::-webkit-slider-thumb{box-sizing:border-box;height:12px;width:12px;border-radius:3px;border:1px solid var(--adp-time-track-color);background:#fff;cursor:pointer;-webkit-transition:background var(--adp-transition-duration);transition:background var(--adp-transition-duration)}.air-datepicker-time--row input[type='range']::-moz-range-thumb{box-sizing:border-box;height:12px;width:12px;border-radius:3px;border:1px solid var(--adp-time-track-color);background:#fff;cursor:pointer;-moz-transition:background var(--adp-transition-duration);transition:background var(--adp-transition-duration)}.air-datepicker-time--row input[type='range']::-ms-thumb{box-sizing:border-box;height:12px;width:12px;border-radius:3px;border:1px solid var(--adp-time-track-color);background:#fff;cursor:pointer;-ms-transition:background var(--adp-transition-duration);transition:background var(--adp-transition-duration)}.air-datepicker-time--row input[type='range']::-webkit-slider-thumb{margin-top:calc(var(--adp-time-thumb-size) / 2 * -1)}.air-datepicker-time--row input[type='range']::-webkit-slider-runnable-track{border:none;height:var(--adp-time-track-height);cursor:pointer;color:transparent;background:transparent}.air-datepicker-time--row input[type='range']::-moz-range-track{border:none;height:var(--adp-time-track-height);cursor:pointer;color:transparent;background:transparent}.air-datepicker-time--row input[type='range']::-ms-track{border:none;height:var(--adp-time-track-height);cursor:pointer;color:transparent;background:transparent}.air-datepicker-time--row input[type='range']::-ms-fill-lower{background:transparent}.air-datepicker-time--row input[type='range']::-ms-fill-upper{background:transparent}\r\n\r\n.air-datepicker{--adp-font-family: -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, Helvetica, Arial, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\";--adp-font-size: 14px;--adp-width: 246px;--adp-z-index: 100;--adp-padding: 4px;--adp-grid-areas:\r\n    'nav'\r\n    'body'\r\n    'timepicker'\r\n    'buttons';--adp-transition-duration: .3s;--adp-transition-ease: ease-out;--adp-transition-offset: 8px;--adp-background-color: #fff;--adp-background-color-hover: #f0f0f0;--adp-background-color-active: #eaeaea;--adp-background-color-in-range: rgba(92, 196, 239, .1);--adp-background-color-in-range-focused: rgba(92, 196, 239, .2);--adp-background-color-selected-other-month-focused: #8ad5f4;--adp-background-color-selected-other-month: #a2ddf6;--adp-color: #4a4a4a;--adp-color-secondary: #9c9c9c;--adp-accent-color: #4eb5e6;--adp-color-current-date: var(--adp-accent-color);--adp-color-other-month: #dedede;--adp-color-disabled: #aeaeae;--adp-color-disabled-in-range: #939393;--adp-color-other-month-hover: #c5c5c5;--adp-border-color: #dbdbdb;--adp-border-color-inner: #efefef;--adp-border-radius: 4px;--adp-border-color-inline: #d7d7d7;--adp-nav-height: 32px;--adp-nav-arrow-color: var(--adp-color-secondary);--adp-nav-action-size: 32px;--adp-nav-color-secondary: var(--adp-color-secondary);--adp-day-name-color: #ff9a19;--adp-day-name-color-hover: #8ad5f4;--adp-day-cell-width: 1fr;--adp-day-cell-height: 32px;--adp-month-cell-height: 42px;--adp-year-cell-height: 56px;--adp-pointer-size: 10px;--adp-poiner-border-radius: 2px;--adp-pointer-offset: 14px;--adp-cell-border-radius: 4px;--adp-cell-background-color-selected: #5cc4ef;--adp-cell-background-color-selected-hover: #45bced;--adp-cell-background-color-in-range: rgba(92, 196, 239, 0.1);--adp-cell-background-color-in-range-hover: rgba(92, 196, 239, 0.2);--adp-cell-border-color-in-range: var(--adp-cell-background-color-selected);--adp-btn-height: 32px;--adp-btn-color: var(--adp-accent-color);--adp-btn-color-hover: var(--adp-color);--adp-btn-border-radius: var(--adp-border-radius);--adp-btn-background-color-hover: var(--adp-background-color-hover);--adp-btn-background-color-active: var(--adp-background-color-active);--adp-time-track-height: 1px;--adp-time-track-color: #dedede;--adp-time-track-color-hover: #b1b1b1;--adp-time-thumb-size: 12px;--adp-time-padding-inner: 10px;--adp-time-day-period-color: var(--adp-color-secondary);--adp-mobile-font-size: 16px;--adp-mobile-nav-height: 40px;--adp-mobile-width: 320px;--adp-mobile-day-cell-height: 38px;--adp-mobile-month-cell-height: 48px;--adp-mobile-year-cell-height: 64px}.air-datepicker-overlay{--adp-overlay-background-color: rgba(0, 0, 0, .3);--adp-overlay-transition-duration: .3s;--adp-overlay-transition-ease: ease-out;--adp-overlay-z-index: 99}\r\n\r\n.air-datepicker{background:var(--adp-background-color);border:1px solid var(--adp-border-color);box-shadow:0 4px 12px rgba(0,0,0,0.15);border-radius:var(--adp-border-radius);box-sizing:content-box;display:grid;grid-template-columns:1fr;grid-template-rows:repeat(4, -webkit-max-content);grid-template-rows:repeat(4, max-content);grid-template-areas:var(--adp-grid-areas);font-family:var(--adp-font-family),sans-serif;font-size:var(--adp-font-size);color:var(--adp-color);width:var(--adp-width);position:absolute;transition:opacity var(--adp-transition-duration) var(--adp-transition-ease),transform var(--adp-transition-duration) var(--adp-transition-ease);z-index:var(--adp-z-index)}.air-datepicker:not(.-custom-position-){opacity:0}.air-datepicker.-from-top-{transform:translateY(calc(var(--adp-transition-offset) * -1))}.air-datepicker.-from-right-{transform:translateX(var(--adp-transition-offset))}.air-datepicker.-from-bottom-{transform:translateY(var(--adp-transition-offset))}.air-datepicker.-from-left-{transform:translateX(calc(var(--adp-transition-offset) * -1))}.air-datepicker.-active-:not(.-custom-position-){transform:translate(0, 0);opacity:1}.air-datepicker.-active-.-custom-position-{transition:none}.air-datepicker.-inline-{border-color:var(--adp-border-color-inline);box-shadow:none;position:static;left:auto;right:auto;opacity:1;transform:none}.air-datepicker.-inline- .air-datepicker--pointer{display:none}.air-datepicker.-is-mobile-{--adp-font-size: var(--adp-mobile-font-size);--adp-day-cell-height: var(--adp-mobile-day-cell-height);--adp-month-cell-height: var(--adp-mobile-month-cell-height);--adp-year-cell-height: var(--adp-mobile-year-cell-height);--adp-nav-height: var(--adp-mobile-nav-height);--adp-nav-action-size: var(--adp-mobile-nav-height);position:fixed;width:var(--adp-mobile-width);border:none}.air-datepicker.-is-mobile- *{-webkit-tap-highlight-color:transparent}.air-datepicker.-is-mobile- .air-datepicker--pointer{display:none}.air-datepicker.-is-mobile-:not(.-custom-position-){transform:translate(-50%, calc(-50% + var(--adp-transition-offset)))}.air-datepicker.-is-mobile-.-active-:not(.-custom-position-){transform:translate(-50%, -50%)}.air-datepicker.-custom-position-{transition:none}.air-datepicker-global-container{position:absolute;left:0;top:0}.air-datepicker--pointer{--pointer-half-size: calc(var(--adp-pointer-size) / 2);position:absolute;width:var(--adp-pointer-size);height:var(--adp-pointer-size);z-index:-1}.air-datepicker--pointer:after{content:'';position:absolute;background:#fff;border-top:1px solid var(--adp-border-color-inline);border-right:1px solid var(--adp-border-color-inline);border-top-right-radius:var(--adp-poiner-border-radius);width:var(--adp-pointer-size);height:var(--adp-pointer-size);box-sizing:border-box}.-top-left- .air-datepicker--pointer,.-top-center- .air-datepicker--pointer,.-top-right- .air-datepicker--pointer,[data-popper-placement^='top'] .air-datepicker--pointer{top:calc(100% - var(--pointer-half-size) + 1px)}.-top-left- .air-datepicker--pointer:after,.-top-center- .air-datepicker--pointer:after,.-top-right- .air-datepicker--pointer:after,[data-popper-placement^='top'] .air-datepicker--pointer:after{transform:rotate(135deg)}.-right-top- .air-datepicker--pointer,.-right-center- .air-datepicker--pointer,.-right-bottom- .air-datepicker--pointer,[data-popper-placement^='right'] .air-datepicker--pointer{right:calc(100% - var(--pointer-half-size) + 1px)}.-right-top- .air-datepicker--pointer:after,.-right-center- .air-datepicker--pointer:after,.-right-bottom- .air-datepicker--pointer:after,[data-popper-placement^='right'] .air-datepicker--pointer:after{transform:rotate(225deg)}.-bottom-left- .air-datepicker--pointer,.-bottom-center- .air-datepicker--pointer,.-bottom-right- .air-datepicker--pointer,[data-popper-placement^='bottom'] .air-datepicker--pointer{bottom:calc(100% - var(--pointer-half-size) + 1px)}.-bottom-left- .air-datepicker--pointer:after,.-bottom-center- .air-datepicker--pointer:after,.-bottom-right- .air-datepicker--pointer:after,[data-popper-placement^='bottom'] .air-datepicker--pointer:after{transform:rotate(315deg)}.-left-top- .air-datepicker--pointer,.-left-center- .air-datepicker--pointer,.-left-bottom- .air-datepicker--pointer,[data-popper-placement^='left'] .air-datepicker--pointer{left:calc(100% - var(--pointer-half-size) + 1px)}.-left-top- .air-datepicker--pointer:after,.-left-center- .air-datepicker--pointer:after,.-left-bottom- .air-datepicker--pointer:after,[data-popper-placement^='left'] .air-datepicker--pointer:after{transform:rotate(45deg)}.-top-left- .air-datepicker--pointer,.-bottom-left- .air-datepicker--pointer{left:var(--adp-pointer-offset)}.-top-right- .air-datepicker--pointer,.-bottom-right- .air-datepicker--pointer{right:var(--adp-pointer-offset)}.-top-center- .air-datepicker--pointer,.-bottom-center- .air-datepicker--pointer{left:calc(50% - var(--adp-pointer-size) / 2)}.-left-top- .air-datepicker--pointer,.-right-top- .air-datepicker--pointer{top:var(--adp-pointer-offset)}.-left-bottom- .air-datepicker--pointer,.-right-bottom- .air-datepicker--pointer{bottom:var(--adp-pointer-offset)}.-left-center- .air-datepicker--pointer,.-right-center- .air-datepicker--pointer{top:calc(50% - var(--adp-pointer-size) / 2)}.air-datepicker--navigation{grid-area:nav}.air-datepicker--content{box-sizing:content-box;padding:var(--adp-padding);grid-area:body}.-only-timepicker- .air-datepicker--content{display:none}.air-datepicker--time{grid-area:timepicker}.air-datepicker--buttons{grid-area:buttons}.air-datepicker--buttons,.air-datepicker--time{padding:var(--adp-padding);border-top:1px solid var(--adp-border-color-inner)}.air-datepicker-overlay{position:fixed;background:var(--adp-overlay-background-color);left:0;top:0;width:0;height:0;opacity:0;transition:opacity var(--adp-overlay-transition-duration) var(--adp-overlay-transition-ease),left 0s,height 0s,width 0s;transition-delay:0s,var(--adp-overlay-transition-duration),var(--adp-overlay-transition-duration),var(--adp-overlay-transition-duration);z-index:var(--adp-overlay-z-index)}.air-datepicker-overlay.-active-{opacity:1;width:100%;height:100%;transition:opacity var(--adp-overlay-transition-duration) var(--adp-overlay-transition-ease),height 0s,width 0s}\r\n\r\n", ""]);
-// Exports
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
-
-
-/***/ }),
-
-/***/ "./node_modules/css-loader/dist/runtime/api.js":
-/*!*****************************************************!*\
-  !*** ./node_modules/css-loader/dist/runtime/api.js ***!
-  \*****************************************************/
-/***/ ((module) => {
-
-"use strict";
-
-
-/*
-  MIT License http://www.opensource.org/licenses/mit-license.php
-  Author Tobias Koppers @sokra
-*/
-// css base code, injected by the css-loader
-// eslint-disable-next-line func-names
-module.exports = function (cssWithMappingToString) {
-  var list = []; // return the list of modules as css string
-
-  list.toString = function toString() {
-    return this.map(function (item) {
-      var content = cssWithMappingToString(item);
-
-      if (item[2]) {
-        return "@media ".concat(item[2], " {").concat(content, "}");
-      }
-
-      return content;
-    }).join("");
-  }; // import a list of modules into the list
-  // eslint-disable-next-line func-names
-
-
-  list.i = function (modules, mediaQuery, dedupe) {
-    if (typeof modules === "string") {
-      // eslint-disable-next-line no-param-reassign
-      modules = [[null, modules, ""]];
-    }
-
-    var alreadyImportedModules = {};
-
-    if (dedupe) {
-      for (var i = 0; i < this.length; i++) {
-        // eslint-disable-next-line prefer-destructuring
-        var id = this[i][0];
-
-        if (id != null) {
-          alreadyImportedModules[id] = true;
-        }
-      }
-    }
-
-    for (var _i = 0; _i < modules.length; _i++) {
-      var item = [].concat(modules[_i]);
-
-      if (dedupe && alreadyImportedModules[item[0]]) {
-        // eslint-disable-next-line no-continue
-        continue;
-      }
-
-      if (mediaQuery) {
-        if (!item[2]) {
-          item[2] = mediaQuery;
-        } else {
-          item[2] = "".concat(mediaQuery, " and ").concat(item[2]);
-        }
-      }
-
-      list.push(item);
-    }
-  };
-
-  return list;
-};
 
 /***/ }),
 
@@ -24538,6 +25915,234 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*! DataTables 1
         }(), a;
     }();
 }));
+
+/***/ }),
+
+/***/ "./node_modules/jquery-mousewheel/jquery.mousewheel.js":
+/*!*************************************************************!*\
+  !*** ./node_modules/jquery-mousewheel/jquery.mousewheel.js ***!
+  \*************************************************************/
+/***/ ((module, exports, __webpack_require__) => {
+
+var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
+ * jQuery Mousewheel 3.1.13
+ *
+ * Copyright jQuery Foundation and other contributors
+ * Released under the MIT license
+ * http://jquery.org/license
+ */
+
+(function (factory) {
+    if ( true ) {
+        // AMD. Register as an anonymous module.
+        !(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js")], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory),
+		__WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ?
+		(__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__),
+		__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+    } else {}
+}(function ($) {
+
+    var toFix  = ['wheel', 'mousewheel', 'DOMMouseScroll', 'MozMousePixelScroll'],
+        toBind = ( 'onwheel' in document || document.documentMode >= 9 ) ?
+                    ['wheel'] : ['mousewheel', 'DomMouseScroll', 'MozMousePixelScroll'],
+        slice  = Array.prototype.slice,
+        nullLowestDeltaTimeout, lowestDelta;
+
+    if ( $.event.fixHooks ) {
+        for ( var i = toFix.length; i; ) {
+            $.event.fixHooks[ toFix[--i] ] = $.event.mouseHooks;
+        }
+    }
+
+    var special = $.event.special.mousewheel = {
+        version: '3.1.12',
+
+        setup: function() {
+            if ( this.addEventListener ) {
+                for ( var i = toBind.length; i; ) {
+                    this.addEventListener( toBind[--i], handler, false );
+                }
+            } else {
+                this.onmousewheel = handler;
+            }
+            // Store the line height and page height for this particular element
+            $.data(this, 'mousewheel-line-height', special.getLineHeight(this));
+            $.data(this, 'mousewheel-page-height', special.getPageHeight(this));
+        },
+
+        teardown: function() {
+            if ( this.removeEventListener ) {
+                for ( var i = toBind.length; i; ) {
+                    this.removeEventListener( toBind[--i], handler, false );
+                }
+            } else {
+                this.onmousewheel = null;
+            }
+            // Clean up the data we added to the element
+            $.removeData(this, 'mousewheel-line-height');
+            $.removeData(this, 'mousewheel-page-height');
+        },
+
+        getLineHeight: function(elem) {
+            var $elem = $(elem),
+                $parent = $elem['offsetParent' in $.fn ? 'offsetParent' : 'parent']();
+            if (!$parent.length) {
+                $parent = $('body');
+            }
+            return parseInt($parent.css('fontSize'), 10) || parseInt($elem.css('fontSize'), 10) || 16;
+        },
+
+        getPageHeight: function(elem) {
+            return $(elem).height();
+        },
+
+        settings: {
+            adjustOldDeltas: true, // see shouldAdjustOldDeltas() below
+            normalizeOffset: true  // calls getBoundingClientRect for each event
+        }
+    };
+
+    $.fn.extend({
+        mousewheel: function(fn) {
+            return fn ? this.bind('mousewheel', fn) : this.trigger('mousewheel');
+        },
+
+        unmousewheel: function(fn) {
+            return this.unbind('mousewheel', fn);
+        }
+    });
+
+
+    function handler(event) {
+        var orgEvent   = event || window.event,
+            args       = slice.call(arguments, 1),
+            delta      = 0,
+            deltaX     = 0,
+            deltaY     = 0,
+            absDelta   = 0,
+            offsetX    = 0,
+            offsetY    = 0;
+        event = $.event.fix(orgEvent);
+        event.type = 'mousewheel';
+
+        // Old school scrollwheel delta
+        if ( 'detail'      in orgEvent ) { deltaY = orgEvent.detail * -1;      }
+        if ( 'wheelDelta'  in orgEvent ) { deltaY = orgEvent.wheelDelta;       }
+        if ( 'wheelDeltaY' in orgEvent ) { deltaY = orgEvent.wheelDeltaY;      }
+        if ( 'wheelDeltaX' in orgEvent ) { deltaX = orgEvent.wheelDeltaX * -1; }
+
+        // Firefox < 17 horizontal scrolling related to DOMMouseScroll event
+        if ( 'axis' in orgEvent && orgEvent.axis === orgEvent.HORIZONTAL_AXIS ) {
+            deltaX = deltaY * -1;
+            deltaY = 0;
+        }
+
+        // Set delta to be deltaY or deltaX if deltaY is 0 for backwards compatabilitiy
+        delta = deltaY === 0 ? deltaX : deltaY;
+
+        // New school wheel delta (wheel event)
+        if ( 'deltaY' in orgEvent ) {
+            deltaY = orgEvent.deltaY * -1;
+            delta  = deltaY;
+        }
+        if ( 'deltaX' in orgEvent ) {
+            deltaX = orgEvent.deltaX;
+            if ( deltaY === 0 ) { delta  = deltaX * -1; }
+        }
+
+        // No change actually happened, no reason to go any further
+        if ( deltaY === 0 && deltaX === 0 ) { return; }
+
+        // Need to convert lines and pages to pixels if we aren't already in pixels
+        // There are three delta modes:
+        //   * deltaMode 0 is by pixels, nothing to do
+        //   * deltaMode 1 is by lines
+        //   * deltaMode 2 is by pages
+        if ( orgEvent.deltaMode === 1 ) {
+            var lineHeight = $.data(this, 'mousewheel-line-height');
+            delta  *= lineHeight;
+            deltaY *= lineHeight;
+            deltaX *= lineHeight;
+        } else if ( orgEvent.deltaMode === 2 ) {
+            var pageHeight = $.data(this, 'mousewheel-page-height');
+            delta  *= pageHeight;
+            deltaY *= pageHeight;
+            deltaX *= pageHeight;
+        }
+
+        // Store lowest absolute delta to normalize the delta values
+        absDelta = Math.max( Math.abs(deltaY), Math.abs(deltaX) );
+
+        if ( !lowestDelta || absDelta < lowestDelta ) {
+            lowestDelta = absDelta;
+
+            // Adjust older deltas if necessary
+            if ( shouldAdjustOldDeltas(orgEvent, absDelta) ) {
+                lowestDelta /= 40;
+            }
+        }
+
+        // Adjust older deltas if necessary
+        if ( shouldAdjustOldDeltas(orgEvent, absDelta) ) {
+            // Divide all the things by 40!
+            delta  /= 40;
+            deltaX /= 40;
+            deltaY /= 40;
+        }
+
+        // Get a whole, normalized value for the deltas
+        delta  = Math[ delta  >= 1 ? 'floor' : 'ceil' ](delta  / lowestDelta);
+        deltaX = Math[ deltaX >= 1 ? 'floor' : 'ceil' ](deltaX / lowestDelta);
+        deltaY = Math[ deltaY >= 1 ? 'floor' : 'ceil' ](deltaY / lowestDelta);
+
+        // Normalise offsetX and offsetY properties
+        if ( special.settings.normalizeOffset && this.getBoundingClientRect ) {
+            var boundingRect = this.getBoundingClientRect();
+            offsetX = event.clientX - boundingRect.left;
+            offsetY = event.clientY - boundingRect.top;
+        }
+
+        // Add information to the event object
+        event.deltaX = deltaX;
+        event.deltaY = deltaY;
+        event.deltaFactor = lowestDelta;
+        event.offsetX = offsetX;
+        event.offsetY = offsetY;
+        // Go ahead and set deltaMode to 0 since we converted to pixels
+        // Although this is a little odd since we overwrite the deltaX/Y
+        // properties with normalized deltas.
+        event.deltaMode = 0;
+
+        // Add event and delta to the front of the arguments
+        args.unshift(event, delta, deltaX, deltaY);
+
+        // Clearout lowestDelta after sometime to better
+        // handle multiple device types that give different
+        // a different lowestDelta
+        // Ex: trackpad = 3 and mouse wheel = 120
+        if (nullLowestDeltaTimeout) { clearTimeout(nullLowestDeltaTimeout); }
+        nullLowestDeltaTimeout = setTimeout(nullLowestDelta, 200);
+
+        return ($.event.dispatch || $.event.handle).apply(this, args);
+    }
+
+    function nullLowestDelta() {
+        lowestDelta = null;
+    }
+
+    function shouldAdjustOldDeltas(orgEvent, absDelta) {
+        // If this is an older event and the delta is divisable by 120,
+        // then we are assuming that the browser is treating this as an
+        // older mouse wheel event and that we should divide the deltas
+        // by 40 to try and get a more usable deltaFactor.
+        // Side note, this actually impacts the reported scroll distance
+        // in older browsers and can cause scrolling to be slower than native.
+        // Turn this off by setting $.event.special.mousewheel.settings.adjustOldDeltas to false.
+        return special.settings.adjustOldDeltas && orgEvent.type === 'mousewheel' && absDelta % 120 === 0;
+    }
+
+}));
+
 
 /***/ }),
 
@@ -53613,315 +55218,6 @@ try {
   }
 }
 
-
-/***/ }),
-
-/***/ "./node_modules/air-datepicker/air-datepicker.css":
-/*!********************************************************!*\
-  !*** ./node_modules/air-datepicker/air-datepicker.css ***!
-  \********************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var _style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! !../style-loader/dist/runtime/injectStylesIntoStyleTag.js */ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js");
-/* harmony import */ var _style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _css_loader_dist_cjs_js_ruleSet_1_rules_6_oneOf_1_use_1_postcss_loader_dist_cjs_js_ruleSet_1_rules_6_oneOf_1_use_2_air_datepicker_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !!../css-loader/dist/cjs.js??ruleSet[1].rules[6].oneOf[1].use[1]!../postcss-loader/dist/cjs.js??ruleSet[1].rules[6].oneOf[1].use[2]!./air-datepicker.css */ "./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[6].oneOf[1].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[6].oneOf[1].use[2]!./node_modules/air-datepicker/air-datepicker.css");
-
-            
-
-var options = {};
-
-options.insert = "head";
-options.singleton = false;
-
-var update = _style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()(_css_loader_dist_cjs_js_ruleSet_1_rules_6_oneOf_1_use_1_postcss_loader_dist_cjs_js_ruleSet_1_rules_6_oneOf_1_use_2_air_datepicker_css__WEBPACK_IMPORTED_MODULE_1__["default"], options);
-
-
-
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_css_loader_dist_cjs_js_ruleSet_1_rules_6_oneOf_1_use_1_postcss_loader_dist_cjs_js_ruleSet_1_rules_6_oneOf_1_use_2_air_datepicker_css__WEBPACK_IMPORTED_MODULE_1__["default"].locals || {});
-
-/***/ }),
-
-/***/ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js":
-/*!****************************************************************************!*\
-  !*** ./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js ***!
-  \****************************************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
-
-"use strict";
-
-
-var isOldIE = function isOldIE() {
-  var memo;
-  return function memorize() {
-    if (typeof memo === 'undefined') {
-      // Test for IE <= 9 as proposed by Browserhacks
-      // @see http://browserhacks.com/#hack-e71d8692f65334173fee715c222cb805
-      // Tests for existence of standard globals is to allow style-loader
-      // to operate correctly into non-standard environments
-      // @see https://github.com/webpack-contrib/style-loader/issues/177
-      memo = Boolean(window && document && document.all && !window.atob);
-    }
-
-    return memo;
-  };
-}();
-
-var getTarget = function getTarget() {
-  var memo = {};
-  return function memorize(target) {
-    if (typeof memo[target] === 'undefined') {
-      var styleTarget = document.querySelector(target); // Special case to return head of iframe instead of iframe itself
-
-      if (window.HTMLIFrameElement && styleTarget instanceof window.HTMLIFrameElement) {
-        try {
-          // This will throw an exception if access to iframe is blocked
-          // due to cross-origin restrictions
-          styleTarget = styleTarget.contentDocument.head;
-        } catch (e) {
-          // istanbul ignore next
-          styleTarget = null;
-        }
-      }
-
-      memo[target] = styleTarget;
-    }
-
-    return memo[target];
-  };
-}();
-
-var stylesInDom = [];
-
-function getIndexByIdentifier(identifier) {
-  var result = -1;
-
-  for (var i = 0; i < stylesInDom.length; i++) {
-    if (stylesInDom[i].identifier === identifier) {
-      result = i;
-      break;
-    }
-  }
-
-  return result;
-}
-
-function modulesToDom(list, options) {
-  var idCountMap = {};
-  var identifiers = [];
-
-  for (var i = 0; i < list.length; i++) {
-    var item = list[i];
-    var id = options.base ? item[0] + options.base : item[0];
-    var count = idCountMap[id] || 0;
-    var identifier = "".concat(id, " ").concat(count);
-    idCountMap[id] = count + 1;
-    var index = getIndexByIdentifier(identifier);
-    var obj = {
-      css: item[1],
-      media: item[2],
-      sourceMap: item[3]
-    };
-
-    if (index !== -1) {
-      stylesInDom[index].references++;
-      stylesInDom[index].updater(obj);
-    } else {
-      stylesInDom.push({
-        identifier: identifier,
-        updater: addStyle(obj, options),
-        references: 1
-      });
-    }
-
-    identifiers.push(identifier);
-  }
-
-  return identifiers;
-}
-
-function insertStyleElement(options) {
-  var style = document.createElement('style');
-  var attributes = options.attributes || {};
-
-  if (typeof attributes.nonce === 'undefined') {
-    var nonce =  true ? __webpack_require__.nc : 0;
-
-    if (nonce) {
-      attributes.nonce = nonce;
-    }
-  }
-
-  Object.keys(attributes).forEach(function (key) {
-    style.setAttribute(key, attributes[key]);
-  });
-
-  if (typeof options.insert === 'function') {
-    options.insert(style);
-  } else {
-    var target = getTarget(options.insert || 'head');
-
-    if (!target) {
-      throw new Error("Couldn't find a style target. This probably means that the value for the 'insert' parameter is invalid.");
-    }
-
-    target.appendChild(style);
-  }
-
-  return style;
-}
-
-function removeStyleElement(style) {
-  // istanbul ignore if
-  if (style.parentNode === null) {
-    return false;
-  }
-
-  style.parentNode.removeChild(style);
-}
-/* istanbul ignore next  */
-
-
-var replaceText = function replaceText() {
-  var textStore = [];
-  return function replace(index, replacement) {
-    textStore[index] = replacement;
-    return textStore.filter(Boolean).join('\n');
-  };
-}();
-
-function applyToSingletonTag(style, index, remove, obj) {
-  var css = remove ? '' : obj.media ? "@media ".concat(obj.media, " {").concat(obj.css, "}") : obj.css; // For old IE
-
-  /* istanbul ignore if  */
-
-  if (style.styleSheet) {
-    style.styleSheet.cssText = replaceText(index, css);
-  } else {
-    var cssNode = document.createTextNode(css);
-    var childNodes = style.childNodes;
-
-    if (childNodes[index]) {
-      style.removeChild(childNodes[index]);
-    }
-
-    if (childNodes.length) {
-      style.insertBefore(cssNode, childNodes[index]);
-    } else {
-      style.appendChild(cssNode);
-    }
-  }
-}
-
-function applyToTag(style, options, obj) {
-  var css = obj.css;
-  var media = obj.media;
-  var sourceMap = obj.sourceMap;
-
-  if (media) {
-    style.setAttribute('media', media);
-  } else {
-    style.removeAttribute('media');
-  }
-
-  if (sourceMap && typeof btoa !== 'undefined') {
-    css += "\n/*# sourceMappingURL=data:application/json;base64,".concat(btoa(unescape(encodeURIComponent(JSON.stringify(sourceMap)))), " */");
-  } // For old IE
-
-  /* istanbul ignore if  */
-
-
-  if (style.styleSheet) {
-    style.styleSheet.cssText = css;
-  } else {
-    while (style.firstChild) {
-      style.removeChild(style.firstChild);
-    }
-
-    style.appendChild(document.createTextNode(css));
-  }
-}
-
-var singleton = null;
-var singletonCounter = 0;
-
-function addStyle(obj, options) {
-  var style;
-  var update;
-  var remove;
-
-  if (options.singleton) {
-    var styleIndex = singletonCounter++;
-    style = singleton || (singleton = insertStyleElement(options));
-    update = applyToSingletonTag.bind(null, style, styleIndex, false);
-    remove = applyToSingletonTag.bind(null, style, styleIndex, true);
-  } else {
-    style = insertStyleElement(options);
-    update = applyToTag.bind(null, style, options);
-
-    remove = function remove() {
-      removeStyleElement(style);
-    };
-  }
-
-  update(obj);
-  return function updateStyle(newObj) {
-    if (newObj) {
-      if (newObj.css === obj.css && newObj.media === obj.media && newObj.sourceMap === obj.sourceMap) {
-        return;
-      }
-
-      update(obj = newObj);
-    } else {
-      remove();
-    }
-  };
-}
-
-module.exports = function (list, options) {
-  options = options || {}; // Force single-tag solution on IE6-9, which has a hard limit on the # of <style>
-  // tags it will allow on a page
-
-  if (!options.singleton && typeof options.singleton !== 'boolean') {
-    options.singleton = isOldIE();
-  }
-
-  list = list || [];
-  var lastIdentifiers = modulesToDom(list, options);
-  return function update(newList) {
-    newList = newList || [];
-
-    if (Object.prototype.toString.call(newList) !== '[object Array]') {
-      return;
-    }
-
-    for (var i = 0; i < lastIdentifiers.length; i++) {
-      var identifier = lastIdentifiers[i];
-      var index = getIndexByIdentifier(identifier);
-      stylesInDom[index].references--;
-    }
-
-    var newLastIdentifiers = modulesToDom(newList, options);
-
-    for (var _i = 0; _i < lastIdentifiers.length; _i++) {
-      var _identifier = lastIdentifiers[_i];
-
-      var _index = getIndexByIdentifier(_identifier);
-
-      if (stylesInDom[_index].references === 0) {
-        stylesInDom[_index].updater();
-
-        stylesInDom.splice(_index, 1);
-      }
-    }
-
-    lastIdentifiers = newLastIdentifiers;
-  };
-};
 
 /***/ }),
 
