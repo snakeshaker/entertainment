@@ -18,9 +18,11 @@ return new class extends Migration
             $table->string('name');
             $table->integer('guest_number');
             $table->string('status')->default('available');
-            $table->string('location');
+            $table->unsignedBigInteger('category_id');
             $table->boolean('is_active')->default(1);
             $table->timestamps();
+
+            $table->foreign('category_id')->references('id')->on('categories');
         });
     }
 

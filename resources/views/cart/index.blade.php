@@ -100,22 +100,22 @@
                                 <tbody class="cart-body">
                                 @foreach($cart as $item)
                                     @if($item->user_id == \Illuminate\Support\Facades\Auth::id())
-                                        @foreach($reservations as $reservation)
-                                            @if($item->res_id == $reservation->id)
+                                        @foreach($tables as $table)
+                                            @if($item->res_id == $table->id)
                                                 <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 cart-item">
                                                     <td class="px-6 py-4 res_date">
                                                         {{ $item->res_date }}
                                                     </td>
                                                     <td class="px-6 py-4">
-                                                        {{ $reservation->name }}
+                                                        {{ $table->name }}
                                                     </td>
-                                                    <input type="hidden" class="table_id" value="{{ $reservation->id }}">
+                                                    <input type="hidden" class="table_id" value="{{ $table->id }}">
                                                     <td class="px-6 py-4 res_guest">
                                                         {{ $item->guest_number }}
                                                     </td>
                                                     <td class="px-6 py-4 menu_price res_amount">
                                                         @foreach($categories as $cat)
-                                                            @if($cat->name == $reservation->location) {{ $cat->res_price }}
+                                                            @if($cat->id == $table->id) {{ $cat->res_price }}
                                                             @endif
                                                         @endforeach
                                                     </td>

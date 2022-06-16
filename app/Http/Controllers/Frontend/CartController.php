@@ -22,9 +22,9 @@ class CartController extends Controller
         $cart = Cart::all();
         $menus = Menu::all();
         $songs = Song::all();
-        $reservations = Table::all();
+        $tables = Table::all();
         $categories = Category::all();
-        return view('cart.index', compact('cart', 'menus', 'songs', 'reservations', 'categories'));
+        return view('cart.index', compact('cart', 'menus', 'songs', 'tables', 'categories'));
     }
 
     public function add(Request $request)

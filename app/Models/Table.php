@@ -13,12 +13,17 @@ class Table extends Model
         'name',
         'guest_number',
         'status',
-        'location',
+        'category_id',
         'is_active'
     ];
 
     public function reservations()
     {
         return $this->hasMany(Reservation::class);
+    }
+
+    public function category()
+    {
+        return $this->belongsTo(Category::class, 'category_id');
     }
 }

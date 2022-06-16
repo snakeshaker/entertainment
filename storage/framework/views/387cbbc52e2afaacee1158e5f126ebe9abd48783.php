@@ -110,25 +110,25 @@
                                 <tbody class="cart-body">
                                 <?php $__currentLoopData = $cart; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $item): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                     <?php if($item->user_id == \Illuminate\Support\Facades\Auth::id()): ?>
-                                        <?php $__currentLoopData = $reservations; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $reservation): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                            <?php if($item->res_id == $reservation->id): ?>
+                                        <?php $__currentLoopData = $tables; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $table): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                            <?php if($item->res_id == $table->id): ?>
                                                 <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 cart-item">
                                                     <td class="px-6 py-4 res_date">
                                                         <?php echo e($item->res_date); ?>
 
                                                     </td>
                                                     <td class="px-6 py-4">
-                                                        <?php echo e($reservation->name); ?>
+                                                        <?php echo e($table->name); ?>
 
                                                     </td>
-                                                    <input type="hidden" class="table_id" value="<?php echo e($reservation->id); ?>">
+                                                    <input type="hidden" class="table_id" value="<?php echo e($table->id); ?>">
                                                     <td class="px-6 py-4 res_guest">
                                                         <?php echo e($item->guest_number); ?>
 
                                                     </td>
                                                     <td class="px-6 py-4 menu_price res_amount">
                                                         <?php $__currentLoopData = $categories; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $cat): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                                            <?php if($cat->name == $reservation->location): ?> <?php echo e($cat->res_price); ?>
+                                                            <?php if($cat->id == $table->id): ?> <?php echo e($cat->res_price); ?>
 
                                                             <?php endif; ?>
                                                         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>

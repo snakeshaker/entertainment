@@ -103,9 +103,9 @@ endif;
 unset($__errorArgs, $__bag); ?>
                         </div>
                         <div class="sm:col-span-6 pt-5">
-                            <label for="location" class="block text-sm font-medium text-gray-700">Местоположение</label>
+                            <label for="category_id" class="block text-sm font-medium text-gray-700">Местоположение</label>
                             <div class="mt-1">
-                                <select id="location" name="location" class="<?php $__errorArgs = ['location'];
+                                <select id="category_id" name="category_id" class="<?php $__errorArgs = ['category_id'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
 if ($__bag->has($__errorArgs[0])) :
 if (isset($message)) { $__messageOriginal = $message; }
@@ -113,15 +113,15 @@ $message = $__bag->first($__errorArgs[0]); ?> border-red-400 <?php unset($messag
 if (isset($__messageOriginal)) { $message = $__messageOriginal; }
 endif;
 unset($__errorArgs, $__bag); ?> form-multiselect block w-full mt-1">
-                                    <?php $__currentLoopData = $locations; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $location): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                        <option value="<?php echo e($location->name); ?>">
-                                            <?php echo e($location->name); ?>
+                                    <?php $__currentLoopData = $categories; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $category): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                        <option value="<?php echo e($category->id); ?>">
+                                            <?php echo e($category->name); ?>
 
                                         </option>
                                     <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                 </select>
                             </div>
-                            <?php $__errorArgs = ['location'];
+                            <?php $__errorArgs = ['category_id'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
 if ($__bag->has($__errorArgs[0])) :
 if (isset($message)) { $__messageOriginal = $message; }

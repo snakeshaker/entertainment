@@ -21,12 +21,12 @@ class TableController extends Controller
 
     public function create()
     {
-        $locations = Category::where('id', '!=', 1)->get();
+        $categories = Category::where('id', '!=', 1)->get();
         $statuses = [
           'Свободен',
           'Занят'
         ];
-        return view('admin.tables.create', compact('locations', 'statuses'));
+        return view('admin.tables.create', compact('categories', 'statuses'));
     }
 
     public function store(TableStoreRequest $request)
@@ -35,7 +35,7 @@ class TableController extends Controller
             'name' => $request->name,
             'guest_number' => $request->guest_number,
             'status' => $request->status,
-            'location' => $request->location,
+            'category_id' => $request->category_id
         ]);
 
         return to_route('admin.tables.index')->with('success', 'Место создано успешно!');
@@ -43,12 +43,11 @@ class TableController extends Controller
 
     public function edit(Table $table)
     {
-        $locations = Category::where('id', '!=', 1)->get();
         $statuses = [
             'Свободен',
             'Занят'
         ];
-        return view('admin.tables.edit', compact('table', 'locations', 'statuses'));
+        return view('admin.tables.edit', compact('table', 'statuses'));
     }
 
     public function update(TableStoreRequest $request, Table $table)
@@ -61,7 +60,6 @@ class TableController extends Controller
             'name' => $request->name,
             'guest_number' => $request->guest_number,
             'status' => $request->status,
-            'location' => $request->location,
             'is_active' => $checkbox
         ]);
 

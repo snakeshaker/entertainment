@@ -21,4 +21,9 @@ class Category extends Model
     {
         return $this->hasMany(Review::class);
     }
+
+    public function tables()
+    {
+        return $this->hasMany(Table::class);
+    }
 }

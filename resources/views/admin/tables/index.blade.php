@@ -52,7 +52,7 @@
                                 {{ $table->status }}
                             </td>
                             <td class="px-6 py-4">
-                                {{ $table->location }}
+                                {{ $table->category->name }}
                             </td>
                             <td class="px-6 py-4">
                                 @if($table->is_active) Активно

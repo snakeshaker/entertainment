@@ -64,7 +64,7 @@
 
                             </td>
                             <td class="px-6 py-4">
-                                <?php echo e($table->location); ?>
+                                <?php echo e($table->category->name); ?>
 
                             </td>
                             <td class="px-6 py-4">

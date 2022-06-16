@@ -51,17 +51,17 @@
                             @enderror
                         </div>
                         <div class="sm:col-span-6 pt-5">
-                            <label for="location" class="block text-sm font-medium text-gray-700">Местоположение</label>
+                            <label for="category_id" class="block text-sm font-medium text-gray-700">Местоположение</label>
                             <div class="mt-1">
-                                <select id="location" name="location" class="@error('location') border-red-400 @enderror form-multiselect block w-full mt-1">
-                                    @foreach($locations as $location)
-                                        <option value="{{ $location->name }}">
-                                            {{ $location->name }}
+                                <select id="category_id" name="category_id" class="@error('category_id') border-red-400 @enderror form-multiselect block w-full mt-1">
+                                    @foreach($categories as $category)
+                                        <option value="{{ $category->id }}">
+                                            {{ $category->name }}
                                         </option>
                                     @endforeach
                                 </select>
                             </div>
-                            @error('location')
+                            @error('category_id')
                             <div class="text-sm text-red-400">{{ $message }}</div>
                             @enderror
                         </div>
