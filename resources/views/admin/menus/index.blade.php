@@ -65,8 +65,8 @@
                                     {{ $menu->price }}
                                 </td>
                                 <td class="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap">
-                                    @if($menu->is_active) активно
-                                    @else неактивно
+                                    @if($menu->is_active) Активно
+                                    @else Неактивно
                                     @endif
                                 </td>
                                 <td class="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap">

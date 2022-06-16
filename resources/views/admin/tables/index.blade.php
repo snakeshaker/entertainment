@@ -32,6 +32,9 @@
                             Местоположение
                         </th>
                         <th scope="col" class="px-6 py-3">
+                            Активность
+                        </th>
+                        <th scope="col" class="px-6 py-3">
                             <span>Изменить</span>
                         </th>
                     </tr>
@@ -50,6 +53,11 @@
                             </td>
                             <td class="px-6 py-4">
                                 {{ $table->location }}
+                            </td>
+                            <td class="px-6 py-4">
+                                @if($table->is_active) Активно
+                                @else В резерве
+                                @endif
                             </td>
                             <td class="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap">
                                 <div class="flex space-x-2">
