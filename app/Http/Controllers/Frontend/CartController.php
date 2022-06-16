@@ -96,18 +96,21 @@ class CartController extends Controller
     {
 //        dd($request->deliveryInfo);
         for ($i = 0; $i < count($request->res_dates); $i++) {
-            Reservation::create([
-                'user_id' => Auth::id(),
-                'first_name' => Auth::user()->first_name,
-                'last_name' => Auth::user()->last_name,
-                'email' => Auth::user()->email,
-                'tel_number' => Auth::user()->tel_number,
-                'res_date' => $request->res_dates[$i],
-                'table_id' => $request->table_ids[$i],
-                'guest_number' => $request->guests[$i]
-            ]);
+            if(Reservation::where('res_date', $request->res_date)) {
+                continue;
+            } else {
+                Reservation::create([
+                    'user_id' => Auth::id(),
+                    'first_name' => Auth::user()->first_name,
+                    'last_name' => Auth::user()->last_name,
+                    'email' => Auth::user()->email,
+                    'tel_number' => Auth::user()->tel_number,
+                    'res_date' => $request->res_dates[$i],
+                    'table_id' => $request->table_ids[$i],
+                    'guest_number' => $request->guests[$i]
+                ]);
+            }
         }
-
         Order::create([
             'user_id' => Auth::id(),
             'code' => $request->code,
