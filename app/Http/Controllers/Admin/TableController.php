@@ -21,7 +21,9 @@ class TableController extends Controller
 
     public function create()
     {
+        $tables = Table::all();
         $categories = Category::where('id', '!=', 1)->get();
+
         $statuses = [
           'Свободен',
           'Занят'

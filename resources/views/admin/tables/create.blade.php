@@ -55,9 +55,11 @@
                             <div class="mt-1">
                                 <select id="category_id" name="category_id" class="@error('category_id') border-red-400 @enderror form-multiselect block w-full mt-1">
                                     @foreach($categories as $category)
-                                        <option value="{{ $category->id }}">
+                                        @if($category->getTableNum() < $category->limit)
+                                        <option value="{{ $category->id }}" >
                                             {{ $category->name }}
                                         </option>
+                                        @endif
                                     @endforeach
                                 </select>
                             </div>

@@ -114,10 +114,12 @@ if (isset($__messageOriginal)) { $message = $__messageOriginal; }
 endif;
 unset($__errorArgs, $__bag); ?> form-multiselect block w-full mt-1">
                                     <?php $__currentLoopData = $categories; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $category): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                        <option value="<?php echo e($category->id); ?>">
+                                        <?php if($category->getTableNum() < $category->limit): ?>
+                                        <option value="<?php echo e($category->id); ?>" >
                                             <?php echo e($category->name); ?>
 
                                         </option>
+                                        <?php endif; ?>
                                     <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                 </select>
                             </div>

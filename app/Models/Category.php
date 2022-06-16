@@ -14,7 +14,8 @@ class Category extends Model
         'image',
         'space_image',
         'res_price',
-        'description'
+        'description',
+        'limit'
     ];
 
     public function reviews()
@@ -25,5 +26,15 @@ class Category extends Model
     public function tables()
     {
         return $this->hasMany(Table::class);
+    }
+
+    public function getTableNum()
+    {
+        $total = 0;
+
+        foreach ($this->tables as $table) {
+            $total += 1;
+        }
+        return $total;
     }
 }

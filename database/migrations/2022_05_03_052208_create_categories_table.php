@@ -19,6 +19,7 @@ return new class extends Migration
             $table->text('description');
             $table->string('image');
             $table->string('space_image');
+            $table->integer('limit')->nullable();
             $table->decimal('res_price', 10, 2);
             $table->timestamps();
         });

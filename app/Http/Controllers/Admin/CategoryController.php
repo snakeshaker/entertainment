@@ -34,7 +34,8 @@ class CategoryController extends Controller
             'image' => $image,
             'space_image' => $space_image,
             'res_price' => $request->res_price,
-            'description' => $request->description
+            'description' => $request->description,
+            'limit' => $request->limit
         ]);
 
         return to_route('admin.categories.index')->with('success', 'Категория создана успешно!');
@@ -67,7 +68,8 @@ class CategoryController extends Controller
             'description' => $request->description,
             'res_price' => $request->res_price,
             'image' => $image,
-            'space_image' => $space_image
+            'space_image' => $space_image,
+            'limit' => $request->limit
         ]);
 
         return to_route('admin.categories.index')->with('success', 'Категория обновлена успешно!');
