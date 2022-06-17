@@ -94,7 +94,6 @@ class CartController extends Controller
 
     public function createOrder(Request $request)
     {
-//        dd($request->deliveryInfo);
         for ($i = 0; $i < count($request->res_dates); $i++) {
             if(Reservation::where('res_date', $request->res_date)) {
                 continue;

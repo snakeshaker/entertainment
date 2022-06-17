@@ -7174,44 +7174,6 @@ $(document).ready(function () {
   var pickedPlace = {};
   var responseObject = {};
   var tableID, tableMax;
-
-  if ($('.airdatepicker')) {
-    $.ajax({
-      url: '/reserve-all',
-      type: "GET",
-      dataType: "json",
-      success: function success(response) {
-        console.log(response);
-      }
-    });
-  } // function getData() {
-  //     let curYear, curMonth, curDay, curHour, curMin, finalString;
-  //     $('.xdsoft_current').each(function() {
-  //         if($(this).attr('data-year')) {
-  //             curYear = $(this).attr('data-year')
-  //         }
-  //         if($(this).attr('data-month')) {
-  //             curMonth = $(this).attr('data-month')
-  //         }
-  //         if($(this).attr('data-date')) {
-  //             curDay = $(this).attr('data-date')
-  //         }
-  //         if($(this).attr('data-hour')) {
-  //             curHour = $(this).attr('data-hour')
-  //         }
-  //         if($(this).attr('data-minute')) {
-  //             if($(this).attr('data-minute') == 0) {
-  //                 curMin = `${$(this).attr('data-minute')}0`
-  //             } else {
-  //                 curMin = $(this).attr('data-minute')
-  //             }
-  //         }
-  //     })
-  //     finalString = `${curYear}/${curMonth}/${curDay} ${curHour}:${curMin}`
-  //     console.log(finalString);
-  // }
-
-
   $.datetimepicker.setLocale('ru');
   $('.airdatepicker').datetimepicker({
     lang: 'ru',
