@@ -7173,7 +7173,7 @@ $(document).ready(function () {
   var maxDate = today.setDate(today.getDate() + 7);
   var pickedPlace = {};
   var responseObject = {};
-  var tableID, tableMax;
+  var tableID, tableMax, tableCat;
   $.datetimepicker.setLocale('ru');
   $('.airdatepicker').datetimepicker({
     lang: 'ru',
@@ -7195,22 +7195,42 @@ $(document).ready(function () {
         res_date: $('#res_date').val(),
         table_id: parseInt(tableID)
       };
-      var same = false;
-      $.each(responseObject, function (key, value) {
-        if (pickedPlace.res_date === value.res_date && pickedPlace.table_id === value.table_id) {
-          same = true;
-          return false;
-        }
-      });
+      var same,
+          sameKar = false;
 
-      if ($('#res_date').val() !== '' && !same) {
+      if (tableCat == 3) {
+        $.each(responseObject, function (key, value) {
+          pickedPlace.res_date = pickedPlace.res_date.slice(0, 10).trim();
+          value.res_date = value.res_date.slice(0, 10).trim();
+
+          if (pickedPlace.res_date === value.res_date && pickedPlace.table_id === value.table_id) {
+            sameKar = true;
+            return false;
+          }
+        });
+      } else {
+        $.each(responseObject, function (key, value) {
+          if (pickedPlace.res_date === value.res_date && pickedPlace.table_id === value.table_id) {
+            same = true;
+            return false;
+          }
+        });
+      }
+
+      if ($('#res_date').val() !== '' && !same && !sameKar) {
         if ($('#guest_number').val() !== '') {
           $('.submit-reserve').removeClass('hidden');
         }
 
         $('.reserve-err').addClass('hidden');
-      } else {
+        $('.reserve-err-karaoke').addClass('hidden');
+      } else if (same) {
+        $('.reserve-err-karaoke').addClass('hidden');
         $('.reserve-err').removeClass('hidden');
+        $('.submit-reserve').addClass('hidden');
+      } else {
+        $('.reserve-err').addClass('hidden');
+        $('.reserve-err-karaoke').removeClass('hidden');
         $('.submit-reserve').addClass('hidden');
       }
     }
@@ -7237,6 +7257,7 @@ $(document).ready(function () {
     $('.submit-reserve').toggleClass('hidden');
     tableID = $(this).attr('data-table');
     tableMax = $(this).attr('data-max');
+    tableCat = $(this).attr('data-cat');
     $('.table-id').val(tableID);
     $('#guest_number').attr('max', tableMax);
     $('.num-span').html("\u041C\u0430\u043A\u0441\u0438\u043C\u0430\u043B\u044C\u043D\u043E \u0434\u043E\u043F\u0443\u0441\u0442\u0438\u043C\u043E\u0435 \u043A\u043E\u043B-\u0432\u043E \u0434\u043B\u044F \u0434\u0430\u043D\u043D\u043E\u0433\u043E \u0441\u0442\u043E\u043B\u0430 - ".concat(tableMax));

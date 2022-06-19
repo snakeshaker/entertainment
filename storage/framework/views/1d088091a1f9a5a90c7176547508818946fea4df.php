@@ -44,8 +44,8 @@
                                 <?php if($item->user_id == \Illuminate\Support\Facades\Auth::id()): ?>
                                 <?php $__currentLoopData = $menus; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $menu): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                 <?php if($item->menu_id == $menu->id): ?>
-                                <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 cart-item">
-                                    <td class="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap">
+                                <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 cart-item food-item">
+                                    <td class="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap food-name">
                                         <?php echo e($menu->name); ?>
 
                                     </td>
@@ -85,134 +85,137 @@
                             <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                             </tbody>
                         </table>
-                        <h2 class="text-4xl text-green-600">Бронирования</h2>
-                        <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400 bk-table admin-table">
-                            <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
-                            <tr>
-                                <th scope="col" class="px-6 py-3">
-                                    Дата бронирования
-                                </th>
-                                <th scope="col" class="px-6 py-3">
-                                    Место
-                                </th>
-                                <th scope="col" class="px-6 py-3">
-                                    Кол-во гостей
-                                </th>
-                                <th scope="col" class="px-6 py-3">
-                                    Сумма
-                                </th>
-                                <th scope="col" class="px-6 py-3">
-                                    <span>Удалить</span>
-                                </th>
-                            </tr>
-                            </thead>
-                            <tbody class="cart-body">
-                            <?php $__currentLoopData = $cart; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $item): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                <?php if($item->user_id == \Illuminate\Support\Facades\Auth::id()): ?>
-                                    <?php $__currentLoopData = $reservations; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $reservation): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                        <?php if($item->res_id == $reservation->id): ?>
-                                            <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 cart-item">
-                                                <td class="px-6 py-4">
-                                                    <?php echo e($item->res_date); ?>
+                        <div class="nedostavka">
+                            <h2 class="text-4xl text-green-600">Бронирования</h2>
+                            <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400 bk-table admin-table">
+                                <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                                <tr>
+                                    <th scope="col" class="px-6 py-3">
+                                        Дата бронирования
+                                    </th>
+                                    <th scope="col" class="px-6 py-3">
+                                        Место
+                                    </th>
+                                    <th scope="col" class="px-6 py-3">
+                                        Кол-во гостей
+                                    </th>
+                                    <th scope="col" class="px-6 py-3">
+                                        Сумма
+                                    </th>
+                                    <th scope="col" class="px-6 py-3">
+                                        <span>Удалить</span>
+                                    </th>
+                                </tr>
+                                </thead>
+                                <tbody class="cart-body">
+                                <?php $__currentLoopData = $cart; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $item): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                    <?php if($item->user_id == \Illuminate\Support\Facades\Auth::id()): ?>
+                                        <?php $__currentLoopData = $tables; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $table): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                            <?php if($item->res_id == $table->id): ?>
+                                                <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 cart-item">
+                                                    <td class="px-6 py-4 res_date">
+                                                        <?php echo e($item->res_date); ?>
 
-                                                </td>
-                                                <td class="px-6 py-4">
-                                                    <?php echo e($reservation->name); ?>
+                                                    </td>
+                                                    <td class="px-6 py-4">
+                                                        <?php echo e($table->name); ?>
 
-                                                </td>
-                                                <td class="px-6 py-4">
-                                                    <?php echo e($reservation->guest_number); ?>
+                                                    </td>
+                                                    <input type="hidden" class="table_id" value="<?php echo e($table->id); ?>">
+                                                    <td class="px-6 py-4 res_guest">
+                                                        <?php echo e($item->guest_number); ?>
 
-                                                </td>
-                                                <td class="px-6 py-4 menu_price">
-                                                    <?php $__currentLoopData = $categories; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $cat): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                                        <?php if($cat->name == $reservation->location): ?> <?php echo e($cat->res_price); ?>
+                                                    </td>
+                                                    <td class="px-6 py-4 menu_price res_amount">
+                                                        <?php $__currentLoopData = $categories; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $cat): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                                            <?php if($cat->id == $table->category_id): ?> <?php echo e($cat->res_price); ?>
 
-                                                        <?php endif; ?>
-                                                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-                                                </td>
-                                                <td class="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap">
-                                                    <form class="px-4 py-2 bg-red-500 hover:bg-red-700 rounded-lg text-white text-center"
-                                                          id="destroy_entry"
-                                                          method="POST"
-                                                          action="<?php echo e(route('cart.destroy', $item->id)); ?>"
-                                                    >
-                                                        <?php echo csrf_field(); ?>
-                                                        <?php echo method_field("DELETE"); ?>
-                                                        <button type="submit">Удалить</button>
-                                                    </form>
-                                                </td>
-                                            </tr>
-                                        <?php else: ?> <?php continue; ?>
-                                        <?php endif; ?>
-                                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-                                <?php endif; ?>
-                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-                            </tbody>
-                        </table>
-                        <h2 class="text-4xl text-green-600">Песни</h2>
-                        <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400 bk-table admin-table">
-                            <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
-                            <tr>
-                                <th scope="col" class="px-6 py-3">
-                                    Исполнитель
-                                </th>
-                                <th scope="col" class="px-6 py-3">
-                                    Название песни
-                                </th>
-                                <th scope="col" class="px-6 py-3">
-                                    Жанр
-                                </th>
-                                <th scope="col" class="px-6 py-3">
-                                    Ссылка на видео
-                                </th>
-                                <th scope="col" class="px-6 py-3">
-                                    <span>Удалить</span>
-                                </th>
-                            </tr>
-                            </thead>
-                            <tbody class="cart-body">
-                            <?php $__currentLoopData = $cart; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $item): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                <?php if($item->user_id == \Illuminate\Support\Facades\Auth::id()): ?>
-                                    <?php $__currentLoopData = $songs; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $song): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                        <?php if($item->song_id == $song->id): ?>
-                                            <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 cart-item">
-                                                <th scope="row" class="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap">
-                                                    <?php echo e($song->singer); ?>
+                                                            <?php endif; ?>
+                                                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                                                    </td>
+                                                    <td class="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap">
+                                                        <form class="px-4 py-2 bg-red-500 hover:bg-red-700 rounded-lg text-white text-center"
+                                                              id="destroy_entry"
+                                                              method="POST"
+                                                              action="<?php echo e(route('cart.destroy', $item->id)); ?>"
+                                                        >
+                                                            <?php echo csrf_field(); ?>
+                                                            <?php echo method_field("DELETE"); ?>
+                                                            <button type="submit">Удалить</button>
+                                                        </form>
+                                                    </td>
+                                                </tr>
+                                            <?php else: ?> <?php continue; ?>
+                                            <?php endif; ?>
+                                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                                    <?php endif; ?>
+                                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                                </tbody>
+                            </table>
+                            <h2 class="text-4xl text-green-600">Песни</h2>
+                            <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400 bk-table admin-table">
+                                <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                                <tr>
+                                    <th scope="col" class="px-6 py-3">
+                                        Исполнитель
+                                    </th>
+                                    <th scope="col" class="px-6 py-3">
+                                        Название песни
+                                    </th>
+                                    <th scope="col" class="px-6 py-3">
+                                        Жанр
+                                    </th>
+                                    <th scope="col" class="px-6 py-3">
+                                        Ссылка на видео
+                                    </th>
+                                    <th scope="col" class="px-6 py-3">
+                                        <span>Удалить</span>
+                                    </th>
+                                </tr>
+                                </thead>
+                                <tbody class="cart-body">
+                                <?php $__currentLoopData = $cart; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $item): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                    <?php if($item->user_id == \Illuminate\Support\Facades\Auth::id()): ?>
+                                        <?php $__currentLoopData = $songs; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $song): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                            <?php if($item->song_id == $song->id): ?>
+                                                <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 cart-item">
+                                                    <th scope="row" class="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap info-singer">
+                                                        <?php echo e($song->singer); ?>
 
-                                                </th>
-                                                <th class="px-6 py-4">
-                                                    <?php echo e($song->song_name); ?>
+                                                    </th>
+                                                    <th class="px-6 py-4 info-song">
+                                                        <?php echo e($song->song_name); ?>
 
-                                                </th>
-                                                <th class="px-6 py-4">
-                                                    <?php echo e($song->genre); ?>
+                                                    </th>
+                                                    <th class="px-6 py-4 info-genres">
+                                                        <?php echo e($song->genre); ?>
 
-                                                </th>
-                                                <td class="px-6 py-4 truncate max-w-[200px]">
-                                                    <a href="<?php echo e($song->video_link); ?>" target="_blank">
-                                                        <img src="<?php echo e(asset('assets/youtube.svg')); ?>" alt="" width="32">
-                                                    </a>
-                                                </td>
-                                                <td class="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap">
-                                                    <form class="px-4 py-2 bg-red-500 hover:bg-red-700 rounded-lg text-white text-center"
-                                                          id="destroy_entry"
-                                                          method="POST"
-                                                          action="<?php echo e(route('cart.destroy', $item->id)); ?>"
-                                                    >
-                                                        <?php echo csrf_field(); ?>
-                                                        <?php echo method_field("DELETE"); ?>
-                                                        <button type="submit">Удалить</button>
-                                                    </form>
-                                                </td>
-                                            </tr>
-                                        <?php else: ?> <?php continue; ?>
-                                        <?php endif; ?>
-                                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-                                <?php endif; ?>
-                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-                            </tbody>
-                        </table>
+                                                    </th>
+                                                    <td class="px-6 py-4 truncate max-w-[200px]">
+                                                        <a href="<?php echo e($song->video_link); ?>" target="_blank">
+                                                            <img src="<?php echo e(asset('assets/youtube.svg')); ?>" alt="" width="32">
+                                                        </a>
+                                                    </td>
+                                                    <td class="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap">
+                                                        <form class="px-4 py-2 bg-red-500 hover:bg-red-700 rounded-lg text-white text-center"
+                                                              id="destroy_entry"
+                                                              method="POST"
+                                                              action="<?php echo e(route('cart.destroy', $item->id)); ?>"
+                                                        >
+                                                            <?php echo csrf_field(); ?>
+                                                            <?php echo method_field("DELETE"); ?>
+                                                            <button type="submit">Удалить</button>
+                                                        </form>
+                                                    </td>
+                                                </tr>
+                                            <?php else: ?> <?php continue; ?>
+                                            <?php endif; ?>
+                                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                                    <?php endif; ?>
+                                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                                </tbody>
+                            </table>
+                        </div>
                         <div class="flex justify-between m-2 p-2">
                             <div class="font-bold">
                                 Итого: <span class="cart-total"></span>₽

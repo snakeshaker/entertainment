@@ -5,7 +5,7 @@ $(document).ready(function (){
     let maxDate = today.setDate(today.getDate() + 7);
     let pickedPlace = {};
     let responseObject = {};
-    let tableID, tableMax;
+    let tableID, tableMax, tableCat;
     $.datetimepicker.setLocale('ru');
     $('.airdatepicker').datetimepicker({
         lang: 'ru',
@@ -31,20 +31,37 @@ $(document).ready(function (){
                 res_date: $('#res_date').val(),
                 table_id: parseInt(tableID)
             }
-            let same = false;
-            $.each(responseObject, function (key, value){
-                if(pickedPlace.res_date === value.res_date && pickedPlace.table_id === value.table_id) {
-                    same = true;
-                    return false;
-                }
-            });
-            if($('#res_date').val() !== '' && !same) {
+            let same, sameKar = false;
+            if(tableCat == 3) {
+                $.each(responseObject, function (key, value){
+                    pickedPlace.res_date = pickedPlace.res_date.slice(0, 10).trim();
+                    value.res_date = value.res_date.slice(0, 10).trim();
+                    if(pickedPlace.res_date === value.res_date && pickedPlace.table_id === value.table_id) {
+                        sameKar = true;
+                        return false;
+                    }
+                });
+            } else {
+                $.each(responseObject, function (key, value){
+                    if(pickedPlace.res_date === value.res_date && pickedPlace.table_id === value.table_id) {
+                        same = true;
+                        return false;
+                    }
+                });
+            }
+            if($('#res_date').val() !== '' && !same && !sameKar) {
                 if($('#guest_number').val() !== '') {
                     $('.submit-reserve').removeClass('hidden');
                 }
                 $('.reserve-err').addClass('hidden');
-            } else {
+                $('.reserve-err-karaoke').addClass('hidden');
+            } else if(same) {
+                $('.reserve-err-karaoke').addClass('hidden');
                 $('.reserve-err').removeClass('hidden');
+                $('.submit-reserve').addClass('hidden');
+            } else {
+                $('.reserve-err').addClass('hidden');
+                $('.reserve-err-karaoke').removeClass('hidden');
                 $('.submit-reserve').addClass('hidden');
             }
         }
@@ -71,6 +88,7 @@ $(document).ready(function (){
         $('.submit-reserve').toggleClass('hidden')
         tableID = $(this).attr('data-table');
         tableMax = $(this).attr('data-max');
+        tableCat = $(this).attr('data-cat');
         $('.table-id').val(tableID);
         $('#guest_number').attr('max', tableMax);
         $('.num-span').html(`Максимально допустимое кол-во для данного стола - ${tableMax}`);

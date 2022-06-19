@@ -262,19 +262,40 @@
 <?php unset($__componentOriginalc254754b9d5db91d5165876f9d051922ca0066f4); ?>
 <?php endif; ?>
                     <?php if (isset($component)) { $__componentOriginalc254754b9d5db91d5165876f9d051922ca0066f4 = $component; } ?>
-<?php $component = $__env->getContainer()->make(Illuminate\View\AnonymousComponent::class, ['view' => 'components.admin-nav-link','data' => ['href' => route('admin.galleries.index'),'active' => request()->routeIs('admin.orders.index')]] + (isset($attributes) ? (array) $attributes->getIterator() : [])); ?>
+<?php $component = $__env->getContainer()->make(Illuminate\View\AnonymousComponent::class, ['view' => 'components.admin-nav-link','data' => ['href' => route('admin.galleries.index'),'active' => request()->routeIs('admin.galleries.index')]] + (isset($attributes) ? (array) $attributes->getIterator() : [])); ?>
 <?php $component->withName('admin-nav-link'); ?>
 <?php if ($component->shouldRender()): ?>
 <?php $__env->startComponent($component->resolveView(), $component->data()); ?>
 <?php if (isset($attributes) && $constructor = (new ReflectionClass(Illuminate\View\AnonymousComponent::class))->getConstructor()): ?>
 <?php $attributes = $attributes->except(collect($constructor->getParameters())->map->getName()->all()); ?>
 <?php endif; ?>
-<?php $component->withAttributes(['href' => \Illuminate\View\Compilers\BladeCompiler::sanitizeComponentAttribute(route('admin.galleries.index')),'active' => \Illuminate\View\Compilers\BladeCompiler::sanitizeComponentAttribute(request()->routeIs('admin.orders.index'))]); ?>
+<?php $component->withAttributes(['href' => \Illuminate\View\Compilers\BladeCompiler::sanitizeComponentAttribute(route('admin.galleries.index')),'active' => \Illuminate\View\Compilers\BladeCompiler::sanitizeComponentAttribute(request()->routeIs('admin.galleries.index'))]); ?>
                         <picture>
                             <source srcset="<?php echo e(asset('assets/admin/dark/gallery.svg')); ?>" media="(prefers-color-scheme: light)">
                             <img src="<?php echo e(asset('assets/admin/gallery.svg')); ?>" alt="" width="32" height="32" class="inline-block">
                         </picture>
                         <?php echo e(__('Фотогалерея')); ?>
+
+                     <?php echo $__env->renderComponent(); ?>
+<?php endif; ?>
+<?php if (isset($__componentOriginalc254754b9d5db91d5165876f9d051922ca0066f4)): ?>
+<?php $component = $__componentOriginalc254754b9d5db91d5165876f9d051922ca0066f4; ?>
+<?php unset($__componentOriginalc254754b9d5db91d5165876f9d051922ca0066f4); ?>
+<?php endif; ?>
+                    <?php if (isset($component)) { $__componentOriginalc254754b9d5db91d5165876f9d051922ca0066f4 = $component; } ?>
+<?php $component = $__env->getContainer()->make(Illuminate\View\AnonymousComponent::class, ['view' => 'components.admin-nav-link','data' => ['href' => route('admin.contacts.index'),'active' => request()->routeIs('admin.contacts.index')]] + (isset($attributes) ? (array) $attributes->getIterator() : [])); ?>
+<?php $component->withName('admin-nav-link'); ?>
+<?php if ($component->shouldRender()): ?>
+<?php $__env->startComponent($component->resolveView(), $component->data()); ?>
+<?php if (isset($attributes) && $constructor = (new ReflectionClass(Illuminate\View\AnonymousComponent::class))->getConstructor()): ?>
+<?php $attributes = $attributes->except(collect($constructor->getParameters())->map->getName()->all()); ?>
+<?php endif; ?>
+<?php $component->withAttributes(['href' => \Illuminate\View\Compilers\BladeCompiler::sanitizeComponentAttribute(route('admin.contacts.index')),'active' => \Illuminate\View\Compilers\BladeCompiler::sanitizeComponentAttribute(request()->routeIs('admin.contacts.index'))]); ?>
+                        <picture>
+                            <source srcset="<?php echo e(asset('assets/admin/dark/contact.svg')); ?>" media="(prefers-color-scheme: light)">
+                            <img src="<?php echo e(asset('assets/admin/contact.svg')); ?>" alt="" width="32" height="32" class="inline-block">
+                        </picture>
+                        <?php echo e(__('Контакты')); ?>
 
                      <?php echo $__env->renderComponent(); ?>
 <?php endif; ?>

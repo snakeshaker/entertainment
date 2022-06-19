@@ -8,17 +8,18 @@
 <?php endif; ?>
 <?php $component->withAttributes([]); ?>
     <!-- Main Hero Content -->
-    <div class="container max-w-lg px-4 py-32 mx-auto text-left bg-center bg-no-repeat bg-cover md:max-w-none md:text-center"
-         style="background-image: url('assets/media_entertainment.png')">
+    <div class="container max-w-lg px-4 py-32 mx-auto text-left bg-center bg-no-repeat bg-cover md:max-w-none md:text-center relative"
+         style="background-image: url('assets/media_entertainment.png'); font-family: 'Pacifico'">
         <h1
-            class="font-mono text-3xl font-extrabold text-white md:text-center sm:leading-none lg:text-5xl">
+            class="text-3xl font-extrabold text-white md:text-center sm:leading-none lg:text-5xl z-[2] relative">
             <span class="inline md:block">Развлечения</span>
         </h1>
-        <div class="mx-auto mt-2 text-green-50 md:text-center lg:text-lg">
+        <div class="mx-auto mt-2 text-green-50 md:text-center md:text-lg lg:text-2xl z-[2] relative">
             Развлечения - эта шелуха праздников. Есть обычай оформлять особые дни отказом от будничных забот, специальной пищей,
             особыми видами физической и интеллектуальной активности итд. Когда люди лишены праздников, они создают себе развлечения
             - все то же самое, еда, праздность, забавы, только без смыслового наполнения.
         </div>
+        <div class="w-full h-full absolute top-0 right-0 z-0 backdrop-blur"></div>
     </div>
     <!-- End Main Hero Content -->
     <section class="px-2 py-10 bg-white md:px-0">
