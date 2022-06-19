@@ -95,20 +95,16 @@ class CartController extends Controller
     public function createOrder(Request $request)
     {
         for ($i = 0; $i < count($request->res_dates); $i++) {
-            if(Reservation::where('res_date', $request->res_date)) {
-                continue;
-            } else {
-                Reservation::create([
-                    'user_id' => Auth::id(),
-                    'first_name' => Auth::user()->first_name,
-                    'last_name' => Auth::user()->last_name,
-                    'email' => Auth::user()->email,
-                    'tel_number' => Auth::user()->tel_number,
-                    'res_date' => $request->res_dates[$i],
-                    'table_id' => $request->table_ids[$i],
-                    'guest_number' => $request->guests[$i]
-                ]);
-            }
+            Reservation::create([
+                'user_id' => Auth::id(),
+                'first_name' => Auth::user()->first_name,
+                'last_name' => Auth::user()->last_name,
+                'email' => Auth::user()->email,
+                'tel_number' => Auth::user()->tel_number,
+                'res_date' => $request->res_dates[$i],
+                'table_id' => $request->table_ids[$i],
+                'guest_number' => $request->guests[$i]
+            ]);
         }
         Order::create([
             'user_id' => Auth::id(),
