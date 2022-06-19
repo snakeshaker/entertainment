@@ -34,11 +34,17 @@ $(document).ready(function (){
             let same, sameKar = false;
             if(tableCat == 3) {
                 $.each(responseObject, function (key, value){
-                    pickedPlace.res_date = pickedPlace.res_date.slice(0, 10).trim();
-                    value.res_date = value.res_date.slice(0, 10).trim();
-                    if(pickedPlace.res_date === value.res_date && pickedPlace.table_id === value.table_id) {
-                        sameKar = true;
-                        return false;
+                    let pick = Object.assign({}, pickedPlace);
+                    let check = Object.assign({}, value);
+                    let pickDate = new Date(pickedPlace.res_date).getTime();
+                    let checkDate = new Date(value.res_date).getTime();
+                    pick.res_date = pick.res_date.slice(0, 10).trim();
+                    check.res_date = check.res_date.slice(0, 10).trim();
+                    if(pick.res_date === check.res_date && pick.table_id === check.table_id) {
+                        if(pickDate >= checkDate) {
+                            sameKar = true;
+                            return false;
+                        }
                     }
                 });
             } else {

@@ -193,7 +193,7 @@
                         </div>
                         <span class="text-xs reserve-info">Пожалуйста выберите время с 15:00 до 01:30.</span>
                         <span class="text-xs text-red-600 block hidden reserve-err">Это время занято!</span>
-                        <span class="text-xs text-red-600 block hidden reserve-err-karaoke">На этот день занято! Выберите другой день.</span>
+                        <span class="text-xs text-red-600 block hidden reserve-err-karaoke">Занято! Выберите время раньше или другой день.</span>
                     </div>
                     <input type="hidden" class="table-id" id="table_id" name="table_id">
                     <div class="mt-6 p-4 text-center">
