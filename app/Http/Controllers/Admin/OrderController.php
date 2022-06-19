@@ -25,6 +25,7 @@ class OrderController extends Controller
 
     public function destroy(Order $order)
     {
+        $order->order_info()->delete();
         $order->delete();
         return to_route('admin.orders.index')->with('danger', 'Запись удалена успешно!');
     }
