@@ -68,6 +68,7 @@ Route::middleware(['auth'])->group(function (){
     Route::get('/failure', [PaymentController::class, 'failure']);
     Route::post('/create-order', [CartController::class, 'createOrder']);
     Route::get('/reserve-all', [ReservationController::class, 'show'])->name('reserve.show');
+    Route::get('/reserve-cart', [ReservationController::class, 'cartRes'])->name('reserve.cart-res');
 });
 
 //ADMIN

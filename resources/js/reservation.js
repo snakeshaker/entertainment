@@ -33,6 +33,14 @@ $(document).ready(function (){
             }
             let same, sameKar = false;
             if(tableCat == 3) {
+                $.ajax({
+                    url: '/reserve-cart',
+                    type: "GET",
+                    dataType: "json",
+                    success:function(response) {
+                        responseObject = response;
+                    }
+                });
                 $.each(responseObject, function (key, value){
                     let pick = Object.assign({}, pickedPlace);
                     let check = Object.assign({}, value);
@@ -40,7 +48,7 @@ $(document).ready(function (){
                     let checkDate = new Date(value.res_date).getTime();
                     pick.res_date = pick.res_date.slice(0, 10).trim();
                     check.res_date = check.res_date.slice(0, 10).trim();
-                    if(pick.res_date === check.res_date && pick.table_id === check.table_id) {
+                    if(pick.res_date === check.res_date && pick.table_id === +check.res_id) {
                         if(pickDate >= checkDate) {
                             sameKar = true;
                             return false;
