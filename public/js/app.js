@@ -6918,7 +6918,7 @@ $(document).on("change", ".payment-toggle", function (e) {
 });
 $(document).on("click", "#confirm-order", /*#__PURE__*/function () {
   var _ref = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee(e) {
-    var _INVOICE_ID, _AMOUNT, _METHOD_PAY, DEL_INFO, res_dates, _iterator, _step, obj, table_ids, _iterator2, _step2, _obj, guests, _iterator3, _step3, _obj2, foodsArr, foods, qtys, amounts, i, food, resArr, reses, tables, guest_num, res_amount, _i, res, songArr, artists, songNames, genres, _i2, song, order, auth, text;
+    var _INVOICE_ID, _AMOUNT, _METHOD_PAY, DEL_INFO, res_dates, _iterator, _step, obj, table_ids, _iterator2, _step2, _obj, guests, _iterator3, _step3, _obj2, foodsArr, foods, qtys, amounts, i, food, resArr, reses, tables, guest_num, res_amount, _i, res, songArr, artists, songNames, genres, _i2, song, text, order, auth;
 
     return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_context) {
       while (1) {
@@ -7037,7 +7037,32 @@ $(document).on("click", "#confirm-order", /*#__PURE__*/function () {
             return _context.abrupt("return");
 
           case 35:
-            _context.next = 37;
+            if (!(_METHOD_PAY == 3)) {
+              _context.next = 41;
+              break;
+            }
+
+            text = $('#dostavka-info').val();
+
+            if (text) {
+              _context.next = 40;
+              break;
+            }
+
+            Swal.fire({
+              icon: 'error',
+              title: 'Ошибка',
+              text: 'Примечание обязательно для заполнения!'
+            });
+            return _context.abrupt("return");
+
+          case 40:
+            Swal.fire('Успешно!', 'Администратор свяжется с вами в ближайшее время!', 'success').then(function () {
+              window.location.href = "/dashboard/";
+            });
+
+          case 41:
+            _context.next = 43;
             return axios.post("/create-order", {
               code: _INVOICE_ID,
               pay: _METHOD_PAY,
@@ -7052,64 +7077,39 @@ $(document).on("click", "#confirm-order", /*#__PURE__*/function () {
               songArr: songArr
             });
 
-          case 37:
+          case 43:
             order = _context.sent;
 
             if (!(_METHOD_PAY == 1)) {
-              _context.next = 43;
+              _context.next = 49;
               break;
             }
 
-            _context.next = 41;
+            _context.next = 47;
             return axios.post("/token", {
               order: _INVOICE_ID,
               amount: _AMOUNT
             });
 
-          case 41:
+          case 47:
             auth = _context.sent;
             halyk.pay(createPaymentObject(auth.data, _INVOICE_ID, _AMOUNT));
 
-          case 43:
+          case 49:
             if (!(_METHOD_PAY == 2)) {
-              _context.next = 48;
+              _context.next = 54;
               break;
             }
 
-            _context.next = 46;
+            _context.next = 52;
             return axios.post("/token", {
               order: _INVOICE_ID,
               amount: _AMOUNT / 2
             });
 
-          case 46:
+          case 52:
             auth = _context.sent;
             halyk.pay(createPaymentObject(auth.data, _INVOICE_ID, _AMOUNT / 2));
-
-          case 48:
-            if (!(_METHOD_PAY == 3)) {
-              _context.next = 54;
-              break;
-            }
-
-            text = $('#dostavka-info').val();
-
-            if (text) {
-              _context.next = 53;
-              break;
-            }
-
-            Swal.fire({
-              icon: 'error',
-              title: 'Ошибка',
-              text: 'Примечание обязательно для заполнения!'
-            });
-            return _context.abrupt("return");
-
-          case 53:
-            Swal.fire('Успешно!', 'Администратор свяжется с вами в ближайшее время!', 'success').then(function () {
-              window.location.href = "/dashboard/";
-            });
 
           case 54:
           case "end":
