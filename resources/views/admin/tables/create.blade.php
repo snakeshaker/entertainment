@@ -36,21 +36,6 @@
                             @enderror
                         </div>
                         <div class="sm:col-span-6 pt-5">
-                            <label for="status" class="block text-sm font-medium text-gray-700">Статус</label>
-                            <div class="mt-1">
-                                <select id="status" name="status" class="@error('status') border-red-400 @enderror form-multiselect block w-full mt-1">
-                                    @foreach($statuses as $status)
-                                        <option value="{{ $status }}">
-                                            {{ $status }}
-                                        </option>
-                                    @endforeach
-                                </select>
-                            </div>
-                            @error('status')
-                            <div class="text-sm text-red-400">{{ $message }}</div>
-                            @enderror
-                        </div>
-                        <div class="sm:col-span-6 pt-5">
                             <label for="category_id" class="block text-sm font-medium text-gray-700">Местоположение</label>
                             <div class="mt-1">
                                 <select id="category_id" name="category_id" class="@error('category_id') border-red-400 @enderror form-multiselect block w-full mt-1">

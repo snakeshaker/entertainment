@@ -21,14 +21,9 @@ class TableController extends Controller
 
     public function create()
     {
-        $tables = Table::all();
         $categories = Category::where('id', '!=', 1)->get();
 
-        $statuses = [
-          'Свободен',
-          'Занят'
-        ];
-        return view('admin.tables.create', compact('categories', 'statuses'));
+        return view('admin.tables.create', compact('categories'));
     }
 
     public function store(TableStoreRequest $request)
@@ -45,23 +40,16 @@ class TableController extends Controller
 
     public function edit(Table $table)
     {
-        $statuses = [
-            'Свободен',
-            'Занят'
-        ];
-        return view('admin.tables.edit', compact('table', 'statuses'));
+        return view('admin.tables.edit', compact('table'));
     }
 
     public function update(TableStoreRequest $request, Table $table)
     {
         $checkbox = isset($request->is_active[0]) ? 1 : 0;
-        if($checkbox) {
-            $request->status = 'Занят';
-        }
+
         $table->update([
             'name' => $request->name,
             'guest_number' => $request->guest_number,
-            'status' => $request->status,
             'is_active' => $checkbox
         ]);
 

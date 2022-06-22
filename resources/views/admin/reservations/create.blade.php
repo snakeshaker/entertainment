@@ -14,7 +14,7 @@
             </div>
             <div class="m-2 p-2 bg-slate-100 rounded">
                 <div class="space-y-8 divide-y divide-gray-200 w-1/2 mt-10">
-                    <form method="POST" action="{{ route('admin.reservations.store') }}">
+                    <form method="POST" action="{{ route('admin.reservations.store') }}" class="admin-res">
                         @csrf
                         <input type="number" id="user_id" name="user_id" value="1" class="hidden">
                         <div class="sm:col-span-6">
@@ -26,7 +26,7 @@
                             <div class="text-sm text-red-400">{{ $message }}</div>
                             @enderror
                         </div>
-                        <div class="sm:col-span-6">
+                        <div class="sm:col-span-6 pt-5">
                             <label for="last_name" class="block text-sm font-medium text-gray-700">Фамилия</label>
                             <div class="mt-1">
                                 <input type="text" id="last_name" name="last_name" class="@error('last_name') border-red-400 @enderror block w-full transition duration-150 ease-in-out appearance-none bg-white border border-gray-400 rounded-md py-2 px-3 text-base leading-normal transition duration-150 ease-in-out sm:text-sm sm:leading-5" />
@@ -35,7 +35,7 @@
                             <div class="text-sm text-red-400">{{ $message }}</div>
                             @enderror
                         </div>
-                        <div class="sm:col-span-6">
+                        <div class="sm:col-span-6 pt-5">
                             <label for="email" class="block text-sm font-medium text-gray-700">Электронная почта</label>
                             <div class="mt-1">
                                 <input type="email" id="email" name="email" class="@error('email') border-red-400 @enderror block w-full transition duration-150 ease-in-out appearance-none bg-white border border-gray-400 rounded-md py-2 px-3 text-base leading-normal transition duration-150 ease-in-out sm:text-sm sm:leading-5" />
@@ -44,22 +44,12 @@
                             <div class="text-sm text-red-400">{{ $message }}</div>
                             @enderror
                         </div>
-                        <div class="sm:col-span-6">
+                        <div class="sm:col-span-6 pt-5">
                             <label for="tel_number" class="block text-sm font-medium text-gray-700">Номер телефона</label>
                             <div class="mt-1">
                                 <input type="text" id="tel_number" name="tel_number" class="@error('tel_number') border-red-400 @enderror block w-full transition duration-150 ease-in-out appearance-none bg-white border border-gray-400 rounded-md py-2 px-3 text-base leading-normal transition duration-150 ease-in-out sm:text-sm sm:leading-5" />
                             </div>
                             @error('tel_number')
-                            <div class="text-sm text-red-400">{{ $message }}</div>
-                            @enderror
-                        </div>
-                        <div class="sm:col-span-6">
-                            <label for="res_date" class="block text-sm font-medium text-gray-700">Дата бронирования</label>
-                            <div class="mt-1">
-                                <input autocomplete="off" name="res_date" id="res_date" placeholder="Выберите дату" class="@error('res_date') border-red-400 @enderror airdatepicker block w-full transition duration-150 ease-in-out appearance-none bg-white border border-gray-400 rounded-md py-2 px-3 text-base leading-normal transition duration-150 ease-in-out sm:text-sm sm:leading-5"/>
-                            </div>
-                            <span class="text-xs">Пожалуйста выберите время с 15:00 до 01:30.</span>
-                            @error('res_date')
                             <div class="text-sm text-red-400">{{ $message }}</div>
                             @enderror
                         </div>
@@ -78,7 +68,7 @@
                             <div class="mt-1">
                                 <select id="table_id" name="table_id" class="@error('table_id') border-red-400 @enderror form-multiselect block w-full mt-1">
                                     @foreach($tables as $table)
-                                        <option value="{{ $table->id }}">
+                                        <option value="{{ $table->id }}" data-table="{{ $table->id }}" data-cat="{{ $table->category->id }}" class="opt">
                                             {{ $table->name }} ({{ $table->guest_number }} гость(-я/ей) максимум)
                                         </option>
                                     @endforeach
@@ -88,8 +78,20 @@
                             <div class="text-sm text-red-400">{{ $message }}</div>
                             @enderror
                         </div>
+                        <div class="sm:col-span-6 pt-5">
+                            <label for="res_date" class="block text-sm font-medium text-gray-700">Дата бронирования</label>
+                            <div class="mt-1">
+                                <input autocomplete="off" name="res_date" id="res_date" placeholder="Выберите дату" class="@error('res_date') border-red-400 @enderror airdatepicker block w-full transition duration-150 ease-in-out appearance-none bg-white border border-gray-400 rounded-md py-2 px-3 text-base leading-normal transition duration-150 ease-in-out sm:text-sm sm:leading-5"/>
+                            </div>
+                            <span class="text-xs">Пожалуйста выберите время с 15:00 до 01:30.</span>
+                            @error('res_date')
+                            <div class="text-sm text-red-400">{{ $message }}</div>
+                            @enderror
+                        </div>
+                        <span class="text-xs text-red-600 block hidden reserve-err">Это время занято!</span>
+                        <span class="text-xs text-red-600 block hidden reserve-err-karaoke">Занято! Выберите время раньше или другой день.</span>
                         <div class="mt-6 p-4">
-                            <button type="submit" class="px-4 py-2 bg-indigo-500 hover:bg-indigo-700 rounded-lg text-white">
+                            <button type="submit" class="px-4 py-2 bg-indigo-500 hover:bg-indigo-700 rounded-lg text-white submit-reserve">
                                 Добавить
                             </button>
                         </div>

@@ -7195,6 +7195,8 @@ $(document).ready(function () {
         res_date: $('#res_date').val(),
         table_id: parseInt(tableID)
       };
+      console.log(pickedPlace);
+      console.log(tableCat);
       var same,
           sameKar = false;
 
@@ -7273,6 +7275,36 @@ $(document).ready(function () {
       $('.submit-reserve').addClass('hidden');
     }
   });
+
+  if ($('.admin-res')) {
+    $('.submit-reserve').toggleClass('hidden');
+    $.ajax({
+      url: '/reserve-all',
+      type: "GET",
+      dataType: "json",
+      success: function success(response) {
+        pickedPlace = {};
+        responseObject = response;
+      }
+    });
+    tableID = $(this).find(':selected').attr('data-table');
+    tableCat = $(this).find(':selected').attr('data-cat');
+    $('select').on('change', function () {
+      $('#res_date').val('');
+      $.ajax({
+        url: '/reserve-all',
+        type: "GET",
+        dataType: "json",
+        success: function success(response) {
+          pickedPlace = {};
+          responseObject = response;
+        }
+      });
+      tableID = $(this).find(':selected').attr('data-table');
+      tableCat = $(this).find(':selected').attr('data-cat');
+    });
+  }
+
   $('.add-reservation').click(function (e) {
     $.ajax({
       url: '/reserve-all',

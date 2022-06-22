@@ -26,9 +26,6 @@
                             Макс. кол-во гостей
                         </th>
                         <th scope="col" class="px-6 py-3">
-                            Статус
-                        </th>
-                        <th scope="col" class="px-6 py-3">
                             Местоположение
                         </th>
                         <th scope="col" class="px-6 py-3">
@@ -47,9 +44,6 @@
                             </th>
                             <td class="px-6 py-4">
                                 {{ $table->guest_number }}
-                            </td>
-                            <td class="px-6 py-4">
-                                {{ $table->status }}
                             </td>
                             <td class="px-6 py-4">
                                 {{ $table->category->name }}

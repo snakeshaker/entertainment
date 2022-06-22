@@ -19,7 +19,7 @@ class ReservationController extends Controller
 
     public function create()
     {
-        $tables = Table::where('status', 'like', '%Свободен%')->get();
+        $tables = Table::all();
         return view('admin.reservations.create', compact('tables'));
     }
 
@@ -37,7 +37,7 @@ class ReservationController extends Controller
 
     public function edit(Reservation $reservation)
     {
-        $tables = Table::where('status', 'like', '%Свободен%')->get();
+        $tables = Table::all();
 
         return view('admin.reservations.edit', compact('reservation', 'tables'));
     }

@@ -17,7 +17,6 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->integer('guest_number');
-            $table->string('status')->default('available');
             $table->unsignedBigInteger('category_id');
             $table->boolean('is_active')->default(1);
             $table->timestamps();

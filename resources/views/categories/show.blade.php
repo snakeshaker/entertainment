@@ -29,8 +29,6 @@
                         @if ($table->is_active)
                         <div class="my-2 px-2 w-1/4 overflow-hidden hover:scale-125 hover:cursor-pointer hover:text-blue-400 transition-all add-reservation relative" data-table="{{ $table->id }}" data-max="{{ $table->guest_number }}" data-cat="{{ $table->category->id }}">
                             <h2 class="mt-2 mb-2 uppercase font-bold md:text-xs text-center">{{ $table->name }}</h2>
-                            <p class="text-xs text-green-600 text-center">Стол свободен</p>
-                            <div class="rounded-full h-4 w-4 bg-green-500 inline-block absolute top-2 right-20"></div>
                             <img class="mx-auto object-none" src="{{ asset('assets/'.$category->space_image) }}" alt="Table">
                         </div>
                         @else
@@ -60,10 +58,7 @@
                                 <div class="p-4">
                                     <span class="inline-block px-2 py-1 leading-none bg-orange-200 text-orange-800 rounded-full font-semibold uppercase tracking-wide text-xs md:hidden">БРОНИРОВАНИЕ</span>
                                     <h2 class="mt-2 mb-2 uppercase font-bold md:text-xs">{{ $table->name }}</h2>
-                                    @if ($table->is_active)
-                                        <p class="text-sm inline-block">Стол свободен</p>
-                                        <div class="rounded-full h-4 w-4 bg-green-500 inline-block"></div>
-                                    @else
+                                    @if (!$table->is_active)
                                         <p class="text-sm inline-block">Стол недоступен</p>
                                         <div class="rounded-full h-4 w-4 bg-red-500 inline-block"></div>
                                     @endif

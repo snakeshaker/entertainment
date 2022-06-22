@@ -12,7 +12,6 @@ class Table extends Model
     protected $fillable = [
         'name',
         'guest_number',
-        'status',
         'category_id',
         'is_active'
     ];

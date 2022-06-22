@@ -22,7 +22,6 @@ class TablesExport implements FromCollection, WithHeadings
             'ID',
             'Название',
             'Вместимость',
-            'Статус',
             'Местоположение',
             'Дата создания',
             'Дата редактирования'
