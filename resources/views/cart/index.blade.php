@@ -110,6 +110,8 @@
                                                         {{ $table->name }}
                                                     </td>
                                                     <input type="hidden" class="table_id" value="{{ $table->id }}">
+                                                    <input type="hidden" class="table_category" value="{{ $table->category->name }}">
+                                                    <input type="hidden" class="table-name" value="{{ $table->name }}">
                                                     <td class="px-6 py-4 res_guest">
                                                         {{ $item->guest_number }}
                                                     </td>

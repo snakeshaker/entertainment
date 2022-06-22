@@ -97,7 +97,7 @@
                                     {{ $reservation['date'] }}
                                 </td>
                                 <td class="px-6 py-4">
-                                    {{ $reservation['table'] }}
+                                    {{ $reservation['table'] }} - {{ $reservation['table_cat'] }}
                                 </td>
                                 <td class="px-6 py-4">
                                     {{ $reservation['guest_num'] }}

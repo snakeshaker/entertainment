@@ -122,6 +122,8 @@
 
                                                     </td>
                                                     <input type="hidden" class="table_id" value="<?php echo e($table->id); ?>">
+                                                    <input type="hidden" class="table_category" value="<?php echo e($table->category->name); ?>">
+                                                    <input type="hidden" class="table-name" value="<?php echo e($table->name); ?>">
                                                     <td class="px-6 py-4 res_guest">
                                                         <?php echo e($item->guest_number); ?>
 
