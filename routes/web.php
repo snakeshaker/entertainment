@@ -87,6 +87,8 @@ Route::middleware(['auth', 'admin'])->name('admin.')->prefix('admin')->group(fun
     Route::resource('/songs', \App\Http\Controllers\Admin\SongController::class);
     Route::resource('/orders', \App\Http\Controllers\Admin\OrderController::class);
     Route::resource('/galleries', \App\Http\Controllers\Admin\GalleryController::class);
+    Route::get('/reports', [\App\Http\Controllers\Admin\ReportController::class, 'index'])->name('reports.index');
+    Route::post('/reports/filter', [\App\Http\Controllers\Admin\ReportController::class, 'filter'])->name('reports.filter');
     Route::get('/contacts', [\App\Http\Controllers\Admin\ContactsController::class, 'index'])->name('contacts.index');
     Route::put('/contacts/update', [\App\Http\Controllers\Admin\ContactsController::class, 'update'])->name('contacts.update');
     Route::get('/orders/info/{order}', [\App\Http\Controllers\Admin\OrderController::class, 'info'])->name('orders.info');
@@ -102,6 +104,8 @@ Route::middleware(['auth', 'admin'])->name('admin.')->prefix('admin')->group(fun
     Route::get('food-categories/export/', [\App\Http\Controllers\Admin\FoodCategoryController::class, 'show'])->name('food-categories.export');
     Route::get('songs/export/', [\App\Http\Controllers\Admin\SongController::class, 'show'])->name('songs.export');
     Route::get('orders/export/', [\App\Http\Controllers\Admin\OrderController::class, 'show'])->name('orders.export');
+    Route::get('/reports/export/', [\App\Http\Controllers\Admin\ReportController::class, 'show'])->name('reports.export');
+
 });
 
 require __DIR__.'/auth.php';

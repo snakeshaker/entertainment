@@ -5156,6 +5156,8 @@ __webpack_require__(/*! ./zoom */ "./resources/js/zoom.js");
 
 __webpack_require__(/*! ./datepicker */ "./resources/js/datepicker.js");
 
+__webpack_require__(/*! ./report */ "./resources/js/report.js");
+
 
 window.Alpine = alpinejs__WEBPACK_IMPORTED_MODULE_0__["default"];
 alpinejs__WEBPACK_IMPORTED_MODULE_0__["default"].start();
@@ -7159,6 +7161,35 @@ var createPaymentObject = function createPaymentObject(auth, invoiceId, amount) 
 $(document).ready(function () {
   var mask = new Inputmask("+7 (999) 999 9999");
   mask.mask($('#tel_number'));
+});
+
+/***/ }),
+
+/***/ "./resources/js/report.js":
+/*!********************************!*\
+  !*** ./resources/js/report.js ***!
+  \********************************/
+/***/ (() => {
+
+$(document).ready(function () {
+  $('#date_timepicker_start').datetimepicker({
+    format: 'Y/m/d',
+    onShow: function onShow(ct) {
+      this.setOptions({
+        maxDate: $('#date_timepicker_end').val() ? $('#date_timepicker_end').val() : false
+      });
+    },
+    timepicker: false
+  });
+  $('#date_timepicker_end').datetimepicker({
+    format: 'Y/m/d',
+    onShow: function onShow(ct) {
+      this.setOptions({
+        minDate: $('#date_timepicker_start').val() ? $('#date_timepicker_start').val() : false
+      });
+    },
+    timepicker: false
+  });
 });
 
 /***/ }),

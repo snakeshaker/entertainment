@@ -121,6 +121,13 @@
                         </picture>
                         {{ __('Контакты') }}
                     </x-admin-nav-link>
+                    <x-admin-nav-link :href="route('admin.reports.index')" :active="request()->routeIs('admin.reports.index')">
+                        <picture>
+                            <source srcset="{{ asset('assets/admin/dark/report.svg') }}" media="(prefers-color-scheme: light)">
+                            <img src="{{ asset('assets/admin/report.svg') }}" alt="" width="32" height="32" class="inline-block">
+                        </picture>
+                        {{ __('Отчетность') }}
+                    </x-admin-nav-link>
                     <x-admin-nav-link :href="route('mainpage')" :active="request()->routeIs('mainpage')">
                         <picture>
                             <source srcset="{{ asset('assets/admin/dark/home.svg') }}" media="(prefers-color-scheme: light)">
