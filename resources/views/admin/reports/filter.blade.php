@@ -5,7 +5,7 @@
         </h2>
     </x-slot>
 
-    <div class="py-12 bk-page">
+    <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <h1 class="font-medium leading-tight text-5xl mb-2 text-transparent bg-clip-text bg-gradient-to-b from-indigo-400 to-blue-500 hover:text-green-400">Отчет</h1>
             <p class="text-2xl text-blue-500">Отрезок: {{ $from }} - {{ $to }}</p>
@@ -15,7 +15,7 @@
                 </a>
             </div>
             <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
-                <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400 bk-table admin-table">
+                <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
                     <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                     <tr>
                         <th scope="col" class="px-6 py-3">
@@ -30,16 +30,16 @@
                     </tr>
                     </thead>
                     <tbody>
-                        @foreach($categories as $category)
+                        @foreach($reports as $report)
                             <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 cart-item">
                                 <td class="px-6 py-4">
-                                    {{ $category->name }}
+                                    {{ $report->name }}
                                 </td>
                                 <td class="px-6 py-4">
-                                    {{ $counterArr[$loop->index] }}
+                                    {{ $report->res_num }}
                                 </td>
                                 <td class="px-6 py-4">
-                                    {{ $category->res_price * $counterArr[$loop->index] }}
+                                    {{ $report->total_income }}
                                 </td>
                             </tr>
                         @endforeach

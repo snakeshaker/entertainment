@@ -2,16 +2,19 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Exports\ReportExport;
 use App\Http\Controllers\Controller;
 use App\Models\Category;
+use App\Models\Report;
 use App\Models\Reservation;
-use App\Models\Table;
 use Illuminate\Http\Request;
+use Maatwebsite\Excel\Facades\Excel;
 
 class ReportController extends Controller
 {
     public function index()
     {
+        Report::truncate();
         return view('admin.reports.index');
     }
 
@@ -34,11 +37,39 @@ class ReportController extends Controller
             array_push($counterArr, $counter);
             $counter = 0;
         }
-        return view('admin.reports.filter', compact('categories', 'from', 'to', 'reses', 'counterArr'));
+        $res_sum = 0;
+        $income_sum = 0;
+        foreach ($counterArr as $item) {
+            $res_sum += $item;
+        }
+        foreach ($categories as $key => $category) {
+            $income_sum += $category->res_price * $counterArr[$key];
+        }
+        $reports = Report::all();
+        if(count($reports) - 1 != count($categories)) {
+            foreach ($categories as $key => $category) {
+                Report::create([
+                    'name' => $category->name,
+                    'res_num' => $counterArr[$key],
+                    'total_income' => $category->res_price * $counterArr[$key],
+                    'from' => $from,
+                    'to' => $to
+                ]);
+            }
+            Report::create([
+                'name' => 'Итого',
+                'res_num' => $res_sum,
+                'total_income' => $income_sum,
+                'from' => $from,
+                'to' => $to
+            ]);
+        }
+        $reports = Report::orderBy('created_at','desc')->get();
+        return view('admin.reports.filter', compact('reports', 'from', 'to'));
     }
 
     public function show()
     {
-        dd(123);
+        return Excel::download(new ReportExport, 'отчет.xlsx');
     }
 }

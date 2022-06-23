@@ -14,7 +14,7 @@
         </h2>
      <?php $__env->endSlot(); ?>
 
-    <div class="py-12 bk-page">
+    <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <h1 class="font-medium leading-tight text-5xl mb-2 text-transparent bg-clip-text bg-gradient-to-b from-indigo-400 to-blue-500 hover:text-green-400">Отчет</h1>
             <p class="text-2xl text-blue-500">Отрезок: <?php echo e($from); ?> - <?php echo e($to); ?></p>
@@ -24,7 +24,7 @@
                 </a>
             </div>
             <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
-                <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400 bk-table admin-table">
+                <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
                     <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                     <tr>
                         <th scope="col" class="px-6 py-3">
@@ -39,18 +39,18 @@
                     </tr>
                     </thead>
                     <tbody>
-                        <?php $__currentLoopData = $categories; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $category): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                        <?php $__currentLoopData = $reports; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $report): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                             <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 cart-item">
                                 <td class="px-6 py-4">
-                                    <?php echo e($category->name); ?>
+                                    <?php echo e($report->name); ?>
 
                                 </td>
                                 <td class="px-6 py-4">
-                                    <?php echo e($counterArr[$loop->index]); ?>
+                                    <?php echo e($report->res_num); ?>
 
                                 </td>
                                 <td class="px-6 py-4">
-                                    <?php echo e($category->res_price * $counterArr[$loop->index]); ?>
+                                    <?php echo e($report->total_income); ?>
 
                                 </td>
                             </tr>
