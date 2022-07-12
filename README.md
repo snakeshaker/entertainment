@@ -20,11 +20,6 @@ copy .env.example .env
 # generate a key
 php artisan key:generate
 
-# create a new mysql database via phpmyadmin or GUI
-
-# import to created database file
-static/database.sql
-
 # database configuration
 DB_CONNECTION=mysql
 DB_HOST=localhost
@@ -33,8 +28,8 @@ DB_DATABASE=database_name
 DB_USERNAME=database_username
 DB_PASSWORD=database_password
 
-# list of users
-static/settings.txt
+# migrate to create database
+php artisan migrate --seed
 
 #database mock
 INSERT INTO `categories` (`id`, `name`, `description`, `image`, `space_image`, `res_price`, `created_at`, `updated_at`) VALUES (2, 'Боулинг', 'Боулинг (от англ. to bowl — катить) — спортивная игра в шары, которая произошла от игры в кегли. Цель игры — с помощью как можно меньшего количества пускаемых руками шаров сбить кегли, установленные особым образом в конце безбортовой дорожки.', 'categories/25toaV72f9i3TeMJ6hPnnZ17kpVGSedfqiWlysOF.jpg', 'categories/3Ycsvdbe8mhWfHPS8D5eNG683hkjh8HCS0XzSXri.svg',  300.00, '2022-05-10 08:04:20', '2022-05-10 08:04:20');
